@@ -85,10 +85,12 @@ chauffage . impact par kWh:
     - https://decrypterlenergie.org/decryptage-quel-est-le-contenu-en-co2-du-kwh-electrique
 
 chauffage . impact par kWh . électricité:
-  formule: 0.059
+  formule: 0.0538
   unité: kgCO₂e/kWh
   note: |
-    Pour l'électricité, nous retenons le chiffre de l'ADEME "Electricité - 2016 - usage : Eau Chaude Sanitaire - consommation".
+    Pour l'électricité, nous retenons le chiffre de l'ADEME "Electricité - 2018 - usage : Eau Chaude Sanitaire - consommation".
+
+    Pour plus d'infos sur la méthode de calcul du contenu carbone de l'électricité, lire la page wikipedia [Empreinte carbone de l'électricité](https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011))
   références:
     - http://www.bilans-ges.ademe.fr/fr/accueil
     - https://www.electricitymap.org/?page=country&solar=false&remote=true&wind=false&countryCode=FR
@@ -395,9 +397,7 @@ transport . avion . impact carbone unitaire:
           montant: 0.078
         - au-dessus de: 11000
           montant: 0.078
-logement . impact:
-  titre: Mon logement
-  icônes: 🏡
+
 compost:
   titre: mon compost
   icônes: 🗑️🌱🐛
@@ -2417,3 +2417,151 @@ numérique . téléphone journée . matériel:
 numérique . téléphone journée . matériel . durée de vie:
   note: Première estimation à 2 ans par téléphone.
   formule: 2
+
+logement: 
+logement . chauffage:
+logement . chauffage . impact final:
+  titre: Chauffer mon logement
+  formule: impact / habitants
+  icônes: 🏡🌡️
+  exposé: oui
+
+logement . chauffage . impact:
+  formule: énergie * facteur d'émission
+
+logement . habitants:
+  question: Combien de personnes vivent ici ?
+  unité: personne
+  par défaut: 2.3
+  note: |
+    Valeur par défaut obtenue dans [ce rapport de l'INSEE](https://www.insee.fr/fr/statistiques/2586377).
+
+    > Renforcé par le vieillissement démographique et les recompositions familiales, le taux d’occupation des résidences principales se desserre de façon continue, conduisant à une nette diminution du nombre de personnes par ménage et par logement : un peu plus de trois personnes en moyenne en 1968, 2,3 en 2016. Le nombre de mètres carrés par personne est passé de 31 en 1984 à 40 en 2006. Il est stable depuis.
+  suggestions: 
+    seul: 1
+    en couple: 2
+
+logement . type:
+  question: Dans quel type de logement vivez-vous ?
+  par défaut: appartement
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités: 
+        - maison
+        - appartement
+logement . type . maison:
+logement . type . appartement:
+
+logement . chauffage . mode:
+  question: Comment est chauffé votre logement ?
+  par défaut: gaz naturel
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités: 
+        - électricité
+        - gaz naturel
+
+logement . chauffage . mode . électricité:
+logement . chauffage . mode . gaz naturel:
+
+logement . type . appartement . chaudière:
+  question: Votre chaudière à gaz est-elle collective ?
+  par défaut: collective
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités: 
+        - collective
+        - individuelle
+
+logement . type . appartement . chaudière . collective:
+  description: La chaudière est mise en commun pour toute la co-propriété. C'est la plupart du temps beaucoup moins efficace, car certaines pièces sont surchauffées pour en chauffer d'autres correctement.
+logement . type . appartement . chaudière . individuelle:
+  description: La chaudière est chez vous.
+
+
+logement . chauffage . énergie . intensité: 
+  unité: kWh/m²
+  note: |
+    
+    Nous avons choisi un modèle simplifié qui ne donne le choix qu'entre le gaz et l'électricité, car ils représentent en cumulé ~70% des usages pour les maisons et ~85% pour les appartements ([statistiques de 2015](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?chauffage.htm)).
+
+    Nous ignorons aussi pour l'instant la variable de l'age du logement en moyennant les deux valeurs avant 1975 / après 1975.
+  formule:
+    variations: 
+      - si: 
+          toutes ces conditions: 
+            - mode = 'gaz naturel'
+            - type = 'maison'
+        alors: (201 + 166) / 2
+      - si: 
+          toutes ces conditions: 
+            - mode = 'gaz naturel'
+            - type = 'appartement'
+            - logement . type . appartement . chaudière = 'individuelle'
+        alors: (146 + 125) / 2
+      - si: 
+          toutes ces conditions: 
+            - mode = 'gaz naturel'
+            - type = 'appartement'
+            - logement . type . appartement . chaudière = 'collective'
+        alors: (207 + 196) / 2
+      - si: 
+          toutes ces conditions: 
+            - mode = 'électricité'
+            - type = 'appartement'
+        alors: (98 + 65) / 2
+      - si: 
+          toutes ces conditions: 
+            - mode = 'électricité'
+            - type = 'maison'
+        alors: (150 + 106) / 2
+  références: 
+    - https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?chauffage.htm
+
+logement . chauffage . énergie:
+  formule: intensité * surface
+
+logement . surface:
+  question: Quelle est la surface du logement ?
+  unité: m²
+  par défaut: 80
+  note: |
+    Valeur par défaut obtenue dans [ce rapport de l'INSEE](https://www.insee.fr/fr/statistiques/2586377).
+
+    > Les logements ont une surface moyenne d’un peu plus de 80 m2.
+  suggestions: 
+    studio: 25
+    2 pièces: 70
+    maison: 150
+    château 🏰: 1000
+
+
+logement . chauffage . facteur d'émission:
+  unité: kgCO2e/kWh
+  formule:
+    variations: 
+      - si: mode = 'gaz naturel'
+        alors: gaz naturel
+      - si: mode = 'électricité'
+        alors: électricité
+
+logement . chauffage . facteur d'émission . gaz naturel: 
+  unité: kgCO2e/kWh
+  formule: 0.244
+  description: Facteur d'émission de la base carbone "Gaz naturel" en kgCO2e/kWh PCI.
+  références: 
+    - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=gaz naturel
+logement . chauffage . facteur d'émission . électricité:
+  unité: kgCO2e/kWh
+  formule: 0.147
+  description: |
+    Facteur d'émission de la base carbone "Electricité - 2018 - usage : chauffage - consommation".
+  note: |
+    Voir [cette page](https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011)) wikipedia pour comprendre les différentes méthodes de calcul du facteur d'émission de l'électricité.
+
+    Notons que la RE2020, et le choix du gouvernement de baisser le facteur du chauffage à 79g/kWh (contre 210 dans l'expérimentation E+C-), provoque de vifs débats à l'heure où l'on écrit ces lignes (février 2020). Nous utilisons pour l'instant la dernière valeur historique fournie par l'ADEME.
+  références: 
+    - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=chauffage
