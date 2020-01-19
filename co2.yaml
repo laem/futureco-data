@@ -282,8 +282,9 @@ transport . impact unitaire . diesel:
       - si: voiture . gabarit = 'SUV'
         alors: 0.4
 transport . impact à l'usage:
-  icônes: 🚶‍♀️ 🚲 🚆
   titre: Un déplacement
+  icônes: 🚶‍♀️ 🚲 🚆
+  journée: se répète: oui
   description: >
     Déplacer notre corps de plusieurs dizaines de kilos a forcément un impact.
     Mais entre un vélo, un train et une grosse voiture, l'ordre de grandeur est
@@ -2182,6 +2183,8 @@ nourriture . Tartiflette:
 nourriture . Tasse de café:
   icônes: ☕
   exposé: oui
+  journée: 
+    se répète: oui
   description:
     "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
     0,253"
