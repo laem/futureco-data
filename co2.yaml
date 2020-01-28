@@ -2419,11 +2419,33 @@ gobelet . impact:
         carton: 0.255
   note: |
     On se base sur une lecture des graphes de l'étude assez vieille de Mountain Riders publiée sur le site du ministère des sports, page 16 et page 13 pour le seuil de rentabilité du gobelet réutilisable. 
+    
+    L'étude, qui date de juin 2011 prend en compte une filière de recyclage des gobelets presque inexistante.
+    
+    Une mise à jour pourrait donner des résultats bien plus intéressants pour les gobelets à usage unique dans l'hypothèse d'une bonne filière de recyclage et d'un bon taux de collecte. 
   références: 
   - https://developpement-durable.sports.gouv.fr/IMG/pdf/comparaison_gobelets_acv_mountain_riders.pdf
 gobelet . réutilisé 14 fois:
+  description: |
+    C'est le gobelet réutilisable qu'on appelle couramment *ecocup* du nom de la marque eponyme. 
+    
+    Ici, le gobelet est réutilisé 14 fois. Pour un festival par exemple, il faut trouver la bonne recette : 
+      - le gobelet est réutilisé un grand nombre de fois lors de l'édition annuelle
+      - il est réutilisé les années suivantes
+      - il est générique, utilisé dans plusieurs événements différents
+      - il est gardé en souvenir et réutilisé plusieurs fois (par exemple pour compléter la vaisselle lors des grandes occasions)
 gobelet . réutilisé 7 fois:
-gobelet . compostable:
-gobelet . jetable:
-gobelet . carton:
+  description: |
+    C'est le gobelet réutilisable qu'on appelle couramment *ecocup* du nom de la marque eponyme, réutilisé un faible nombre de fois. 
+    
+    Voir [ces solutions](/documentation/gobelet/réutilisé-7-fois) pour allonger sa durée de vie.
 
+gobelet . compostable:
+  description: |
+    C'est le gobelet PLA (amidon de maïs), le gobelet composable le plus répandu.
+gobelet . jetable:
+  description: |
+    C'est le gobelet jetable transparent en PP qu'on connaît tous. 
+gobelet . carton:
+  description: |
+    C'est le gobelet en carton biodégradable (cellulose de bois et PLA). La fine couche de bio-plastique est nécessaire pour assurer l'étanchéité... ce qui rend son recyclage compliqué.
