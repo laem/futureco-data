@@ -2405,20 +2405,24 @@ gobelet . type:
         - carton
         - compostable
         - jetable
-gobelet . impact: 
+gobelet . impact:
+  description: Le gobelet réutilisable, aussi appelé *ecocup*, devient très intéressant par rapport aux alternatives jetables s'il est réutilisé plus de 14 fois. 
+  unité: kgCO₂e
   formule:
     correspondance: 
       variable: type
       tableau: 
-        réutilisable: 0.01
+        réutilisé 14 fois: 0.01
+        réutilisé 7 fois: 0.02
         jetable: 0.2
         compostable: 0.256
         carton: 0.255
   note: |
-    On se base sur une lecture des graphes de l'étude assez vieille de Mountain Riders publiée sur le site du ministère des sports, page 16. 
+    On se base sur une lecture des graphes de l'étude assez vieille de Mountain Riders publiée sur le site du ministère des sports, page 16 et page 13 pour le seuil de rentabilité du gobelet réutilisable. 
   références: 
   - https://developpement-durable.sports.gouv.fr/IMG/pdf/comparaison_gobelets_acv_mountain_riders.pdf
-gobelet . réutilisable:
+gobelet . réutilisé 14 fois:
+gobelet . réutilisé 7 fois:
 gobelet . compostable:
 gobelet . jetable:
 gobelet . carton:
