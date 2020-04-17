@@ -56,3 +56,8 @@ Il peut être difficile de s'y retrouver dans le fichier YAML unique, l'astuce e
 
 Une PR sur laem/futureco-data permettra finalement d'intégrer ces changements sur https://futur.eco.
 
+Si vous voulez partager une démo de votre modèle, il vous suffit de faire une PR sur laem/futureco avec un commit qui fait ce petit changement : changer l'URL [à cette ligne](https://github.com/laem/futureco/blob/master/source/sites/publicodes/App.js#L24) pour y mettre l'adresse de la branche futureco-data. Par exemple pour une branche `chauffage` sur futureco-data : 
+
+```
+rulesURL="https://chauffage--futureco-data.netlify.app/co2.json"
+```
