@@ -1,6 +1,6 @@
 # futureco-data
 
-💬 Venez discuter du projet sur [ce salon public](https://matrix.to/#/!fsVPsWWOjvdAvfuTMn:matrix.org?via=matrix.org).
+💬 Venez discuter sur notre salon `proj-futureco` sur le Slack de `La Base tech` [inscription très rapide ici](https://airtable.com/shrbc0nMHLy5DW9eT).
 
 
 Ici résident les modèles de calcul de https://futur.eco.
