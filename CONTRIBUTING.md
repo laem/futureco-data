@@ -28,6 +28,8 @@ Le langage est décrit sur https://publi.codes. Il est développé par l'Etat da
 
 ## 🏗️ En pratique
 
+Vous voulez ajouter un nouveau modèle de calcul ou proposer une modification à un modèle existant ? Dans les deux cas vous devez créer une *issue*.
+
 ### Vous n'êtes pas développeur / vous n'avez que 15 minutes devant vous
 
 Si vous avez un compte Github, [créez simplement une issue](https://github.com/laem/futureco-data/issues/new) qui parle de votre idée et qui contient le calcul en Français.
