@@ -28,7 +28,7 @@ Le langage est décrit sur https://publi.codes. Il est développé par l'Etat da
 
 ## 🏗️ En pratique
 
-Vous voulez ajouter un nouveau modèle de calcul ou proposer une modification à un modèle existant ? Dans les deux cas vous devez créer une *issue*.
+Vous voulez ajouter un nouveau modèle de calcul ou proposer une modification à un modèle existant ? Dans les deux cas l'objectif est de créer une *issue* (un ticket).
 
 ### Vous n'êtes pas développeur / vous n'avez que 15 minutes devant vous
 
