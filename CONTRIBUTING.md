@@ -4,7 +4,7 @@ Bienvenue 👋 ! Ce dépôt contient des modèles d'empreinte carbone de nos ges
 
 ## 💾 Les modèles carbone
 
-Peu importe la qualité des contributions, nous accueillons tout : un brouillon de calcul en Français peut suffire... tant que les modèles carbone proposés *reposent sur des données sourcées*.
+Peu importe la qualité des contributions, nous accueillons tout : un brouillon de calcul en français peut suffire... tant que les modèles carbone proposés *reposent sur des données sourcées*.
 
 Par exemple, pour créer un modèle pour la trottinette électrique partagée, il faudrait idéalement réaliser une analyse de cycle de vie complète qui comprendrait :
 
@@ -32,7 +32,7 @@ Vous voulez ajouter un nouveau modèle de calcul ou proposer une modification à
 
 ### Vous n'êtes pas développeur / vous n'avez que 15 minutes devant vous
 
-Si vous avez un compte Github, [créez simplement une issue](https://github.com/laem/futureco-data/issues/new) qui parle de votre idée et qui contient le calcul en Français.
+Si vous avez un compte Github, [créez simplement une issue](https://github.com/laem/futureco-data/issues/new) qui parle de votre idée et qui contient le calcul en français.
 Si vous n'en avez pas, rendez-vous sur https://futur.eco/contribuer/, notre robot se chargera de créer une *issue* à votre place.
 
 ### Vous êtes développeur - vous voulez découvrir le langage de publication
