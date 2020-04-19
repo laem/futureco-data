@@ -1,16 +1,16 @@
-# Contribuer 
+# Contribuer
 
-Bienvenue 👋 ! Ce dépôt contient des modèles d'empreinte carbone de nos gestes quotidiens écrits en YAML dans un fichier unique, co2.yaml. 
+Bienvenue 👋 ! Ce dépôt contient des modèles d'empreinte carbone de nos gestes quotidiens écrits en YAML dans un fichier unique, co2.yaml.
 
 ## 💾 Les modèles carbone
 
-Peu importe la qualité des contributions, nous acceuillons tout : un brouillon de calcul en français peut suffire... tant que les modèles carbone proposés *reposent sur données sourcées*. 
+Peu importe la qualité des contributions, nous accueillons tout : un brouillon de calcul en français peut suffire... tant que les modèles carbone proposés *reposent sur des données sourcées*.
 
-Par exemple, pour créer un modèle pour la trottinette électrique partagée, il faudrait idéalement réaliser une analyse de cycle de vie complète qui comprendrait : 
+Par exemple, pour créer un modèle pour la trottinette électrique partagée, il faudrait idéalement réaliser une analyse de cycle de vie complète qui comprendrait :
 
-- le matériel lui-meme (batterie, trottinette en métal, composants en plastique) et sa durée de vie estimée
+- le matériel lui-même (batterie, trottinette en métal, composants en plastique) et sa durée de vie estimée
 - l'entretien, le recyclage, l'acheminement depuis la Chine
-- l'électricité et le geste de recharge, parfois par camion, parfois en utilisant les trottinettes elles-memes ! 
+- l'électricité et le geste de recharge, parfois par camion, parfois en utilisant les trottinettes elles-memes !
 - ...
 
 Ici, nous prenons le parti qu'*il vaut mieux créer une première version simple du modèle* qu'attendre un an ou payer un consultant 1000€ pour obtenir toutes les données et un modèle parfait. Ce modèle inspirera les prochains contributeurs qui l'amélioreront successivement.
@@ -28,10 +28,12 @@ Le langage est décrit sur https://publi.codes. Il est développé par l'Etat da
 
 ## 🏗️ En pratique
 
+Vous voulez ajouter un nouveau modèle de calcul ou proposer une modification à un modèle existant ? Dans les deux cas l'objectif est de créer une *issue* (un ticket).
+
 ### Vous n'êtes pas développeur / vous n'avez que 15 minutes devant vous
 
 Si vous avez un compte Github, [créez simplement une issue](https://github.com/laem/futureco-data/issues/new) qui parle de votre idée et qui contient le calcul en français.
-Si vous n'en avez pas, rendez-vous sur https://futur.eco/contribuer/, notre robot se charger de créer une *issue* à votre place. 
+Si vous n'en avez pas, rendez-vous sur https://futur.eco/contribuer/, notre robot se chargera de créer une *issue* à votre place.
 
 ### Vous êtes développeur - vous voulez découvrir le langage de publication
 
@@ -50,13 +52,13 @@ cd .. # Il est important de cloner les deux dépôts l'un à côté de l'autre
 git clone git@github.com:laem/futureco-data.git
 ```
 
-Il vous suffit ensuite de modifier le fichier `co2.yaml`, et les changements seront automatiquement pris en compte sur `http://localhost:8080/publicodes`. 
+Il vous suffit ensuite de modifier le fichier `co2.yaml`, et les changements seront automatiquement pris en compte sur `http://localhost:8080/publicodes`.
 
 Il peut être difficile de s'y retrouver dans le fichier YAML unique, l'astuce est alors de s'aider de la page [`/documentation`](https://futur.eco/documentation) qui liste tous les modèles. Elle est accessible sur les pages `/simulation` en tapant `Ctrl-K`.
 
 Une PR sur laem/futureco-data permettra finalement d'intégrer ces changements sur https://futur.eco.
 
-Si vous voulez partager une démo de votre modèle, il vous suffit de faire une PR sur laem/futureco avec un commit qui fait ce petit changement : changer l'URL [à cette ligne](https://github.com/laem/futureco/blob/master/source/sites/publicodes/App.js#L24) pour y mettre l'adresse de la branche futureco-data. Par exemple pour une branche `chauffage` sur futureco-data : 
+Si vous voulez partager une démo de votre modèle, il vous suffit de faire une PR sur laem/futureco avec un commit qui fait ce petit changement : changer l'URL [à cette ligne](https://github.com/laem/futureco/blob/master/source/sites/publicodes/App.js#L24) pour y mettre l'adresse de la branche futureco-data. Par exemple pour une branche `chauffage` sur futureco-data :
 
 ```
 rulesURL="https://chauffage--futureco-data.netlify.app/co2.json"
