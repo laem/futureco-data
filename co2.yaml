@@ -15,6 +15,7 @@ douche . nombre:
     Une par jour: 30
 douche . impact par douche:
   exposé: oui
+  catégorie: logement
   icônes: 🚿
   description: |
     Pensée de douche : est-ce qu'une douche est mauvaise pour la planète ?
@@ -403,6 +404,7 @@ compost:
   icônes: 🗑️🌱🐛
   formule: 0
   exposé: oui
+  catégorie: logement
   description: >
     Le compost peut émettre deux types de gaz : des gaz comme *le méthane*
     produits en condition anaérobie (quand l'oxygène de l'air n'est pas dispo),
@@ -751,6 +753,7 @@ arbre . masse . émergée:
 arbre . masse . racines:
   formule: émergée * 20%
 transport . trottinette électrique partagée:
+  titre: Trottinette partagée
   description: >
     Les trottinettes électriques partagées ont envahi les grandes villes
     européennes en 2019, et enflammé les débats à Paris. En règle générale, la
@@ -767,7 +770,7 @@ transport . trottinette électrique partagée:
     On peut aussi noter que la trotinette [ne remplace pas dans 90% des cas](http://transports.blog.lemonde.fr/2019/06/06/enquete-inedite-utilisateurs-trottinettes-electriques) l'usage de la voiture, mais plutôt la marche et les transports en commun.
   exposé: oui
   note: Implémenter la trotinette individuelle.
-  icônes: 🛴
+  icônes: 🛴⚡
   formule: distance * impact
 transport . trottinette électrique partagée . impact:
   titre: impact unitaire
@@ -1213,6 +1216,7 @@ maison . construction:
   titre: une maison neuve
   icônes: 🏠✨
   exposé: oui
+  catégorie: logement
   références:
     - https://www.theguardian.com/environment/green-living-blog/2010/oct/14/carbon-footprint-house
   description: >
