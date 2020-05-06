@@ -2598,8 +2598,11 @@ jardin . fréquence de tonte :
     Toutes les 3 semaines : 3
     Toutes les 4 semaines : 4
 jardin . impact par tonte:
+  exposé: oui
+  catégorie: logement
   icônes: 🏡
   titre: Une tonte
+  unité: kgCO²
   formule: jardin . superficie * jardin . impact par m2 tondu
 jardin . superficie:
   question: Quelle est la taille de votre jardin ?
@@ -2614,7 +2617,8 @@ jardin . impact par m2 tondu:
   icônes: 🚿
   unité: kgCO²/m²
   description: |
-    Une tondeuse consomme 11 fois plus qu'une voiture et sa largeur est de 42cm. 
-    Source : https://www.peoplepoweredmachines.com/faq-environment.htm
+    Une tondeuse consomme 11 fois plus qu'une voiture et sa largeur est de 42cm.
+  références:
+    - https://www.peoplepoweredmachines.com/faq-environment.htm
   titre: 1m² tondu
   formule: 0.0002 * 11 / 0.42 
