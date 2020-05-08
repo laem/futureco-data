@@ -284,7 +284,9 @@ transport . impact unitaire . diesel:
 transport . impact à l'usage:
   titre: Un déplacement
   icônes: 🚶‍♀️ 🚲 🚆
-  journée: se répète: oui
+  journée: 
+    se répète:
+      oui
   description: >
     Déplacer notre corps de plusieurs dizaines de kilos a forcément un impact.
     Mais entre un vélo, un train et une grosse voiture, l'ordre de grandeur est
@@ -683,13 +685,19 @@ nourriture . bière . pression ou consignée:
 
     Certains pays, comme l'Allemagne, consignent le verre. Une bouteille consignée peut être utilisée jusqu'à vingt fois ! Dans un pays comme la France, le verre est recyclé, mais ce recyclage est très groumand en énergie : pour le réutiliser, il faut fondre le verre à des températures très importantes.
   par défaut: non
+
+lire un livre: 
+  titre: Une sessions de lecture
+  icônes: 📖
+  description: Une sessions de lecture dans la journée
+  note: On considère qu'on lit un livre moyen en 10 sessions de lecture. 
+  formule: livre / 10
 livre:
   titre: Un livre
   exposé: oui
   icônes: 📖
   description: >
     Impact d'un livre de 500g produit en finlande.
-
 
     Il est important de noter que lors de la lecture d'un livre, on reste assis en général à ne rien faire, donc contrairement à la conduite, la télé etc. on ne consomme aucune énergie à part celle de notre corps.
   formule: 1.2
@@ -1213,6 +1221,9 @@ plastique . impact PET:
   références:
     - http://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?produits_en_caoutchouc_et_en_p.htm
 maison:
+
+
+  
 maison . construction:
   titre: une maison neuve
   icônes: 🏠✨
@@ -2408,15 +2419,15 @@ numérique . téléphone journée:
     Utiliser son téléphone pendant une journée en consommant 1go de données.
 
     Fabrication du téléphone incluse.
-  icônes: 📱📅
+  icônes: 📱
   exposé: oui
   formule: usage + matériel
 
 numérique . téléphone journée . usage:
   note: |
-    En première approximation, on considère qu'un usager de smartphone va consommer 1 giga de données par jour, soit 30 par mois.
-    C'est une estimation assez élevée.
-  formule: vidéo
+    La consommation de données moyenne tourne autour de 10 go / mois. 
+    Une vidéo (un film) dans notre simulation, c'est 1go. Donc un tiers de film par jour.
+  formule: vidéo / 3
   
 
 numérique . téléphone journée . matériel:
@@ -2425,10 +2436,86 @@ numérique . téléphone journée . matériel . durée de vie:
   note: Première estimation à 2 ans par téléphone.
   formule: 2
 
+
+
+numérique . ordinateur journée:
+  titre: Utiliser mon ordinateur
+  description: |
+    Utiliser son ordinateur pendant une journée en consommant 1go de données.
+
+    Fabrication du ordinateur incluse.
+  icônes: 💻
+  exposé: oui
+  formule: usage + matériel
+
+numérique . ordinateur journée . usage:
+  note: |
+    En première approximation, on considère qu'un usager de smartphone va consommer 1 giga de données par jour, soit 30 par mois.
+    C'est une estimation assez élevée.
+  formule: vidéo
+  
+
+numérique . ordinateur journée . matériel:
+  formule: (numérique . ordinateur . impact / durée de vie) / 365
+numérique . ordinateur journée . matériel . durée de vie:
+  note: Première estimation à 2 ans par ordinateur.
+  formule: 2
+
+
 logement: 
+
+logement . un jour sous un toit:
+  icônes: 🛌🏠
+  titre: Dormir et vivre sous un toit
+  formule: 
+    somme: 
+      - construction . amortie / 365
+      - chauffage . impact final / 365
+
+logement . construction . amortie: 
+  titre: Construction amortie à l'année
+  formule: construction / durée d'amortissement
+  unité: kgCO2e
+logement . construction . durée d'amortissement:
+  description: |
+    On considère qu'un logement construit aujourd'hui ne doit pas voir son empreinte totale attribuée à la personne qui la construit.
+
+    Lui ou d'autres personnes vivront dedans, sauf exception, des décennies.
+		
+    Pourquoi 30 ans alors et pas 50 ? Dans 30 ans, nous serons en 2050 et sans efforts, le réchauffement climatique aura eu des conséquences catastrophiques. Il parait donc légitime d'insister sur le fait que même si la construction neuve dure 100 ans, il s'agit d'éviter des émissions non seuement en empreinte / an, mais aussi dans l'absolu. 
+  formule:
+    le maximum de:
+      - âge
+      - 30
+
+logement . construction . âge:
+  question: Quel âge approximatif a votre logement
+  par défaut: 30
+  unité: années
+  suggestions: 
+    neuf: 3
+    années 90: 30
+    années 70: 50
+    maison à colombages: 400 
+logement . construction . facteur:
+  formule:  525
+  unité: kgCO2e/m²
+  description: |
+    Immeubles de logements collectifs (IC) 525 kgCO2e/m² SHON - Base carbone ADEME consultée le 22/06/19
+  note: |
+    L'empreinte d'une maison doit être supérieure : fondations moins partagée, terrasse, etc.
+  références:
+    - http://www.bilans-ges.ademe.fr/
+  
+logement . construction:
+  formule: surface * facteur
+  unité: kgCO2e
+
+  
 logement . chauffage:
+
 logement . chauffage . impact final:
-  titre: Chauffer mon logement
+  titre: Chauffer mon logement à l'année
   formule: impact / habitants
   icônes: 🏡🌡️
   exposé: oui
@@ -2491,6 +2578,7 @@ logement . type . appartement . chaudière . individuelle:
 
 logement . chauffage . énergie . intensité: 
   unité: kWh/m²
+  titre: intensité énergétique à l'année
   note: |
     
     Nous avons choisi un modèle simplifié qui ne donne le choix qu'entre le gaz et l'électricité, car ils représentent en cumulé ~70% des usages pour les maisons et ~85% pour les appartements ([statistiques de 2015](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?chauffage.htm)).
