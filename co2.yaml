@@ -2660,3 +2660,12 @@ logement . chauffage . facteur d'émission . électricité:
     Notons que la RE2020, et le choix du gouvernement de baisser le facteur du chauffage à 79g/kWh (contre 210 dans l'expérimentation E+C-), provoque de vifs débats à l'heure où l'on écrit ces lignes (février 2020). Nous utilisons pour l'instant la dernière valeur historique fournie par l'ADEME.
   références: 
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=chauffage
+
+services publics: 
+  formule: 1500 / 365
+  icônes: 🏛️
+  description: 
+    Grâce aux prélévements obligatoire, le secteur public nous fournit un certain nombre de services, qu'on le veuille ou non : santé, armée, police, infrastructures, etc.
+  note: C'est une veille estimation, actualisée, mais qui mériterait d'être réévaluée en tout transparence.
+  références: 
+    - http://ravijen.fr/?p=440
