@@ -2569,3 +2569,56 @@ logement . chauffage . facteur d'émission . électricité:
     Notons que la RE2020, et le choix du gouvernement de baisser le facteur du chauffage à 79g/kWh (contre 210 dans l'expérimentation E+C-), provoque de vifs débats à l'heure où l'on écrit ces lignes (février 2020). Nous utilisons pour l'instant la dernière valeur historique fournie par l'ADEME.
   références: 
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=chauffage
+
+jardin:
+  icônes: 🏡
+jardin . impact:
+  exposé: oui
+  catégorie: logement
+  titre: Mon jardin
+  icônes: 🏡
+  période: flexible
+  unité: kgCO²
+  formule: jardin . impact par tonte * jardin . nombre de tontes annuelles
+jardin . nombre de tontes annuelles:
+  description: |
+    Nombre de tontes par année
+  titre: Nombre de tontes
+  formule: jardin . saison de tonte / jardin . fréquence de tonte
+jardin . saison de tonte:
+  unité: semaine
+  formule : 34
+jardin . fréquence de tonte :
+  question: Vous passez la tondeuse toutes les combien de semaines ?
+  unité: semaine
+  par défaut: 3
+  suggestions:
+    Une fois par semaine : 1
+    Toutes les 2 semaines : 2
+    Toutes les 3 semaines : 3
+    Toutes les 4 semaines : 4
+jardin . impact par tonte:
+  exposé: oui
+  catégorie: logement
+  icônes: 🏡
+  titre: Une tonte
+  unité: kgCO²
+  formule: jardin . superficie * jardin . impact par m2 tondu
+jardin . superficie:
+  question: Quelle est la taille de votre jardin ?
+  unité: m²
+  par défaut: 500
+  suggestions:
+    petit : 300
+    moyen : 800
+    grand : 1200
+    très grand : 2200
+jardin . impact par m2 tondu:
+  icônes: 🚿
+  unité: kgCO²/m²
+  description: |
+    Une tondeuse consomme 11 fois plus qu'une voiture et sa largeur est de 42cm.
+  références:
+    - https://www.peoplepoweredmachines.com/faq-environment.htm
+  titre: 1m² tondu
+  formule: 0.0002 * 11 / 0.42 
