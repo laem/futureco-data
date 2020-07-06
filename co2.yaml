@@ -60,11 +60,14 @@ chauffage . type:
       choix obligatoire: oui
       possibilités:
         - gaz
+        - biométhane
         - fioul
         - électricité
   par défaut: gaz
 chauffage . type . gaz:
   icônes: 🔵
+chauffage . type . biométhane:
+  icônes: 🟢
 chauffage . type . fioul:
   icônes: 🛢️
 chauffage . type . électricité:
@@ -79,11 +82,27 @@ chauffage . impact par kWh:
         alors: 0.324
       - si: type = 'électricité'
         alors: électricité
+      - si: type = 'biométhane'
+        alors: biométhane
   note: |
     La base carbone de l'ADEME ne permet malheureusement pas de faire des liens profonds vers les chiffres utilisés.
   références:
     - http://www.bilans-ges.ademe.fr/fr/accueil
     - https://decrypterlenergie.org/decryptage-quel-est-le-contenu-en-co2-du-kwh-electrique
+
+chauffage . impact par kWh . biométhane:
+  formule: 0.164
+  description: |
+    Du gaz pour nos chaudières peut être produit à partir des déchets traités dans les stations d'épurations des eaux usées (STEU). Il est minoritaire par rapport au biométhane agricole, mais la base carbone de l'ADEME ne contient que ce facteur pour l'instant.
+  note : |
+    
+    L'utilisation du biométhane joue sur 2 tableaux : au niveau de l'émission du CO2e par rapport à l'extraction et combustion du gaz fossile (-40%) mais également du fait qu'il peut dans certains cas éviter d'exposer la matière organique en plein air donc dans l'atmosphère (-50%). Voir la page 10 de la publication de Carbone4 ci-dessous et la documentation ADEME, paragraphe "Le but premier d’une STEU...".
+    
+    Nous retenons ici cette 1ère partie seulement, mais n'hésitez pas à venir en discuter [ici](https://github.com/laem/futureco-data/issues/72).
+références: 
+  - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=Biom%C3%A9thane
+  - https://www.bilans-ges.ademe.fr/fr/accueil/documentation-gene/index/page/Gaz2
+  - http://www.carbone4.com/wp-content/uploads/2019/06/Publication-Carbone-4-biome%CC%81thane-et-climat.pdf
 
 chauffage . impact par kWh . électricité:
   formule: 0.0538
