@@ -74,7 +74,7 @@ chauffage . impact par kWh:
   formule:
     variations:
       - si: type = 'gaz'
-        alors: 0.227
+        alors: gaz
       - si: type = 'fioul'
         alors: 0.324
       - si: type = 'électricité'
@@ -84,6 +84,11 @@ chauffage . impact par kWh:
   références:
     - http://www.bilans-ges.ademe.fr/fr/accueil
     - https://decrypterlenergie.org/decryptage-quel-est-le-contenu-en-co2-du-kwh-electrique
+
+chauffage . impact par kWh . gaz:
+  formule: 0.227
+  unité: kgCO₂e/kWh
+  description: Empreinte du "gaz naturel France" de la base carbone de l'ADEME.
 
 chauffage . impact par kWh . électricité:
   formule: 0.0538
@@ -2284,7 +2289,6 @@ terrasse chauffée . puissance d'un chauffage:
   formule: 3
   note: La puissance est variable, 3000 W semble être une bonne moyenne.
 
-
 terrasse chauffée . énergie . totale:
   unité: kWh
   formule: puissance d'un chauffage * temps passé
@@ -2302,7 +2306,19 @@ terrasse chauffée . impact:
     En 2019, le gachis d'énergie qu'entraîne le chauffage d'extérieur fait débat, au point que [la ville de Rennes décide de les interdire](https://mobile.twitter.com/nathalieappere/status/1143267851375140866), la question [se posant alors à Paris](https://www.bfmtv.com/planete/faut-il-interdire-les-terrasses-chauffees-a-paris-1812718.html) où elles sont très répandues.
 
     ⚠️ Attention, le calcul est pour l'instant fait pour un chauffage électrique, pas un chauffage au gaz.
-  formule: énergie . par personne * empreinte du mix électrique
+  formule: énergie . par personne * empreinte
+
+terrasse chauffée . chauffage électrique:
+  question: Le chauffage est-il électrique, plutôt qu'au gaz ? 
+  par défaut: non
+
+terrasse chauffée . empreinte:
+  formule: 
+    variations: 
+      - si: chauffage électrique
+        alors: chauffage . impact par kWh . électricité
+      - sinon: chauffage . impact par kWh . gaz
+
 
 
 
