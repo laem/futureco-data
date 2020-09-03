@@ -2287,7 +2287,13 @@ terrasse chauffée . personnes présentes:
 terrasse chauffée . puissance d'un chauffage:
   unité: kW
   formule: 3
-  note: La puissance est variable, 3000 W semble être une bonne moyenne.
+  note: |
+    
+    La puissance des chauffage est variable, 3000 W semble être une bonne moyenne (sur la base de recherches dans le catalogue des vendeurs de chauffage pour terrasse).
+
+    Quelques pistes pour améliorer le calcul :
+      - un chauffage à gaz consomme-t-il autant qu'un électrique ? La différence est-elle négligeable ?
+      - référencer de vrais chauffages utilisés par les commerçants.
 
 terrasse chauffée . énergie:
 
@@ -2309,6 +2315,9 @@ terrasse chauffée . impact:
 
     ⚠️ Attention, le calcul est pour l'instant fait pour un chauffage électrique, pas un chauffage au gaz.
   formule: énergie . par personne * empreinte
+  références: 
+    - https://www.laprovence.com/article/edition-marseille/5839800/terrasses-chauffees-faut-il-les-interdire-partout.html
+    - https://twitter.com/Tomsawy22670318/status/1288936433705717760
 
 terrasse chauffée . chauffage électrique:
   question: Le chauffage est-il électrique, plutôt que gaz ? 
