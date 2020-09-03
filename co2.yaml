@@ -2289,6 +2289,8 @@ terrasse chauffée . puissance d'un chauffage:
   formule: 3
   note: La puissance est variable, 3000 W semble être une bonne moyenne.
 
+terrasse chauffée . énergie:
+
 terrasse chauffée . énergie . totale:
   unité: kWh
   formule: puissance d'un chauffage * temps passé
@@ -2309,15 +2311,26 @@ terrasse chauffée . impact:
   formule: énergie . par personne * empreinte
 
 terrasse chauffée . chauffage électrique:
-  question: Le chauffage est-il électrique, plutôt qu'au gaz ? 
+  question: Le chauffage est-il électrique, plutôt que gaz ? 
   par défaut: non
 
 terrasse chauffée . empreinte:
   formule: 
     variations: 
       - si: chauffage électrique
-        alors: chauffage . impact par kWh . électricité
+        alors: électrique
       - sinon: chauffage . impact par kWh . gaz
+
+terrasse chauffée . empreinte . électrique:
+  formule: 0.079
+  unité: kgCO2e/kWh
+  description: |
+
+    Pour la RE2020 (reglementation des nouveaux bâtiments), le gouvernement a fait le choix de baisser le facteur du chauffage à 79g/kWh (contre les ~140g de 2018 dans la base carbone de l'ADEME). 
+
+    Ce choix provoque de vifs débats dont notamment la colère des vendeurs de gaz, mais nous le gardons ici car il semble bien représenter le mix hivernal, et donc être pertinent pour notre usage du chauffage des terrasses.
+
+    A discuter, une référence solide serait la bienvenue (je n'ai trouvé que des articles de journaux du bâtiment).
 
 
 
