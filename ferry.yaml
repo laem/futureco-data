@@ -1,7 +1,7 @@
 ferry: 
   icônes: ⛴
   exposé: oui
-  formule: a + b
+  formule: 666
   note: |
     Pour faire ce calcul, nous partons de l'hypothèse que la consommation de carburant d'un bateau est proportionnelle au poids qu'il transport.
 
@@ -68,3 +68,71 @@ ferry . parts . passagers:
 # WC, escaliers, canots de sauvetage
 #
 #
+
+ferry . passagers: 
+  formule: 666
+  note: On prend les passagers des exemples de décomposition de poids ? Ou du Jean Nicoli rempli à 50% ?
+
+
+# Notre objectif : 
+# - attribuer un poids à un pax en fonction de ses choix (cabine, voiture, usage des loisirs)
+# - le diviser par le poids total disponible. C'est le poids qu'on ajoute à tout ce qui est nécessaire pour faire la navigation (carcasse, essence, moteur, matériel de sécurité (mais pas les canaux dédiés aux pax), équipage de navigation (mais pas l'équipe dédié aux pax), etc.). 
+#
+# Il semble que la notion de poids lège (ou déplacement lège) ne soit pas utile pour nous ici, notamment car elle est donnée sans consommables dont le carburant, la différence entre poids max et lège ne correspond donc pas à ce qu'on recherche. A moins d'y ajouter une par une les charges de navigation manquantes.
+#
+# On va donc plutôt reconstruire notre propre "charge disponible" selon notre définition.
+# Nous ignorons le poids du sol des ponts, qui sont nécessaires quelle que soit la charge.
+# Nous allons, au moins dans un 1er temps, ignorer les murs (des cabines, des dortoirs, des restaurants).
+
+  
+ferry . charge:
+ferry . charge . cabine pour 4: 
+  note: |
+    Ceci est une estimation, basée aux mieux sur les références commerciales que l'on trouve, ou sur des ordres de grandeur. 
+
+    Ce n'est donc évidemment pas fidèle au matériel que l'on trouve réellement sur les navires, mais on pourra s'en rapprocher si on le trouve.
+
+    Ce que nous savons avoir ignoré : 
+      - moquette (3kg/m²)
+      - télé
+      - mirroirs (salle de bain et entrée)
+      - les revêtements souvent en bois, par exemple des têtes de lit, pas facile à estimer
+
+  formule: 
+    somme:
+      - lits
+      - meubles
+      - salle de bain
+
+ferry . charge . meubles: 
+  formule: table de nuit + armoire
+
+ferry . charge . table de nuit: 10kg
+ferry . charge . armoire: 80kg
+
+ferry . charge . salle de bain: 
+  formule: lavabo + douche + eau
+
+ferry . charge . lavabo: 50kg
+ferry . charge . douche: 100kg
+ferry . charge . eau: 
+  formule: 50 * 4
+  note: Une douche par personne, 50l par douche.
+  référnces: 
+    - https://www.m-habitat.fr/plomberie-et-eau/consommation-d-eau/quelle-est-la-consommation-en-eau-d-une-douche-902_A
+
+ferry . charge . lits:
+  formule: (lits superposés + matelas) * 2
+ferry . charge . lits superposés:
+  formule: 50
+  note: On retient un ordre de grandeur de 50kg, basé sur le 1er trouvé sur Google, un lit en bois conforama qui donne 55,7kg.
+  références: 
+    - https://www.conforama.fr/enfant-bebe/chambre-enfant/lit-enfant/lits-superposes-90x190-cm-andy-coloris-gris/p/655558
+ferry . charge . matelas:
+  formule: 15 * 2
+  note: Matelas en mousse, le 1er trouvé sur Google.
+  références: 
+    - https://www.conforama.fr/chambre-literie/literie/literie-de-relaxation/matelas-mousse-90x190-cm-dunlopillo-precious-moment/p/561951
+
+
+
