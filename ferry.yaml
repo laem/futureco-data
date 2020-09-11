@@ -1,0 +1,70 @@
+ferry: 
+  icônes: ⛴
+  exposé: oui
+  formule: a + b
+  note: |
+    Pour faire ce calcul, nous partons de l'hypothèse que la consommation de carburant d'un bateau est proportionnelle au poids qu'il transport.
+
+    Attention, cette hypothèse est criticable sur bien des points. Qu'est-ce qui nous permet cependant de penser que ce sera une bonne approximation de la réalité ?
+
+    > Parler de la future norme ISO
+
+    Dans ce document commercial intitulé [Basic Principles of Ship Propulsion](https://spain.mandieselturbo.com/docs/librariesprovider10/sistemas-propulsivos-marinos/basic-principles-of-ship-propulsion.pdf?sfvrsn=2), on peut constater que pour des navires voyageant à vitesse réduite, ce qui est le cas des ferries, c'est la force de frottement de l'eau sur le bateau, notée Rf, qui représente 90% de la force à battre pour avancer.
+
+    
+    ![](https://i.imgur.com/K6DRmUc.png)
+
+    Or, cette friction semble elle-même directement proportionnelle à la hauteur immergée du bateau, et donc au poids.
+
+    Ces deux grandes hypothèses, et en particulier cette dernière, doivent bien sûr être confirmées. Est-ce une relation linéaire ? Avec quel seuil de départ ? 
+
+    Finalement, n'oublions pas qu'un bateau en condition réelles fait aussi face au vent, au courant et à la houle. 
+
+    > For a ship steaming into a 20-knot wind, ship’s resistance may be increased by up to 25-30%.
+
+    Nous décidons d'écarter pour l'instant vent et courant, pour la simple raison que nous nous occupons d'un trajet aller-retour et que nous supposons donc une annulation de ces deux forces.
+
+    Comment prendre en compte la houle ?
+
+ferry . couchage: 
+  question: Avez-vous pris une place en cabine (plutôt qu'un siège) ?
+  par défaut: oui
+
+ferry . taille cabine: 
+  question: Quelle est la taille de la cabine ?
+  par défaut: 2
+  suggestions: 
+    2: 2
+    4: 4
+
+ferry . voiture: 
+  question: Transportez-vous votre voiture ?
+  par défaut: non
+
+ferry . groupe:
+  question: Dans un groupe de combien de personnes voyagez-vous ?
+  par défaut: 2
+  suggestions: 
+    2: 2
+    3: 3
+    4: 4
+    5: 5
+
+ferry . restaurant:
+  question: Allez-vous profiter des restaurants, bars et divers loisirs ?
+  description: |
+    Par exemple, la piscine, le jacuzzi, les machines à jeu, les magasins, etc.
+  icônes: 🍽🍺
+  par défaut: oui
+
+ferry . empreinte par km:
+  formule: 666
+  unité: kgCO2e/km
+ferry . parts . passagers:
+  formule: 
+
+
+# Infra nécessaire aux pax mais pas au fret
+# WC, escaliers, canots de sauvetage
+#
+#
