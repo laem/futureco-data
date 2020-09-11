@@ -60,8 +60,6 @@ ferry . restaurant:
 ferry . empreinte par km:
   formule: 666
   unité: kgCO2e/km
-ferry . parts . passagers:
-  formule: 
 
 
 # Infra nécessaire aux pax mais pas au fret
@@ -86,7 +84,33 @@ ferry . passagers:
 
   
 ferry . charge:
-ferry . charge . cabine pour 4: 
+  formule: 
+    somme: 
+      - cabine pour quatre * 666
+      - restaurant * 6
+      - dortoir * 66 
+      - voiture * 66
+      - fret * 66
+      - canots de sauvetage
+
+
+ferry . charge . canots de sauvetage:
+  formule: 0
+  note: Nous considérons que le poids du canot *par passager* est négligeable par rapport au reste des équipements.
+
+ferry . charge . voiture:
+  formule: 1500
+  note: |
+    ![](https://i.imgur.com/NS3QgIx.png)
+  unité: kg
+
+ferry . charge . fret:
+  formule: 8000
+  note: |
+    ![](https://i.imgur.com/NS3QgIx.png)
+  unité: kg
+
+ferry . charge . cabine pour quatre: 
   note: |
     Ceci est une estimation, basée aux mieux sur les références commerciales que l'on trouve, ou sur des ordres de grandeur. 
 
@@ -98,6 +122,8 @@ ferry . charge . cabine pour 4:
       - mirroirs (salle de bain et entrée)
       - les revêtements souvent en bois, par exemple des têtes de lit, pas facile à estimer
 
+    🟧 Attention, pour une cabine de 10m² (lits 90cm*2m, espace entre lits de 1m, espace entrée / salle de bain de 1.5m) on obtient un poids / m² presque 2 fois inférieur à l'estimation de Deltamarin de [ce document](https://i.imgur.com/4o64Po9.png). A confirmer donc.
+
   formule: 
     somme:
       - lits
@@ -107,14 +133,22 @@ ferry . charge . cabine pour 4:
 ferry . charge . meubles: 
   formule: table de nuit + armoire
 
-ferry . charge . table de nuit: 10kg
-ferry . charge . armoire: 80kg
+ferry . charge . table de nuit:
+  formule: 10
+  unité: kg
+ferry . charge . armoire:
+  formule: 80
+  unité: kg
 
 ferry . charge . salle de bain: 
   formule: lavabo + douche + eau
 
-ferry . charge . lavabo: 50kg
-ferry . charge . douche: 100kg
+ferry . charge . lavabo: 
+  formule: 50
+  unité: kg
+ferry . charge . douche:
+  formule: 100
+  unité: kg
 ferry . charge . eau: 
   formule: 50 * 4
   note: Une douche par personne, 50l par douche.
