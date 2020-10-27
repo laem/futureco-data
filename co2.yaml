@@ -2665,3 +2665,129 @@ jardin . impact par m2 tondu:
     - https://www.peoplepoweredmachines.com/faq-environment.htm
   titre: 1m² tondu
   formule: 0.0002 * 11 / 0.42 
+
+emballages:
+  description: |
+    Ah, nos emballages ! Au coeur de la préoccupation environnementale, c'est pourtant l'un des secteurs où nous avons tenté quelque chose : le recyclage. 
+
+    Attention à ce que cet effort ne nous aveugle pas sur l'empreinte d'un emballage, recyclé ou non.
+  note: Attention, dans l'article en référence les valeurs sont en équivalent carbone, pas en équivalent CO₂. Donc pour passer de l'un à l'autre, il faut multiplier par 44/12, soit environ 3.7.
+  références: 
+    - https://jancovici.com/changement-climatique/les-ges-et-nous/combien-de-gaz-a-effet-de-serre-dans-notre-poubelle/
+emballages . conserve en verre:
+  titre: Une conserve en verre
+  description: |
+    On prend ici l'exemple d'une conserve en verre de petite taille, classique, par exemple qui pourrait contenir des pois chiche.
+
+    Elles ne sont pas strictement standardisées, mais toutes se ressemblent en termes de poids du verre et du métal du couvercle.
+
+    Aucune n'est consignée aujourd'hui, d'où l'importance de se pencher sur leur empreinte.
+
+  exposé: oui
+  icônes: 🥫🥛
+  formule: verre + couvercle
+
+emballages . conserve en verre . verre:
+  formule: poids * facteur verre
+emballages . conserve en verre . verre . poids:
+  formule: 0.125
+  unité: kg
+  références: 
+    - https://conservesetbouteilles.fr/228-ml-to-63-normalise
+    - https://www.juvasa.com/fr/52/pots-et-bocaux-en-verre/19/b-212-ml-to-063?utm_medium=cpc&utm_medium=cpc&utm_source=google&utm_campaign=6671973559&utm_term=Gshopping-457863614291&gclid=EAIaIQobChMIuJvs6OOf7AIVgoxRCh3D1QviEAQYASABEgImSvD_BwE
+
+emballages . facteur verre:
+  formule: 0.81
+  unité: kgCO₂e/kg
+  description: |
+    Facteur d'émission du verre d'emballage verre : bouteilles, flacons...
+
+    > Hypothèse d'incorporation de calcin : 70%
+
+    Cela veut dire que 70% du verre utilisé pour confectionner le produit vient du recyclage.
+  références: 
+    - https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?verre_et_articles_en_verre.htm
+
+emballages . conserve en verre . couvercle:
+  formule: poids * facteur acier
+  description: On suppose que les couvercles de conserve en verre sont en acier inox.
+
+emballages . conserve en verre . couvercle . poids:
+  formule: 0.0084
+  unité: kg
+  références: 
+    - https://conservesetbouteilles.fr/capsule-to-63-or
+
+emballages . facteur acier:
+  formule: 2.211
+  note: Nous retenons l'hypothèse sans recyclage en l'absence d'informations sur le taux de recyclage de l'acier utilisé dans les emballages en France. En recyclant de la ferraille, le taux serait bien inférieur, de 0.938.
+  unité: kgCO₂e/kg
+  description: |
+    La production d'acier peut se faire de deux manières :
+
+    - par réduction de minerai de fer avec du coke,
+    - par fonte de ferrailles, généralement dans des fours électriques.
+
+    Dans le premier cas de figure, les émissions de CO₂ sont essentiellement engendrées par l’oxydation du carbone (du coke) lors de la réduction du minerai de fer, ainsi que par la combustion du gaz de cokéfaction (qui contient beaucoup de monoxyde de carbone). Dans le deuxième cas de figure, c’est la production de l’électricité utilisée qui compte le plus.
+
+  références: 
+    - https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?acier.htm
+
+       
+emballages . conserve pois chiche: 
+  description: |
+    Une conserve de pois chiche avec son emballage en verre + couvercle acier.
+    
+    Le but ici est de comparer l'empreinte de l'emballage à celle du produit lui-même.
+
+    ![](https://static.openfoodfacts.org/images/products/333/588/000/4273/front_fr.24.400.jpg)
+
+  formule: conserve en verre + contenu
+  références: 
+    - https://world.openfoodfacts.org/product/3335880004273/pois-chiches-sans-sel-ajoute-prosain
+emballages . conserve pois chiche . contenu:
+  formule: nourriture . pois chiche sans emballage * poids
+nourriture . pois chiche sans emballage:
+  formule: 0.834 - 0.201
+  note: |
+    [Source](https://raw.githubusercontent.com/betagouv/ecolab-alimentation/master/data/out/Agribalyse.json) chercher "20507".
+  références: 
+    - http://app.agribalyse.fr/aliments/20507?order=alph_asc
+  description: |
+    Pois chiche cuit industriellement, non égoutté.
+    Nous retenons toutes les phases sauf l'emballage.
+  unité: kgCO₂e/kg
+emballages . conserve pois chiche . contenu . poids:
+  formule: 0.350
+  unité: kg
+  description: Une petite conserve de pois chiches en poids net non égoutté.
+
+
+
+emballages . conserve chili con carne: 
+  description: |
+    Une conserve de chili con carne, donc beaucou de boeuf, avec son emballage en verre + couvercle acier.
+    
+    Le but ici est de comparer l'empreinte de l'emballage à celle du produit lui-même.
+
+  formule: conserve en verre + contenu
+emballages . conserve chili con carne . contenu:
+  formule: nourriture . chili con carne sans emballage * poids
+nourriture . chili con carne sans emballage:
+  formule: 21.680 - 0.212
+  note: |
+    [Source](https://raw.githubusercontent.com/betagouv/ecolab-alimentation/master/data/out/Agribalyse.json) chercher "25111".
+  références: 
+    - http://app.agribalyse.fr/aliments/25111?order=alph_asc
+  description: |
+    Pois chiche cuit industriellement, non égoutté.
+    Nous retenons toutes les phases sauf l'emballage.
+  unité: kgCO₂e/kg
+emballages . conserve chili con carne . contenu . poids:
+  formule: 0.350
+  unité: kg
+  note: Le poids est une estimation.
+
+
+
+
