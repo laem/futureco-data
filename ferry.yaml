@@ -3,15 +3,13 @@ ferry:
   exposé: oui
   formule: 666
   note: |
-    Pour faire ce calcul, nous partons de l'hypothèse que la consommation de carburant d'un bateau est proportionnelle au poids qu'il transport.
+    Pour faire ce calcul, nous partons de l'hypothèse que la consommation de carburant d'un bateau est proportionnelle au poids qu'il transporte.
 
     Attention, cette hypothèse est criticable sur bien des points. Qu'est-ce qui nous permet cependant de penser que ce sera une bonne approximation de la réalité ?
 
-    > Parler de la future norme ISO
 
     Dans ce document commercial intitulé [Basic Principles of Ship Propulsion](https://spain.mandieselturbo.com/docs/librariesprovider10/sistemas-propulsivos-marinos/basic-principles-of-ship-propulsion.pdf?sfvrsn=2), on peut constater que pour des navires voyageant à vitesse réduite, ce qui est le cas des ferries, c'est la force de frottement de l'eau sur le bateau, notée Rf, qui représente 90% de la force à battre pour avancer.
 
-    
     ![](https://i.imgur.com/K6DRmUc.png)
 
     Or, cette friction semble elle-même directement proportionnelle à la hauteur immergée du bateau, et donc au poids.
@@ -22,9 +20,10 @@ ferry:
 
     > For a ship steaming into a 20-knot wind, ship’s resistance may be increased by up to 25-30%.
 
-    Nous décidons d'écarter pour l'instant vent et courant, pour la simple raison que nous nous occupons d'un trajet aller-retour et que nous supposons donc une annulation de ces deux forces.
+    Nous décidons d'écarter pour l'instant vent et courant, pour la simple raison que nous nous occupons d'un trajet aller-retour et que nous supposons donc une annulation de ces deux forces en moyenne sur l'année.
 
-    Comment prendre en compte la houle ?
+    - [ ] parler de la future norme ISO
+    - [ ] Comment prendre en compte la houle ?
 
 ferry . couchage: 
   question: Avez-vous pris une place en cabine (plutôt qu'un siège) ?
@@ -33,6 +32,7 @@ ferry . couchage:
 ferry . taille cabine: 
   question: Quelle est la taille de la cabine ?
   par défaut: 2
+  unité: personnes
   suggestions: 
     2: 2
     4: 4
@@ -64,6 +64,7 @@ ferry . empreinte par km:
 
 # Infra nécessaire aux pax mais pas au fret
 # WC, escaliers, canots de sauvetage
+# ces derniers peuvent-ils être négligés / personne, vu que leur but est de flotter ?
 #
 #
 
@@ -73,15 +74,14 @@ ferry . passagers:
 
 
 # Notre objectif : 
-# - attribuer un poids à un pax en fonction de ses choix (cabine, voiture, usage des loisirs)
-# - le diviser par le poids total disponible. C'est le poids qu'on ajoute à tout ce qui est nécessaire pour faire la navigation (carcasse, essence, moteur, matériel de sécurité (mais pas les canaux dédiés aux pax), équipage de navigation (mais pas l'équipe dédié aux pax), etc.). 
+# - attribuer un poids à un pax en fonction de ses choix (cabine, voiture, usage des loisirs). On le nomme A.
+# - le diviser par le poids disponible qu'on nomme B. C'est le poids qu'on ajoute en pratique au bateau à tout ce qui est strictement nécessaire pour faire la navigation s'il n'y avait rien à transporter sur le ferry, ni passagers ni fret : la carcasse, essence, moteur, matériel de sécurité (mais pas les canaux dédiés aux pax), équipage de navigation (mais pas l'équipe dédié aux pax), etc.. 
 #
-# Il semble que la notion de poids lège (ou déplacement lège) ne soit pas utile pour nous ici, notamment car elle est donnée sans consommables dont le carburant, la différence entre poids max et lège ne correspond donc pas à ce qu'on recherche. A moins d'y ajouter une par une les charges de navigation manquantes.
+# Il semble que la notion de poids lège (ou déplacement lège) ne soit pas utile pour nous ici, notamment car elle est donnée sans consommables dont le carburant, la différence entre poids max et lège ne correspond donc pas à ce poids B qu'on recherche. A moins d'y ajouter une par une les charges de navigation manquantes.
 #
-# On va donc plutôt reconstruire notre propre "charge disponible" selon notre définition.
-# Nous ignorons le poids du sol des ponts, qui sont nécessaires quelle que soit la charge.
-# Nous allons, au moins dans un 1er temps, ignorer les murs (des cabines, des dortoirs, des restaurants).
-
+# On a donc fait le choix de calculer notre propre estimation de ce "poids disponible" B.
+# Nous ignorons le poids du sol des ponts, qui sont nécessaires quelle que soit l'usage fait du bateau (fret, passegers et luxe des passagers).
+# Nous allons, au moins dans un 1er temps par simplicité, ignorer les murs (des cabines, des dortoirs, des restaurants).
   
 ferry . charge:
   formule: 
