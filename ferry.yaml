@@ -73,6 +73,8 @@ ferry . passagers:
   note: On prend les passagers des exemples de décomposition de poids ? Ou du Jean Nicoli rempli à 50% ?
 
 
+# le raisonnement est le suivant. À poids constant du ferry, consommation constante, qu'on quppose connue. Plutot que de mettre un jacuzzi de 5 tonnes, on pourrait mzttre n cabines, et ainsi plus de personnes, divisant l'empreinte totale du bateau par plus d'usage, passager ou fret. 
+#
 # Notre objectif : 
 # - attribuer un poids à un pax en fonction de ses choix (cabine, voiture, usage des loisirs). On le nomme A.
 # - le diviser par le poids disponible qu'on nomme B. C'est le poids qu'on ajoute en pratique au bateau à tout ce qui est strictement nécessaire pour faire la navigation s'il n'y avait rien à transporter sur le ferry, ni passagers ni fret : la carcasse, essence, moteur, matériel de sécurité (mais pas les canaux dédiés aux pax), équipage de navigation (mais pas l'équipe dédié aux pax), etc.. 
