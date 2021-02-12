@@ -1,0 +1,174 @@
+ferry: 
+  icônes: ⛴
+  exposé: oui
+  formule: 666
+  note: |
+    Pour faire ce calcul, nous partons de l'hypothèse que la consommation de carburant d'un bateau est proportionnelle au poids qu'il transporte.
+
+    Attention, cette hypothèse est criticable sur bien des points. Qu'est-ce qui nous permet cependant de penser que ce sera une bonne approximation de la réalité ?
+
+
+    Dans ce document commercial intitulé [Basic Principles of Ship Propulsion](https://spain.mandieselturbo.com/docs/librariesprovider10/sistemas-propulsivos-marinos/basic-principles-of-ship-propulsion.pdf?sfvrsn=2), on peut constater que pour des navires voyageant à vitesse réduite, ce qui est le cas des ferries, c'est la force de frottement de l'eau sur le bateau, notée Rf, qui représente 90% de la force à battre pour avancer.
+
+    ![](https://i.imgur.com/K6DRmUc.png)
+
+    Or, cette friction semble elle-même directement proportionnelle à la hauteur immergée du bateau, et donc au poids.
+
+    Ces deux grandes hypothèses, et en particulier cette dernière, doivent bien sûr être confirmées. Est-ce une relation linéaire ? Avec quel seuil de départ ? 
+
+    Finalement, n'oublions pas qu'un bateau en condition réelles fait aussi face au vent, au courant et à la houle. 
+
+    > For a ship steaming into a 20-knot wind, ship’s resistance may be increased by up to 25-30%.
+
+    Nous décidons d'écarter pour l'instant vent et courant, pour la simple raison que nous nous occupons d'un trajet aller-retour et que nous supposons donc une annulation de ces deux forces en moyenne sur l'année.
+
+    - [ ] parler de la future norme ISO
+    - [ ] Comment prendre en compte la houle ?
+
+ferry . couchage: 
+  question: Avez-vous pris une place en cabine (plutôt qu'un siège) ?
+  par défaut: oui
+
+ferry . taille cabine: 
+  question: Quelle est la taille de la cabine ?
+  par défaut: 2
+  unité: personnes
+  suggestions: 
+    2: 2
+    4: 4
+
+ferry . voiture: 
+  question: Transportez-vous votre voiture ?
+  par défaut: non
+
+ferry . groupe:
+  question: Dans un groupe de combien de personnes voyagez-vous ?
+  par défaut: 2
+  suggestions: 
+    2: 2
+    3: 3
+    4: 4
+    5: 5
+
+ferry . restaurant:
+  question: Allez-vous profiter des restaurants, bars et divers loisirs ?
+  description: |
+    Par exemple, la piscine, le jacuzzi, les machines à jeu, les magasins, etc.
+  icônes: 🍽🍺
+  par défaut: oui
+
+ferry . empreinte par km:
+  formule: 666
+  unité: kgCO2e/km
+
+
+# Infra nécessaire aux pax mais pas au fret
+# WC, escaliers, canots de sauvetage
+# ces derniers peuvent-ils être négligés / personne, vu que leur but est de flotter ?
+#
+#
+
+ferry . passagers: 
+  formule: 666
+  note: On prend les passagers des exemples de décomposition de poids ? Ou du Jean Nicoli rempli à 50% ?
+
+
+# le raisonnement est le suivant. À poids constant du ferry, consommation constante, qu'on quppose connue. Plutot que de mettre un jacuzzi de 5 tonnes, on pourrait mzttre n cabines, et ainsi plus de personnes, divisant l'empreinte totale du bateau par plus d'usage, passager ou fret. 
+#
+# Notre objectif : 
+# - attribuer un poids à un pax en fonction de ses choix (cabine, voiture, usage des loisirs). On le nomme A.
+# - le diviser par le poids disponible qu'on nomme B. C'est le poids qu'on ajoute en pratique au bateau à tout ce qui est strictement nécessaire pour faire la navigation s'il n'y avait rien à transporter sur le ferry, ni passagers ni fret : la carcasse, essence, moteur, matériel de sécurité (mais pas les canaux dédiés aux pax), équipage de navigation (mais pas l'équipe dédié aux pax), etc.. 
+#
+# Il semble que la notion de poids lège (ou déplacement lège) ne soit pas utile pour nous ici, notamment car elle est donnée sans consommables dont le carburant, la différence entre poids max et lège ne correspond donc pas à ce poids B qu'on recherche. A moins d'y ajouter une par une les charges de navigation manquantes.
+#
+# On a donc fait le choix de calculer notre propre estimation de ce "poids disponible" B.
+# Nous ignorons le poids du sol des ponts, qui sont nécessaires quelle que soit l'usage fait du bateau (fret, passegers et luxe des passagers).
+# Nous allons, au moins dans un 1er temps par simplicité, ignorer les murs (des cabines, des dortoirs, des restaurants).
+  
+ferry . charge:
+  formule: 
+    somme: 
+      - cabine pour quatre * 666
+      - restaurant * 6
+      - dortoir * 66 
+      - voiture * 66
+      - fret * 66
+      - canots de sauvetage
+
+
+ferry . charge . canots de sauvetage:
+  formule: 0
+  note: Nous considérons que le poids du canot *par passager* est négligeable par rapport au reste des équipements.
+
+ferry . charge . voiture:
+  formule: 1500
+  note: |
+    ![](https://i.imgur.com/NS3QgIx.png)
+  unité: kg
+
+ferry . charge . fret:
+  formule: 8000
+  note: |
+    ![](https://i.imgur.com/NS3QgIx.png)
+  unité: kg
+
+ferry . charge . cabine pour quatre: 
+  note: |
+    Ceci est une estimation, basée aux mieux sur les références commerciales que l'on trouve, ou sur des ordres de grandeur. 
+
+    Ce n'est donc évidemment pas fidèle au matériel que l'on trouve réellement sur les navires, mais on pourra s'en rapprocher si on le trouve.
+
+    Ce que nous savons avoir ignoré : 
+      - moquette (3kg/m²)
+      - télé
+      - mirroirs (salle de bain et entrée)
+      - les revêtements souvent en bois, par exemple des têtes de lit, pas facile à estimer
+
+    🟧 Attention, pour une cabine de 10m² (lits 90cm*2m, espace entre lits de 1m, espace entrée / salle de bain de 1.5m) on obtient un poids / m² presque 2 fois inférieur à l'estimation de Deltamarin de [ce document](https://i.imgur.com/4o64Po9.png). A confirmer donc.
+
+  formule: 
+    somme:
+      - lits
+      - meubles
+      - salle de bain
+
+ferry . charge . meubles: 
+  formule: table de nuit + armoire
+
+ferry . charge . table de nuit:
+  formule: 10
+  unité: kg
+ferry . charge . armoire:
+  formule: 80
+  unité: kg
+
+ferry . charge . salle de bain: 
+  formule: lavabo + douche + eau
+
+ferry . charge . lavabo: 
+  formule: 50
+  unité: kg
+ferry . charge . douche:
+  formule: 100
+  unité: kg
+ferry . charge . eau: 
+  formule: 50 * 4
+  note: Une douche par personne, 50l par douche.
+  référnces: 
+    - https://www.m-habitat.fr/plomberie-et-eau/consommation-d-eau/quelle-est-la-consommation-en-eau-d-une-douche-902_A
+
+ferry . charge . lits:
+  formule: (lits superposés + matelas) * 2
+ferry . charge . lits superposés:
+  formule: 50
+  note: On retient un ordre de grandeur de 50kg, basé sur le 1er trouvé sur Google, un lit en bois conforama qui donne 55,7kg.
+  références: 
+    - https://www.conforama.fr/enfant-bebe/chambre-enfant/lit-enfant/lits-superposes-90x190-cm-andy-coloris-gris/p/655558
+ferry . charge . matelas:
+  formule: 15 * 2
+  note: Matelas en mousse, le 1er trouvé sur Google.
+  références: 
+    - https://www.conforama.fr/chambre-literie/literie/literie-de-relaxation/matelas-mousse-90x190-cm-dunlopillo-precious-moment/p/561951
+
+
+
