@@ -2352,6 +2352,7 @@ terrasse chauffée . empreinte . électrique:
 
 
 numérique:
+
 numérique . vidéo:
   titre: Une vidéo en ligne
   exposé: oui
@@ -2399,7 +2400,7 @@ numérique . vidéo . poids:
 giga: 
   formule: 1000 * 1000 * 1000
 
-numérique . serveurs :
+numérique . serveurs:
   formule: intensité * vidéo . poids
   description: |
     Titre original : "Energy Impact due to Data Centers (in kWh/byte)"
@@ -2414,6 +2415,15 @@ numérique . réseau:
 numérique . réseau . intensité:
   formule: (filaire + wifi + mobile) / 3
 
+numérique . appareil . type:
+  question: Quel type d'appareil utilisez-vous ?
+  par défaut: smartphone
+  formule: 
+    une possibilité: 
+      choix obligatoire: oui
+      possibilités:
+        - smartphone
+        - ordinateur portable
 numérique . réseau . intensité . filaire:
   unité: kWh/octet
   formule: 0.000000000429
@@ -2422,6 +2432,8 @@ numérique . réseau . intensité . filaire:
 numérique . réseau . intensité . wifi:
   unité: kWh/octet
   formule: 0.000000000152
+  note: |
+    Ce chiffre est étonnant, peut-être que les auteurs voulaient parler d'un Wifi partagé par des dizaines de personnes par jour, par exemple dans un café.
   description: |
     Titre original : "FAN WIFI"
 numérique . réseau . intensité . mobile:
@@ -2431,18 +2443,33 @@ numérique . réseau . intensité . mobile:
     Titre original : "Mobile Network"
 
 numérique . appareil:
+  description: L'ordinateur ou le téléphone utilisé qui réceptionne la donnée.
   formule: intensité * vidéo . durée
 
 numérique . appareil . intensité:
-  formule: (smartphone + ordinateur portable) / 2
+  unité: kWh/minute
+  formule:
+    correspondance: 
+      variable: type
+      tableau:
+        smartphone: 0.00011
+        ordinateur portable: 0.00032
+
   description: |
     Titre original : "Energy Impact (in kWh/min)" 
-numérique . appareil . intensité . smartphone:
-  unité: kWh/minute
-  formule: 0.00011
-numérique . appareil . intensité . ordinateur portable:
-  unité: kWh/minute
-  formule: 0.00032
+
+numérique . appareil . type:
+  question: Quel type d'appareil utilisez-vous ?
+  par défaut: smartphone
+  formule: 
+    une possibilité: 
+      choix obligatoire: oui
+      possibilités:
+        - smartphone
+        - ordinateur portable
+
+numérique . appareil . type . smartphone:
+numérique . appareil . type . ordinateur portable:
 
 numérique . téléphone journée:
   titre: Utiliser mon téléphone
