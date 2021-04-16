@@ -2816,10 +2816,20 @@ piscine . empreinte:
 
 piscine . traitement chimique:
   formule: 0
+
+piscine . eau chauffée:
+  question: Chauffez-vous votre piscine ?
+  par défaut: non
 piscine . chauffage:
-  formule: 0
+  applicable si: eau chauffée
+  formule: 100
 piscine . consommation d'eau:
-  formule: 0
+  formule: surface * 3 * 10
+piscine . surface:
+  question: Quelle est la surface de votre piscine ?
+  note: Par défaut, 6x4m, dont 20m²
+  par défaut: 20
+  unité: m²
 
 piscine . pompe de filtrage: 
   formule: puissance * heures d'utilisation
@@ -2831,7 +2841,9 @@ piscine . pompe de filtrage . heures d'utilisation:
 piscine . pompe de filtrage . heures d'utilisation . par jour actif:
   formule: 12
 piscine . pompe de filtrage . heures d'utilisation . mois d'activité:
-  formule: 6
+  par défaut: 6
+  question: Combien de mois par an utilisez-vous votre piscine ?
+  unité: mois
 piscine . pompe de filtrage . empreinte électricité:
   unité: kgCO₂e/kWh
   formule: 0.08
