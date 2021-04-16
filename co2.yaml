@@ -2617,6 +2617,7 @@ logement . chauffage . facteur d'émission . électricité:
 
 jardin:
   icônes: 🏡
+  desctiption: Un jardin, c'est souvent une pelouse sur l'essentiel de la surface, et une pelouse est souvent entrenue de façon artificielle.
 jardin . impact:
   exposé: oui
   catégorie: logement
