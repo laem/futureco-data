@@ -2794,3 +2794,57 @@ emballages . conserve chili con carne . contenu . poids:
 
 
 
+
+piscine:
+  titre: Piscine de jardin
+  icônes: 🏠🏊
+  
+
+piscine . empreinte:
+  exposé: oui
+  catégorie: logement
+  icônes: 🏠🏊
+  titre: Une piscine privée
+  unité: kgCO²
+  formule:
+    somme:
+      - consommation d'eau
+      - chauffage
+      - traitement chimique
+      - pompe de filtrage
+      - construction
+
+piscine . traitement chimique:
+  formule: 0
+piscine . chauffage:
+  formule: 0
+piscine . consommation d'eau:
+  formule: 0
+
+piscine . pompe de filtrage: 
+  formule: puissance * heures d'utilisation
+piscine . pompe de filtrage . puissance:
+  formule: 0.75
+  unité: kWh
+piscine . pompe de filtrage . heures d'utilisation:
+  formule: mois d'activité * 30 * par jour actif
+piscine . pompe de filtrage . heures d'utilisation . par jour actif:
+  formule: 12
+piscine . pompe de filtrage . heures d'utilisation . mois d'activité:
+  formule: 6
+piscine . pompe de filtrage . empreinte électricité:
+  unité: kgCO₂e/kWh
+  formule: 0.08
+  description: Intensité moyenne du mix électrique français.
+
+piscine . construction:
+  formule: empreinte / durée de vie
+piscine . construction . empreinte:
+  formule: 10000
+  unité: kgCO²
+  note: Estimation au doigt mouillé
+piscine . construction . durée de vie:
+  formule: 30
+  unité: ans
+  note: Estimation au doigt mouillé
+
