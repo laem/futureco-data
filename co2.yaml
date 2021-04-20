@@ -2822,6 +2822,10 @@ piscine . empreinte:
     > Le bilan carbone annuel de l’exploitation d’une piscine s’élève à environ 250 kg de CO2 pour une piscine de taille moyenne de 8x4 m, soit moins d’un aller-retour Paris/Marseille en voiture (env. 260 kg).
 
     Voici les limites de notre calcul : 
+      - nos chiffres pour la construction sont au pif
+      - nous n'avons pas pris en compte la fabrication de la pompe / de l'abri qui lui est souvent nécessaire
+      - ni encore de la bâche de recouvrement de la piscine
+      - nous n'avons pas l'empreinte du chlore en kgCO2e/kg
 
   références: 
     FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
@@ -2847,7 +2851,13 @@ piscine . eau chauffée:
   par défaut: non
 piscine . chauffage:
   applicable si: eau chauffée
-  formule: 100
+  formule: 11475 * empreinte électricité
+  unité: kgCO₂e
+  note: |
+    > D’autant plus qu’une piscine chauffée utilisée sans excès consomme normalement dans les 11 475kWh par année.
+
+  références: 
+    L’énergie requise pour la mise en marche de la piscine: https://www.fournisseurs-electricite.com/guides/consommation/piscine-chauffee
 piscine . empreinte eau froide:
   formule: volume * eau . impact par litre froid:
 
@@ -2878,7 +2888,7 @@ piscine . pompe de filtrage . heures d'utilisation . mois d'activité:
   par défaut: 6
   question: Combien de mois par an utilisez-vous votre piscine ?
   unité: mois
-piscine . pompe de filtrage . empreinte électricité:
+piscine . empreinte électricité:
   unité: kgCO₂e/kWh
   formule: 0.08
   description: Intensité moyenne du mix électrique français.
