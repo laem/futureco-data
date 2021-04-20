@@ -2797,6 +2797,9 @@ emballages . conserve chili con carne . contenu . poids:
 
 piscine:
   titre: Piscine de jardin
+  description: Il y a 2,5 millions de piscines individuelles en France !
+  références: 
+    Fédération des Professionnels de la Piscine: https://www.propiscines.fr/piscine-secteur/marche-piscine
   icônes: 🏠🏊
   
 
@@ -2808,11 +2811,17 @@ piscine . empreinte:
   unité: kgCO²
   formule:
     somme:
-      - consommation d'eau
+      - empreinte eau froide
       - chauffage
       - traitement chimique
       - pompe de filtrage
       - construction
+  note: |
+    La FPP parle d'un bilan carbone réalisé pour elle donnant un chiffre, mais nous n'avons aucune informations sur ce rapport bien caché.
+
+    > Le bilan carbone annuel de l’exploitation d’une piscine s’élève à environ 250 kg de CO2 pour une piscine de taille moyenne de 8x4 m, soit moins d’un aller-retour Paris/Marseille en voiture (env. 260 kg).
+  références: 
+    FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
 
 piscine . traitement chimique:
   formule: 0
@@ -2823,14 +2832,23 @@ piscine . eau chauffée:
 piscine . chauffage:
   applicable si: eau chauffée
   formule: 100
-piscine . consommation d'eau:
-  formule: surface * 3 * 10
+piscine . empreinte eau froide:
+  formule: volume * eau . impact par litre froid:
+
 piscine . surface:
   question: Quelle est la surface de votre piscine ?
   note: Par défaut, 6x4m, dont 20m²
   par défaut: 20
   unité: m²
 
+piscine . profondeur:
+  formule: 2
+  unité: m
+  note: Nous partons sur une profondeur moyenne d'eau de 1m50, par exemple une pente linéaire de 1m à 2m.
+
+piscine . volume: 
+  formule: profondeur * surface
+  unité: m3
 piscine . pompe de filtrage: 
   formule: puissance * heures d'utilisation
 piscine . pompe de filtrage . puissance:
