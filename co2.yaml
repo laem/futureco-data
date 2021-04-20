@@ -2823,7 +2823,7 @@ piscine . empreinte:
 
     Voici les limites de notre calcul : 
       - nos chiffres pour la construction sont au pif
-      - nous n'avons pas pris en compte la fabrication de la pompe / de l'abri qui lui est souvent nécessaire
+      - nous n'avons pas pris en compte la fabrication de la pompe / de l'abri qui lui est souvent nécessaire / le robot d'entretien
       - ni encore de la bâche de recouvrement de la piscine
       - nous n'avons pas l'empreinte du chlore en kgCO2e/kg
 
@@ -2832,6 +2832,7 @@ piscine . empreinte:
 
 piscine . traitement chimique:
   formule: empreinte chlore * 5
+  unité: kgCO₂e
   note: |
     Pour l'instant, on ignore les autres produits que le chlore et on utilise cet ordre de grandeur de prix.
 
@@ -2849,17 +2850,29 @@ piscine . empreinte chlore:
 piscine . eau chauffée:
   question: Chauffez-vous votre piscine ?
   par défaut: non
+
+
+piscine . chauffage . prorata période:
+  formule: pompe de filtrage . utilisation . mois d'activité / 6
 piscine . chauffage:
   applicable si: eau chauffée
-  formule: 11475 * empreinte électricité
+  formule: 11475 * empreinte électricité * prorata période
   unité: kgCO₂e
   note: |
     > D’autant plus qu’une piscine chauffée utilisée sans excès consomme normalement dans les 11 475kWh par année.
 
+    Cependant, il semble exister [3 types de chauffage](https://selectra.info/energie/guides/conso/piscine) : électrique, gaz ou pompe à chaleur. Le gaz doit être 4x plus émetteur en termes d'empreinte, la PAC 4x moins.
+
+    Cette estimation dépend évidemment de la région.
+
+    Pour la pompe à chaleur, on lit [ici](https://www.oklyn.fr/blog/consommation-electrique-piscine/) : 
+
+    > Le magazine Capital a estimé la consommation électrique d’une pompe à chaleur de piscine à 1570 kWh, soit 230€. Même estimation par PiscineSpa avec le même chiffre de 1570 kWh en 2015.
+
   références: 
     L’énergie requise pour la mise en marche de la piscine: https://www.fournisseurs-electricite.com/guides/consommation/piscine-chauffee
 piscine . empreinte eau froide:
-  formule: volume * eau . impact par litre froid:
+  formule: volume * eau . impact par litre froid
 
 piscine . surface:
   question: Quelle est la surface de votre piscine ?
@@ -2873,18 +2886,21 @@ piscine . profondeur:
   note: Nous partons sur une profondeur moyenne d'eau de 1m50, par exemple une pente linéaire de 1m à 2m.
 
 piscine . volume: 
-  formule: profondeur * surface
-  unité: m3
+  formule: profondeur * surface * 1000
+  unité: l
 piscine . pompe de filtrage: 
-  formule: puissance * heures d'utilisation
+  formule: puissance * utilisation . heures * empreinte électricité
+  unité: kgCO₂e
+
 piscine . pompe de filtrage . puissance:
   formule: 0.75
   unité: kW
-piscine . pompe de filtrage . heures d'utilisation:
+piscine . pompe de filtrage . utilisation . heures:
   formule: mois d'activité * 30 * par jour actif
-piscine . pompe de filtrage . heures d'utilisation . par jour actif:
+  unité: h
+piscine . pompe de filtrage . utilisation . par jour actif:
   formule: 12
-piscine . pompe de filtrage . heures d'utilisation . mois d'activité:
+piscine . pompe de filtrage . utilisation . mois d'activité:
   par défaut: 6
   question: Combien de mois par an utilisez-vous votre piscine ?
   unité: mois
