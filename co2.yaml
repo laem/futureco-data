@@ -2808,7 +2808,7 @@ piscine . empreinte:
   catégorie: logement
   icônes: 🏠🏊
   titre: Une piscine privée
-  unité: kgCO²
+  unité: kgCO₂e
   formule:
     somme:
       - empreinte eau froide
@@ -2824,7 +2824,20 @@ piscine . empreinte:
     FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
 
 piscine . traitement chimique:
-  formule: 0
+  formule: empreinte chlore * 5
+  note: |
+    Pour l'instant, on ignore les autres produits que le chlore et on utilise cet ordre de grandeur de prix.
+
+    On a trouvé au 20 avril 2021 des prix de 35€/5kg de chlore piscine, donc ~4 kilos par an, ce qui correspond au dimensionnement des paquets pour un an d'utilisation.
+
+    > Si vous optez pour un traitement au chlore, vous devrez compter sur un budget annuel d’environ 150 € de chlore, 20 € de produit floculant, 30 € de produit anticalcaire, et enfin 30 € de produit pour rééquilibrer le pH, ce qui correspond à un budget annuel d’environ 230 €
+  références: 
+    guide-piscine.fr: https://www.guide-piscine.fr/entretien-general-piscine/cout-entretien-piscine-estimation-du-prix-des-tarifs-837_A
+
+piscine . empreinte chlore:
+  formule: 1
+  unité: kgCO₂e/kg
+  note: Nous n'avons **pas trouvé** l'empreinte du chlore de piscine.
 
 piscine . eau chauffée:
   question: Chauffez-vous votre piscine ?
@@ -2871,7 +2884,7 @@ piscine . construction:
   formule: empreinte / durée de vie
 piscine . construction . empreinte:
   formule: 10000
-  unité: kgCO²
+  unité: kgCO₂e
   note: Estimation au doigt mouillé
 piscine . construction . durée de vie:
   formule: 30
