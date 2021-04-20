@@ -2820,6 +2820,9 @@ piscine . empreinte:
     La FPP parle d'un bilan carbone réalisé pour elle donnant un chiffre, mais nous n'avons aucune informations sur ce rapport bien caché.
 
     > Le bilan carbone annuel de l’exploitation d’une piscine s’élève à environ 250 kg de CO2 pour une piscine de taille moyenne de 8x4 m, soit moins d’un aller-retour Paris/Marseille en voiture (env. 260 kg).
+
+    Voici les limites de notre calcul : 
+
   références: 
     FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
 
@@ -2866,7 +2869,7 @@ piscine . pompe de filtrage:
   formule: puissance * heures d'utilisation
 piscine . pompe de filtrage . puissance:
   formule: 0.75
-  unité: kWh
+  unité: kW
 piscine . pompe de filtrage . heures d'utilisation:
   formule: mois d'activité * 30 * par jour actif
 piscine . pompe de filtrage . heures d'utilisation . par jour actif:
@@ -2883,9 +2886,9 @@ piscine . pompe de filtrage . empreinte électricité:
 piscine . construction:
   formule: empreinte / durée de vie
 piscine . construction . empreinte:
-  formule: 10000
+  formule: 4000
   unité: kgCO₂e
-  note: Estimation au doigt mouillé
+  note: C'est une estimation au doigt mouillé, basé sur le fait qu'il faut des travaux importants pour installer une piscine.
 piscine . construction . durée de vie:
   formule: 30
   unité: ans
