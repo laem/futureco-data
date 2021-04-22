@@ -1243,7 +1243,6 @@ maison . construction:
 
     Ce chiffre est cohérent avec [les données de la base carbone](http://www.basecarbone.fr/fr/accueil/documentation-gene/index/page/Batiments) : pour une maison de ~150m², 80 tonnes à la construction donne un facteur d'émission au m² de l'ordre de 500kg.
 
-
     Prochaine étape : faire varier cet impact e' fonction de la taille et des matériaux de construction, notamment le bois qui pourrait bien avoir un impact neutre.
   formule: impact / occupants
   unité: kgCO₂e
@@ -2793,4 +2792,150 @@ emballages . conserve chili con carne . contenu . poids:
 
 
 
+
+
+piscine:
+  titre: Piscine de jardin
+  description: Il y a 2,5 millions de piscines individuelles en France ! 
+  références: 
+    Fédération des Professionnels de la Piscine: https://www.propiscines.fr/piscine-secteur/marche-piscine
+  icônes: 🏠🏊
+  
+
+piscine . empreinte:
+  exposé: oui
+  catégorie: logement
+  icônes: 🏠🏊
+  titre: Une piscine privée
+  unité: kgCO₂e
+  formule:
+    somme:
+      - empreinte eau froide
+      - chauffage
+      - traitement chimique
+      - pompe de filtrage
+      - construction
+  note: |
+    La FPP parle d'un bilan carbone réalisé pour elle donnant un chiffre, mais nous n'avons aucune informations sur ce rapport bien caché.
+
+    > Le bilan carbone annuel de l’exploitation d’une piscine s’élève à environ 250 kg de CO2 pour une piscine de taille moyenne de 8x4 m, soit moins d’un aller-retour Paris/Marseille en voiture (env. 260 kg).
+
+    Attention, il s'agit ici d'un calcul pour une piscine privée de jardin "en dur", creusée dans le sol, pas d'une piscine éphémère en plastique.
+
+    Voici les limites de notre calcul : 
+      - notre estimation de l'empreinte de construction est basée sur la construction d'une maison
+      - nous n'avons pas pris en compte la fabrication de la pompe / de l'abri qui lui est souvent nécessaire / le robot d'entretien
+      - ni encore de la bâche de recouvrement de la piscine
+      - nous n'avons pas l'empreinte du chlore en kgCO2e/kg
+      
+
+  références: 
+    FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
+
+piscine . traitement chimique:
+  formule: empreinte chlore * 5
+  unité: kgCO₂e
+  note: |
+    Pour l'instant, on ignore les autres produits que le chlore et on utilise cet ordre de grandeur de prix.
+
+    On a trouvé au 20 avril 2021 des prix de 35€/5kg de chlore piscine, donc ~4 kilos par an, ce qui correspond au dimensionnement des paquets pour un an d'utilisation.
+
+    > Si vous optez pour un traitement au chlore, vous devrez compter sur un budget annuel d’environ 150 € de chlore, 20 € de produit floculant, 30 € de produit anticalcaire, et enfin 30 € de produit pour rééquilibrer le pH, ce qui correspond à un budget annuel d’environ 230 €
+  références: 
+    guide-piscine.fr: https://www.guide-piscine.fr/entretien-general-piscine/cout-entretien-piscine-estimation-du-prix-des-tarifs-837_A
+
+piscine . empreinte chlore:
+  formule: 1
+  unité: kgCO₂e/kg
+  note: Nous n'avons **pas trouvé** l'empreinte du chlore de piscine.
+
+piscine . eau chauffée:
+  question: Chauffez-vous votre piscine ?
+  par défaut: non
+
+
+piscine . chauffage . prorata période:
+  formule: pompe de filtrage . utilisation . mois d'activité / 6
+piscine . chauffage:
+  applicable si: eau chauffée
+  formule: 11475 * empreinte électricité * prorata période
+  unité: kgCO₂e
+  note: |
+    > D’autant plus qu’une piscine chauffée utilisée sans excès consomme normalement dans les 11 475kWh par année.
+
+    Cependant, il semble exister [3 types de chauffage](https://selectra.info/energie/guides/conso/piscine) : électrique, gaz ou pompe à chaleur. Le gaz doit être 4x plus émetteur en termes d'empreinte, la PAC 4x moins.
+
+    Cette estimation dépend évidemment de la région.
+
+    Pour la pompe à chaleur, on lit [ici](https://www.oklyn.fr/blog/consommation-electrique-piscine/) : 
+
+    > Le magazine Capital a estimé la consommation électrique d’une pompe à chaleur de piscine à 1570 kWh, soit 230€. Même estimation par PiscineSpa avec le même chiffre de 1570 kWh en 2015.
+
+  références: 
+    L’énergie requise pour la mise en marche de la piscine: https://www.fournisseurs-electricite.com/guides/consommation/piscine-chauffee
+piscine . empreinte eau froide:
+  formule: volume * eau . impact par litre froid
+
+piscine . surface:
+  question: Quelle est la surface de votre piscine ?
+  note: Par défaut, 8x4m, donc 32m²
+  par défaut: 32
+  unité: m²
+  note: |
+    > Du très classique rectangle 8X4 mètres aux piscines de taille plus modeste 7×3,5 m, ou plus imposante, 9×4,5m et plus, il existe nombre de déclinaisons possibles. Une piscine de  8 m X 4 m semble suffisante pour un usage familial tout en limitant l’entretien et le volume d’eau à traiter. C’est un bon compromis prix/surface.
+  référence: 
+    quelle piscine choisir: https://www.jardipartage.fr/quelle-piscine-choisir
+
+piscine . profondeur:
+  formule: 2
+  unité: m
+  note: Nous partons sur une profondeur moyenne d'eau de 1m50, par exemple une pente linéaire de 1m à 2m.
+
+piscine . volume: 
+  formule: profondeur * surface * 1000
+  unité: l
+piscine . pompe de filtrage: 
+  formule: puissance * utilisation . heures * empreinte électricité
+  unité: kgCO₂e
+
+piscine . pompe de filtrage . puissance:
+  formule: 0.75
+  unité: kW
+piscine . pompe de filtrage . utilisation . heures:
+  formule: mois d'activité * 30 * par jour actif
+  unité: h
+piscine . pompe de filtrage . utilisation . par jour actif:
+  formule: 12
+piscine . pompe de filtrage . utilisation . mois d'activité:
+  par défaut: 6
+  question: Combien de mois par an utilisez-vous votre piscine ?
+  unité: mois
+piscine . empreinte électricité:
+  unité: kgCO₂e/kWh
+  formule: 0.08
+  description: Intensité moyenne du mix électrique français.
+
+piscine . construction:
+  formule: empreinte / durée de vie
+
+empreinte construction logement:
+  titre: Construction logement neuf béton et parpaing
+  formule: 600
+  unité: kgCO₂e/m²
+  note: Comme précisé dans la source "Guide animateur Inventons nos Vies Bas Carbone", la valeur de 600 est un ordre de grandeur très incertain.
+  références: 
+    Inventons nos vies bas carbone: https://d3n8a8pro7vhmx.cloudfront.net/resistanceclimatique/pages/115/attachments/original/1616151401/20210228_guide_de_l'animateur_kit_INVBC.pdf?1616151401#page=82
+piscine . construction . empreinte:
+  formule: empreinte construction logement * surface
+  unité: kgCO₂e
+  note: |
+    Pour estimer l'empreinte de la construction d'une piscine, nous prenons celle connue pour la construction d'une maison en béton. 
+
+    Comme pour une maison, pour construire une piscine il faut creuser (ce qui consomme de l'essence et utilise du matériel), poser une dalle de béton sur le fond et les murs, poser du plastique isolant, ainsi que paver les côtés de la piscine.
+    
+    Cette estimation est peut-être pessimiste, n'hésitez pas pas à décomposer les étapes de construction pour proposer mieux.
+piscine . construction . durée de vie:
+  formule: 30
+  unité: ans
+  note: Estimation au doigt mouillé.
 
