@@ -2878,10 +2878,10 @@ piscine . empreinte eau froide:
 
 piscine . surface:
   question: Quelle est la surface de votre piscine ?
-  note: Par défaut, 8x4m, donc 32m²
   par défaut: 32
   unité: m²
   note: |
+    Par défaut, 8x4m, donc 32m²
     > Du très classique rectangle 8X4 mètres aux piscines de taille plus modeste 7×3,5 m, ou plus imposante, 9×4,5m et plus, il existe nombre de déclinaisons possibles. Une piscine de  8 m X 4 m semble suffisante pour un usage familial tout en limitant l’entretien et le volume d’eau à traiter. C’est un bon compromis prix/surface.
   référence: 
     quelle piscine choisir: https://www.jardipartage.fr/quelle-piscine-choisir
@@ -2925,6 +2925,7 @@ empreinte construction logement:
   note: Comme précisé dans la source "Guide animateur Inventons nos Vies Bas Carbone", la valeur de 600 est un ordre de grandeur très incertain.
   références: 
     Inventons nos vies bas carbone: https://d3n8a8pro7vhmx.cloudfront.net/resistanceclimatique/pages/115/attachments/original/1616151401/20210228_guide_de_l'animateur_kit_INVBC.pdf?1616151401#page=82
+
 piscine . construction . empreinte:
   formule: empreinte construction logement * surface
   unité: kgCO₂e
