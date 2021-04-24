@@ -2827,6 +2827,8 @@ piscine . empreinte:
       - nous n'avons pas pris en compte la fabrication de la pompe / de l'abri qui lui est souvent nécessaire / le robot d'entretien
       - ni encore de la bâche de recouvrement de la piscine
       - nous n'avons pas l'empreinte du chlore en kgCO2e/kg
+
+    Notons enfin que la plupart des estimations de l'empreinte d'une piscine qui trainent sur le Web parlent de 200kg de CO2e/an, selon une étude pour la FPP (Fédération professionnelle des piscines) par l'ADEME, mais que ce modèle de calcul **n'est pas public**.
       
 
   références: 
