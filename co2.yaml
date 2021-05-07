@@ -2889,7 +2889,7 @@ piscine . surface:
     quelle piscine choisir: https://www.jardipartage.fr/quelle-piscine-choisir
 
 piscine . profondeur:
-  formule: 2
+  formule: 1.5
   unité: m
   note: Nous partons sur une profondeur moyenne d'eau de 1m50, par exemple une pente linéaire de 1m à 2m.
 
