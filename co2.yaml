@@ -2860,7 +2860,7 @@ piscine . chauffage . prorata période:
   formule: pompe de filtrage . utilisation . mois d'activité / 6
 piscine . chauffage:
   applicable si: eau chauffée
-  formule: 11475 * empreinte électricité * prorata période
+  formule: énergie * empreinte électricité * prorata période
   unité: kgCO₂e
   note: |
     > D’autant plus qu’une piscine chauffée utilisée sans excès consomme normalement dans les 11 475kWh par année.
@@ -2875,6 +2875,19 @@ piscine . chauffage:
 
   références: 
     L’énergie requise pour la mise en marche de la piscine: https://www.fournisseurs-electricite.com/guides/consommation/piscine-chauffee
+
+piscine . chauffage . énergie:
+  formule: 
+    variations: 
+      - si: pompe à chaleur 
+        alors: 1570
+      - sinon: 11475
+
+piscine . chauffage . pompe à chaleur:
+  question: Chauffez-vous la piscine avec une pompe à chaleur ?
+  par défaut: non
+  
+
 piscine . empreinte eau froide:
   formule: volume * eau . impact par litre froid
 
@@ -2887,6 +2900,7 @@ piscine . surface:
     > Du très classique rectangle 8X4 mètres aux piscines de taille plus modeste 7×3,5 m, ou plus imposante, 9×4,5m et plus, il existe nombre de déclinaisons possibles. Une piscine de  8 m X 4 m semble suffisante pour un usage familial tout en limitant l’entretien et le volume d’eau à traiter. C’est un bon compromis prix/surface.
   référence: 
     quelle piscine choisir: https://www.jardipartage.fr/quelle-piscine-choisir
+
 
 piscine . profondeur:
   formule: 1.5
