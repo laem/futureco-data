@@ -2985,7 +2985,24 @@ piscine . construction . surface plage:
   formule: 28
   unité: m²
 piscine . construction . terrassement:
-  formule: 0
+  formule: conso diesel * empreinte diesel
+piscine . construction . terrassement . empreinte diesel:
+  formule: 2.67
+  unité: kgCO2e/l
+piscine . construction . terrassement . conso diesel:
+  formule: 
+    somme: 
+      - pelleteuse
+      - chargeuse
+piscine . construction . terrassement . conso diesel . pelleteuse:
+  formule: 84
+  description: Pelleteuse de 9t
+  unité: l
+piscine . construction . terrassement . conso diesel . chargeuse:
+  formule: 34
+  description: Chargeuse de 3t
+  unité: l
+
 piscine . surface type:
   formule: 32
   description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
