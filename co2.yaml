@@ -2932,7 +2932,7 @@ piscine . empreinte électricité:
   description: Intensité moyenne du mix électrique français.
 
 piscine . construction:
-  formule: empreinte / durée de vie
+  formule: empreinte empirique / durée de vie
 
 empreinte construction logement:
   titre: Construction logement neuf béton et parpaing
@@ -2942,7 +2942,7 @@ empreinte construction logement:
   références: 
     Inventons nos vies bas carbone: https://d3n8a8pro7vhmx.cloudfront.net/resistanceclimatique/pages/115/attachments/original/1616151401/20210228_guide_de_l'animateur_kit_INVBC.pdf?1616151401#page=82
 
-piscine . construction . empreinte:
+piscine . construction . empreinte théorique:
   formule: empreinte construction logement * surface
   unité: kgCO₂e
   note: |
@@ -2951,8 +2951,71 @@ piscine . construction . empreinte:
     Comme pour une maison, pour construire une piscine il faut creuser (ce qui consomme de l'essence et utilise du matériel), poser une dalle de béton sur le fond et les murs, poser du plastique isolant, ainsi que paver les côtés de la piscine.
     
     Cette estimation est peut-être pessimiste, n'hésitez pas pas à décomposer les étapes de construction pour proposer mieux.
+
 piscine . construction . durée de vie:
   formule: 30
   unité: ans
   note: Estimation au doigt mouillé.
 
+piscine . construction . empreinte empirique:
+  formule: 
+    somme: 
+      - maçonnerie
+      - étanchéité
+      - abri
+
+piscine . construction . étanchéité:
+  formule: 0
+piscine . construction . maçonnerie:
+  formule: 
+    somme:
+      - béton
+      - pierre
+      - terrassement
+
+piscine . construction . pierre:
+  formule: 0
+piscine . construction . terrassement:
+  formule: 0
+piscine . surface type:
+  formule: 32
+  description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
+  références: 
+    - https://twitter.com/ObjectifZero/status/1392179434900316165/photo/1
+piscine . construction . béton:
+  formule: masse * empreinte
+
+piscine . construction . béton . masse:
+  formule: masse type * (surface / surface type)
+  unité: kg
+piscine . construction . béton . masse type:
+  formule: volume type * masse volumique
+piscine . construction . béton . masse volumique:
+  formule: 2300
+  unité: kg/m3
+  références: 
+    - http://www.fao.org/3/v5270f/V5270F0b.htm
+    - https://www.toutsurlebeton.fr/le-ba-ba-du-beton/masse-volumique-du-beton-et-de-ses-constituants/
+piscine . construction . béton . volume type:
+  formule: volume parallélépipède + volume plage
+
+piscine . construction . béton . volume parallélépipède:
+  formule: surface * épaisseur
+  unité: m3
+piscine . construction . béton . volume plage:
+  formule: 3.6
+  unité: m3
+piscine . construction . béton . épaisseur:
+  formule: 0.22
+  unité: m
+piscine . construction . béton . surface:
+  formule: 64
+  unité: m²
+piscine . construction . béton . empreinte:
+  formule: 155
+  unité: kgCO2e/kg
+
+
+piscine . construction . abri: 
+  formule: 0
+  description: A implémenter, poser une question si abri.
