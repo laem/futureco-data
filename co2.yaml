@@ -2970,11 +2970,20 @@ piscine . construction . maçonnerie:
   formule: 
     somme:
       - béton
-      - pierre
+      - plage pierre
       - terrassement
 
-piscine . construction . pierre:
-  formule: 0
+piscine . construction . plage pierre:
+  titre: Plage en pierre
+  description: La plage est la zone autour de la piscine où l'on marche pieds nus et où l'on se prélasse dans des transats.
+  formule: surface plage * empreinte pierre
+
+piscine . construction . empreinte pierre:
+  formule: 0.128
+  unité: kgCO2e/m²
+piscine . construction . surface plage:
+  formule: 28
+  unité: m²
 piscine . construction . terrassement:
   formule: 0
 piscine . surface type:
