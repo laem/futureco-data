@@ -2820,6 +2820,8 @@ piscine . empreinte:
 
     > Le bilan carbone annuel de l’exploitation d’une piscine s’élève à environ 250 kg de CO2 pour une piscine de taille moyenne de 8x4 m, soit moins d’un aller-retour Paris/Marseille en voiture (env. 260 kg).
 
+    La plupart des estimations de l'empreinte d'une piscine qui trainent sur le Web parlent de 200kg de CO2e/an, selon une étude pour la FPP (Fédération professionnelle des piscines) par l'ADEME, mais que ce modèle de calcul **n'est pas public**. Néanmoins, notre calcul concorde donc en ordre de grandeur avec celui de la FPP.
+
     Attention, il s'agit ici d'un calcul pour une piscine privée de jardin "en dur", creusée dans le sol, pas d'une piscine éphémère en plastique.
 
     Voici les limites de notre calcul : 
@@ -2830,7 +2832,9 @@ piscine . empreinte:
     
     Notons aussi que le résultat final est largemnet dépendant de la durée d'amortissement, fixée à 30 ans, car l'empreinte à l'usage est largement réduite par la disponibilité de l'électricité décarbonée du mix français. 
 
-    Notons enfin que la plupart des estimations de l'empreinte d'une piscine qui trainent sur le Web parlent de 200kg de CO2e/an, selon une étude pour la FPP (Fédération professionnelle des piscines) par l'ADEME, mais que ce modèle de calcul **n'est pas public**. Néanmoins, notre calcul concorde donc en ordre de grandeur avec celui de la FPP.
+    Une ACV états-unienne ne parle pas de la construction mais met en évidence l'impact énorme de l'évaporation, qui varie selon le climat https://twitter.com/ThomasGibon/status/1392895566003286021/photo/1. Nous n'avons pas encore étudié et pris en compte ce facteur pour le cas de la France. Pourquoi évaporation => bcp plus de pompage ? On pourrait à l'inverse comprendre que évaporation => plus d'eau neuve du réseau => moins de pompage. A creuser.
+
+
 
   références: 
     FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
