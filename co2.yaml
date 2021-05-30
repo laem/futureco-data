@@ -2962,10 +2962,38 @@ piscine . construction . empreinte empirique:
     somme: 
       - maçonnerie
       - étanchéité
+      - équipement nautique
       - abri
 
+piscine . construction . équipement nautique:
+  description: |
+    On considère le skimmer, la lampe, la prise d'aspiration , le coffre "technique" entérré , le tuyau de 10m pour la brosse balai.
+
+    On simplifie tout cela en 20kg de PVC PEHD, soit 45kgCO2e
+  formule: 45
+  unité: kgCO2e
+
 piscine . construction . étanchéité:
-  formule: 0
+  formule: 
+    somme: 
+      - liner
+
+piscine . construction . étanchéité . liner:
+  formule: empreinte PVC * surface * quantité 
+
+piscine . construction . étanchéité . liner . empreinte PVC:
+  formule: 0.350
+  unité: kgCO2e/m²
+
+piscine . construction . étanchéité . liner . quantité:
+  formule: piscine . construction . durée de vie / durée de vie
+piscine . construction . étanchéité . liner . durée de vie:
+  titre: Durée de vie du liner
+  formule: 10
+  unité: ans
+piscine . construction . étanchéité . liner . surface:
+  formule: type . surface . parallélépipède * correcteur surface type
+
 piscine . construction . maçonnerie:
   formule: 
     somme:
@@ -3003,12 +3031,6 @@ piscine . construction . terrassement . conso diesel . chargeuse:
   description: Chargeuse de 3t
   unité: l
 
-piscine . surface type:
-  formule: 32
-  description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
-  références: 
-    - https://twitter.com/ObjectifZero/status/1392179434900316165/photo/1
-
 piscine . construction . béton:
   formule: masse * empreinte
 
@@ -3017,9 +3039,11 @@ piscine . construction . béton . empreinte:
   unité: kgCO2e/kg
 
 piscine . construction . béton . masse:
-  formule: type . masse * (surface / surface type)
+  formule: type . masse * correcteur surface type
   unité: kg
 
+piscine . correcteur surface type:
+  formule: surface / type . surface
 piscine . construction . béton . type:
   description: |
     On considère une piscine de 8m x 4m x une profondeur moyenne de 1,5m (2 au bout et 1 à l'autre bout, descente linéaire).
@@ -3043,10 +3067,22 @@ piscine . construction . béton . type . volume plage:
 piscine . construction . béton . type . épaisseur:
   formule: 0.22
   unité: m
-piscine . construction . béton . type . surface . murs:
+piscine . type:
+  description: Pour faire le calcul, nous partons d'une piscine type pour laquelle nous disposons de données réelles de constructions notées lors du chantier.
+
+piscine . type . surface:
+  formule: 32
+  unité: m²
+  description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
+  références: 
+    - https://twitter.com/ObjectifZero/status/1392179434900316165/photo/1
+
+piscine . type . surface . murs:
   formule: 1.5 * (8 + 4 + 8 + 4)
-piscine . construction . béton . type . surface:
-  formule: surface type + murs
+  unité: m²
+
+piscine . type . surface . parallélépipède:
+  formule: surface + murs
   description: |
     On considère une piscine de 8m x 4m x une profondeur moyenne de 1,5m (2 au bout et 1 à l'autre bout, descente linéaire).
 
