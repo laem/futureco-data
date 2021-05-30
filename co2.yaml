@@ -2820,16 +2820,21 @@ piscine . empreinte:
 
     > Le bilan carbone annuel de l’exploitation d’une piscine s’élève à environ 250 kg de CO2 pour une piscine de taille moyenne de 8x4 m, soit moins d’un aller-retour Paris/Marseille en voiture (env. 260 kg).
 
+    La plupart des estimations de l'empreinte d'une piscine qui trainent sur le Web parlent de 200kg de CO2e/an, selon une étude pour la FPP (Fédération professionnelle des piscines) par l'ADEME, mais que ce modèle de calcul **n'est pas public**. Néanmoins, notre calcul concorde donc en ordre de grandeur avec celui de la FPP.
+
     Attention, il s'agit ici d'un calcul pour une piscine privée de jardin "en dur", creusée dans le sol, pas d'une piscine éphémère en plastique.
 
     Voici les limites de notre calcul : 
-      - notre estimation de l'empreinte de construction est basée sur la construction d'une maison
-      - nous n'avons pas pris en compte la fabrication de la pompe / de l'abri qui lui est souvent nécessaire / le robot d'entretien
-      - ni encore de la bâche de recouvrement de la piscine
-      - nous n'avons pas l'empreinte du chlore en kgCO2e/kg
+      - notre estimation de l'empreinte de construction est basée sur le bilan d'un chantier d'une piscine de type béton de 32m²
+      - le calcul ne reflète donc pas la moyenne des piscines construites en France, mais un ordre de grandeur basé sur notre cas empirique
+      - nous n'avons pas encore pris en compte la bâche de recouvrement de la piscine, ou l'abri en verre 
+      - nous avons probablement oublié des dépenses, des déplacements, des renouvellements, des travaux divers
+    
+    Notons aussi que le résultat final est largemnet dépendant de la durée d'amortissement, fixée à 30 ans, car l'empreinte à l'usage est largement réduite par la disponibilité de l'électricité décarbonée du mix français. 
 
-    Notons enfin que la plupart des estimations de l'empreinte d'une piscine qui trainent sur le Web parlent de 200kg de CO2e/an, selon une étude pour la FPP (Fédération professionnelle des piscines) par l'ADEME, mais que ce modèle de calcul **n'est pas public**.
-      
+    Une ACV états-unienne ne parle pas de la construction mais met en évidence l'impact énorme de l'évaporation, qui varie selon le climat https://twitter.com/ThomasGibon/status/1392895566003286021/photo/1. Nous n'avons pas encore étudié et pris en compte ce facteur pour le cas de la France. Pourquoi évaporation => bcp plus de pompage ? On pourrait à l'inverse comprendre que évaporation => plus d'eau neuve du réseau => moins de pompage. A creuser.
+
+
 
   références: 
     FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
@@ -2840,16 +2845,20 @@ piscine . traitement chimique:
   note: |
     Pour l'instant, on ignore les autres produits que le chlore et on utilise cet ordre de grandeur de prix.
 
+
     On a trouvé au 20 avril 2021 des prix de 35€/5kg de chlore piscine, donc ~4 kilos par an, ce qui correspond au dimensionnement des paquets pour un an d'utilisation.
 
     > Si vous optez pour un traitement au chlore, vous devrez compter sur un budget annuel d’environ 150 € de chlore, 20 € de produit floculant, 30 € de produit anticalcaire, et enfin 30 € de produit pour rééquilibrer le pH, ce qui correspond à un budget annuel d’environ 230 €
+
+    On ignore aussi le transport du chlore acheté, en pratique souvent en voiture.
   références: 
     guide-piscine.fr: https://www.guide-piscine.fr/entretien-general-piscine/cout-entretien-piscine-estimation-du-prix-des-tarifs-837_A
 
 piscine . empreinte chlore:
-  formule: 1
+  formule: 0.740
   unité: kgCO₂e/kg
-  note: Nous n'avons **pas trouvé** l'empreinte du chlore de piscine.
+  note: Nous prenons l'empreinte du Cl2, chlore gazeux liquéfié dans le document en référence ci-dessous. 
+  références: https://www.oieau.org/eaudoc/system/files/documents/44/224151/224151_doc.pdf?page=31
 
 piscine . eau chauffée:
   question: Chauffez-vous votre piscine ?
@@ -2928,11 +2937,14 @@ piscine . pompe de filtrage . utilisation . mois d'activité:
   unité: mois
 piscine . empreinte électricité:
   unité: kgCO₂e/kWh
-  formule: 0.08
-  description: Intensité moyenne du mix électrique français.
+  formule: 0.0599
+  description: Intensité moyenne du mix électrique français 2020 base carbone ADEME.
+  note: Il serait peut-être pertinent de prendre l'empreinte du mix sur les mois d'utilisation de la piscine, l'hiver étant aujourd'hui le plus émetteur en France, et le moment le moins probable pour l'utilisation de la piscine.
+  références: 
+    - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element/categorie/64
 
 piscine . construction:
-  formule: empreinte / durée de vie
+  formule: empreinte empirique / durée de vie
 
 empreinte construction logement:
   titre: Construction logement neuf béton et parpaing
@@ -2942,7 +2954,7 @@ empreinte construction logement:
   références: 
     Inventons nos vies bas carbone: https://d3n8a8pro7vhmx.cloudfront.net/resistanceclimatique/pages/115/attachments/original/1616151401/20210228_guide_de_l'animateur_kit_INVBC.pdf?1616151401#page=82
 
-piscine . construction . empreinte:
+piscine . construction . empreinte théorique:
   formule: empreinte construction logement * surface
   unité: kgCO₂e
   note: |
@@ -2951,8 +2963,182 @@ piscine . construction . empreinte:
     Comme pour une maison, pour construire une piscine il faut creuser (ce qui consomme de l'essence et utilise du matériel), poser une dalle de béton sur le fond et les murs, poser du plastique isolant, ainsi que paver les côtés de la piscine.
     
     Cette estimation est peut-être pessimiste, n'hésitez pas pas à décomposer les étapes de construction pour proposer mieux.
+
 piscine . construction . durée de vie:
   formule: 30
   unité: ans
   note: Estimation au doigt mouillé.
 
+piscine . construction . empreinte empirique:
+  formule: 
+    somme: 
+      - maçonnerie
+      - étanchéité
+      - équipement nautique
+      - lot technique
+      - divers chantier
+      - abri
+
+piscine . construction . divers chantier:
+  formule: 
+    somme: 
+      - gasoil
+      - consommable
+      - livraison
+piscine . construction . divers chantier . gasoil:
+  formule: 192
+  unité: kgCO2e
+piscine . construction . divers chantier . consommable:
+  formule: 15
+  unité: kgCO2e
+piscine . construction . divers chantier . livraison:
+  formule: 150
+  unité: kgCO2e
+
+piscine . construction . lot technique:
+  formule: 
+    somme:
+      - pompe
+      - électricité
+      - hydraulique
+
+piscine . construction . lot technique . pompe:
+  formule: 270
+  unité: kgCO2e
+piscine . construction . lot technique . électricité:
+  formule: 35
+  description: Le bornier, les tuyaux, le cable électrique (20m), la gaine.
+  unité: kgCO2e
+piscine . construction . lot technique . hydraulique:
+  formule: 32
+  description: Les tuyaux de la piscine à la pompe, le matériel de régulation.
+  unité: kgCO2e
+
+piscine . construction . équipement nautique:
+  description: |
+    On considère le skimmer, la lampe, la prise d'aspiration , le coffre "technique" entérré , le tuyau de 10m pour la brosse balai.
+
+    On simplifie tout cela en 20kg de PVC PEHD, soit 45kgCO2e
+  formule: 45
+  unité: kgCO2e
+
+piscine . construction . étanchéité:
+  formule: 
+    somme: 
+      - liner
+
+piscine . construction . étanchéité . liner:
+  formule: empreinte PVC * surface * quantité 
+
+piscine . construction . étanchéité . liner . empreinte PVC:
+  formule: 0.350
+  unité: kgCO2e/m²
+
+piscine . construction . étanchéité . liner . quantité:
+  formule: piscine . construction . durée de vie / durée de vie
+piscine . construction . étanchéité . liner . durée de vie:
+  titre: Durée de vie du liner
+  formule: 10
+  unité: ans
+piscine . construction . étanchéité . liner . surface:
+  formule: type . surface . parallélépipède * correcteur surface type
+
+piscine . construction . maçonnerie:
+  formule: 
+    somme:
+      - béton
+      - plage pierre
+      - terrassement
+
+piscine . construction . plage pierre:
+  titre: Plage en pierre
+  description: La plage est la zone autour de la piscine où l'on marche pieds nus et où l'on se prélasse dans des transats.
+  formule: surface plage * empreinte pierre
+
+piscine . construction . empreinte pierre:
+  formule: 0.128
+  unité: kgCO2e/m²
+piscine . construction . surface plage:
+  formule: 28
+  unité: m²
+piscine . construction . terrassement:
+  formule: conso diesel * empreinte diesel
+piscine . construction . terrassement . empreinte diesel:
+  formule: 2.67
+  unité: kgCO2e/l
+piscine . construction . terrassement . conso diesel:
+  formule: 
+    somme: 
+      - pelleteuse
+      - chargeuse
+piscine . construction . terrassement . conso diesel . pelleteuse:
+  formule: 84
+  description: Pelleteuse de 9t
+  unité: l
+piscine . construction . terrassement . conso diesel . chargeuse:
+  formule: 34
+  description: Chargeuse de 3t
+  unité: l
+
+piscine . construction . béton:
+  formule: masse * empreinte
+
+piscine . construction . béton . empreinte:
+  formule: 0.155
+  unité: kgCO2e/kg
+
+piscine . construction . béton . masse:
+  formule: type . masse * correcteur surface type
+  unité: kg
+
+piscine . correcteur surface type:
+  formule: surface / type . surface
+piscine . construction . béton . type:
+  description: |
+    On considère une piscine de 8m x 4m x une profondeur moyenne de 1,5m (2 au bout et 1 à l'autre bout, descente linéaire).
+piscine . construction . béton . type . masse:
+  formule: volume * masse volumique
+piscine . construction . béton . masse volumique:
+  formule: 2300
+  unité: kg/m3
+  références: 
+    - http://www.fao.org/3/v5270f/V5270F0b.htm
+    - https://www.toutsurlebeton.fr/le-ba-ba-du-beton/masse-volumique-du-beton-et-de-ses-constituants/
+piscine . construction . béton . type . volume:
+  formule: volume parallélépipède + volume plage
+
+piscine . construction . béton . type . volume parallélépipède:
+  formule: surface * épaisseur
+  unité: m3
+piscine . construction . béton . type . volume plage:
+  formule: 3.6
+  unité: m3
+piscine . construction . béton . type . épaisseur:
+  formule: 0.22
+  unité: m
+piscine . type:
+  description: Pour faire le calcul, nous partons d'une piscine type pour laquelle nous disposons de données réelles de constructions notées lors du chantier.
+
+piscine . type . surface:
+  formule: 32
+  unité: m²
+  description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
+  références: 
+    - https://twitter.com/ObjectifZero/status/1392179434900316165/photo/1
+
+piscine . type . surface . murs:
+  formule: 1.5 * (8 + 4 + 8 + 4)
+  unité: m²
+
+piscine . type . surface . parallélépipède:
+  formule: surface + murs
+  description: |
+    On considère une piscine de 8m x 4m x une profondeur moyenne de 1,5m (2 au bout et 1 à l'autre bout, descente linéaire).
+
+    La surface de cette piscine type est de 32m² de fond ainsi que 36m² de murs.
+  unité: m²
+
+
+piscine . construction . abri: 
+  formule: 0
+  description: A implémenter, on pourra alors poser une question si abri, mais il faudra prendre en compte les gains en chauffage et filtrage.
