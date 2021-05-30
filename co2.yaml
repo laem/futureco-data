@@ -3008,38 +3008,50 @@ piscine . surface type:
   description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
   références: 
     - https://twitter.com/ObjectifZero/status/1392179434900316165/photo/1
+
 piscine . construction . béton:
   formule: masse * empreinte
 
+piscine . construction . béton . empreinte:
+  formule: 0.155
+  unité: kgCO2e/kg
+
 piscine . construction . béton . masse:
-  formule: masse type * (surface / surface type)
+  formule: type . masse * (surface / surface type)
   unité: kg
-piscine . construction . béton . masse type:
-  formule: volume type * masse volumique
+
+piscine . construction . béton . type:
+  description: |
+    On considère une piscine de 8m x 4m x une profondeur moyenne de 1,5m (2 au bout et 1 à l'autre bout, descente linéaire).
+piscine . construction . béton . type . masse:
+  formule: volume * masse volumique
 piscine . construction . béton . masse volumique:
   formule: 2300
   unité: kg/m3
   références: 
     - http://www.fao.org/3/v5270f/V5270F0b.htm
     - https://www.toutsurlebeton.fr/le-ba-ba-du-beton/masse-volumique-du-beton-et-de-ses-constituants/
-piscine . construction . béton . volume type:
+piscine . construction . béton . type . volume:
   formule: volume parallélépipède + volume plage
 
-piscine . construction . béton . volume parallélépipède:
+piscine . construction . béton . type . volume parallélépipède:
   formule: surface * épaisseur
   unité: m3
-piscine . construction . béton . volume plage:
+piscine . construction . béton . type . volume plage:
   formule: 3.6
   unité: m3
-piscine . construction . béton . épaisseur:
+piscine . construction . béton . type . épaisseur:
   formule: 0.22
   unité: m
-piscine . construction . béton . surface:
-  formule: 64
+piscine . construction . béton . type . surface . murs:
+  formule: 1.5 * (8 + 4 + 8 + 4)
+piscine . construction . béton . type . surface:
+  formule: surface type + murs
+  description: |
+    On considère une piscine de 8m x 4m x une profondeur moyenne de 1,5m (2 au bout et 1 à l'autre bout, descente linéaire).
+
+    La surface de cette piscine type est de 32m² de fond ainsi que 36m² de murs.
   unité: m²
-piscine . construction . béton . empreinte:
-  formule: 155
-  unité: kgCO2e/kg
 
 
 piscine . construction . abri: 
