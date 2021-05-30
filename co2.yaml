@@ -2823,13 +2823,14 @@ piscine . empreinte:
     Attention, il s'agit ici d'un calcul pour une piscine privée de jardin "en dur", creusée dans le sol, pas d'une piscine éphémère en plastique.
 
     Voici les limites de notre calcul : 
-      - notre estimation de l'empreinte de construction est basée sur la construction d'une maison
-      - nous n'avons pas pris en compte la fabrication de la pompe / de l'abri qui lui est souvent nécessaire / le robot d'entretien
-      - ni encore de la bâche de recouvrement de la piscine
-      - nous n'avons pas l'empreinte du chlore en kgCO2e/kg
+      - notre estimation de l'empreinte de construction est basée sur le bilan d'un chantier d'une piscine de type béton de 32m²
+      - le calcul ne reflète donc pas la moyenne des piscines construites en France, mais un ordre de grandeur basé sur notre cas empirique
+      - nous n'avons pas encore pris en compte la bâche de recouvrement de la piscine, ou l'abri en verre 
+      - nous avons probablement oublié des dépenses, des déplacements, des renouvellements, des travaux divers
+    
+    Notons aussi que le résultat final est largemnet dépendant de la durée d'amortissement, fixée à 30 ans, car l'empreinte à l'usage est largement réduite par la disponibilité de l'électricité décarbonée du mix français. 
 
-    Notons enfin que la plupart des estimations de l'empreinte d'une piscine qui trainent sur le Web parlent de 200kg de CO2e/an, selon une étude pour la FPP (Fédération professionnelle des piscines) par l'ADEME, mais que ce modèle de calcul **n'est pas public**.
-      
+    Notons enfin que la plupart des estimations de l'empreinte d'une piscine qui trainent sur le Web parlent de 200kg de CO2e/an, selon une étude pour la FPP (Fédération professionnelle des piscines) par l'ADEME, mais que ce modèle de calcul **n'est pas public**. Néanmoins, notre calcul concorde donc en ordre de grandeur avec celui de la FPP.
 
   références: 
     FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
