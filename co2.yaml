@@ -2968,7 +2968,24 @@ piscine . construction . empreinte empirique:
       - étanchéité
       - équipement nautique
       - lot technique
+      - divers chantier
       - abri
+
+piscine . construction . divers chantier:
+  formule: 
+    somme: 
+      - gasoil
+      - consommable
+      - livraison
+piscine . construction . divers chantier . gasoil:
+  formule: 192
+  unité: kgCO2e
+piscine . construction . divers chantier . consommable:
+  formule: 15
+  unité: kgCO2e
+piscine . construction . divers chantier . livraison:
+  formule: 150
+  unité: kgCO2e
 
 piscine . construction . lot technique:
   formule: 
