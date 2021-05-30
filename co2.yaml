@@ -2840,16 +2840,20 @@ piscine . traitement chimique:
   note: |
     Pour l'instant, on ignore les autres produits que le chlore et on utilise cet ordre de grandeur de prix.
 
+
     On a trouvé au 20 avril 2021 des prix de 35€/5kg de chlore piscine, donc ~4 kilos par an, ce qui correspond au dimensionnement des paquets pour un an d'utilisation.
 
     > Si vous optez pour un traitement au chlore, vous devrez compter sur un budget annuel d’environ 150 € de chlore, 20 € de produit floculant, 30 € de produit anticalcaire, et enfin 30 € de produit pour rééquilibrer le pH, ce qui correspond à un budget annuel d’environ 230 €
+
+    On ignore aussi le transport du chlore acheté, en pratique souvent en voiture.
   références: 
     guide-piscine.fr: https://www.guide-piscine.fr/entretien-general-piscine/cout-entretien-piscine-estimation-du-prix-des-tarifs-837_A
 
 piscine . empreinte chlore:
-  formule: 1
+  formule: 0.740
   unité: kgCO₂e/kg
-  note: Nous n'avons **pas trouvé** l'empreinte du chlore de piscine.
+  note: Nous prenons l'empreinte du Cl2, chlore gazeux liquéfié dans le document en référence ci-dessous. 
+  références: https://www.oieau.org/eaudoc/system/files/documents/44/224151/224151_doc.pdf?page=31
 
 piscine . eau chauffée:
   question: Chauffez-vous votre piscine ?
