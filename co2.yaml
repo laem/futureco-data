@@ -2963,7 +2963,27 @@ piscine . construction . empreinte empirique:
       - maçonnerie
       - étanchéité
       - équipement nautique
+      - lot technique
       - abri
+
+piscine . construction . lot technique:
+  formule: 
+    somme:
+      - pompe
+      - électricité
+      - hydraulique
+
+piscine . construction . lot technique . pompe:
+  formule: 270
+  unité: kgCO2e
+piscine . construction . lot technique . électricité:
+  formule: 35
+  description: Le bornier, les tuyaux, le cable électrique (20m), la gaine.
+  unité: kgCO2e
+piscine . construction . lot technique . hydraulique:
+  formule: 32
+  description: Les tuyaux de la piscine à la pompe, le matériel de régulation.
+  unité: kgCO2e
 
 piscine . construction . équipement nautique:
   description: |
@@ -3092,4 +3112,4 @@ piscine . type . surface . parallélépipède:
 
 piscine . construction . abri: 
   formule: 0
-  description: A implémenter, poser une question si abri.
+  description: A implémenter, on pourra alors poser une question si abri, mais il faudra prendre en compte les gains en chauffage et filtrage.
