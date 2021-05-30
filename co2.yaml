@@ -2932,8 +2932,11 @@ piscine . pompe de filtrage . utilisation . mois d'activité:
   unité: mois
 piscine . empreinte électricité:
   unité: kgCO₂e/kWh
-  formule: 0.08
-  description: Intensité moyenne du mix électrique français.
+  formule: 0.0599
+  description: Intensité moyenne du mix électrique français 2020 base carbone ADEME.
+  note: Il serait peut-être pertinent de prendre l'empreinte du mix sur les mois d'utilisation de la piscine, l'hiver étant aujourd'hui le plus émetteur en France, et le moment le moins probable pour l'utilisation de la piscine.
+  références: 
+    - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element/categorie/64
 
 piscine . construction:
   formule: empreinte empirique / durée de vie
