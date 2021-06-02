@@ -2825,7 +2825,7 @@ piscine . empreinte:
     Attention, il s'agit ici d'un calcul pour une piscine privée de jardin "en dur", creusée dans le sol, pas d'une piscine éphémère en plastique.
 
     Voici les limites de notre calcul : 
-      - notre estimation de l'empreinte de construction est basée sur le bilan d'un chantier d'une piscine de type béton de 32m²
+      - notre estimation de l'empreinte de construction est basée sur le bilan d'un chantier d'une piscine de type béton de 32m², avec une extrapolation linéaire basée sur la surface personnalisée de simulation
       - le calcul ne reflète donc pas la moyenne des piscines construites en France, mais un ordre de grandeur basé sur notre cas empirique
       - nous n'avons pas encore pris en compte la bâche de recouvrement de la piscine, ou l'abri en verre 
       - nous avons probablement oublié des dépenses, des déplacements, des renouvellements, des travaux divers
@@ -2967,7 +2967,8 @@ piscine . construction . empreinte théorique:
 piscine . construction . durée de vie:
   formule: 30
   unité: ans
-  note: Estimation au doigt mouillé.
+  note: |
+    Nous avons dans un premier temps pris cette estimation, qui semble un peu basse pour le béton (qui est estimé davantage à 40 ans), mais plutôt réaliste pour le reste des équipements. C'est un paramètre à faire évoluer au besoin.
 
 piscine . construction . empreinte empirique:
   formule: 
