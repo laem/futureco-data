@@ -2831,7 +2831,7 @@ piscine . empreinte:
       - nous n'avons pas encore pris en compte la bâche de recouvrement de la piscine, ou l'abri en verre 
       - nous avons probablement oublié des dépenses, des déplacements, des renouvellements, des travaux divers
     
-    Notons aussi que le résultat final est largemnet dépendant de la durée d'amortissement, fixée à 30 ans, car l'empreinte à l'usage est largement réduite par la disponibilité de l'électricité décarbonée du mix français. 
+    Notons aussi que le résultat final est largement dépendant de la durée d'amortissement, fixée à 30 ans, car l'empreinte à l'usage est largement réduite par la disponibilité de l'électricité décarbonée du mix français. 
 
     Une ACV états-unienne ne parle pas de la construction mais met en évidence l'impact énorme de l'évaporation, qui varie selon le climat https://twitter.com/ThomasGibon/status/1392895566003286021/photo/1. Nous n'avons pas encore étudié et pris en compte ce facteur pour le cas de la France. Pourquoi évaporation => bcp plus de pompage ? On pourrait à l'inverse comprendre que évaporation => plus d'eau neuve du réseau => moins de pompage. A creuser.
 
