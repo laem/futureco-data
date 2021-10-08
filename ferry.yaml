@@ -5,7 +5,7 @@ ferry:
   note: |
     Pour faire ce calcul, nous partons de l'hypothèse que la consommation de carburant d'un bateau est proportionnelle au poids qu'il transporte.
 
-    Attention, cette hypothèse est criticable sur bien des points. Qu'est-ce qui nous permet cependant de penser que ce sera une bonne approximation de la réalité ?
+    Attention, cette hypothèse est criticable sur bien des points. Qu'est-ce qui nous permet cependant de penser que ce sera une bonne première approximation de la réalité ?
 
 
     Dans ce document commercial intitulé [Basic Principles of Ship Propulsion](https://spain.mandieselturbo.com/docs/librariesprovider10/sistemas-propulsivos-marinos/basic-principles-of-ship-propulsion.pdf?sfvrsn=2), on peut constater que pour des navires voyageant à vitesse réduite, ce qui est le cas des ferries, c'est la force de frottement de l'eau sur le bateau, notée Rf, qui représente 90% de la force à battre pour avancer.
@@ -20,10 +20,10 @@ ferry:
 
     > For a ship steaming into a 20-knot wind, ship’s resistance may be increased by up to 25-30%.
 
-    Nous décidons d'écarter pour l'instant vent et courant, pour la simple raison que nous nous occupons d'un trajet aller-retour et que nous supposons donc une annulation de ces deux forces en moyenne sur l'année.
+    Nous décidons d'écarter pour l'instant vent et courant, pour la simple raison que nous nous occupons d'un trajet aller-retour et que nous supposons donc une annulation de ces deux forces en moyenne sur l'année. Il faudrait cependant le confirmer. On peut imaginer par exemple que les bateaux prennent consciencieusement en compte ces courants et vents, notamment en changeant de trajectoire pour optimiser la consommation de carburant.
 
     - [ ] parler de la future norme ISO
-    - [ ] Comment prendre en compte la houle ?
+    - [ ] Comment prendre en compte la houle ? Il y a de grandes chances que le poids n'aide pas.
 
 ferry . couchage: 
   question: Avez-vous pris une place en cabine (plutôt qu'un siège) ?
