@@ -51,7 +51,7 @@ ferry . empreinte par km:
   unité: kgCO2e/km
 
 
-ferry . couchage: 
+ferry . cabine: 
   question: Avez-vous pris une place en cabine (plutôt qu'un siège) ?
   par défaut: oui
 
@@ -116,15 +116,35 @@ ferry . passagers:
 # Nous ignorons le poids du sol des ponts, qui sont nécessaires quel que soit l'usage fait du bateau (fret, passagers et luxe des passagers).
 # Nous allons, au moins dans un 1er temps par simplicité, ignorer les murs (des cabines, des dortoirs, des restaurants).
   
-ferry . charge:
+ferry . charge par personne:
   formule: 
     somme: 
-      - cabine pour quatre * 666
-      - espaces accessoires * 6
-      - dortoir * 66 
-      - voiture * 66
-      - fret * 66
-      - canots de sauvetage
+      - cabine
+      - espaces accessoires
+      - dortoir && dortoir . par personne
+      - voiture
+      - canots de sauvetage / passagers
+
+ferry . charge par personne . voiture:
+  applicable si: voiture
+  formule: charge . voiture / groupe
+
+ferry . charge par personne . cabine:
+  applicable si: cabine
+  formule: charge . cabine / groupe
+
+ferry . charge par personne . espaces accessoires:
+  applicable si: espaces accessoires
+  formule: charge . espaces accessoires / passagers
+
+ferry . charge par personne . dortoir:
+  applicable si: dortoir
+  formule: charge . dortoir . par personne 
+
+ferry . charge . espaces accessoires:
+ferry . charge . dortoir:
+ferry . charge . dortoir . par personne:
+  note: Calculer ici le poids d'un dortoir par personne
 
 
 ferry . charge . canots de sauvetage:
