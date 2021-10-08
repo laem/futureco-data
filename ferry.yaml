@@ -16,6 +16,14 @@ ferry:
 
     Ces deux grandes hypothèses, et en particulier cette dernière, doivent bien sûr être confirmées. Est-ce une relation linéaire ? Avec quel seuil de départ ? 
 
+    Notons cependant que la puissance nécessaires semble être au cube de la vitesse ! 
+
+    > Often, ship power is roughly proportional to the cube of the speed, so doubling (2x) the speed of a destroyer from 15 knots to 30 knots will require 23 = 8 times as much power!
+    ![https://www.usna.edu/NAOE/_files/documents/Courses/EN400/02.07 Chapter 7.pdf page 9](https://imgur.com/gvRR7PT)
+    
+    Cette information de nous intéresse pas pour la répartition des poids, mais elle reste fondamentale pour l'utilisateur qui aurait le loisir de choisir entre deux bâteaux navigant à une vitesse différente. On pense en particulier à l'heure du voyage : comme pour le train, on peut s'attendre à ce qu'un voyage de nuit permette de baisser radicalement la vitesse, les passagers ayant une grande tolérance au temps passé sur le bateau. Cependant, le voyage de nuit peut multiplier l'espace en cabine nécessaire. Il faut donc jongler entre ces deux points contradictoires, et voir lequel l'emporte.
+
+
     Finalement, n'oublions pas qu'un bateau en condition réelles fait aussi face au vent, au courant et à la houle. 
 
     > For a ship steaming into a 20-knot wind, ship’s resistance may be increased by up to 25-30%.
@@ -53,9 +61,13 @@ ferry . groupe:
 ferry . espaces accessoires:
   question: Allez-vous profiter des restaurants, bars et divers loisirs ?
   description: |
-    Par exemple, la piscine, le jacuzzi, les machines à jeu, les magasins, etc.
+    Par exemple, la piscine, le jacuzzi, les machines à jeu, les magasins de souvenir style "duty-free", etc.
 
     Nous considérons ici que si vous ne profitez pas de ces espaces accessoires, leur empreinte ne vous est pas attribuée.
+
+    Notons que ces services peuvent être jugés "nécessaires" par certains, mais que ça dépend énormément de la personne. 
+
+    Pour une traversée d'une nuit de plus de 350km (Marseille-Ajaccio), on peut tout à fait se passer de restaurant. On trouvera souvent à quai des boulangeries ou restaurants, et il est tout à fait possible de manger sur le pont au moins l'été. C'est clairement une question de confort, dont certains ne veulent pas se passer.
   note: |
     Il s'agira dans un second temps de faire la part des choses entre toutes ces possibilités aux implications bien différentes : on peut craindre qu'une piscine pèse très lourd.
   icônes: 🍽🍺
