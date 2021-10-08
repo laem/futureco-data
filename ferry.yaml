@@ -33,6 +33,24 @@ ferry:
     - [ ] parler de la future norme ISO
     - [ ] Comment prendre en compte la houle ? Il y a de grandes chances que le poids n'aide pas.
 
+    Ceci est un extrait d'un [document de travail plus complet](https://hackmd.io/@laem/empreinte-ferry) rempli de références diverses.
+
+ferry . empreinte par km:
+  formule: 666
+  note: |
+    Chiffre factice pour l'instant.
+
+    Nous allons privilégier dans un premier temps l'option de ne pas modéliser la consommation théorique du bateau, ni modéliser la capacité de transport de fret vs celle des passagers, mais nous baser sur des données existantes et rendre plus sophistiqué le modèle d'attribution *au sein* de la catégorie passagers. 
+
+    Une piste serait d'utiliser les données de THETIS. La loi oblige les bateaux à attribuer une quantité de CO2e aux passagers et une autre au fret. 
+    Voir [cette documentation](https://www.greenferries.org/doc/computed_stats/). Nous n'aurions alors qu'à appliquer des facteurs de répartition entre les différents types de passagers, sans s'occuper du fret. 
+
+    Nous pouvons aussi utiliser [le modèle basique de Deltamarin](https://hackmd.io/@laem/empreinte-ferry#Publication-de-Deltamarin).
+
+    Une autre piste est constituée par [les calculs du gouvernement brittanique](https://hackmd.io/@laem/empreinte-ferry#Les-facteurs-d’émission-britanniques).
+  unité: kgCO2e/km
+
+
 ferry . couchage: 
   question: Avez-vous pris une place en cabine (plutôt qu'un siège) ?
   par défaut: oui
@@ -72,11 +90,6 @@ ferry . espaces accessoires:
     Il s'agira dans un second temps de faire la part des choses entre toutes ces possibilités aux implications bien différentes : on peut craindre qu'une piscine pèse très lourd.
   icônes: 🍽🍺
   par défaut: oui
-
-ferry . empreinte par km:
-  formule: 666
-  note: Chiffre factice pour l'instant.
-  unité: kgCO2e/km
 
 
 # Infra nécessaire aux pax mais pas au fret
