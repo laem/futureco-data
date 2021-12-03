@@ -247,9 +247,9 @@ transport . impact marche ou vélo:
   unité: kgCO₂e/km
   note: |
     L'empreinte d'un déplacement à pied n'est pas nulle, selon ce papier de recherche, pages 5 et 6, qui mesure l'empreinte de l'effort physique de ces activités, comparée à celle d'un corps au repos. Eh oui, quand nous respirons, nous rejetons du CO2, le carbone (C) venant de notre nourriture.
-    
+
     Cet [article](https://www.bikeradar.com/features/long-reads/cycling-environmental-impact/) très recent en anglais de BikeRadar fait un point riche et nuancé sur le sujet, et nous permettrait même de refaire le calcul ici en utilisant l'empreinte du régime du cycliste, qui selon eux représenten en moyenne les 3/4 de l'ensemble !
-    
+
     Gros sujet à débat ! En effet, ne pas marcher ou ne pas faire l'activité physique demandée par le vélo, même VAE, a des conséquences néfastes sur la santé bien connues. On pourrait donc très bien juger ces activités comme indispensables et exemptées de l'empreinte associée, ou encore mesurer la prise en charge médicale coûteuse des conséquences de cette inactivité.
   références:
     Life Cycle Assessment  of  Transportation Options for Commuters - page 11: http://seeds4green.org/sites/default/files/Pietzo_LCAwhitepaper.pdf
@@ -373,43 +373,30 @@ transport . avion . impact carbone unitaire:
   références:
     - https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets
   formule:
-    barème linéaire:
+    grille:
       assiette: distance de vol aller
       tranches:
-        - en-dessous de: 1000
+        - plafond: 1000
           montant: 0.139
-        - de: 1000
-          à: 2000
+        - plafond: 2000
           montant: 0.125
-        - de: 2000
-          à: 3000
+        - plafond: 3000
           montant: 0.083
-        - de: 3000
-          à: 4000
+        - plafond: 4000
           montant: 0.084
-        - de: 4000
-          à: 5000
+        - plafond: 5000
           montant: 0.102
-        - de: 5000
-          à: 6000
+        - plafond: 6000
           montant: 0.093
-        - de: 6000
-          à: 7000
+        - plafond: 7000
           montant: 0.075
-        - de: 7000
-          à: 8000
+        - plafond: 8000
           montant: 0.074
-        - de: 8000
-          à: 9000
+        - plafond: 9000
           montant: 0.076
-        - de: 9000
-          à: 10000
+        - plafond: 10000
           montant: 0.065
-        - de: 10000
-          à: 11000
-          montant: 0.078
-        - au-dessus de: 11000
-          montant: 0.078
+        - montant: 0.078
 
 compost:
   titre: mon compost
@@ -814,24 +801,24 @@ transport . trottinette électrique partagée . impact . fabrication:
 transport . trottinette électrique partagée . impact . fabrication . batterie:
   unité: kgCO₂e
   formule: capacité * impact par kWh
-? transport . trottinette électrique partagée . impact . fabrication . batterie . capacité
-: unité: kWh
+transport . trottinette électrique partagée . impact . fabrication . batterie . capacité:
+  unité: kWh
   formule: 0.36
   note: |
     36V * 10Ah
     Il y a une incertitude sur la taille de la batterie.
   références:
     commentaire Linkedin: https://www.linkedin.com/feed/update/urn:li:activity:6537001253883518976?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A6537001253883518976%2C6538002988328337408%29
-? transport . trottinette électrique partagée . impact . fabrication . batterie . impact par kWh
-: unité: kgCO₂e/kWh
+transport . trottinette électrique partagée . impact . fabrication . batterie . impact par kWh:
+  unité: kgCO₂e/kWh
   formule: 200
   note:
     En l'absence de donnée précise fournie par les marques, nous prenons le pire
     des cas, sur la fourchette de 150-200kg donnée par l'étude ci-dessous.
   références:
     - https://www.automobile-propre.com/voiture-electrique-impact-carbone-batteries/
-? transport . trottinette électrique partagée . impact . fabrication . trottinette sans batterie
-: note:
+transport . trottinette électrique partagée . impact . fabrication . trottinette sans batterie:
+  note:
     Pour une trottinette de l'ordre de 8kg sans la batterie. La Base Carbone de
     l’ADEME a un facteur d’émissions pour les « machines », de l’ordre de 5,5 kg
     CO2e/kg de machine.
@@ -839,8 +826,8 @@ transport . trottinette électrique partagée . impact . fabrication . batterie:
   formule: 45
 transport . trottinette électrique partagée . impact . usage total:
   formule: durée de vie * usage par jour
-? transport . trottinette électrique partagée . impact . usage total . durée de vie
-: unité: jour
+transport . trottinette électrique partagée . impact . usage total . durée de vie:
+  unité: jour
   description: >
     La première investigation indépendante sur la durée de vie des trottinettes
     la chiffrait à 29 jours. Depuis, le Los Angeles Times estime celle des
@@ -852,13 +839,13 @@ transport . trottinette électrique partagée . impact . usage total:
   références:
     - https://www.liberation.fr/planete/2019/03/07/une-trottinette-partagee-a-une-duree-de-vie-de-28-jours_1713419
     - https://www.latimes.com/business/technology/la-fi-tn-bird-scooters-money-profit-strategy-20190505-story.html
-? transport . trottinette électrique partagée . impact . usage total . usage par jour
-: formule: locations par jour * distance par location
-? transport . trottinette électrique partagée . impact . usage total . locations par jour
-: unité: /jour
+transport . trottinette électrique partagée . impact . usage total . usage par jour:
+  formule: locations par jour * distance par location
+transport . trottinette électrique partagée . impact . usage total . locations par jour:
+  unité: /jour
   formule: 10
-? transport . trottinette électrique partagée . impact . usage total . distance par location
-: description:
+transport . trottinette électrique partagée . impact . usage total . distance par location:
+  description:
     D'après le rapport de l'entreprise Lime, la distance moyenne est de 1.06
     miles. On ne sait pas cependant si c'est la distance pour leurs vélos
     électriques ou leurs trottinettes.
@@ -2294,7 +2281,7 @@ terrasse chauffée . puissance d'un chauffage:
   unité: kW
   formule: 3
   note: |
-    
+
     La puissance des chauffage est variable, 3000 W semble être une bonne moyenne (sur la base de recherches dans le catalogue des vendeurs de chauffage pour terrasse).
 
     Quelques pistes pour améliorer le calcul :
@@ -2321,17 +2308,17 @@ terrasse chauffée . impact:
 
     ⚠️ Attention, le calcul est pour l'instant fait pour un chauffage électrique, pas un chauffage au gaz.
   formule: énergie . par personne * empreinte
-  références: 
+  références:
     - https://www.laprovence.com/article/edition-marseille/5839800/terrasses-chauffees-faut-il-les-interdire-partout.html
     - https://twitter.com/Tomsawy22670318/status/1288936433705717760
 
 terrasse chauffée . chauffage électrique:
-  question: Le chauffage est-il électrique, plutôt que gaz ? 
+  question: Le chauffage est-il électrique, plutôt que gaz ?
   par défaut: non
 
 terrasse chauffée . empreinte:
-  formule: 
-    variations: 
+  formule:
+    variations:
       - si: chauffage électrique
         alors: électrique
       - sinon: chauffage . impact par kWh . gaz
@@ -2347,9 +2334,6 @@ terrasse chauffée . empreinte . électrique:
 
     A discuter, une référence solide serait la bienvenue (je n'ai trouvé que des articles de journaux du bâtiment).
 
-
-
-
 numérique:
 numérique . vidéo:
   titre: Une vidéo en ligne
@@ -2359,7 +2343,7 @@ numérique . vidéo:
   description: |
     Quelle est l'empreinte climat d'une **vidéo d'une heure en haute qualité** visionnée sur un smartphone ou un ordinateur portable ?
 
-    Le numérique est aujourd'hui pointé du doigt pour son empreinte importante malgré l'impression de dématérialisation qu'il donne. Une large partie du trafic d'internet est généré par les vidéos, dont la qualité augmente régulièrement. 
+    Le numérique est aujourd'hui pointé du doigt pour son empreinte importante malgré l'impression de dématérialisation qu'il donne. Une large partie du trafic d'internet est généré par les vidéos, dont la qualité augmente régulièrement.
 
   note: |
     Pour aller plus loin, il faudrait : 
@@ -2367,27 +2351,27 @@ numérique . vidéo:
     - poser la question de la durée de la vidéo avec des suggestions (épisode de sérié, saison entière, film)
     - illustrer l'impact du choix d'une qualité inférieure (de la 144p de Youtube à la 4k)
     - permettre à l'usager de choisir le support vs smartphone vs télé 20 pouces vs télé ultra grand écran en incluant la fabrication de ces appareils
-  
+
     L'empreinte du numérique par kWh est calculée ici avec la valeur moyenne du mix électrique français. On pourrait aussi la calculer avec d'autres méthodes, par exemple la méthode [par usage](https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011).
 
-empreinte du mix électrique: 
+empreinte du mix électrique:
   unité: kgCO2e/kWh
   description: Empreinte moyenne du mix électrique français.
   formule: 0.078
   références:
     - https://electricitymap.org
     - https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011)
-    - 
+    -
 
 numérique . vidéo . énergie:
-  formule: 
+  formule:
     somme:
       - serveurs
       - réseau
       - appareil
   note: Nous utilisons le '1byte model' du [Shift Project](https://theshiftproject.org), dont une partie de l'implémentation est dans [ce tableur](https://theshiftproject.org/wp-content/uploads/2019/07/Video-Materials-1byte-Model-applied-to-video-traffic-2019.xlsx).
 
-numérique . vidéo . durée: 
+numérique . vidéo . durée:
   unité: minute
   formule: 60
   note: Une durée approximative, entre le film et l'épisode de série.
@@ -2395,10 +2379,10 @@ numérique . vidéo . poids:
   unité: octet
   formule: 1 * giga
   note: C'est un ordre de grandeur d'une vidéo plutôt haute qualité.
-giga: 
+giga:
   formule: 1000 * 1000 * 1000
 
-numérique . serveurs :
+numérique . serveurs:
   formule: intensité * vidéo . poids
   description: |
     Titre original : "Energy Impact due to Data Centers (in kWh/byte)"
@@ -2435,7 +2419,7 @@ numérique . appareil:
 numérique . appareil . intensité:
   formule: (smartphone + ordinateur portable) / 2
   description: |
-    Titre original : "Energy Impact (in kWh/min)" 
+    Titre original : "Energy Impact (in kWh/min)"
 numérique . appareil . intensité . smartphone:
   unité: kWh/minute
   formule: 0.00011
@@ -2458,7 +2442,6 @@ numérique . téléphone journée . usage:
     En première approximation, on considère qu'un usager de smartphone va consommer 1 giga de données par jour, soit 30 par mois.
     C'est une estimation assez élevée.
   formule: vidéo
-  
 
 numérique . téléphone journée . matériel:
   formule: (numérique . téléphone . impact / durée de vie) / 365
@@ -2466,7 +2449,7 @@ numérique . téléphone journée . matériel . durée de vie:
   note: Première estimation à 2 ans par téléphone.
   formule: 2
 
-logement: 
+logement:
 logement . chauffage:
 logement . chauffage . impact final:
   titre: Chauffer mon logement
@@ -2485,7 +2468,7 @@ logement . habitants:
     Valeur par défaut obtenue dans [ce rapport de l'INSEE](https://www.insee.fr/fr/statistiques/2586377).
 
     > Renforcé par le vieillissement démographique et les recompositions familiales, le taux d’occupation des résidences principales se desserre de façon continue, conduisant à une nette diminution du nombre de personnes par ménage et par logement : un peu plus de trois personnes en moyenne en 1968, 2,3 en 2016. Le nombre de mètres carrés par personne est passé de 31 en 1984 à 40 en 2006. Il est stable depuis.
-  suggestions: 
+  suggestions:
     seul: 1
     en couple: 2
 
@@ -2495,7 +2478,7 @@ logement . type:
   formule:
     une possibilité:
       choix obligatoire: oui
-      possibilités: 
+      possibilités:
         - maison
         - appartement
 logement . type . maison:
@@ -2507,7 +2490,7 @@ logement . chauffage . mode:
   formule:
     une possibilité:
       choix obligatoire: oui
-      possibilités: 
+      possibilités:
         - électricité
         - gaz naturel
 
@@ -2520,7 +2503,7 @@ logement . type . appartement . chaudière:
   formule:
     une possibilité:
       choix obligatoire: oui
-      possibilités: 
+      possibilités:
         - collective
         - individuelle
 
@@ -2529,44 +2512,43 @@ logement . type . appartement . chaudière . collective:
 logement . type . appartement . chaudière . individuelle:
   description: La chaudière est chez vous.
 
-
-logement . chauffage . énergie . intensité: 
+logement . chauffage . énergie . intensité:
   unité: kWh/m²
   note: |
-    
+
     Nous avons choisi un modèle simplifié qui ne donne le choix qu'entre le gaz et l'électricité, car ils représentent en cumulé ~70% des usages pour les maisons et ~85% pour les appartements ([statistiques de 2015](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?chauffage.htm)).
 
     Nous ignorons aussi pour l'instant la variable de l'age du logement en moyennant les deux valeurs avant 1975 / après 1975.
   formule:
-    variations: 
-      - si: 
-          toutes ces conditions: 
+    variations:
+      - si:
+          toutes ces conditions:
             - mode = 'gaz naturel'
             - type = 'maison'
         alors: (201 + 166) / 2
-      - si: 
-          toutes ces conditions: 
+      - si:
+          toutes ces conditions:
             - mode = 'gaz naturel'
             - type = 'appartement'
             - logement . type . appartement . chaudière = 'individuelle'
         alors: (146 + 125) / 2
-      - si: 
-          toutes ces conditions: 
+      - si:
+          toutes ces conditions:
             - mode = 'gaz naturel'
             - type = 'appartement'
             - logement . type . appartement . chaudière = 'collective'
         alors: (207 + 196) / 2
-      - si: 
-          toutes ces conditions: 
+      - si:
+          toutes ces conditions:
             - mode = 'électricité'
             - type = 'appartement'
         alors: (98 + 65) / 2
-      - si: 
-          toutes ces conditions: 
+      - si:
+          toutes ces conditions:
             - mode = 'électricité'
             - type = 'maison'
         alors: (150 + 106) / 2
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?chauffage.htm
 
 logement . chauffage . énergie:
@@ -2580,27 +2562,26 @@ logement . surface:
     Valeur par défaut obtenue dans [ce rapport de l'INSEE](https://www.insee.fr/fr/statistiques/2586377).
 
     > Les logements ont une surface moyenne d’un peu plus de 80 m2.
-  suggestions: 
+  suggestions:
     studio: 25
     2 pièces: 70
     maison: 150
     château 🏰: 1000
 
-
 logement . chauffage . facteur d'émission:
   unité: kgCO2e/kWh
   formule:
-    variations: 
+    variations:
       - si: mode = 'gaz naturel'
         alors: gaz naturel
       - si: mode = 'électricité'
         alors: électricité
 
-logement . chauffage . facteur d'émission . gaz naturel: 
+logement . chauffage . facteur d'émission . gaz naturel:
   unité: kgCO2e/kWh
   formule: 0.244
   description: Facteur d'émission de la base carbone "Gaz naturel" en kgCO2e/kWh PCI.
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=gaz naturel
 logement . chauffage . facteur d'émission . électricité:
   unité: kgCO2e/kWh
@@ -2611,7 +2592,7 @@ logement . chauffage . facteur d'émission . électricité:
     Voir [cette page](https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011)) wikipedia pour comprendre les différentes méthodes de calcul du facteur d'émission de l'électricité.
 
     Notons que la RE2020, et le choix du gouvernement de baisser le facteur du chauffage à 79g/kWh (contre 210 dans l'expérimentation E+C-), provoque de vifs débats à l'heure où l'on écrit ces lignes (février 2020). Nous utilisons pour l'instant la dernière valeur historique fournie par l'ADEME.
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=chauffage
 
 jardin:
@@ -2632,16 +2613,16 @@ jardin . nombre de tontes annuelles:
   formule: jardin . saison de tonte / jardin . fréquence de tonte
 jardin . saison de tonte:
   unité: semaine
-  formule : 34
-jardin . fréquence de tonte :
+  formule: 34
+jardin . fréquence de tonte:
   question: Vous passez la tondeuse toutes les combien de semaines ?
   unité: semaine
   par défaut: 3
   suggestions:
-    Une fois par semaine : 1
-    Toutes les 2 semaines : 2
-    Toutes les 3 semaines : 3
-    Toutes les 4 semaines : 4
+    Une fois par semaine: 1
+    Toutes les 2 semaines: 2
+    Toutes les 3 semaines: 3
+    Toutes les 4 semaines: 4
 jardin . impact par tonte:
   exposé: oui
   catégorie: logement
@@ -2654,10 +2635,10 @@ jardin . superficie:
   unité: m²
   par défaut: 500
   suggestions:
-    petit : 300
-    moyen : 800
-    grand : 1200
-    très grand : 2200
+    petit: 300
+    moyen: 800
+    grand: 1200
+    très grand: 2200
 jardin . impact par m2 tondu:
   icônes: 🚿
   unité: kgCO²/m²
@@ -2666,7 +2647,7 @@ jardin . impact par m2 tondu:
   références:
     - https://www.peoplepoweredmachines.com/faq-environment.htm
   titre: 1m² tondu
-  formule: 0.0002 * 11 / 0.42 
+  formule: 0.0002 * 11 / 0.42
 
 emballages:
   description: |
@@ -2674,7 +2655,7 @@ emballages:
 
     Attention à ce que cet effort ne nous aveugle pas sur l'empreinte d'un emballage, recyclé ou non.
   note: Attention, dans l'article en référence les valeurs sont en équivalent carbone, pas en équivalent CO₂. Donc pour passer de l'un à l'autre, il faut multiplier par 44/12, soit environ 3.7.
-  références: 
+  références:
     - https://jancovici.com/changement-climatique/les-ges-et-nous/combien-de-gaz-a-effet-de-serre-dans-notre-poubelle/
 emballages . conserve en verre:
   titre: Une conserve en verre
@@ -2694,7 +2675,7 @@ emballages . conserve en verre . verre:
 emballages . conserve en verre . verre . poids:
   formule: 0.125
   unité: kg
-  références: 
+  références:
     - https://conservesetbouteilles.fr/228-ml-to-63-normalise
     - https://www.juvasa.com/fr/52/pots-et-bocaux-en-verre/19/b-212-ml-to-063?utm_medium=cpc&utm_medium=cpc&utm_source=google&utm_campaign=6671973559&utm_term=Gshopping-457863614291&gclid=EAIaIQobChMIuJvs6OOf7AIVgoxRCh3D1QviEAQYASABEgImSvD_BwE
 
@@ -2707,7 +2688,7 @@ emballages . facteur verre:
     > Hypothèse d'incorporation de calcin : 70%
 
     Cela veut dire que 70% du verre utilisé pour confectionner le produit vient du recyclage.
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?verre_et_articles_en_verre.htm
 
 emballages . conserve en verre . couvercle:
@@ -2717,7 +2698,7 @@ emballages . conserve en verre . couvercle:
 emballages . conserve en verre . couvercle . poids:
   formule: 0.0084
   unité: kg
-  références: 
+  références:
     - https://conservesetbouteilles.fr/capsule-to-63-or
 
 emballages . facteur acier:
@@ -2732,20 +2713,19 @@ emballages . facteur acier:
 
     Dans le premier cas de figure, les émissions de CO₂ sont essentiellement engendrées par l’oxydation du carbone (du coke) lors de la réduction du minerai de fer, ainsi que par la combustion du gaz de cokéfaction (qui contient beaucoup de monoxyde de carbone). Dans le deuxième cas de figure, c’est la production de l’électricité utilisée qui compte le plus.
 
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?acier.htm
 
-       
-emballages . conserve pois chiche: 
+emballages . conserve pois chiche:
   description: |
     Une conserve de pois chiche avec son emballage en verre + couvercle acier.
-    
+
     Le but ici est de comparer l'empreinte de l'emballage à celle du produit lui-même.
 
     ![](https://static.openfoodfacts.org/images/products/333/588/000/4273/front_fr.24.400.jpg)
 
   formule: conserve en verre + contenu
-  références: 
+  références:
     - https://world.openfoodfacts.org/product/3335880004273/pois-chiches-sans-sel-ajoute-prosain
 emballages . conserve pois chiche . contenu:
   formule: nourriture . pois chiche sans emballage * poids
@@ -2753,7 +2733,7 @@ nourriture . pois chiche sans emballage:
   formule: 0.834 - 0.201
   note: |
     [Source](https://raw.githubusercontent.com/betagouv/ecolab-alimentation/master/data/out/Agribalyse.json) chercher "20507".
-  références: 
+  références:
     - http://app.agribalyse.fr/aliments/20507?order=alph_asc
   description: |
     Pois chiche cuit industriellement, non égoutté.
@@ -2764,12 +2744,10 @@ emballages . conserve pois chiche . contenu . poids:
   unité: kg
   description: Une petite conserve de pois chiches en poids net non égoutté.
 
-
-
-emballages . conserve chili con carne: 
+emballages . conserve chili con carne:
   description: |
     Une conserve de chili con carne, donc beaucou de boeuf, avec son emballage en verre + couvercle acier.
-    
+
     Le but ici est de comparer l'empreinte de l'emballage à celle du produit lui-même.
 
   formule: conserve en verre + contenu
@@ -2779,7 +2757,7 @@ nourriture . chili con carne sans emballage:
   formule: 21.680 - 0.212
   note: |
     [Source](https://raw.githubusercontent.com/betagouv/ecolab-alimentation/master/data/out/Agribalyse.json) chercher "25111".
-  références: 
+  références:
     - http://app.agribalyse.fr/aliments/25111?order=alph_asc
   description: |
     Pois chiche cuit industriellement, non égoutté.
@@ -2790,17 +2768,12 @@ emballages . conserve chili con carne . contenu . poids:
   unité: kg
   note: Le poids est une estimation.
 
-
-
-
-
 piscine:
   titre: Piscine de jardin
-  description: Il y a 2,5 millions de piscines individuelles en France ! 
-  références: 
+  description: Il y a 2,5 millions de piscines individuelles en France !
+  références:
     Fédération des Professionnels de la Piscine: https://www.propiscines.fr/piscine-secteur/marche-piscine
   icônes: 🏠🏊
-  
 
 piscine . empreinte:
   exposé: oui
@@ -2830,14 +2803,14 @@ piscine . empreinte:
       - le calcul ne reflète donc pas la moyenne des piscines construites en France, mais un ordre de grandeur basé sur notre cas empirique
       - nous n'avons pas encore pris en compte la bâche de recouvrement de la piscine, ou l'abri en verre 
       - nous avons probablement oublié des dépenses, des déplacements, des renouvellements, des travaux divers
-    
+
     Notons aussi que le résultat final est largemnet dépendant de la durée d'amortissement, fixée à 30 ans, car l'empreinte à l'usage est largement réduite par la disponibilité de l'électricité décarbonée du mix français. 
 
     Une ACV états-unienne ne parle pas de la construction mais met en évidence l'impact énorme de l'évaporation, qui varie selon le climat https://twitter.com/ThomasGibon/status/1392895566003286021/photo/1. Nous n'avons pas encore étudié et pris en compte ce facteur pour le cas de la France. Pourquoi évaporation => bcp plus de pompage ? On pourrait à l'inverse comprendre que évaporation => plus d'eau neuve du réseau => moins de pompage. A creuser.
 
     Merci à https://twitter.com/ObjectifZero pour avoir établi le modèle détaillé de l'empreinte de construction du chantier de la piscine.
 
-  références: 
+  références:
     FPP: https://www.propiscines.fr/piscine-actualite/piscine-une-norme-europeenne-et-un-guide-du-recyclage
 
 piscine . traitement chimique:
@@ -2852,19 +2825,18 @@ piscine . traitement chimique:
     > Si vous optez pour un traitement au chlore, vous devrez compter sur un budget annuel d’environ 150 € de chlore, 20 € de produit floculant, 30 € de produit anticalcaire, et enfin 30 € de produit pour rééquilibrer le pH, ce qui correspond à un budget annuel d’environ 230 €
 
     On ignore aussi le transport du chlore acheté, en pratique souvent en voiture.
-  références: 
+  références:
     guide-piscine.fr: https://www.guide-piscine.fr/entretien-general-piscine/cout-entretien-piscine-estimation-du-prix-des-tarifs-837_A
 
 piscine . empreinte chlore:
   formule: 0.740
   unité: kgCO₂e/kg
-  note: Nous prenons l'empreinte du Cl2, chlore gazeux liquéfié dans le document en référence ci-dessous. 
+  note: Nous prenons l'empreinte du Cl2, chlore gazeux liquéfié dans le document en référence ci-dessous.
   références: https://www.oieau.org/eaudoc/system/files/documents/44/224151/224151_doc.pdf?page=31
 
 piscine . eau chauffée:
   question: Chauffez-vous votre piscine ?
   par défaut: non
-
 
 piscine . chauffage . prorata période:
   formule: pompe de filtrage . utilisation . mois d'activité / 6
@@ -2883,20 +2855,19 @@ piscine . chauffage:
 
     > Le magazine Capital a estimé la consommation électrique d’une pompe à chaleur de piscine à 1570 kWh, soit 230€. Même estimation par PiscineSpa avec le même chiffre de 1570 kWh en 2015.
 
-  références: 
+  références:
     L’énergie requise pour la mise en marche de la piscine: https://www.fournisseurs-electricite.com/guides/consommation/piscine-chauffee
 
 piscine . chauffage . énergie:
-  formule: 
-    variations: 
-      - si: pompe à chaleur 
+  formule:
+    variations:
+      - si: pompe à chaleur
         alors: 1570
       - sinon: 11475
 
 piscine . chauffage . pompe à chaleur:
   question: Chauffez-vous la piscine avec une pompe à chaleur ?
   par défaut: non
-  
 
 piscine . empreinte eau froide:
   formule: volume * eau . impact par litre froid
@@ -2908,19 +2879,18 @@ piscine . surface:
   note: |
     Par défaut, 8x4m, donc 32m²
     > Du très classique rectangle 8X4 mètres aux piscines de taille plus modeste 7×3,5 m, ou plus imposante, 9×4,5m et plus, il existe nombre de déclinaisons possibles. Une piscine de  8 m X 4 m semble suffisante pour un usage familial tout en limitant l’entretien et le volume d’eau à traiter. C’est un bon compromis prix/surface.
-  référence: 
+  référence:
     quelle piscine choisir: https://www.jardipartage.fr/quelle-piscine-choisir
-
 
 piscine . profondeur:
   formule: 1.5
   unité: m
   note: Nous partons sur une profondeur moyenne d'eau de 1m50, par exemple une pente linéaire de 1m à 2m.
 
-piscine . volume: 
+piscine . volume:
   formule: profondeur * surface * 1000
   unité: l
-piscine . pompe de filtrage: 
+piscine . pompe de filtrage:
   formule: puissance * utilisation . heures * empreinte électricité
   unité: kgCO₂e
 
@@ -2941,7 +2911,7 @@ piscine . empreinte électricité:
   formule: 0.0599
   description: Intensité moyenne du mix électrique français 2020 base carbone ADEME.
   note: Il serait peut-être pertinent de prendre l'empreinte du mix sur les mois d'utilisation de la piscine, l'hiver étant aujourd'hui le plus émetteur en France, et le moment le moins probable pour l'utilisation de la piscine.
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element/categorie/64
 
 piscine . construction:
@@ -2952,7 +2922,7 @@ empreinte construction logement:
   formule: 600
   unité: kgCO₂e/m²
   note: Comme précisé dans la source "Guide animateur Inventons nos Vies Bas Carbone", la valeur de 600 est un ordre de grandeur très incertain.
-  références: 
+  références:
     Inventons nos vies bas carbone: https://d3n8a8pro7vhmx.cloudfront.net/resistanceclimatique/pages/115/attachments/original/1616151401/20210228_guide_de_l'animateur_kit_INVBC.pdf?1616151401#page=82
 
 piscine . construction . empreinte théorique:
@@ -2962,7 +2932,7 @@ piscine . construction . empreinte théorique:
     Pour estimer l'empreinte de la construction d'une piscine, nous prenons celle connue pour la construction d'une maison en béton. 
 
     Comme pour une maison, pour construire une piscine il faut creuser (ce qui consomme de l'essence et utilise du matériel), poser une dalle de béton sur le fond et les murs, poser du plastique isolant, ainsi que paver les côtés de la piscine.
-    
+
     Cette estimation est peut-être pessimiste, n'hésitez pas pas à décomposer les étapes de construction pour proposer mieux.
 
 piscine . construction . durée de vie:
@@ -2972,8 +2942,8 @@ piscine . construction . durée de vie:
     Nous avons dans un premier temps pris cette estimation, qui semble un peu basse pour le béton (qui est estimé davantage à 40 ans), mais plutôt réaliste pour le reste des équipements. C'est un paramètre à faire évoluer au besoin.
 
 piscine . construction . empreinte empirique:
-  formule: 
-    somme: 
+  formule:
+    somme:
       - maçonnerie
       - étanchéité
       - équipement nautique
@@ -2982,8 +2952,8 @@ piscine . construction . empreinte empirique:
       - abri
 
 piscine . construction . divers chantier:
-  formule: 
-    somme: 
+  formule:
+    somme:
       - gasoil
       - consommable
       - livraison
@@ -2998,7 +2968,7 @@ piscine . construction . divers chantier . livraison:
   unité: kgCO2e
 
 piscine . construction . lot technique:
-  formule: 
+  formule:
     somme:
       - pompe
       - électricité
@@ -3025,12 +2995,12 @@ piscine . construction . équipement nautique:
   unité: kgCO2e
 
 piscine . construction . étanchéité:
-  formule: 
-    somme: 
+  formule:
+    somme:
       - liner
 
 piscine . construction . étanchéité . liner:
-  formule: empreinte PVC * surface * quantité 
+  formule: empreinte PVC * surface * quantité
 
 piscine . construction . étanchéité . liner . empreinte PVC:
   formule: 0.350
@@ -3046,7 +3016,7 @@ piscine . construction . étanchéité . liner . surface:
   formule: type . surface . parallélépipède * correcteur surface type
 
 piscine . construction . maçonnerie:
-  formule: 
+  formule:
     somme:
       - béton
       - plage pierre
@@ -3069,8 +3039,8 @@ piscine . construction . terrassement . empreinte diesel:
   formule: 2.67
   unité: kgCO2e/l
 piscine . construction . terrassement . conso diesel:
-  formule: 
-    somme: 
+  formule:
+    somme:
       - pelleteuse
       - chargeuse
 piscine . construction . terrassement . conso diesel . pelleteuse:
@@ -3103,7 +3073,7 @@ piscine . construction . béton . type . masse:
 piscine . construction . béton . masse volumique:
   formule: 2300
   unité: kg/m3
-  références: 
+  références:
     - http://www.fao.org/3/v5270f/V5270F0b.htm
     - https://www.toutsurlebeton.fr/le-ba-ba-du-beton/masse-volumique-du-beton-et-de-ses-constituants/
 piscine . construction . béton . type . volume:
@@ -3125,7 +3095,7 @@ piscine . type . surface:
   formule: 32
   unité: m²
   description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
-  références: 
+  références:
     - https://twitter.com/ObjectifZero/status/1392179434900316165/photo/1
 
 piscine . type . surface . murs:
@@ -3140,7 +3110,6 @@ piscine . type . surface . parallélépipède:
     La surface de cette piscine type est de 32m² de fond ainsi que 36m² de murs.
   unité: m²
 
-
-piscine . construction . abri: 
+piscine . construction . abri:
   formule: 0
   description: A implémenter, on pourra alors poser une question si abri, mais il faudra prendre en compte les gains en chauffage et filtrage.
