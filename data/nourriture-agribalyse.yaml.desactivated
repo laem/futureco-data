@@ -1,0 +1,864 @@
+nourriture . Banana Split:
+  icônes: 🍌🍫
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,283"
+  formule: 0.807
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Beurre doux:
+  icônes: 🧈
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,01"
+  formule: 0.0949
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Blanquette de veau:
+  icônes: 👶🐄
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,473"
+  formule: 4.52
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Boeuf bourguignon:
+  icônes: 🥩🍷
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,308"
+  formule: 4.16
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Bol de céréales:
+  icônes: 🥣🌽
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,337"
+  formule: 0.293
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Bol de lait:
+  icônes: 🥣🥛
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,404"
+  formule: 0.494
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Brandade de morue:
+  icônes: 🐟
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,329"
+  formule: 1.43
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Brownie - aux noix entière:
+  icônes: 🧁🍫
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,148"
+  formule: 0.631
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Cannelé:
+  icônes: 🧁
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,072"
+  formule: 0.157
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Cassoulet:
+  icônes: 🥫🌭
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,37"
+  formule: 2.37
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Cheese cake:
+  icônes: 🍰
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,217"
+  formule: 0.764
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Chili con carne:
+  icônes: 🌶️🥩🍚
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,249"
+  formule: 3.93
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Chips:
+  icônes: 🍟
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,196"
+  formule: 0.348
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Chocolat:
+  icônes: 🍫
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,02"
+  formule: 0.0975
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Choucroute:
+  icônes: 🥦🌭
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,47"
+  formule: 0.725
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Clafoutis aux cerises:
+  icônes: 🍰🍒
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,14"
+  formule: 0.291
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Coquilette au jambon:
+  icônes: 🍝🐖
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,535"
+  formule: 1.36
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Côte de boeuf:
+  icônes: 🥩🐮
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,31"
+  formule: 10.8
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Couscous:
+  icônes: 🥘
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,82"
+  formule: 4.92
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Crème brûlée:
+  icônes: 🍮🔥
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,187"
+  formule: 0.543
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Crêpes:
+  icônes: 🥞
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,284"
+  formule: 0.387
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Crêpes - galette au sarasin:
+  icônes: 🥞🧂
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,284"
+  formule: 0.387
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Curry au poulet avec riz:
+  icônes: 🍛🐔
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,567"
+  formule: 1.19
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Éclair au chocolat:
+  icônes: 🍰🍫
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,114"
+  formule: 0.243
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Endives au jambon:
+  icônes: 🥬🐖
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,295"
+  formule: 1.01
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Far breton:
+  icônes: 🍰
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,219"
+  formule: 0.315
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Filet mignon de porc:
+  icônes: 🐖🥔
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,193"
+  formule: 0.965
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Fondant au chocolat:
+  icônes: 🍰🍫
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,086"
+  formule: 0.342
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Gigot d'agneau:
+  icônes: 🐑🍗
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,156"
+  formule: 5.55
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Glace à la Vanille:
+  icônes: 🍦
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,125"
+  formule: 0.189
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Gratin dauphinois:
+  icônes: 🥔🥚🧀
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,461"
+  formule: 0.648
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Gratin de choux fleur sauce béchamel:
+  icônes: 🧀🥦
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,707"
+  formule: 0.746
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Hachis parmentier:
+  icônes: 🥩🥔
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,557"
+  formule: 6.15
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Hamburger:
+  icônes: 🍔
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,279"
+  formule: 4.06
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Île flottante:
+  icônes: 🍮
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,163"
+  formule: 0.269
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Lapin à la moutarde:
+  icônes: 🐇
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,357"
+  formule: 2.28
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Lasagnes - à la viande:
+  icônes: 🍝🥩
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,594"
+  formule: 2.91
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Lasagnes - végétarienne:
+  icônes: 🥩🥬
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,714"
+  formule: 1.15
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Lentille saucisse:
+  icônes: 🍲🌭
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,329"
+  formule: 0.506
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Magret de canard:
+  icônes: 🦆
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,244"
+  formule: 2.34
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Moules-frites:
+  icônes: 🐚🍟
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,504"
+  formule: 3.71
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Mousse au chocolat:
+  icônes: 🍫
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,091"
+  formule: 0.351
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Omelette:
+  icônes: 🍳
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,121"
+  formule: 0.4
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Orange - fraîche:
+  icônes: 🍊
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,12"
+  formule: 0.102
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Paëlla:
+  icônes: 🥘
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,446"
+  formule: 1.66
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Pain:
+  icônes: 🍞
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,04"
+  formule: 0.0609
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Panacotta:
+  icônes: 🍰
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,164"
+  formule: 0.639
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Pavé de saumon grillé:
+  icônes: 🐟🍳
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,127"
+  formule: 0.796
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Pizza:
+  icônes: 🍕
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,143"
+  formule: 0.731
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Poire belle hélène - poire de Belgique:
+  icônes: 🍐🇧🇪
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,416"
+  formule: 0.208
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Pomme:
+  icônes: 🍎
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,146"
+  formule: 0.0389
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Pommes de terre au confit de canard:
+  icônes: 🥔🦆
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,407"
+  formule: 1.96
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Pot au feu:
+  icônes: 🍲
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,601"
+  formule: 5.06
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Poulet frites - frites surgelés:
+  icônes: 🐔🍟❄️
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,564"
+  formule: 2.48
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Profiteroles:
+  icônes: 🧁
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,115"
+  formule: 0.271
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Quatre quarts:
+  icônes: 🍰
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,093"
+  formule: 0.46
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Quiche lorraine:
+  icônes: 🍕
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,238"
+  formule: 1.02
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Raclette:
+  icônes: 🧀🧑‍🤝‍
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,681"
+  formule: 1.53
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Ratatouille de saison - de saison:
+  icônes: 🍆🍅🥦
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,322"
+  formule: 0.241
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Salade de fruits - fruits de saison:
+  icônes: 🍏🍊🥝
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,106"
+  formule: 0.072
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Salade de tomates - d'Espagne:
+  icônes: 🍅🇪🇸
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,149"
+  formule: 0.142
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Salade de tomates - de saison:
+  icônes: 🍅✨
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,149"
+  formule: 0.103
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Salade de tomates - hors saison, France:
+  icônes: 🍅⏳
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,149"
+  formule: 0.35
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Salade de tomates mozzarella - de saison:
+  icônes: 🍅🧀
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,224"
+  formule: 0.366
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Salade niçoise:
+  icônes: 🥗🐟
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,576"
+  formule: 1.08
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Salade verte - avec sauce:
+  icônes: 🥗
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,052"
+  formule: 0.078
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Soupe à l'oignon:
+  icônes: 🥣🧅
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,581"
+  formule: 0.552
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Spaghetti à la bolognaise:
+  icônes: 🍝
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,682"
+  formule: 4.14
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Steak-frites:
+  icônes: 🐄🍟
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,223"
+  formule: 5.88
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Sushis:
+  icônes: 🍣
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,633"
+  formule: 1.44
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tagliatelles à la carbonara:
+  icônes: 🍝
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,419"
+  formule: 0.616
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tajine d'agneau:
+  icônes: 🐑🥘
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,574"
+  formule: 8.58
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tartare de boeuf:
+  icônes: 🐄
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,279"
+  formule: 6.03
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tarte aux fraises - de saison:
+  icônes: 🍓✨
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,139"
+  formule: 0.345
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tarte aux fraises - hors saison:
+  icônes: 🍓⏳
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,139"
+  formule: 0.579
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tarte aux pommes:
+  icônes: 🍰🍏
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,18"
+  formule: 0.283
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tarte tatin:
+  icônes: 🍰🍏↕️
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,262"
+  formule: 0.478
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tartiflette:
+  icônes: 🧀🥔
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,472"
+  formule: 0.899
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tasse de café:
+  icônes: ☕
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,253"
+  formule: 0.0503
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tasse de thé:
+  icônes: 🍵
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,25"
+  formule: 0.0123
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tiramisu:
+  icônes: 🍰
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,13"
+  formule: 0.452
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tomates farcies - de saison:
+  icônes: 🍅🥩✨
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,343"
+  formule: 0.655
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Tomates farcies - hors saison:
+  icônes: 🍅🥩⏳
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,343"
+  formule: 1.04
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Viennoiserie brioche - type brioche:
+  icônes: 🥐
+  titre: Croissant
+  exposé: oui
+  description: |
+    On suppose que c'est d'un croissant que l'ADEME parle ici. 
+
+    Titre original : `Viennoiserie brioche - type brioche`.
+
+    Masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,05"
+  formule: 0.143
+  unité: kgCO₂e
+nourriture . Viennoiserie pain au chocolat - type pain au chocolat:
+  icônes: 🥐🍫
+  titre: Pain au chocolat
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,05"
+  formule: 0.114
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+nourriture . Yaourt:
+  icônes: 🥛🥄
+  exposé: oui
+  description:
+    "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,125"
+  formule: 0.36
+  unité: kgCO₂e
+  références:
+    - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
