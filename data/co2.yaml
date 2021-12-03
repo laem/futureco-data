@@ -371,43 +371,30 @@ transport . avion . impact carbone unitaire:
   références:
     - https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets
   formule:
-    barème linéaire:
+    grille:
       assiette: distance de vol aller
       tranches:
-        - en-dessous de: 1000
+        - plafond: 1000
           montant: 0.139
-        - de: 1000
-          à: 2000
+        - plafond: 2000
           montant: 0.125
-        - de: 2000
-          à: 3000
+        - plafond: 3000
           montant: 0.083
-        - de: 3000
-          à: 4000
+        - plafond: 4000
           montant: 0.084
-        - de: 4000
-          à: 5000
+        - plafond: 5000
           montant: 0.102
-        - de: 5000
-          à: 6000
+        - plafond: 6000
           montant: 0.093
-        - de: 6000
-          à: 7000
+        - plafond: 7000
           montant: 0.075
-        - de: 7000
-          à: 8000
+        - plafond: 8000
           montant: 0.074
-        - de: 8000
-          à: 9000
+        - plafond: 9000
           montant: 0.076
-        - de: 9000
-          à: 10000
+        - plafond: 10000
           montant: 0.065
-        - de: 10000
-          à: 11000
-          montant: 0.078
-        - au-dessus de: 11000
-          montant: 0.078
+        - montant: 0.078
 
 compost:
   titre: mon compost
@@ -812,24 +799,24 @@ transport . trottinette électrique partagée . impact . fabrication:
 transport . trottinette électrique partagée . impact . fabrication . batterie:
   unité: kgCO₂e
   formule: capacité * impact par kWh
-? transport . trottinette électrique partagée . impact . fabrication . batterie . capacité
-: unité: kWh
+transport . trottinette électrique partagée . impact . fabrication . batterie . capacité:
+  unité: kWh
   formule: 0.36
   note: |
     36V * 10Ah
     Il y a une incertitude sur la taille de la batterie.
   références:
     commentaire Linkedin: https://www.linkedin.com/feed/update/urn:li:activity:6537001253883518976?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A6537001253883518976%2C6538002988328337408%29
-? transport . trottinette électrique partagée . impact . fabrication . batterie . impact par kWh
-: unité: kgCO₂e/kWh
+transport . trottinette électrique partagée . impact . fabrication . batterie . impact par kWh:
+  unité: kgCO₂e/kWh
   formule: 200
   note:
     En l'absence de donnée précise fournie par les marques, nous prenons le pire
     des cas, sur la fourchette de 150-200kg donnée par l'étude ci-dessous.
   références:
     - https://www.automobile-propre.com/voiture-electrique-impact-carbone-batteries/
-? transport . trottinette électrique partagée . impact . fabrication . trottinette sans batterie
-: note:
+transport . trottinette électrique partagée . impact . fabrication . trottinette sans batterie:
+  note:
     Pour une trottinette de l'ordre de 8kg sans la batterie. La Base Carbone de
     l’ADEME a un facteur d’émissions pour les « machines », de l’ordre de 5,5 kg
     CO2e/kg de machine.
@@ -837,8 +824,8 @@ transport . trottinette électrique partagée . impact . fabrication . batterie:
   formule: 45
 transport . trottinette électrique partagée . impact . usage total:
   formule: durée de vie * usage par jour
-? transport . trottinette électrique partagée . impact . usage total . durée de vie
-: unité: jour
+transport . trottinette électrique partagée . impact . usage total . durée de vie:
+  unité: jour
   description: >
     La première investigation indépendante sur la durée de vie des trottinettes
     la chiffrait à 29 jours. Depuis, le Los Angeles Times estime celle des
@@ -850,13 +837,13 @@ transport . trottinette électrique partagée . impact . usage total:
   références:
     - https://www.liberation.fr/planete/2019/03/07/une-trottinette-partagee-a-une-duree-de-vie-de-28-jours_1713419
     - https://www.latimes.com/business/technology/la-fi-tn-bird-scooters-money-profit-strategy-20190505-story.html
-? transport . trottinette électrique partagée . impact . usage total . usage par jour
-: formule: locations par jour * distance par location
-? transport . trottinette électrique partagée . impact . usage total . locations par jour
-: unité: /jour
+transport . trottinette électrique partagée . impact . usage total . usage par jour:
+  formule: locations par jour * distance par location
+transport . trottinette électrique partagée . impact . usage total . locations par jour:
+  unité: /jour
   formule: 10
-? transport . trottinette électrique partagée . impact . usage total . distance par location
-: description:
+transport . trottinette électrique partagée . impact . usage total . distance par location:
+  description:
     D'après le rapport de l'entreprise Lime, la distance moyenne est de 1.06
     miles. On ne sait pas cependant si c'est la distance pour leurs vélos
     électriques ou leurs trottinettes.
@@ -2293,7 +2280,7 @@ terrasse chauffée . puissance d'un chauffage:
   unité: kW
   formule: 3
   note: |
-    
+
     La puissance des chauffage est variable, 3000 W semble être une bonne moyenne (sur la base de recherches dans le catalogue des vendeurs de chauffage pour terrasse).
 
     Quelques pistes pour améliorer le calcul :
@@ -2320,17 +2307,17 @@ terrasse chauffée . impact:
 
     ⚠️ Attention, le calcul est pour l'instant fait pour un chauffage électrique, pas un chauffage au gaz.
   formule: énergie . par personne * empreinte
-  références: 
+  références:
     - https://www.laprovence.com/article/edition-marseille/5839800/terrasses-chauffees-faut-il-les-interdire-partout.html
     - https://twitter.com/Tomsawy22670318/status/1288936433705717760
 
 terrasse chauffée . chauffage électrique:
-  question: Le chauffage est-il électrique, plutôt que gaz ? 
+  question: Le chauffage est-il électrique, plutôt que gaz ?
   par défaut: non
 
 terrasse chauffée . empreinte:
-  formule: 
-    variations: 
+  formule:
+    variations:
       - si: chauffage électrique
         alors: électrique
       - sinon: chauffage . impact par kWh . gaz
@@ -2346,9 +2333,6 @@ terrasse chauffée . empreinte . électrique:
 
     A discuter, une référence solide serait la bienvenue (je n'ai trouvé que des articles de journaux du bâtiment).
 
-
-
-
 numérique:
 numérique . vidéo:
   titre: Une vidéo en ligne
@@ -2358,7 +2342,7 @@ numérique . vidéo:
   description: |
     Quelle est l'empreinte climat d'une **vidéo d'une heure en haute qualité** visionnée sur un smartphone ou un ordinateur portable ?
 
-    Le numérique est aujourd'hui pointé du doigt pour son empreinte importante malgré l'impression de dématérialisation qu'il donne. Une large partie du trafic d'internet est généré par les vidéos, dont la qualité augmente régulièrement. 
+    Le numérique est aujourd'hui pointé du doigt pour son empreinte importante malgré l'impression de dématérialisation qu'il donne. Une large partie du trafic d'internet est généré par les vidéos, dont la qualité augmente régulièrement.
 
   note: |
     Pour aller plus loin, il faudrait : 
@@ -2366,27 +2350,27 @@ numérique . vidéo:
     - poser la question de la durée de la vidéo avec des suggestions (épisode de sérié, saison entière, film)
     - illustrer l'impact du choix d'une qualité inférieure (de la 144p de Youtube à la 4k)
     - permettre à l'usager de choisir le support vs smartphone vs télé 20 pouces vs télé ultra grand écran en incluant la fabrication de ces appareils
-  
+
     L'empreinte du numérique par kWh est calculée ici avec la valeur moyenne du mix électrique français. On pourrait aussi la calculer avec d'autres méthodes, par exemple la méthode [par usage](https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011).
 
-empreinte du mix électrique: 
+empreinte du mix électrique:
   unité: kgCO2e/kWh
   description: Empreinte moyenne du mix électrique français.
   formule: 0.078
   références:
     - https://electricitymap.org
     - https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011)
-    - 
+    -
 
 numérique . vidéo . énergie:
-  formule: 
+  formule:
     somme:
       - serveurs
       - réseau
       - appareil
   note: Nous utilisons le '1byte model' du [Shift Project](https://theshiftproject.org), dont une partie de l'implémentation est dans [ce tableur](https://theshiftproject.org/wp-content/uploads/2019/07/Video-Materials-1byte-Model-applied-to-video-traffic-2019.xlsx).
 
-numérique . vidéo . durée: 
+numérique . vidéo . durée:
   unité: minute
   formule: 60
   note: Une durée approximative, entre le film et l'épisode de série.
@@ -2394,10 +2378,10 @@ numérique . vidéo . poids:
   unité: octet
   formule: 1 * giga
   note: C'est un ordre de grandeur d'une vidéo plutôt haute qualité.
-giga: 
+giga:
   formule: 1000 * 1000 * 1000
 
-numérique . serveurs :
+numérique . serveurs:
   formule: intensité * vidéo . poids
   description: |
     Titre original : "Energy Impact due to Data Centers (in kWh/byte)"
@@ -2434,7 +2418,7 @@ numérique . appareil:
 numérique . appareil . intensité:
   formule: (smartphone + ordinateur portable) / 2
   description: |
-    Titre original : "Energy Impact (in kWh/min)" 
+    Titre original : "Energy Impact (in kWh/min)"
 numérique . appareil . intensité . smartphone:
   unité: kWh/minute
   formule: 0.00011
@@ -2457,7 +2441,6 @@ numérique . téléphone journée . usage:
     En première approximation, on considère qu'un usager de smartphone va consommer 1 giga de données par jour, soit 30 par mois.
     C'est une estimation assez élevée.
   formule: vidéo
-  
 
 numérique . téléphone journée . matériel:
   formule: (numérique . téléphone . impact / durée de vie) / 365
@@ -2465,7 +2448,7 @@ numérique . téléphone journée . matériel . durée de vie:
   note: Première estimation à 2 ans par téléphone.
   formule: 2
 
-logement: 
+logement:
 logement . chauffage:
 logement . chauffage . impact final:
   titre: Chauffer mon logement
@@ -2484,7 +2467,7 @@ logement . habitants:
     Valeur par défaut obtenue dans [ce rapport de l'INSEE](https://www.insee.fr/fr/statistiques/2586377).
 
     > Renforcé par le vieillissement démographique et les recompositions familiales, le taux d’occupation des résidences principales se desserre de façon continue, conduisant à une nette diminution du nombre de personnes par ménage et par logement : un peu plus de trois personnes en moyenne en 1968, 2,3 en 2016. Le nombre de mètres carrés par personne est passé de 31 en 1984 à 40 en 2006. Il est stable depuis.
-  suggestions: 
+  suggestions:
     seul: 1
     en couple: 2
 
@@ -2494,7 +2477,7 @@ logement . type:
   formule:
     une possibilité:
       choix obligatoire: oui
-      possibilités: 
+      possibilités:
         - maison
         - appartement
 logement . type . maison:
@@ -2506,7 +2489,7 @@ logement . chauffage . mode:
   formule:
     une possibilité:
       choix obligatoire: oui
-      possibilités: 
+      possibilités:
         - électricité
         - gaz naturel
 
@@ -2519,7 +2502,7 @@ logement . type . appartement . chaudière:
   formule:
     une possibilité:
       choix obligatoire: oui
-      possibilités: 
+      possibilités:
         - collective
         - individuelle
 
@@ -2528,44 +2511,43 @@ logement . type . appartement . chaudière . collective:
 logement . type . appartement . chaudière . individuelle:
   description: La chaudière est chez vous.
 
-
-logement . chauffage . énergie . intensité: 
+logement . chauffage . énergie . intensité:
   unité: kWh/m²
   note: |
-    
+
     Nous avons choisi un modèle simplifié qui ne donne le choix qu'entre le gaz et l'électricité, car ils représentent en cumulé ~70% des usages pour les maisons et ~85% pour les appartements ([statistiques de 2015](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?chauffage.htm)).
 
     Nous ignorons aussi pour l'instant la variable de l'age du logement en moyennant les deux valeurs avant 1975 / après 1975.
   formule:
-    variations: 
-      - si: 
-          toutes ces conditions: 
+    variations:
+      - si:
+          toutes ces conditions:
             - mode = 'gaz naturel'
             - type = 'maison'
         alors: (201 + 166) / 2
-      - si: 
-          toutes ces conditions: 
+      - si:
+          toutes ces conditions:
             - mode = 'gaz naturel'
             - type = 'appartement'
             - logement . type . appartement . chaudière = 'individuelle'
         alors: (146 + 125) / 2
-      - si: 
-          toutes ces conditions: 
+      - si:
+          toutes ces conditions:
             - mode = 'gaz naturel'
             - type = 'appartement'
             - logement . type . appartement . chaudière = 'collective'
         alors: (207 + 196) / 2
-      - si: 
-          toutes ces conditions: 
+      - si:
+          toutes ces conditions:
             - mode = 'électricité'
             - type = 'appartement'
         alors: (98 + 65) / 2
-      - si: 
-          toutes ces conditions: 
+      - si:
+          toutes ces conditions:
             - mode = 'électricité'
             - type = 'maison'
         alors: (150 + 106) / 2
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?chauffage.htm
 
 logement . chauffage . énergie:
@@ -2579,27 +2561,26 @@ logement . surface:
     Valeur par défaut obtenue dans [ce rapport de l'INSEE](https://www.insee.fr/fr/statistiques/2586377).
 
     > Les logements ont une surface moyenne d’un peu plus de 80 m2.
-  suggestions: 
+  suggestions:
     studio: 25
     2 pièces: 70
     maison: 150
     château 🏰: 1000
 
-
 logement . chauffage . facteur d'émission:
   unité: kgCO2e/kWh
   formule:
-    variations: 
+    variations:
       - si: mode = 'gaz naturel'
         alors: gaz naturel
       - si: mode = 'électricité'
         alors: électricité
 
-logement . chauffage . facteur d'émission . gaz naturel: 
+logement . chauffage . facteur d'émission . gaz naturel:
   unité: kgCO2e/kWh
   formule: 0.244
   description: Facteur d'émission de la base carbone "Gaz naturel" en kgCO2e/kWh PCI.
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=gaz naturel
 logement . chauffage . facteur d'émission . électricité:
   unité: kgCO2e/kWh
@@ -2610,7 +2591,7 @@ logement . chauffage . facteur d'émission . électricité:
     Voir [cette page](https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011)) wikipedia pour comprendre les différentes méthodes de calcul du facteur d'émission de l'électricité.
 
     Notons que la RE2020, et le choix du gouvernement de baisser le facteur du chauffage à 79g/kWh (contre 210 dans l'expérimentation E+C-), provoque de vifs débats à l'heure où l'on écrit ces lignes (février 2020). Nous utilisons pour l'instant la dernière valeur historique fournie par l'ADEME.
-  références: 
+  références:
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=chauffage
 
 jardin:
@@ -2630,16 +2611,16 @@ jardin . nombre de tontes annuelles:
   formule: jardin . saison de tonte / jardin . fréquence de tonte
 jardin . saison de tonte:
   unité: semaine
-  formule : 34
-jardin . fréquence de tonte :
+  formule: 34
+jardin . fréquence de tonte:
   question: Vous passez la tondeuse toutes les combien de semaines ?
   unité: semaine
   par défaut: 3
   suggestions:
-    Une fois par semaine : 1
-    Toutes les 2 semaines : 2
-    Toutes les 3 semaines : 3
-    Toutes les 4 semaines : 4
+    Une fois par semaine: 1
+    Toutes les 2 semaines: 2
+    Toutes les 3 semaines: 3
+    Toutes les 4 semaines: 4
 jardin . impact par tonte:
   exposé: oui
   catégorie: logement
@@ -2652,10 +2633,10 @@ jardin . superficie:
   unité: m²
   par défaut: 500
   suggestions:
-    petit : 300
-    moyen : 800
-    grand : 1200
-    très grand : 2200
+    petit: 300
+    moyen: 800
+    grand: 1200
+    très grand: 2200
 jardin . impact par m2 tondu:
   icônes: 🚿
   unité: kgCO²/m²
@@ -2664,4 +2645,4 @@ jardin . impact par m2 tondu:
   références:
     - https://www.peoplepoweredmachines.com/faq-environment.htm
   titre: 1m² tondu
-  formule: 0.0002 * 11 / 0.42 
+  formule: 0.0002 * 11 / 0.42
