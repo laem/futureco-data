@@ -62,7 +62,7 @@ chauffage . type:
         - gaz
         - fioul
         - électricité
-  par défaut: gaz
+  par défaut: "'gaz'"
 chauffage . type . gaz:
   icônes: 🔵
 chauffage . type . fioul:
@@ -135,7 +135,7 @@ transport . mode:
         - tram
         - vélo
         - à pieds
-  par défaut: voiture
+  par défaut: "'voiture'"
   références:
     - https://www.ratp.fr/node/2581
 transport . mode . bus:
@@ -153,7 +153,7 @@ transport . mode . à pieds:
 transport . voiture . gabarit:
   question: Quel est la taille de votre voiture ?
   applicable si: mode = 'voiture'
-  par défaut: moyenne
+  par défaut: "'moyenne'"
   formule:
     une possibilité:
       choix obligatoire: oui
@@ -178,7 +178,7 @@ transport . voiture . gabarit . SUV:
 transport . voiture . type:
   question: Quel propulsion ?
   applicable si: mode = 'voiture'
-  par défaut: essence
+  par défaut: "'essence'"
   formule:
     une possibilité:
       choix obligatoire: oui
@@ -482,7 +482,7 @@ finances . banque:
         - Crédit Agricole
         - Crédit Coopératif
         - La Banque Postale
-  par défaut: BNP Paribas
+  par défaut: "'BNP Paribas'"
 finances . banque . la Nef:
 finances . banque . Société Générale:
 finances . banque . BPCE:
@@ -511,7 +511,7 @@ numérique . téléphone:
         - mobile basique
         - smartphone moins de 5 pouces
         - smartphone plus de 5 pouces
-  par défaut: smartphone moins de 5 pouces
+  par défaut: "'smartphone moins de 5 pouces'"
 
 numérique . téléphone . impact:
   icônes: 📱✨
@@ -545,7 +545,7 @@ numérique . ordinateur:
       possibilités:
         - ordinateur portable
         - tablette
-  par défaut: ordinateur portable
+  par défaut: "'ordinateur portable'"
 numérique . ordinateur . ordinateur portable:
   note: Besoin de préciser quelle taille d'écran.
 numérique . ordinateur . tablette:
@@ -588,7 +588,7 @@ numérique . box internet:
       possibilités:
         - box ADSL
         - box fibre
-  par défaut: box ADSL
+  par défaut: "'box ADSL'"
 numérique . box internet . box ADSL:
 numérique . box internet . box fibre:
 numérique . box internet . impact:
@@ -615,7 +615,7 @@ numérique . télévision . taille:
         - moyenne 30 à 40 pouces
         - grande 40 à 49 pouces
         - énorme plus de 49 pouces
-  par défaut: moyenne 30 à 40 pouces
+  par défaut: "'moyenne 30 à 40 pouces'"
 numérique . télévision . taille . moyenne 30 à 40 pouces:
 numérique . télévision . taille . grande 40 à 49 pouces:
 numérique . télévision . taille . énorme plus de 49 pouces:
@@ -1015,7 +1015,7 @@ nourriture . lait . chauffe:
         - très chaud
         - tiède
         - froid
-  par défaut: ébullition
+  par défaut: "'ébullition'"
 nourriture . lait . chauffe . ébullition:
   titre: Je le porte à ébullition puis j'attends
 nourriture . lait . chauffe . très chaud:
@@ -1160,7 +1160,7 @@ nourriture . eau . distribution:
       possibilités:
         - robinet
         - bouteille minérale
-  par défaut: robinet
+  par défaut: "'robinet'"
 nourriture . eau . distribution . robinet:
 nourriture . eau . distribution . bouteille minérale:
 nourriture . eau . impact litre minérale:
@@ -1268,7 +1268,7 @@ vêtements . pull . matière:
         - coton
         - coton recyclé
         - polaire plastique recyclé
-  par défaut: coton
+  par défaut: "'coton'"
 vêtements . pull . matière . acrylique:
 vêtements . pull . matière . polaire plastique recyclé:
   description: Une polaire en PES recyclé
@@ -1313,7 +1313,7 @@ vêtements . veste . type:
         - manteau
         - anorak
         - faux cuir
-  par défaut: anorak
+  par défaut: "'anorak'"
 vêtements . veste . type . manteau:
 vêtements . veste . type . anorak:
 vêtements . veste . type . faux cuir:
@@ -1356,7 +1356,7 @@ vêtements . robe . matière:
         - polyester
         - coton
         - viscose
-  par défaut: coton
+  par défaut: "'coton'"
 vêtements . robe . matière . polyester:
 vêtements . robe . matière . coton:
 vêtements . robe . matière . viscose:
@@ -1611,7 +1611,7 @@ logement . habitants:
 
 logement . type:
   question: Dans quel type de logement vivez-vous ?
-  par défaut: appartement
+  par défaut: "'appartement'"
   formule:
     une possibilité:
       choix obligatoire: oui
@@ -1623,7 +1623,7 @@ logement . type . appartement:
 
 logement . chauffage . mode:
   question: Comment est chauffé votre logement ?
-  par défaut: gaz naturel
+  par défaut: "'gaz naturel'"
   formule:
     une possibilité:
       choix obligatoire: oui
@@ -1636,7 +1636,7 @@ logement . chauffage . mode . gaz naturel:
 
 logement . type . appartement . chaudière:
   question: Votre chaudière à gaz est-elle collective ?
-  par défaut: collective
+  par défaut: "'collective'"
   formule:
     une possibilité:
       choix obligatoire: oui
@@ -1762,7 +1762,7 @@ jardin . fréquence de tonte:
 jardin . impact par tonte:
   exposé: oui
   catégorie: logement
-  icônes: 🏡
+  icônes: 🏡✂️
   titre: Une tonte
   unité: kgCO²
   formule: jardin . superficie * jardin . impact par m2 tondu
