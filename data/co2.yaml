@@ -2035,6 +2035,8 @@ piscine . pompe de filtrage:
 piscine . pompe de filtrage . puissance:
   formule: 0.75
   unité: kW
+
+piscine . pompe de filtrage . utilisation:
 piscine . pompe de filtrage . utilisation . heures:
   formule: mois d'activité * 30 * par jour actif
   unité: h
