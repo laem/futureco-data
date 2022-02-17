@@ -3,9 +3,14 @@ const fs = require('fs')
 const results = []
 const yaml = require('yaml')
 
+const oldFile = fs.readFileSync('co2.yaml.2019', { encoding: 'utf8' })
+// ./alimentation-base-carbone.yaml
+let rules = yaml.parse(oldFile)
+
 fs.createReadStream('base_carbone_v19.0.csv')
+	.setEncoding('latin1')
 	// get this file here : https://github.com/laem/futureco-data/issues/50
-	.pipe(csv())
+	.pipe(csv({ separator: ';' }))
 	.on('data', (data) => {
 		let {
 			'Code de la catégorie': categorie,
@@ -22,9 +27,8 @@ fs.createReadStream('base_carbone_v19.0.csv')
 			unité === 'kgCO2e/portion' &&
 			type === 'Elément' &&
 			results.push({
-				espace: 'nourriture',
-				nom: nom + (attribut ? ' - ' + attribut : ''),
-				exposé: 'oui',
+				dottedName:
+					'alimentation' + ' . ' + nom + (attribut ? ' - ' + attribut : ''),
 				description: data['Commentaire français'],
 				formule: +co2e.replace(',', '.'),
 				unité: 'kgCO₂e',
@@ -35,28 +39,35 @@ fs.createReadStream('base_carbone_v19.0.csv')
 	})
 	.on('end', () => {
 		// We'll now update, not replace, the current publicodes file
-		fs.readFile('./alimentation-base-carbone.yaml', 'utf8', (err, data) => {
-			let rules = yaml.parse(data)
-			let updatedRules = rules.map((rule) => {
-				let update = results.find(
-					(r) => r.nom === rule.nom && r.espace === rule.espace
-				)
-				return {
-					...(rule.exposé === 'oui' && !rule.icônes ? { icônes: '' } : {}),
-					...rule,
-					...update,
-				}
-			})
-			fs.writeFile(
-				'./alimentation-base-carbone.yaml',
-				yaml.stringify(updatedRules),
-				function (err) {
-					if (err) {
-						return console.log(err)
-					}
 
-					console.log('The file was saved!')
-				}
-			)
+		let updatedRules = results.map((newRule) => {
+			const oldRule =
+				rules[newRule.dottedName.replace('alimentation', 'nourriture')] || {}
+
+			return {
+				...oldRule,
+				...newRule,
+				exposé: 'oui',
+				description: oldRule.description || newRule.description,
+				...(oldRule.titre ? { titre: oldRule.titre } : {}),
+			}
 		})
+		fs.writeFile(
+			'./alimentation-base-carbone.yaml',
+			yaml.stringify(
+				Object.fromEntries(
+					updatedRules.map((el) => {
+						const { dottedName, ...value } = el
+						return [dottedName, value]
+					})
+				)
+			),
+			function (err) {
+				if (err) {
+					return console.log(err)
+				}
+
+				console.log('The file was saved!')
+			}
+		)
 	})
