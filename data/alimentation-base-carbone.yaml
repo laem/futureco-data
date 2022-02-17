@@ -1,4 +1,5 @@
 alimentation . Baba au rhum:
+  icônes: 🍰
   description:
     "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
     0,35"
@@ -627,9 +628,7 @@ alimentation . Salade de tomates - de saison:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-'alimentation . Salade de tomates - hors saison, France':
-  icônes: 🍅⏳
-  exposé: oui
+alimentation . Salade de tomates - hors saison - France:
   description:
     "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
     0,149"
@@ -637,6 +636,7 @@ alimentation . Salade de tomates - de saison:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
+  exposé: oui
 alimentation . Salade de tomates mozzarella - de saison:
   icônes: 🍅🧀
   exposé: oui
@@ -846,7 +846,8 @@ alimentation . Viennoiserie brioche - type brioche:
 
     Titre original : `Viennoiserie brioche - type brioche`.
 
-    Masse d'ingrédients consommables dans l'assiette pour une portion (kg) : 0,05
+    Masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
+    0,05"
   formule: 0.143
   unité: kgCO₂e
   références:

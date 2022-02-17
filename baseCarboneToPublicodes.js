@@ -28,7 +28,10 @@ fs.createReadStream('base_carbone_v19.0.csv')
 			type === 'Elément' &&
 			results.push({
 				dottedName:
-					'alimentation' + ' . ' + nom + (attribut ? ' - ' + attribut : ''),
+					'alimentation' +
+					' . ' +
+					nom +
+					(attribut ? ' - ' + attribut.replace(', ', ' - ') : ''),
 				description: data['Commentaire français'],
 				formule: +co2e.replace(',', '.'),
 				unité: 'kgCO₂e',
@@ -53,7 +56,7 @@ fs.createReadStream('base_carbone_v19.0.csv')
 			}
 		})
 		fs.writeFile(
-			'./alimentation-base-carbone.yaml',
+			'./data/alimentation-base-carbone.yaml',
 			yaml.stringify(
 				Object.fromEntries(
 					updatedRules.map((el) => {
