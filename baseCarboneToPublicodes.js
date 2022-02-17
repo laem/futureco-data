@@ -3,17 +3,17 @@ const fs = require('fs')
 const results = []
 const yaml = require('yaml')
 
-fs.createReadStream('base carbone v16.1.csv')
+fs.createReadStream('base_carbone_v19.0.csv')
 	// get this file here : https://github.com/laem/futureco-data/issues/50
 	.pipe(csv())
-	.on('data', data => {
+	.on('data', (data) => {
 		let {
 			'Code de la catégorie': categorie,
 			'Unité français': unité,
 			'Type Ligne': type,
 			'Total poste non décomposé': co2e,
 			'Nom base français': nom,
-			'Nom attribut français': attribut
+			'Nom attribut français': attribut,
 		} = data
 
 		categorie.includes(
@@ -29,30 +29,34 @@ fs.createReadStream('base carbone v16.1.csv')
 				formule: +co2e.replace(',', '.'),
 				unité: 'kgCO₂e',
 				références: [
-					'http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23'
-				]
+					'http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23',
+				],
 			})
 	})
 	.on('end', () => {
 		// We'll now update, not replace, the current publicodes file
-		fs.readFile('./co2.yaml', 'utf8', (err, data) => {
+		fs.readFile('./alimentation-base-carbone.yaml', 'utf8', (err, data) => {
 			let rules = yaml.parse(data)
-			let updatedRules = rules.map(rule => {
+			let updatedRules = rules.map((rule) => {
 				let update = results.find(
-					r => r.nom === rule.nom && r.espace === rule.espace
+					(r) => r.nom === rule.nom && r.espace === rule.espace
 				)
 				return {
 					...(rule.exposé === 'oui' && !rule.icônes ? { icônes: '' } : {}),
 					...rule,
-					...update
+					...update,
 				}
 			})
-			fs.writeFile('./co2.yaml', yaml.stringify(updatedRules), function(err) {
-				if (err) {
-					return console.log(err)
-				}
+			fs.writeFile(
+				'./alimentation-base-carbone.yaml',
+				yaml.stringify(updatedRules),
+				function (err) {
+					if (err) {
+						return console.log(err)
+					}
 
-				console.log('The file was saved!')
-			})
+					console.log('The file was saved!')
+				}
+			)
 		})
 	})
