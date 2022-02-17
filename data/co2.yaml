@@ -633,8 +633,8 @@ numérique . télévision . impact:
         grande 40 à 49 pouces: 422
         énorme plus de 49 pouces: 568
 
-nourriture . bière:
-nourriture . bière . impact:
+alimentation . bière:
+alimentation . bière . impact:
   titre: Une pinte de bière
   icônes: 🍺
   exposé: oui
@@ -661,7 +661,7 @@ nourriture . bière . impact:
     On peut même aller plus loin : consommez-vous cette pinte sur une terrasse extérieure chauffée ?
   références:
     - https://www.theguardian.com/environment/green-living-blog/2010/jun/04/carbon-footprint-beer
-nourriture . bière . locale:
+alimentation . bière . locale:
   question: La bière est-elle brassée localement ?
   description: >
     Par exemple, si vous la consommez à Paris, est-elle brassée en Île-de-France
@@ -669,7 +669,7 @@ nourriture . bière . locale:
     bouche. En effet, une bière c'est lourd à transporter, et donc très émetteur
     de CO₂.
   par défaut: non
-nourriture . bière . pression ou consignée:
+alimentation . bière . pression ou consignée:
   question: Est-ce une bière pression (ou une bouteille consignée) ?
   note:
     Il faudrait ajouter le cas de la bière en cannette, l'impact d'une bouteille
@@ -908,23 +908,23 @@ transport . voiture . prix:
     SUV: 28000
   références:
     - https://www.automobile-magazine.fr/toute-l-actualite/article/25564-match-les-prix-des-nouvelles-peugeot-208-renault-clio-5-citroen-c3-et-vw-polo-compares
-nourriture . lait:
+alimentation . lait:
   icônes: 🥛
   références:
     - http://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?produits_laitiers.htm
-nourriture . lait . lait de vache:
+alimentation . lait . lait de vache:
   icônes: 🐄
   formule: 0.94
   unité: kgCO₂e/kg
 
-nourriture . lait . masse volumique:
+alimentation . lait . masse volumique:
   unité: kg/l
   formule: 1.030
   description: Un litre de lait entier correspond à 1030 grammes.
   références:
     - https://fr.m.wikipedia.org/wiki/Masse_volumique#Liquides
 
-nourriture . lait . chocolat chaud:
+alimentation . lait . chocolat chaud:
   icônes: ☕🍫
   titre: un chocolat chaud
   exposé: oui
@@ -935,16 +935,16 @@ nourriture . lait . chocolat chaud:
       - chauffage
       - chocolat . dose
 
-nourriture . lait . chocolat chaud . chauffage:
+alimentation . lait . chocolat chaud . chauffage:
   formule: impact chauffage litre de lait * contenance tasse
 
-nourriture . chocolat:
+alimentation . chocolat:
 
-nourriture . chocolat . dose:
+alimentation . chocolat . dose:
   titre: une dose de chocolat
   formule: impact * portion
 
-nourriture . chocolat . impact:
+alimentation . chocolat . impact:
   formule: 4.7
   unité: kgCO₂e/kg
   description: Chocolat en poudre non sucré, en magasin.
@@ -952,24 +952,24 @@ nourriture . chocolat . impact:
   références:
     - http://www.bilans-ges.ademe.fr
 
-nourriture . chocolat . portion:
+alimentation . chocolat . portion:
   formule: 0.010
   note: La question de la dose de chocolat par tasse est compliquée, voir [cette discussion](https://github.com/laem/futureco-data/pull/48#discussion_r331799099) qui prend une mesure rélle, à défaut d'une moyenne sur plusieurs consommateurs.
   unité: kg
 
-nourriture . lait . chauffage litre de lait en joules:
+alimentation . lait . chauffage litre de lait en joules:
   note: Ici on prend pour simplifier une masse volumique du lait de 1.
   formule: delta température * chaleur spécifique
 
-nourriture . lait . chauffage litre de lait:
+alimentation . lait . chauffage litre de lait:
   unité: kWh/l
   description: 1 kWh = 3600 kJ
   formule: chauffage litre de lait en joules / 3600000
 
-nourriture . lait . chauffage litre de lait final:
+alimentation . lait . chauffage litre de lait final:
   formule: chauffage litre de lait / chauffage . efficacité microondes
 
-nourriture . lait . impact chauffage litre de lait:
+alimentation . lait . impact chauffage litre de lait:
   description: Chauffé dans un micro-ondes.
   note: On devrait ajouter le chauffage sur plaque de gaz, qui devrait multiplier par ~3 l'impact climat.
   formule: chauffage litre de lait final * chauffage . impact par kWh . électricité
@@ -979,16 +979,16 @@ chauffage . efficacité microondes:
   références:
     - https://e-rse.net/comment-chauffer-eau-ecologie-energie-270031/#gs.7vibnn
 
-nourriture . lait . delta température:
+alimentation . lait . delta température:
   description: La température de la pièce est de 20°C et la température à laquelle on chauffe le lait est d'environ 80°C.
   unité: K
   formule: température max atteinte - température lait froid
 
-nourriture . lait . température lait froid:
+alimentation . lait . température lait froid:
   note: La température de la pièce est de ~20°C, mais une fois ouverte, la bouteille de lait est conservée au frigo, à ~6°C. On retient la moyenne.
   formule: (20 + 6) / 2
 
-nourriture . lait . température max atteinte:
+alimentation . lait . température max atteinte:
   formule:
     correspondance:
       variable: chauffe
@@ -1007,7 +1007,7 @@ nourriture . lait . température max atteinte:
     > Pour la température `froid`, il faudrait utiliser la variable `température lait froid` mais aujourd'hui ce n'est pas possible de faire une référence à une variable dans une `correspondance`.
   références:
 
-nourriture . lait . chauffe:
+alimentation . lait . chauffe:
   question: Comment chauffez-vous votre lait ?
   formule:
     une possibilité:
@@ -1018,46 +1018,46 @@ nourriture . lait . chauffe:
         - tiède
         - froid
   par défaut: "'ébullition'"
-nourriture . lait . chauffe . ébullition:
+alimentation . lait . chauffe . ébullition:
   titre: Je le porte à ébullition puis j'attends
-nourriture . lait . chauffe . très chaud:
-nourriture . lait . chauffe . tiède:
+alimentation . lait . chauffe . très chaud:
+alimentation . lait . chauffe . tiède:
 
-nourriture . lait . chauffe . froid:
+alimentation . lait . chauffe . froid:
 
-nourriture . lait . chaleur spécifique:
+alimentation . lait . chaleur spécifique:
   formule: 3800
   unité: J/kg-K
   références:
     - https://hal.archives-ouvertes.fr/hal-00928930/document
 
-nourriture . lait . une tasse de lait:
+alimentation . lait . une tasse de lait:
   icônes: 🥛
   exposé: oui
   formule: impact par litre * contenance tasse
 
-nourriture . lait . impact par litre:
+alimentation . lait . impact par litre:
   formule: lait de vache * masse volumique
 
-nourriture . contenance tasse:
+alimentation . contenance tasse:
   description: Une tasse bien remplie ou un grand verre.
   formule: 0.3
   unité: l
 
-nourriture . lait . lait de brebis:
+alimentation . lait . lait de brebis:
   icônes: 🐑
   formule: 1.54
   unité: kgCO₂e/kg
-nourriture . lait . lait de chèvre:
+alimentation . lait . lait de chèvre:
   icônes: 🐐
   formule: 0.8
   unité: kgCO₂e/kg
-nourriture . fromage:
+alimentation . fromage:
   icônes: 🧀
   références:
     - http://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?produits_laitiers.htm
     - https://fr.m.wikipedia.org/wiki/Types_de_pâtes_de_fromage
-nourriture . fromage . fromage à pâte dure:
+alimentation . fromage . fromage à pâte dure:
   unité: kgCO₂e/kg
   description: >
     Il faut environ 11,5 litres de lait pour faire un kg de fromage à pâte dure.
@@ -1065,14 +1065,14 @@ nourriture . fromage . fromage à pâte dure:
     provenant du lait), on obtient un facteur d'émissions de 12,6 kgCO2e / kg de
     fromage à pâte dure.
   formule: 12.6
-nourriture . fromage . fromage à pâte molle:
+alimentation . fromage . fromage à pâte molle:
   unité: kgCO₂e/kg
   description: >
     Il faut environ 6 litres de lait pour 1kg de fromage à pâte molle. Sur la
     base du calcul précédent,  on obtient un facteur d'émissions de 6,6 kgCO2e /
     kg de fromage à pâte molle.
   formule: 6.6
-nourriture . fromage . yaourts et fromages frais:
+alimentation . fromage . yaourts et fromages frais:
   icônes: null
   unité: kgCO₂e/kg
   description: >
@@ -1082,7 +1082,7 @@ nourriture . fromage . yaourts et fromages frais:
     lait, ce qui amène à  2,2 kgCO2e / kg de yaourt. Ce facteur d’émission
     s’applique aussi au fromage frais en première approximation.
   formule: 2.2
-nourriture . fondue savoyarde:
+alimentation . fondue savoyarde:
   titre: une fondue savoyarde
   exposé: oui
   icônes: 🧀👥🗻
@@ -1110,14 +1110,14 @@ nourriture . fondue savoyarde:
   formule: poids de fromage * fromage . fromage à pâte dure
   références:
     - https://fr.m.wikipedia.org/wiki/Fondue_savoyarde
-nourriture . fondue savoyarde . poids de fromage:
+alimentation . fondue savoyarde . poids de fromage:
   description: Poids de fromage par personne pour une bonne fondue hivernale.
   unité: kg
   formule: 0.3
   références:
     - https://www.marmiton.org/recettes/recette_veritable-fondue-savoyarde_34077.aspx
-nourriture . vin:
-nourriture . vin . bouteille:
+alimentation . vin:
+alimentation . vin . bouteille:
   icônes: 🍷
   titre: Une bouteille de vin
   description: Une bouteille de 75cl de vin français.
@@ -1132,10 +1132,10 @@ nourriture . vin . bouteille:
       - si: grand vin ou champagne
         alors: 2.2
       - sinon: 1.1
-nourriture . vin . grand vin ou champagne:
+alimentation . vin . grand vin ou champagne:
   question: Est-ce un grand vin français ou encore un champagne ?
   par défaut: non
-nourriture . eau:
+alimentation . eau:
   titre: boire un verre d'eau
   icônes: 🥛💧
   exposé: oui
@@ -1152,7 +1152,7 @@ nourriture . eau:
         alors: eau . impact par litre froid * contenance petit verre d'eau
       - si: distribution = 'bouteille minérale'
         alors: impact litre minérale * contenance petit verre d'eau
-nourriture . eau . distribution:
+alimentation . eau . distribution:
   question: |
     Est-ce un verre au robinet, ou un verre provenant d'une bouteille d'eau
     minérale ?
@@ -1163,9 +1163,9 @@ nourriture . eau . distribution:
         - robinet
         - bouteille minérale
   par défaut: "'robinet'"
-nourriture . eau . distribution . robinet:
-nourriture . eau . distribution . bouteille minérale:
-nourriture . eau . impact litre minérale:
+alimentation . eau . distribution . robinet:
+alimentation . eau . distribution . bouteille minérale:
+alimentation . eau . impact litre minérale:
   unité: kgCO₂e/l
   note: >
     Nous ne considérons pour l'instant que l'impact de la bouteille qui contient
@@ -1181,7 +1181,7 @@ nourriture . eau . impact litre minérale:
     somme:
       - transport de la bouteille
       - plastique . impact grande bouteille / 1.5
-nourriture . eau . transport de la bouteille:
+alimentation . eau . transport de la bouteille:
   description: Une bouteille d'1L ayant voyagé 500km.
   unité: kgCO₂e/kg
   note: >
@@ -1189,7 +1189,7 @@ nourriture . eau . transport de la bouteille:
     Berners-Lee : une bouteille de 500ml qui voyage sur 600 miles (~ 1000km) par
     la route émet pour son transport 115g.
   formule: 0.115
-nourriture . eau . contenance petit verre d'eau:
+alimentation . eau . contenance petit verre d'eau:
   unité: l
   formule: 0.125
 
@@ -1361,7 +1361,7 @@ vêtements . robe . matière:
 vêtements . robe . matière . polyester:
 vêtements . robe . matière . coton:
 vêtements . robe . matière . viscose:
-nourriture:
+alimentation:
   icônes: 🍴
   titre: Manger et boire
   description: >
@@ -1384,18 +1384,18 @@ nourriture:
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
 
-nourriture . un avocat:
+alimentation . un avocat:
   description:
     L'avocat est un fruit très prisé aujourd'hui dans la cuisine occidentale,
     notamment dans les régimes végétariens.
   exposé: oui
   icônes: 🥑
   formule: impact au kilo * poids d'un avocat
-nourriture . un avocat . impact au kilo:
+alimentation . un avocat . impact au kilo:
   formule: 1.3
   références:
     - https://m.huffingtonpost.fr/2016/11/14/cop22-combien-de-co2-dans-vos-assiettes_a_21600349/
-nourriture . un avocat . poids d'un avocat:
+alimentation . un avocat . poids d'un avocat:
   formule: 0.17
   références:
     - https://www.livescience.com/45209-avocado-nutrition-facts.html
@@ -1866,8 +1866,8 @@ emballages . conserve pois chiche:
   références:
     - https://world.openfoodfacts.org/product/3335880004273/pois-chiches-sans-sel-ajoute-prosain
 emballages . conserve pois chiche . contenu:
-  formule: nourriture . pois chiche sans emballage * poids
-nourriture . pois chiche sans emballage:
+  formule: alimentation . pois chiche sans emballage * poids
+alimentation . pois chiche sans emballage:
   formule: 0.834 - 0.201
   note: |
     [Source](https://raw.githubusercontent.com/betagouv/ecolab-alimentation/master/data/out/Agribalyse.json) chercher "20507".
@@ -1890,8 +1890,8 @@ emballages . conserve chili con carne:
 
   formule: conserve en verre + contenu
 emballages . conserve chili con carne . contenu:
-  formule: nourriture . chili con carne sans emballage * poids
-nourriture . chili con carne sans emballage:
+  formule: alimentation . chili con carne sans emballage * poids
+alimentation . chili con carne sans emballage:
   formule: 21.680 - 0.212
   note: |
     [Source](https://raw.githubusercontent.com/betagouv/ecolab-alimentation/master/data/out/Agribalyse.json) chercher "25111".
