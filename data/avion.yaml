@@ -10,6 +10,9 @@ transport . avion . impact:
     - https://www.qqf.fr/infographie/48/des-vacances-au-kilometre
 transport . avion . distance de vol:
   formule: distance de vol aller * 2
+transport . avion . départ:
+transport . avion . arrivée:
+
 transport . avion . distance de vol aller:
   question: Quel est votre trajet en avion ?
   unité: km
