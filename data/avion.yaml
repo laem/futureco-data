@@ -2,12 +2,14 @@ transport . avion:
 transport . avion . impact:
   titre: Un vol aller-retour
   icônes: 🛫
-  exposé: oui
+  exposé:
+    exemples via suggestions: transport . avion . distance de vol aller
   unité: kgCO₂e
   formule: distance de vol * impact unitaire
   références:
     - https://shameplane.com
     - https://www.qqf.fr/infographie/48/des-vacances-au-kilometre
+
 transport . avion . distance de vol:
   formule: distance de vol aller * 2
 transport . avion . départ:
@@ -17,6 +19,11 @@ transport . avion . distance de vol aller:
   question: Quel est votre trajet en avion ?
   unité: km
   suggestions:
+    🇫🇷 vol national: 600
+    🌞 vol trans-méditerranée: 1800
+    🗽 vol transatlantique: 6000
+    🗺️ super long courrier: 15000
+  suggestions précises:
     Paris Toulouse: 589
     Paris Tunis: 1741
     Paris N-Y: 5834
