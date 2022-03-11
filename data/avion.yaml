@@ -30,10 +30,12 @@ transport . avion . distance de vol aller:
     Paris Pérou: 10248
     Paris N-Z: 18942
   par défaut: 1000
+
 transport . avion . impact unitaire:
-  formule: impact carbone unitaire * coefficient de forçage radiatif
+  formule: impact carbone unitaire * coefficient de forçage radiatif * malus confort
   références:
     - https://fr.m.wikipedia.org/wiki/Impact_climatique_du_transport_aérien
+
 transport . avion . coefficient de forçage radiatif:
   description: >
     Le forçage radiatif, c'est la capacité d'une émission de gaz à rechauffer la
@@ -47,6 +49,12 @@ transport . avion . coefficient de forçage radiatif:
     - https://www.carbonindependent.org/sources_aviation.html
     - http://www.bilans-ges.ademe.fr/forum/viewtopic.php?f=20&t=4009&sid=dea7e08c81c2f723b803d27e7e2a8797
     - https://fr.wikipedia.org/wiki/Impact_climatique_du_transport_a%C3%A9rien#Pond%C3%A9ration_des_%C3%A9missions
+
+# Une idée pour représenter à la fois l'incertude et le côté inhomogène de ce facteur (échelle de temps de dégradation différente)
+# c'est de mettre dans la main de l'utilisateur une jauge de risque
+# À quel point êtes-vous prêts à risquer un réchauffement plus important que prévu spécifique à l'aviation ?
+# ignorer le risque (x1) | ----------------------------------------- | se prémunir du risque (x3)
+
 transport . avion . impact carbone unitaire:
   unité: kgCO₂e/km
   description: >
@@ -86,3 +94,51 @@ transport . avion . impact carbone unitaire:
         - plafond: 10000
           montant: 0.065
         - montant: 0.078
+
+transport . avion . malus confort:
+  note: |
+    L'allocation est faite par myclimate selon la méthode par surface décrite ci-dessous. 
+
+    > The emissions are allocated to the different cabin classes according to the average seat area in the selected cabin class (seatguru 2012). The cabin class weighting factor is calculated for each aircraft type and then weighted by the weighting scheme described above.
+
+    Les valeurs des paramètres sont récupérés dans un modélisation inspirée de la méthode myclimate, disponible [ici](https://github.com/electricitymap/bloom-contrib/blob/master/co2eq/flights/index.js).
+  formule:
+    variations:
+      - si:
+          toutes ces conditions:
+            - court courrier
+            - confort = 'normal'
+        alors: 0.96
+      - si: confort = 'normal'
+        alors: 0.8
+      - si:
+          toutes ces conditions:
+            - court courrier
+            - confort = 'confort'
+        alors: 1.26
+      - sinon: 2
+
+transport . avion . confort:
+  question: Quel confort de vol choississez-vous ?
+  description: |
+    "Normal" correspond aux sièges en rangée et étroits. On l'appelle souvent aussi "economy". 
+
+    "Confort", c'est l'équivalent de la première classe dans le train : plus de place dans les deux sens.
+
+    "Super confort", c'est presque un salon privatisé pour vous, avec un repose pied, une conversion en lit sur longue distance, et parfois des services de luxe comme une douche.
+  par défaut: "'normal'"
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - normal
+        - confort
+        - super confort
+
+transport . avion . confort . normal:
+transport . avion . confort . confort:
+transport . avion . confort . super confort:
+
+transport . avion . court courrier: distance de vol aller < seuil court courrier
+transport . avion . seuil court courrier:
+  formule: 1500
