@@ -51,16 +51,52 @@ transport . avion . coefficient de forçage radiatif:
     Un vol émet du CO₂, mais aussi d'autres gaz, ainsi que de la vapeur libérée en haute altitude. Le forçage radiatif de ces émissions est conséquent et doit donc être pris en compte, mais c'est une estimation très compliquée.
 
     L'effet de la vapeur d'eau est temporaire : elle disparaît à court-terme par rapport au CO₂ qui reste très longtemps présent. Son effet n'en reste pas moins massif.
-  formule: 2
+
+    Ce facteur n'est pas encore consensuel, d'une car il est complexe, et de deux car l'impact climat du CO2 et des trainées sont inhomogènes à cause de la durée de dégradation. 
+
+    Nous faisons donc le choix de le faire varier en fonction du choix de l'utilisateur.
+  formule:
+    correspondance:
+      variable: tolérance au risque
+      tableau:
+        élevée: 1
+        moyenne: 2
+        faible: 3
+
   références:
     - https://www.carbonindependent.org/sources_aviation.html
     - http://www.bilans-ges.ademe.fr/forum/viewtopic.php?f=20&t=4009&sid=dea7e08c81c2f723b803d27e7e2a8797
     - https://fr.wikipedia.org/wiki/Impact_climatique_du_transport_a%C3%A9rien#Pond%C3%A9ration_des_%C3%A9missions
+    - https://www.sciencedirect.com/science/article/pii/S1352231020305689
 
-# Une idée pour représenter à la fois l'incertude et le côté inhomogène de ce facteur (échelle de temps de dégradation différente)
-# c'est de mettre dans la main de l'utilisateur une jauge de risque
-# À quel point êtes-vous prêts à risquer un réchauffement plus important que prévu spécifique à l'aviation ?
-# ignorer le risque (x1) | ----------------------------------------- | se prémunir du risque (x3)
+transport . avion . tolérance au risque:
+  question: À quel point êtes-vous prêts à risquer un réchauffement plus important que prévu spécifique à l'aviation ?
+  description: |
+    L'empreinte climat de l'aviation est plus incertaine que d'autres activités. 
+
+    On sait bien prendre en compte le CO2 émis quand on brûle le kérosène. 
+
+    Mais l'empreinte des trainées (les lignes blanches qu'on voit dans le ciel) est plus incertaines : 
+      - ceux qui veulent rassurer les ignorent complètement. 
+      - l'ADEME dit qu'elles doublent l'empreinte climat
+      - les recherches les plus récentes parlent d'un facteur x3 😰
+
+    À vous de choisir !
+  par défaut: "'moyenne'"
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - élevée
+        - moyenne
+        - faible
+
+transport . avion . tolérance au risque . élevée:
+  titre: Ignorer le risque
+transport . avion . tolérance au risque . moyenne:
+  titre: Je ne sais pas
+transport . avion . tolérance au risque . faible:
+  titre: Prendre large
 
 transport . avion . impact carbone unitaire:
   unité: kgCO₂e/km
