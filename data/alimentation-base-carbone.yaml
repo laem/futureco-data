@@ -78,7 +78,7 @@ alimentation . Brandade de morue:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Brownie - aux noix entière:
+alimentation . Brownie-aux noix entière:
   icônes: 🧁🍫
   exposé: oui
   description:
@@ -218,7 +218,7 @@ alimentation . Crêpes:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Crêpes - galette au sarasin:
+alimentation . Crêpes-galette au sarasin:
   icônes: 🥞🧂
   exposé: oui
   description:
@@ -368,7 +368,7 @@ alimentation . Lapin à la moutarde:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Lasagnes - à la viande:
+alimentation . Lasagnes-à la viande:
   icônes: 🍝🥩
   exposé: oui
   description:
@@ -378,7 +378,7 @@ alimentation . Lasagnes - à la viande:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Lasagnes - végétarienne:
+alimentation . Lasagnes-végétarienne:
   icônes: 🥩🥬
   exposé: oui
   description:
@@ -438,7 +438,7 @@ alimentation . Omelette:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Orange - fraîche:
+alimentation . Orange-fraîche:
   icônes: 🍊
   exposé: oui
   description:
@@ -498,7 +498,7 @@ alimentation . Pizza:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Poire belle hélène - poire de Belgique:
+alimentation . Poire belle hélène-poire de Belgique:
   icônes: 🍐🇧🇪
   exposé: oui
   description:
@@ -538,7 +538,7 @@ alimentation . Pot au feu:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Poulet frites - frites surgelés:
+alimentation . Poulet frites-frites surgelés:
   icônes: 🐔🍟❄️
   exposé: oui
   description:
@@ -588,7 +588,7 @@ alimentation . Raclette:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Ratatouille de saison - de saison:
+alimentation . Ratatouille de saison-de saison:
   icônes: 🍆🍅🥦
   exposé: oui
   description:
@@ -598,7 +598,7 @@ alimentation . Ratatouille de saison - de saison:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Salade de fruits - fruits de saison:
+alimentation . Salade de fruits-fruits de saison:
   icônes: 🍏🍊🥝
   exposé: oui
   description:
@@ -608,7 +608,7 @@ alimentation . Salade de fruits - fruits de saison:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Salade de tomates - d'Espagne:
+alimentation . Salade de tomates-d'Espagne:
   icônes: 🍅🇪🇸
   exposé: oui
   description:
@@ -618,7 +618,7 @@ alimentation . Salade de tomates - d'Espagne:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Salade de tomates - de saison:
+alimentation . Salade de tomates-de saison:
   icônes: 🍅✨
   exposé: oui
   description:
@@ -628,7 +628,7 @@ alimentation . Salade de tomates - de saison:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Salade de tomates - hors saison - France:
+alimentation . Salade de tomates-hors saison-France:
   description:
     "masse d'ingrédients consommables dans l'assiette pour une portion (kg) :
     0,149"
@@ -637,7 +637,7 @@ alimentation . Salade de tomates - hors saison - France:
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
   exposé: oui
-alimentation . Salade de tomates mozzarella - de saison:
+alimentation . Salade de tomates mozzarella-de saison:
   icônes: 🍅🧀
   exposé: oui
   description:
@@ -657,7 +657,7 @@ alimentation . Salade niçoise:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Salade verte - avec sauce:
+alimentation . Salade verte-avec sauce:
   icônes: 🥗
   exposé: oui
   description:
@@ -737,7 +737,7 @@ alimentation . Tartare de boeuf:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Tarte aux fraises - de saison:
+alimentation . Tarte aux fraises-de saison:
   icônes: 🍓✨
   exposé: oui
   description:
@@ -747,7 +747,7 @@ alimentation . Tarte aux fraises - de saison:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Tarte aux fraises - hors saison:
+alimentation . Tarte aux fraises-hors saison:
   icônes: 🍓⏳
   exposé: oui
   description:
@@ -817,7 +817,7 @@ alimentation . Tiramisu:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Tomates farcies - de saison:
+alimentation . Tomates farcies-de saison:
   icônes: 🍅🥩✨
   exposé: oui
   description:
@@ -827,7 +827,7 @@ alimentation . Tomates farcies - de saison:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Tomates farcies - hors saison:
+alimentation . Tomates farcies-hors saison:
   icônes: 🍅🥩⏳
   exposé: oui
   description:
@@ -837,7 +837,7 @@ alimentation . Tomates farcies - hors saison:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Viennoiserie brioche - type brioche:
+alimentation . Viennoiserie brioche-type brioche:
   icônes: 🥐
   titre: Croissant
   exposé: oui
@@ -852,7 +852,7 @@ alimentation . Viennoiserie brioche - type brioche:
   unité: kgCO₂e
   références:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
-alimentation . Viennoiserie pain au chocolat - type pain au chocolat:
+alimentation . Viennoiserie pain au chocolat-type pain au chocolat:
   icônes: 🥐🍫
   titre: Pain au chocolat
   exposé: oui

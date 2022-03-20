@@ -50,6 +50,7 @@ fs.createReadStream('base_carbone_v19.0.csv')
 			return {
 				...oldRule,
 				...newRule,
+				dottedName: newRule.dottedName.replaceAll(' - ', '-'),
 				exposé: 'oui',
 				description: oldRule.description || newRule.description,
 				...(oldRule.titre ? { titre: oldRule.titre } : {}),
