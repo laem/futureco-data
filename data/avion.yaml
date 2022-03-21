@@ -52,7 +52,7 @@ transport . avion . coefficient de forçage radiatif:
 
     L'effet de la vapeur d'eau est temporaire : elle disparaît à court-terme par rapport au CO₂ qui reste très longtemps présent. Son effet n'en reste pas moins massif.
 
-    Ce facteur n'est pas encore consensuel, d'une car il est complexe, et de deux car l'impact climat du CO2 et des trainées sont inhomogènes à cause de la durée de dégradation. 
+    Ce facteur n'est pas encore consensuel, d'une car il est complexe, et de deux car l'impact climat du CO₂ et des trainées sont inhomogènes à cause de la durée de dégradation. 
 
     Nous faisons donc le choix de le faire varier en fonction du choix de l'utilisateur.
   formule:
@@ -70,16 +70,14 @@ transport . avion . coefficient de forçage radiatif:
     - https://www.sciencedirect.com/science/article/pii/S1352231020305689
 
 transport . avion . tolérance au risque:
-  question: À quel point êtes-vous prêts à risquer un réchauffement plus important que prévu spécifique à l'aviation ?
+  question: À quel point êtes-vous prêt à risquer un réchauffement plus important spécifique à l'aviation ?
   description: |
     L'empreinte climat de l'aviation est plus incertaine que d'autres activités. 
 
-    On sait bien prendre en compte le CO2 émis quand on brûle le kérosène. 
-
-    Mais l'empreinte des trainées (les lignes blanches qu'on voit dans le ciel) est plus incertaines : 
-      - ceux qui veulent rassurer les ignorent complètement. 
-      - l'ADEME dit qu'elles doublent l'empreinte climat
-      - les recherches les plus récentes parlent d'un facteur x3 😰
+    On sait bien prendre en compte le CO₂ émis quand on brûle le kérosène. Mais l'empreinte des trainées (les lignes blanches qu'on voit dans le ciel) est plus incertaine : 
+      - ceux qui veulent rassurer [les ignorent](https://eco-calculateur.dta.aviation-civile.gouv.fr) complètement
+      - l'ADEME [dit](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) qu'elles doublent l'empreinte climat
+      - les recherches les plus récentes [parlent](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) d'un facteur x3 😰
 
     À vous de choisir !
   par défaut: "'moyenne'"
