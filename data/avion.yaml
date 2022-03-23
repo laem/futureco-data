@@ -10,6 +10,7 @@ transport . avion . impact:
 
   icônes: 🛫
   exposé:
+    description: Calculez en 3 clics l'empreinte climat honnête de votre vol d'avion.
     exemples via suggestions: transport . avion . distance de vol aller
   unité: kgCO₂e
   formule: distance de vol * impact unitaire
