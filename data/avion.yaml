@@ -75,12 +75,14 @@ transport . avion . tolérance au risque:
   description: |
     L'empreinte climat de l'aviation est plus incertaine que d'autres activités. 
 
-    On sait bien prendre en compte le CO₂ émis quand on brûle le kérosène. Mais l'empreinte des trainées (les lignes blanches qu'on voit dans le ciel) est plus incertaine : 
+    On sait bien prendre en compte le CO₂ émis quand on brûle le kérosène. Mais l'empreinte des trainées (les lignes blanches dans le ciel) est plus compliquée : 
       - ceux qui veulent rassurer [les ignorent](https://eco-calculateur.dta.aviation-civile.gouv.fr) complètement
       - l'ADEME [dit](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) qu'elles doublent l'empreinte climat
-      - les recherches les plus récentes [parlent](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) d'un facteur x3 😰
+      - les recherches les plus récentes [parlent](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) d'un facteur x3 tant que le nombre d'avions dans le ciel ne baisse pas 😰
 
     À vous de choisir !
+
+    Vous voulez creuser le sujet ? Voici [un article très pédagogique](https://rester-sur-terre.org/stop-aviation-climate-impact-growth) qui explique ce problème.
   par défaut: "'moyenne'"
   formule:
     une possibilité:
@@ -107,8 +109,6 @@ transport . avion . impact carbone unitaire:
     aviation-civile.gouv.fr](https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets).
 
     Notamment, pour l'instant nous ignorons la taille de l'avion.
-
-    Il faudrait aussi appliquer un facteur en fonction du type de siège, éco ou luxe.
   références:
     - https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets
   formule:
