@@ -3,17 +3,22 @@ const fs = require('fs')
 const results = []
 const yaml = require('yaml')
 
-fs.createReadStream('base carbone v16.1.csv')
+const oldFile = fs.readFileSync('co2.yaml.2019', { encoding: 'utf8' })
+// ./alimentation-base-carbone.yaml
+let rules = yaml.parse(oldFile)
+
+fs.createReadStream('base_carbone_v19.0.csv')
+	.setEncoding('latin1')
 	// get this file here : https://github.com/laem/futureco-data/issues/50
-	.pipe(csv())
-	.on('data', data => {
+	.pipe(csv({ separator: ';' }))
+	.on('data', (data) => {
 		let {
 			'Code de la catégorie': categorie,
 			'Unité français': unité,
 			'Type Ligne': type,
 			'Total poste non décomposé': co2e,
 			'Nom base français': nom,
-			'Nom attribut français': attribut
+			'Nom attribut français': attribut,
 		} = data
 
 		categorie.includes(
@@ -22,37 +27,51 @@ fs.createReadStream('base carbone v16.1.csv')
 			unité === 'kgCO2e/portion' &&
 			type === 'Elément' &&
 			results.push({
-				espace: 'nourriture',
-				nom: nom + (attribut ? ' - ' + attribut : ''),
-				exposé: 'oui',
+				dottedName:
+					'alimentation' +
+					' . ' +
+					nom +
+					(attribut ? ' - ' + attribut.replace(', ', ' - ') : ''),
 				description: data['Commentaire français'],
 				formule: +co2e.replace(',', '.'),
 				unité: 'kgCO₂e',
 				références: [
-					'http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23'
-				]
+					'http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23',
+				],
 			})
 	})
 	.on('end', () => {
 		// We'll now update, not replace, the current publicodes file
-		fs.readFile('./co2.yaml', 'utf8', (err, data) => {
-			let rules = yaml.parse(data)
-			let updatedRules = rules.map(rule => {
-				let update = results.find(
-					r => r.nom === rule.nom && r.espace === rule.espace
+
+		let updatedRules = results.map((newRule) => {
+			const oldRule =
+				rules[newRule.dottedName.replace('alimentation', 'nourriture')] || {}
+
+			return {
+				...oldRule,
+				...newRule,
+				dottedName: newRule.dottedName.replaceAll(' - ', '-'),
+				exposé: 'oui',
+				description: oldRule.description || newRule.description,
+				...(oldRule.titre ? { titre: oldRule.titre } : {}),
+			}
+		})
+		fs.writeFile(
+			'./data/alimentation-base-carbone.yaml',
+			yaml.stringify(
+				Object.fromEntries(
+					updatedRules.map((el) => {
+						const { dottedName, ...value } = el
+						return [dottedName, value]
+					})
 				)
-				return {
-					...(rule.exposé === 'oui' && !rule.icônes ? { icônes: '' } : {}),
-					...rule,
-					...update
-				}
-			})
-			fs.writeFile('./co2.yaml', yaml.stringify(updatedRules), function(err) {
+			),
+			function (err) {
 				if (err) {
 					return console.log(err)
 				}
 
 				console.log('The file was saved!')
-			})
-		})
+			}
+		)
 	})

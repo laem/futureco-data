@@ -1,0 +1,186 @@
+transport . avion:
+transport . avion . impact:
+  titre: Un vol aller-retour
+  description: |
+    ![](https://images.unsplash.com/photo-1525624286412-4099c83c1bc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80)
+
+    L'empreinte de l'avion est conséquente. Il n'est pas forcément plus polluant *au kilomèt  re* qu'une voiture qui ne déplace qu'une personne, mais la distance et surtout la distance parcourue en une heure (qu'on appelle couramment la vitesse), permet de changer de continent pour un week-end !
+
+    > Gardons aussi en tête que le Français moyen ne prend pas ou peu l'avion. L'essentiel de   l'empreinte de l'aviation est donc concentrée sur 10% ou moins des Français.
+
+  icônes: 🛫
+  exposé:
+    description: Calculez en 3 clics l'empreinte climat honnête de votre vol d'avion.
+    exemples via suggestions: transport . avion . distance de vol aller
+  unité: kgCO₂e
+  formule: distance de vol * impact unitaire
+  références:
+    - https://shameplane.com
+    - https://www.qqf.fr/infographie/48/des-vacances-au-kilometre
+
+transport . avion . distance de vol:
+  formule: distance de vol aller * 2
+transport . avion . départ:
+transport . avion . arrivée:
+
+transport . avion . distance de vol aller:
+  question: Quel est votre trajet en avion ?
+  unité: km
+  suggestions:
+    🇫🇷 vol national: 600
+    🌞 vol trans-méditerranée: 1800
+    🗽 vol transatlantique: 6000
+    🗺️ super long courrier: 15000
+  suggestions précises:
+    Paris Toulouse: 589
+    Paris Tunis: 1741
+    Paris N-Y: 5834
+    Paris Pérou: 10248
+    Paris N-Z: 18942
+  par défaut: 1000
+
+transport . avion . impact unitaire:
+  formule: impact carbone unitaire * coefficient de forçage radiatif * malus confort
+  références:
+    - https://fr.m.wikipedia.org/wiki/Impact_climatique_du_transport_aérien
+
+transport . avion . coefficient de forçage radiatif:
+  description: >
+    Le forçage radiatif, c'est la capacité d'une émission de gaz à rechauffer la
+    terre.
+
+    Un vol émet du CO₂, mais aussi d'autres gaz, ainsi que de la vapeur libérée en haute altitude. Le forçage radiatif de ces émissions est conséquent et doit donc être pris en compte, mais c'est une estimation très compliquée.
+
+    L'effet de la vapeur d'eau est temporaire : elle disparaît à court-terme par rapport au CO₂ qui reste très longtemps présent. Son effet n'en reste pas moins massif.
+
+    Ce facteur n'est pas encore consensuel, d'une car il est complexe, et de deux car l'impact climat du CO₂ et des trainées sont inhomogènes à cause de la durée de dégradation. 
+
+    Nous faisons donc le choix de le faire varier en fonction du choix de l'utilisateur.
+  formule:
+    correspondance:
+      variable: tolérance au risque
+      tableau:
+        élevée: 1
+        moyenne: 2
+        faible: 3
+
+  références:
+    - https://www.carbonindependent.org/sources_aviation.html
+    - http://www.bilans-ges.ademe.fr/forum/viewtopic.php?f=20&t=4009&sid=dea7e08c81c2f723b803d27e7e2a8797
+    - https://fr.wikipedia.org/wiki/Impact_climatique_du_transport_a%C3%A9rien#Pond%C3%A9ration_des_%C3%A9missions
+    - https://www.sciencedirect.com/science/article/pii/S1352231020305689
+
+transport . avion . tolérance au risque:
+  question: À quel point êtes-vous prêt à risquer un réchauffement plus important spécifique à l'aviation ?
+  description: |
+    L'empreinte climat de l'aviation est plus incertaine que d'autres activités. 
+
+    On sait bien prendre en compte le CO₂ émis quand on brûle le kérosène. Mais l'empreinte des trainées (les lignes blanches qu'on voit dans le ciel) est plus incertaine : 
+      - ceux qui veulent rassurer [les ignorent](https://eco-calculateur.dta.aviation-civile.gouv.fr) complètement
+      - l'ADEME [dit](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) qu'elles doublent l'empreinte climat
+      - les recherches les plus récentes [parlent](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) d'un facteur x3 😰
+
+    À vous de choisir !
+  par défaut: "'moyenne'"
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - élevée
+        - moyenne
+        - faible
+
+transport . avion . tolérance au risque . élevée:
+  titre: Ignorer le risque
+transport . avion . tolérance au risque . moyenne:
+  titre: Je ne sais pas
+transport . avion . tolérance au risque . faible:
+  titre: Prendre large
+
+transport . avion . impact carbone unitaire:
+  unité: kgCO₂e/km
+  description: >
+    L'impact d'un vol par km parcourus dépend notamment de la distance : la
+    phase de décollage est coûteuse en énergie.
+  note: >
+    On utilise une version simplifiée du calcul décrit sur le [calculateur
+    aviation-civile.gouv.fr](https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets).
+
+    Notamment, pour l'instant nous ignorons la taille de l'avion.
+
+    Il faudrait aussi appliquer un facteur en fonction du type de siège, éco ou luxe.
+  références:
+    - https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets
+  formule:
+    grille:
+      assiette: distance de vol aller
+      tranches:
+        - plafond: 1000
+          montant: 0.139
+        - plafond: 2000
+          montant: 0.125
+        - plafond: 3000
+          montant: 0.083
+        - plafond: 4000
+          montant: 0.084
+        - plafond: 5000
+          montant: 0.102
+        - plafond: 6000
+          montant: 0.093
+        - plafond: 7000
+          montant: 0.075
+        - plafond: 8000
+          montant: 0.074
+        - plafond: 9000
+          montant: 0.076
+        - plafond: 10000
+          montant: 0.065
+        - montant: 0.078
+
+transport . avion . malus confort:
+  note: |
+    L'allocation est faite par myclimate selon la méthode par surface décrite ci-dessous. 
+
+    > The emissions are allocated to the different cabin classes according to the average seat area in the selected cabin class (seatguru 2012). The cabin class weighting factor is calculated for each aircraft type and then weighted by the weighting scheme described above.
+
+    Les valeurs des paramètres sont récupérés dans un modélisation inspirée de la méthode myclimate, disponible [ici](https://github.com/electricitymap/bloom-contrib/blob/master/co2eq/flights/index.js).
+  formule:
+    variations:
+      - si:
+          toutes ces conditions:
+            - court courrier
+            - confort = 'normal'
+        alors: 0.96
+      - si: confort = 'normal'
+        alors: 0.8
+      - si:
+          toutes ces conditions:
+            - court courrier
+            - confort = 'confort'
+        alors: 1.26
+      - sinon: 2
+
+transport . avion . confort:
+  question: Quel confort de vol choississez-vous ?
+  description: |
+    "Normal" correspond aux sièges en rangée et étroits. On l'appelle souvent aussi "economy". 
+
+    "Confort", c'est l'équivalent de la première classe dans le train : plus de place dans les deux sens.
+
+    "Super confort", c'est presque un salon privatisé pour vous, avec un repose pied, une conversion en lit sur longue distance, et parfois des services de luxe comme une douche.
+  par défaut: "'normal'"
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - normal
+        - confort
+        - super confort
+
+transport . avion . confort . normal:
+transport . avion . confort . confort:
+transport . avion . confort . super confort:
+
+transport . avion . court courrier: distance de vol aller < seuil court courrier
+transport . avion . seuil court courrier:
+  formule: 1500

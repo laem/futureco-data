@@ -19,6 +19,7 @@
   "homepage": "https://github.com/laem/futureco-data#readme",
   "dependencies": {
     "csv-parser": "^2.3.1",
+    "glob": "^7.2.0",
     "yaml": "^1.7.2"
   }
 }
