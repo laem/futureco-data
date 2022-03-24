@@ -28,7 +28,7 @@ transport . avion . distance de vol aller:
   unité: km
   suggestions:
     🇫🇷 vol national: 600
-    🌞 vol trans-méditerranée: 1800
+    🌞 vol méditerranée: 1800
     🗽 vol transatlantique: 6000
     🗺️ super long courrier: 15000
   suggestions précises:
@@ -158,6 +158,8 @@ transport . avion . malus confort:
             - court courrier
             - confort = 'confort'
         alors: 1.26
+      - si: confort = 'confort'
+        alors: 1.54
       - sinon: 2
 
 transport . avion . confort:
