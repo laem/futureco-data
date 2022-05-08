@@ -24,6 +24,7 @@ transport . avion . départ:
 transport . avion . arrivée:
 
 transport . avion . distance de vol aller:
+  titre: distance aller
   question: Quel est votre trajet ?
   unité: km
   suggestions:
@@ -40,11 +41,11 @@ transport . avion . distance de vol aller:
   par défaut: 1000
 
 transport . avion . impact unitaire:
-  formule: impact carbone unitaire * coefficient de forçage radiatif * malus confort
+  formule: impact carbone unitaire * forçage radiatif . coefficient * malus confort
   références:
     - https://fr.m.wikipedia.org/wiki/Impact_climatique_du_transport_aérien
 
-transport . avion . coefficient de forçage radiatif:
+transport . avion . forçage radiatif . coefficient:
   description: >
     Le forçage radiatif, c'est la capacité d'une émission de gaz à rechauffer la
     terre.
@@ -58,11 +59,10 @@ transport . avion . coefficient de forçage radiatif:
     Nous faisons donc le choix de le faire varier en fonction du choix de l'utilisateur.
   formule:
     correspondance:
-      variable: tolérance au risque
+      variable: forçage radiatif
       tableau:
-        élevée: 1
-        moyenne: 2
-        faible: 3
+        conservateur: 2
+        état de l'art: 3
 
   références:
     - https://www.carbonindependent.org/sources_aviation.html
@@ -70,8 +70,9 @@ transport . avion . coefficient de forçage radiatif:
     - https://fr.wikipedia.org/wiki/Impact_climatique_du_transport_a%C3%A9rien#Pond%C3%A9ration_des_%C3%A9missions
     - https://www.sciencedirect.com/science/article/pii/S1352231020305689
 
-transport . avion . tolérance au risque:
-  question: L'impact d'un vol d'avion ne se limite pas au CO₂.
+transport . avion . forçage radiatif:
+  titre: Effets non-CO₂
+  question: L'impact d'un vol ne se limite pas au CO₂. Les effets hors CO₂ le multiplient par un facteur 2 à 3.
   description: |
     L'empreinte climat de l'aviation est plus complexe et incertaine que d'autres activités. 
     On sait bien prendre en compte le CO₂ émis quand on brûle le kérosène. Mais l'empreinte des trainées (les lignes blanches dans le ciel) est plus compliquée : 
@@ -82,20 +83,18 @@ transport . avion . tolérance au risque:
     À vous de choisir !
 
     Vous voulez creuser le sujet ? Voici [un article très pédagogique](https://rester-sur-terre.org/stop-aviation-climate-impact-growth) qui explique ce problème.
-  par défaut: "'moyenne'"
+  par défaut: "'conservateur'"
   formule:
     une possibilité:
       choix obligatoire: oui
       possibilités:
-        - moyenne
-        - faible
+        - conservateur
+        - état de l'art
 
-transport . avion . tolérance au risque . élevée:
-  titre: Ignorer le risque
-transport . avion . tolérance au risque . moyenne:
-  titre: Estimation conservatrice
-transport . avion . tolérance au risque . faible:
-  titre: Estimation la plus récente
+transport . avion . forçage radiatif . conservateur:
+  titre: Multiplier par 2 (estimation conservatrice)
+transport . avion . forçage radiatif . état de l'art:
+  titre: Multiplier par 3 (estimation la + récente)
 
 transport . avion . impact carbone unitaire:
   unité: kgCO₂e/km
