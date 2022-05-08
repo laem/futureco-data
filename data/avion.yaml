@@ -29,7 +29,7 @@ transport . avion . distance de vol aller:
   unité: km
   suggestions:
     🇫🇷 vol national: 600
-    🌞 vol méditerranée: 1800
+    🌴 vol méditerranée: 1800
     🗽 vol transatlantique: 6000
     🗺️ super long courrier: 15000
   suggestions précises:
