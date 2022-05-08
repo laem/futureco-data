@@ -71,14 +71,13 @@ transport . avion . coefficient de forçage radiatif:
     - https://www.sciencedirect.com/science/article/pii/S1352231020305689
 
 transport . avion . tolérance au risque:
-  question: À quel point êtes-vous prêt à risquer un réchauffement plus important spécifique à l'aviation ?
+  question: L'impact d'un vol d'avion ne se limite pas au CO₂.
   description: |
-    L'empreinte climat de l'aviation est plus incertaine que d'autres activités. 
-
+    L'empreinte climat de l'aviation est plus complexe et incertaine que d'autres activités. 
     On sait bien prendre en compte le CO₂ émis quand on brûle le kérosène. Mais l'empreinte des trainées (les lignes blanches dans le ciel) est plus compliquée : 
       - ceux qui veulent rassurer [les ignorent](https://eco-calculateur.dta.aviation-civile.gouv.fr) complètement
-      - l'ADEME [dit](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) qu'elles doublent l'empreinte climat
-      - les recherches les plus récentes [parlent](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) d'un facteur x3 tant que le nombre d'avions dans le ciel ne baisse pas 😰
+      - l'ADEME [considère](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) qu'elles doublent l'empreinte CO₂
+      - les recherches les plus récentes [affirment](https://librairie.ademe.fr/mobilite-et-transport/4617-etat-de-l-art-de-la-recherche-scientifique-sur-l-impact-climatique-des-trainees-de-condensation-des-avions.html) qu'elles triplent l'empreinte CO₂ tant que le nombre d'avions dans le ciel ne baisse pas 😰
 
     À vous de choisir !
 
@@ -88,16 +87,15 @@ transport . avion . tolérance au risque:
     une possibilité:
       choix obligatoire: oui
       possibilités:
-        - élevée
         - moyenne
         - faible
 
 transport . avion . tolérance au risque . élevée:
   titre: Ignorer le risque
 transport . avion . tolérance au risque . moyenne:
-  titre: Je ne sais pas
+  titre: Estimation conservatrice
 transport . avion . tolérance au risque . faible:
-  titre: Prendre large
+  titre: Estimation la plus récente
 
 transport . avion . impact carbone unitaire:
   unité: kgCO₂e/km
