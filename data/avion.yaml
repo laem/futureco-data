@@ -24,7 +24,7 @@ transport . avion . départ:
 transport . avion . arrivée:
 
 transport . avion . distance de vol aller:
-  question: Quel est votre trajet en avion ?
+  question: Quel est votre trajet ?
   unité: km
   suggestions:
     🇫🇷 vol national: 600
