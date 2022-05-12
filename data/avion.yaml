@@ -109,6 +109,8 @@ transport . avion . impact carbone unitaire:
 
     Nous utilisons les chiffres en "passager équivalent", globalement plus faibles que ceux par "passager". La différence semble être qu'une partie de l'empreinte du vol est attribuée au fret, allégeant d'autant l'empreinte du passager.
 
+    > À titre d'exemple, pour les vols > 5000 km, cela fait baisser l'empreinte par passager de 109g/km à 83g. Ce qui serait cohérent avec une plus grande utilisation du fret sur très longues distances.
+
     Les chiffres prennent en compte les émissions de CO₂ durant le vol, mais aussi pendant la phase de production du carburant.
 
     L'infrastructure n'est pas prise en compte. Il y a fort à parier qu'elle serait négligeable par rapport aux vols, mais le calcul mérite bien sûr d'être approfondi.
@@ -118,27 +120,15 @@ transport . avion . impact carbone unitaire:
     grille:
       assiette: distance de vol aller
       tranches:
+        - plafond: 500
+          montant: (0.161 + 0.181) / 2 # Moyenne de turboprop et jet < 500km
         - plafond: 1000
-          montant: 0.139
+          montant: 0.134
         - plafond: 2000
-          montant: 0.125
-        - plafond: 3000
-          montant: 0.083
-        - plafond: 4000
-          montant: 0.084
+          montant: 0.106
         - plafond: 5000
-          montant: 0.102
-        - plafond: 6000
-          montant: 0.093
-        - plafond: 7000
-          montant: 0.075
-        - plafond: 8000
-          montant: 0.074
-        - plafond: 9000
-          montant: 0.076
-        - plafond: 10000
-          montant: 0.065
-        - montant: 0.078
+          montant: 0.098
+        - montant: 0.083
 
 transport . avion . malus confort:
   note: |
