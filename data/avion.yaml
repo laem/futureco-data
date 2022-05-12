@@ -102,10 +102,16 @@ transport . avion . impact carbone unitaire:
     L'impact d'un vol par km parcourus dépend notamment de la distance : la
     phase de décollage est coûteuse en énergie.
   note: >
-    On utilise une version simplifiée du calcul décrit sur le [calculateur
+    Nous prenons les chiffres données par la DGAC (Direction générale de l'aviation civile) publiés en documentation de leur [calculateur
     aviation-civile.gouv.fr](https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets).
 
-    Notamment, pour l'instant nous ignorons la taille de l'avion.
+    Notamment, pour l'instant nous ignorons la taille de l'avion, en prenant les moyenne qui semblent pondérées par la distribution des sièges, ce qui nous donne un tableau de correspondance par distance. 
+
+    Nous utilisons les chiffres en "passager équivalent", globalement plus faibles que ceux par "passager". La différence semble être qu'une partie de l'empreinte du vol est attribuée au fret, allégeant d'autant l'empreinte du passager.
+
+    Les chiffres prennent en compte les émissions de CO₂ durant le vol, mais aussi pendant la phase de production du carburant.
+
+    L'infrastructure n'est pas prise en compte. Il y a fort à parier qu'elle serait négligeable par rapport aux vols, mais le calcul mérite bien sûr d'être approfondi.
   références:
     - https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets
   formule:
