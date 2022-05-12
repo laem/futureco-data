@@ -102,37 +102,33 @@ transport . avion . impact carbone unitaire:
     L'impact d'un vol par km parcourus dépend notamment de la distance : la
     phase de décollage est coûteuse en énergie.
   note: >
-    On utilise une version simplifiée du calcul décrit sur le [calculateur
+    Nous prenons les chiffres données par la DGAC (Direction générale de l'aviation civile) publiés en documentation de leur [calculateur
     aviation-civile.gouv.fr](https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets).
 
-    Notamment, pour l'instant nous ignorons la taille de l'avion.
+    Notamment, pour l'instant nous ignorons la taille de l'avion, en prenant les moyenne qui semblent pondérées par la distribution des sièges, ce qui nous donne un tableau de correspondance par distance. 
+
+    Nous utilisons les chiffres en "passager équivalent", globalement plus faibles que ceux par "passager". La différence semble être qu'une partie de l'empreinte du vol est attribuée au fret, allégeant d'autant l'empreinte du passager.
+
+    > À titre d'exemple, pour les vols > 5000 km, cela fait baisser l'empreinte par passager de 109g/km à 83g. Ce qui serait cohérent avec une plus grande utilisation du fret sur très longues distances.
+
+    Les chiffres prennent en compte les émissions de CO₂ durant le vol, mais aussi pendant la phase de production du carburant.
+
+    L'infrastructure n'est pas prise en compte. Il y a fort à parier qu'elle serait négligeable par rapport aux vols, mais le calcul mérite bien sûr d'être approfondi.
   références:
     - https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets
   formule:
     grille:
       assiette: distance de vol aller
       tranches:
+        - plafond: 500
+          montant: (0.161 + 0.181) / 2 # Moyenne de turboprop et jet < 500km
         - plafond: 1000
-          montant: 0.139
+          montant: 0.134
         - plafond: 2000
-          montant: 0.125
-        - plafond: 3000
-          montant: 0.083
-        - plafond: 4000
-          montant: 0.084
+          montant: 0.106
         - plafond: 5000
-          montant: 0.102
-        - plafond: 6000
-          montant: 0.093
-        - plafond: 7000
-          montant: 0.075
-        - plafond: 8000
-          montant: 0.074
-        - plafond: 9000
-          montant: 0.076
-        - plafond: 10000
-          montant: 0.065
-        - montant: 0.078
+          montant: 0.098
+        - montant: 0.083
 
 transport . avion . malus confort:
   note: |
