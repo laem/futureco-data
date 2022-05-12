@@ -33,7 +33,7 @@ transport . avion . coefficient de forçage radiatif:
 
 :pen: Voici [un petit guide pour contribuer](https://github.com/laem/futureco-data/blob/master/CONTRIBUTING.md).
 
-Tous les modèles sont dans le [fichier co2.yaml](https://github.com/laem/futureco-data/blob/master/co2.yaml).
+Tous les modèles sont dans le [fichier co2.yaml](https://github.com/laem/futureco-data/blob/master/data/co2.yaml).
 
 Les modèles sont écrits dans le langage https://publi.codes.
 
