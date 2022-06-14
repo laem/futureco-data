@@ -1,3 +1,91 @@
+plaque de cuisson:
+  icônes: 🍳
+plaque de cuisson . impact:
+  titre: Un an de plaque de cuisson
+  catégorie: logement
+  exposé: oui
+  unité: kgCO₂e / année
+  formule: (consommation énergétique * impact par kWh + cycle de vie amorti) / nombre d'habitants
+  description: >
+    Ce résultat prend en compte toutes les étapes du cycle de vie d'une plaque de cuisson.
+    De l'extraction des matières premières, à la fabrication, en passant par la phase d'utilisation jusqu'au recyclage.
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?electromenager.htm
+plaque de cuisson . type:
+  icônes: 🍳
+  question: Quel type de plaque de cuisson possédez-vous ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - plaque au gaz
+        - plaque vitrocéramique
+        - plaque à induction
+  par défaut: "'plaque vitrocéramique'"
+plaque de cuisson . nombre d'habitants:
+  icônes: 🍳
+  question: Pour combien de personnes cuisinez-vous en général ?
+  unité: personnes
+  par défaut: 1
+  suggestions:
+    je suis seul.e: 1
+    deux: 2
+    trois: 3
+    quatre: 4
+plaque de cuisson . type . plaque au gaz:
+  icônes: 🔥
+plaque de cuisson . type . plaque à induction:
+  icônes: ⚡
+plaque de cuisson . type . plaque vitrocéramique:
+  icônes: ⚡
+plaque de cuisson . consommation énergétique:
+  formule: durée utilisation journalière * puissance moyenne * 365 / rendement
+  unité: kgCO₂e / année
+plaque de cuisson . durée utilisation journalière:
+  unité: h
+  formule: 0.5
+  note : Le paramètre "durée d'utilisation journalière" est une moyenne qui doit tenir compte des jours où la plaque n'est pas utilisée (puisqu'il est multiplié par 356)
+plaque de cuisson . puissance moyenne:
+  unité: kW
+  formule: 1.125
+plaque de cuisson . rendement:
+  formule:
+    variations:
+      - si: plaque de cuisson . type = 'plaque au gaz'
+        alors: 0.6
+      - si: plaque de cuisson . type = 'plaque vitrocéramique'
+        alors: 0.75
+      - si: plaque de cuisson . type = 'plaque à induction'
+        alors: 0.9
+plaque de cuisson . impact par kWh:
+  unité: kgCO₂e / kWh
+  formule:
+    variations:
+      - si: plaque de cuisson . type = 'plaque au gaz'
+        alors: 0.27
+      - si: plaque de cuisson . type = 'plaque vitrocéramique'
+        alors: 0.06
+      - si: plaque de cuisson . type = 'plaque à induction'
+        alors: 0.06
+plaque de cuisson . durée d'amortissement:
+  formule: 10
+plaque de cuisson . cycle de vie:
+  unité: kgCO₂e
+  formule:
+    variations:
+      - si: type = 'plaque au gaz'
+        alors: 29.8
+      - si: type = 'plaque vitrocéramique'
+        alors: 57
+      - si: type = 'plaque à induction'
+        alors: 71.6
+  note: Cette valeur ne prend pas en compte la phase d'utilisation.
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?electromenager.htm
+plaque de cuisson . cycle de vie amorti:
+  unité: kgCO₂e / année
+  formule: cycle de vie / durée d'amortissement
+
 douche:
   icônes: 🚿
 douche . impact:
@@ -329,7 +417,7 @@ compost:
   description: >
     Le compost peut émettre deux types de gaz : des gaz comme *le méthane*
     produits en condition anaérobie (quand l'oxygène de l'air n'est pas dispo),
-    et *du CO₂* émis par les agents qui produisent le compost. 
+    et *du CO₂* émis par les agents qui produisent le compost.
 
 
     D'après [cet article](http://ecoleau.canalblog.com/archives/2008/10/01/10970927.html) du blog ecoleau, le méthane n'est relâché qu'en cas de retournement du compost, et disparaît sinon, transformé notamment en CO₂. Un bon compost doit donc paradoxalement être retourné régulièrement d'après [cet article](http://www.passerelleco.info/article.php?id_article=1365) avant que ces gaz ne se forment ! Nous voilà rassurés, car le méthane a la particularité d'avoir un potentiel de réchauffement 40 fois plus élevé que le CO₂. Ce dernier ne poserait pas non plus problème : il a déjà été séquestré lors de la croissance de la nourriture en question, le bilan est donc nul.
@@ -338,7 +426,7 @@ compost:
     D'après [cet article](https://www.sciencepresse.qc.ca/actualite/detecteur-rumeurs/2017/03/02/composter-pour-reduire-gaz-effet-serre-vrai) de l'Agence Science-Presse du Québec, le compostage a même un bilan positif en comparaison de l'enfouissement des déchets organiques, qui emet du méthane. C'est en partie contradictoire avec le premier lien, mais la conclusion est la même.
 
 
-    Quid du lombricompost ? Visiblement, leur contribution au cycle du carbone est majeur, et leur contribution positive ou négative aux gaz à effet de serre est [un sujet de controverse](https://www.futura-sciences.com/planete/actualites/climatologie-vers-terre-accuses-tort-emettre-trop-gaz-effet-serre-49650/) ! 
+    Quid du lombricompost ? Visiblement, leur contribution au cycle du carbone est majeur, et leur contribution positive ou négative aux gaz à effet de serre est [un sujet de controverse](https://www.futura-sciences.com/planete/actualites/climatologie-vers-terre-accuses-tort-emettre-trop-gaz-effet-serre-49650/) !
 
 
     **Bilan : composter ses déchets, c'est mieux que les jeter à la poubelle.**
@@ -387,7 +475,7 @@ finances . impact par euro:
         Crédit Agricole: 1.07
   note: >
     Il serait bon de trouver d'autres rapports indépendants de celui-ci pour
-    confirmer ou infirmer ces chiffres fracassants. 
+    confirmer ou infirmer ces chiffres fracassants.
 
     Voir peut-être si c'est mentionné dans le livre "How bad is a banan" de Mike Berners-Lee ?
   références:
@@ -684,7 +772,7 @@ transport . trottinette électrique partagée:
     d'amortir le coût élevé de sa fabrication.
 
 
-    Pour le moment, c'est pourtant l'inverse qui se passe, ces trotinettes ayant un impact proche de celui d'un automobiliste tout seul dans sa voiture thermique ! 
+    Pour le moment, c'est pourtant l'inverse qui se passe, ces trotinettes ayant un impact proche de celui d'un automobiliste tout seul dans sa voiture thermique !
 
 
     Une trotinette individuelle sera en effet beaucoup plus économe, car elle durera plusieurs années.
@@ -702,7 +790,7 @@ transport . trottinette électrique partagée . impact:
     trottinettes électriques en partage est loin d'être vert. À ses débuts aussi
     mauvais qu'une voiture, il semble que [la durée de vie](impact/usage
     total/durée de vie) allongée des nouvelles générations de trotinettes sauve
-    quelque peu la mise. 
+    quelque peu la mise.
 
 
     Peut beaucoup mieux faire, donc ! Augmenter la durée de vie, réparer le matériel, augmenter l'usage journalier, ou encore s'assurer que la trottinette ne remplace pas que la marche et le vélo, par exemple via une régulation publique...
@@ -802,17 +890,17 @@ transport . voiture . impact fabrication:
   exposé: oui
   description: >
 
-    Impact de la fabrication d'une voiture neuve. 
+    Impact de la fabrication d'une voiture neuve.
 
 
-    Une voiture, c'est une tonne de matériaux. La chaîne complète de fabrication émet une très grande quantité de gaz à effet de serre. 
+    Une voiture, c'est une tonne de matériaux. La chaîne complète de fabrication émet une très grande quantité de gaz à effet de serre.
 
 
     Il faut noter que c'est aussi le cas avec la voiture électrique, et même pire aujourd'hui car la batterie s'ajoute au calcul.
   formule: intensité en prix * prix
   note: >
     Notre calcul est pour l'instant simpliste : on part du principe que pour
-    1000€ dépensés dans la fabrication de la voiture, 720g de CO2 sont émis. 
+    1000€ dépensés dans la fabrication de la voiture, 720g de CO2 sont émis.
 
     L'accès à des bilans carbones sérieux pour les voitures les plus vendues ne semble pas évident aujourd'hui. Peut-être chercher du côté des études de l'ADEME, par exemple celle de 2018 sur les voitures électriques ?
   références:
@@ -920,7 +1008,7 @@ alimentation . lait . température max atteinte:
         tiède: 40
         froid: 13
   note: |
-    Pour la température "très chaud" : 
+    Pour la température "très chaud" :
     > En Europe de manière générale, et dans le nord du continent américain, les températures avoisinnent en général les 60°C pour les boissons chaudes.
     [Source](https://www.rtbf.be/info/societe/onpdp/detail_boissons-chaudes-attention-a-la-chaleur?id=9433212).
 
@@ -1020,7 +1108,7 @@ alimentation . fondue savoyarde:
     Il faudrait étudier les possibilités pour réduire son impact, le facteur principal étant les émissions des bêtes ayant fourni le lait. [D'après l'ADEME](http://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?produits_laitiers.htm), le lait de vache biologique serait moins polluant.
 
 
-    Pour préciser le calcul, il faudrait ajouter les autres postes d'une fondue : 
+    Pour préciser le calcul, il faudrait ajouter les autres postes d'une fondue :
 
     - le trajet en voiture pour aller acheter son fromage à la fromagerie, 10km donc ~2kg / 4 personnes
 
@@ -1091,7 +1179,7 @@ alimentation . eau . impact litre minérale:
   unité: kgCO₂e/l
   note: >
     Nous ne considérons pour l'instant que l'impact de la bouteille qui contient
-    l'eau minérale. Il faut ajouter au moins : 
+    l'eau minérale. Il faut ajouter au moins :
 
     - le transport de la bouteille pleine qui est lourde
 
@@ -1298,7 +1386,7 @@ alimentation:
     catégorie "Plats préparés" de la base [Bilan
     GES](http://www.bilans-ges.ademe.fr/) de l'ADEME, et plus précisément, de la
     base Food GES.
-     
+
     Grâce au projet [Ecolab](https://beta.gouv.fr/startups/ecolab.html), la nouvelle version de la base Agrybalise sortira en février 2020
 
 
@@ -1362,7 +1450,7 @@ terrasse chauffée . impact:
   icônes: ☕🌡️
   exposé: oui
   description: |
-    Les terrasses chauffées sont courantes dans les métropoles. 
+    Les terrasses chauffées sont courantes dans les métropoles.
 
     En 2019, le gachis d'énergie qu'entraîne le chauffage d'extérieur fait débat, au point que [la ville de Rennes décide de les interdire](https://mobile.twitter.com/nathalieappere/status/1143267851375140866), la question [se posant alors à Paris](https://www.bfmtv.com/planete/faut-il-interdire-les-terrasses-chauffees-a-paris-1812718.html) où elles sont très répandues.
 
@@ -1388,7 +1476,7 @@ terrasse chauffée . empreinte . électrique:
   unité: kgCO2e/kWh
   description: |
 
-    Pour la RE2020 (reglementation des nouveaux bâtiments), le gouvernement a fait le choix de baisser le facteur du chauffage à 79g/kWh (contre les ~140g de 2018 dans la base carbone de l'ADEME). 
+    Pour la RE2020 (reglementation des nouveaux bâtiments), le gouvernement a fait le choix de baisser le facteur du chauffage à 79g/kWh (contre les ~140g de 2018 dans la base carbone de l'ADEME).
 
     Ce choix provoque de vifs débats dont notamment la colère des vendeurs de gaz, mais nous le gardons ici car il semble bien représenter le mix hivernal, et donc être pertinent pour notre usage du chauffage des terrasses.
 
@@ -1406,7 +1494,7 @@ numérique . vidéo:
     Le numérique est aujourd'hui pointé du doigt pour son empreinte importante malgré l'impression de dématérialisation qu'il donne. Une large partie du trafic d'internet est généré par les vidéos, dont la qualité augmente régulièrement.
 
   note: |
-    Pour aller plus loin, il faudrait : 
+    Pour aller plus loin, il faudrait :
 
     - poser la question de la durée de la vidéo avec des suggestions (épisode de sérié, saison entière, film)
     - illustrer l'impact du choix d'une qualité inférieure (de la 144p de Youtube à la 4k)
@@ -1711,7 +1799,7 @@ jardin . impact par m2 tondu:
 
 emballages:
   description: |
-    Ah, nos emballages ! Au coeur de la préoccupation environnementale, c'est pourtant l'un des secteurs où nous avons tenté quelque chose : le recyclage. 
+    Ah, nos emballages ! Au coeur de la préoccupation environnementale, c'est pourtant l'un des secteurs où nous avons tenté quelque chose : le recyclage.
 
     Attention à ce que cet effort ne nous aveugle pas sur l'empreinte d'un emballage, recyclé ou non.
   note: Attention, dans l'article en référence les valeurs sont en équivalent carbone, pas en équivalent CO₂. Donc pour passer de l'un à l'autre, il faut multiplier par 44/12, soit environ 3.7.
@@ -1857,14 +1945,14 @@ piscine . empreinte:
 
     Attention, il s'agit ici d'un calcul pour une piscine privée de jardin "en dur", creusée dans le sol, pas d'une piscine éphémère en plastique.
 
-    Voici les limites de notre calcul : 
-      - notre estimation de l'empreinte de construction est basée sur le bilan d'un chantier d'une piscine de type béton de 32m², 
+    Voici les limites de notre calcul :
+      - notre estimation de l'empreinte de construction est basée sur le bilan d'un chantier d'une piscine de type béton de 32m²,
         avec une extrapolation linéaire basée sur la surface personnalisée de simulation
       - le calcul ne reflète donc pas la moyenne des piscines construites en France, mais un ordre de grandeur basé sur notre cas empirique
-      - nous n'avons pas encore pris en compte la bâche de recouvrement de la piscine, ou l'abri en verre 
+      - nous n'avons pas encore pris en compte la bâche de recouvrement de la piscine, ou l'abri en verre
       - nous avons probablement oublié des dépenses, des déplacements, des renouvellements, des travaux divers
 
-    Notons aussi que le résultat final est largemnet dépendant de la durée d'amortissement, fixée à 30 ans, car l'empreinte à l'usage est largement réduite par la disponibilité de l'électricité décarbonée du mix français. 
+    Notons aussi que le résultat final est largemnet dépendant de la durée d'amortissement, fixée à 30 ans, car l'empreinte à l'usage est largement réduite par la disponibilité de l'électricité décarbonée du mix français.
 
     Une ACV états-unienne ne parle pas de la construction mais met en évidence l'impact énorme de l'évaporation, qui varie selon le climat https://twitter.com/ThomasGibon/status/1392895566003286021/photo/1. Nous n'avons pas encore étudié et pris en compte ce facteur pour le cas de la France. Pourquoi évaporation => bcp plus de pompage ? On pourrait à l'inverse comprendre que évaporation => plus d'eau neuve du réseau => moins de pompage. A creuser.
 
@@ -1911,7 +1999,7 @@ piscine . chauffage:
 
     Cette estimation dépend évidemment de la région.
 
-    Pour la pompe à chaleur, on lit [ici](https://www.oklyn.fr/blog/consommation-electrique-piscine/) : 
+    Pour la pompe à chaleur, on lit [ici](https://www.oklyn.fr/blog/consommation-electrique-piscine/) :
 
     > Le magazine Capital a estimé la consommation électrique d’une pompe à chaleur de piscine à 1570 kWh, soit 230€. Même estimation par PiscineSpa avec le même chiffre de 1570 kWh en 2015.
 
@@ -1991,7 +2079,7 @@ piscine . construction . empreinte théorique:
   formule: empreinte construction logement * surface
   unité: kgCO₂e
   note: |
-    Pour estimer l'empreinte de la construction d'une piscine, nous prenons celle connue pour la construction d'une maison en béton. 
+    Pour estimer l'empreinte de la construction d'une piscine, nous prenons celle connue pour la construction d'une maison en béton.
 
     Comme pour une maison, pour construire une piscine il faut creuser (ce qui consomme de l'essence et utilise du matériel), poser une dalle de béton sur le fond et les murs, poser du plastique isolant, ainsi que paver les côtés de la piscine.
 
