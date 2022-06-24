@@ -332,7 +332,7 @@ compost:
     et *du CO₂* émis par les agents qui produisent le compost.
 
 
-    D'après [cet article](http://ecoleau.canalblog.com/archives/2008/10/01/10970927.html) du blog ecoleau, le méthane n'est relâché qu'en cas de retournement du compost, et disparaît sinon, transformé notamment en CO₂. Un bon compost doit donc paradoxalement être retourné régulièrement d'après [cet article](http://www.passerelleco.info/article.php?id_article=1365) avant que ces gaz ne se forment ! Nous voilà rassurés, car le méthane a la particularité d'avoir un potentiel de réchauffement 40 fois plus élevé que le CO₂. Ce dernier ne poserait pas non plus problème : il a déjà été séquestré lors de la croissance de la nourriture en question, le bilan est donc nul.
+    D'après [cet article](http://ecoleau.canalblog.com/archives/2008/10/01/10970927.html) du blog ecoleau, le méthane n'est relâché qu'en cas de retournement du compost, et disparaît sinon, transformé notamment en CO₂. Un bon compost doit donc paradoxalement être retourné régulièrement d'après [cet article](http://www.passerelleco.info/article.php?id_article=1365) avant que ces gaz ne se forment ! Nous voilà rassurés, car le méthane d'origine biogénique a la particularité d'avoir un potentiel de réchauffement 28 fois plus élevé que le CO₂ (IPCC, 2021). Ce dernier ne poserait pas non plus problème : il a déjà été séquestré lors de la croissance de la nourriture en question, le bilan est donc nul.
 
 
     D'après [cet article](https://www.sciencepresse.qc.ca/actualite/detecteur-rumeurs/2017/03/02/composter-pour-reduire-gaz-effet-serre-vrai) de l'Agence Science-Presse du Québec, le compostage a même un bilan positif en comparaison de l'enfouissement des déchets organiques, qui emet du méthane. C'est en partie contradictoire avec le premier lien, mais la conclusion est la même.
@@ -1447,8 +1447,7 @@ numérique . serveurs:
   description: |
     Titre original : "Energy Impact due to Data Centers (in kWh/byte)"
 numérique . serveurs . intensité:
-  unité: kWh/octet
-  formule: 0.000000000072
+  formule: 0.000000000072 kWh/octet
   description: |
     Titre original : "Energy Impact due to Data Centers (in kWh/byte)"
 
@@ -1458,18 +1457,15 @@ numérique . réseau . intensité:
   formule: (filaire + wifi + mobile) / 3
 
 numérique . réseau . intensité . filaire:
-  unité: kWh/octet
-  formule: 0.000000000429
+  formule: 0.000000000429 kWh/octet
   description: |
     Titre original : "FAN Wired"
 numérique . réseau . intensité . wifi:
-  unité: kWh/octet
-  formule: 0.000000000152
+  formule: 0.000000000152 kWh/octet
   description: |
     Titre original : "FAN WIFI"
 numérique . réseau . intensité . mobile:
-  unité: kWh/octet
-  formule: 0.000000000884
+  formule: 0.000000000884 kWh/octet
   description: |
     Titre original : "Mobile Network"
 

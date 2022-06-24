@@ -37,7 +37,7 @@ Si vous n'en avez pas, rendez-vous sur https://futur.eco/contribuer/, notre robo
 
 ### Vous êtes développeur - vous voulez découvrir le langage de publication
 
-Bientôt, il sera possible de contribuer aux modèles directement sur https:/futur.eco. En attendant, voici comment procéder pour publier un modèle "qui compile".
+Bientôt, il sera possible de contribuer aux modèles directement sur https://futur.eco. En attendant, voici comment procéder pour publier un modèle "qui compile".
 
 ```
 git clone git@github.com:laem/futureco.git
