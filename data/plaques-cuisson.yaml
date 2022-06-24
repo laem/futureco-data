@@ -40,7 +40,7 @@ plaque de cuisson . type . plaque à induction:
 plaque de cuisson . type . plaque vitrocéramique:
   icônes: ⚡
 plaque de cuisson . consommation énergétique:
-  formule: durée utilisation journalière * puissance moyenne * 365 / rendement
+  formule: durée utilisation journalière * puissance moyenne * 365
   unité: kgCO₂e / année
 plaque de cuisson . durée utilisation journalière:
   unité: h
@@ -48,7 +48,7 @@ plaque de cuisson . durée utilisation journalière:
   note: Le paramètre "durée d'utilisation journalière" est une moyenne qui doit tenir compte des jours où la plaque n'est pas utilisée (puisqu'il est multiplié par 356)
 plaque de cuisson . puissance moyenne:
   unité: kW
-  formule: 1.125
+  formule: 1.125 / rendement
 plaque de cuisson . rendement:
   formule:
     variations:
