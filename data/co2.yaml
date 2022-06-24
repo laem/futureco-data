@@ -1447,8 +1447,7 @@ numérique . serveurs:
   description: |
     Titre original : "Energy Impact due to Data Centers (in kWh/byte)"
 numérique . serveurs . intensité:
-  unité: kWh/octet
-  formule: 0.000000000072
+  formule: 0.000000000072 kWh/octet
   description: |
     Titre original : "Energy Impact due to Data Centers (in kWh/byte)"
 
@@ -1458,18 +1457,15 @@ numérique . réseau . intensité:
   formule: (filaire + wifi + mobile) / 3
 
 numérique . réseau . intensité . filaire:
-  unité: kWh/octet
-  formule: 0.000000000429
+  formule: 0.000000000429 kWh/octet
   description: |
     Titre original : "FAN Wired"
 numérique . réseau . intensité . wifi:
-  unité: kWh/octet
-  formule: 0.000000000152
+  formule: 0.000000000152 kWh/octet
   description: |
     Titre original : "FAN WIFI"
 numérique . réseau . intensité . mobile:
-  unité: kWh/octet
-  formule: 0.000000000884
+  formule: 0.000000000884 kWh/octet
   description: |
     Titre original : "Mobile Network"
 
