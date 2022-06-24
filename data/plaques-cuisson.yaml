@@ -1,0 +1,88 @@
+plaque de cuisson:
+  icônes: 🍳
+plaque de cuisson . impact:
+  icônes: 🍳
+  titre: Un an de plaque de cuisson
+  catégorie: logement
+  exposé: oui
+  unité: kgCO₂e / année
+  formule: (consommation énergétique * impact par kWh + cycle de vie amorti) / nombre d'habitants
+  description: >
+    Ce résultat prend en compte toutes les étapes du cycle de vie d'une plaque de cuisson.
+    De l'extraction des matières premières, à la fabrication, en passant par la phase d'utilisation jusqu'au recyclage.
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?electromenager.htm
+plaque de cuisson . type:
+  icônes: 🍳
+  question: Quel type de plaque de cuisson possédez-vous ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - plaque au gaz
+        - plaque vitrocéramique
+        - plaque à induction
+  par défaut: "'plaque vitrocéramique'"
+plaque de cuisson . nombre d'habitants:
+  icônes: 🍳
+  question: Pour combien de personnes cuisinez-vous en général ?
+  unité: personnes
+  par défaut: 1
+  suggestions:
+    je suis seul.e: 1
+    deux: 2
+    trois: 3
+    quatre: 4
+plaque de cuisson . type . plaque au gaz:
+  icônes: 🔥
+plaque de cuisson . type . plaque à induction:
+  icônes: ⚡
+plaque de cuisson . type . plaque vitrocéramique:
+  icônes: ⚡
+plaque de cuisson . consommation énergétique:
+  formule: durée utilisation journalière * puissance moyenne * 365
+  unité: kgCO₂e / année
+plaque de cuisson . durée utilisation journalière:
+  unité: h
+  formule: 0.5
+  note: Le paramètre "durée d'utilisation journalière" est une moyenne qui doit tenir compte des jours où la plaque n'est pas utilisée (puisqu'il est multiplié par 356)
+plaque de cuisson . puissance moyenne:
+  unité: kW
+  formule: 1.125 / rendement
+plaque de cuisson . rendement:
+  formule:
+    variations:
+      - si: plaque de cuisson . type = 'plaque au gaz'
+        alors: 0.6
+      - si: plaque de cuisson . type = 'plaque vitrocéramique'
+        alors: 0.75
+      - si: plaque de cuisson . type = 'plaque à induction'
+        alors: 0.9
+plaque de cuisson . impact par kWh:
+  unité: kgCO₂e / kWh
+  formule:
+    variations:
+      - si: plaque de cuisson . type = 'plaque au gaz'
+        alors: 0.27
+      - si: plaque de cuisson . type = 'plaque vitrocéramique'
+        alors: 0.06
+      - si: plaque de cuisson . type = 'plaque à induction'
+        alors: 0.06
+plaque de cuisson . durée d'amortissement:
+  formule: 10
+plaque de cuisson . cycle de vie:
+  unité: kgCO₂e
+  formule:
+    variations:
+      - si: type = 'plaque au gaz'
+        alors: 29.8
+      - si: type = 'plaque vitrocéramique'
+        alors: 57
+      - si: type = 'plaque à induction'
+        alors: 71.6
+  note: Cette valeur ne prend pas en compte la phase d'utilisation.
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?electromenager.htm
+plaque de cuisson . cycle de vie amorti:
+  unité: kgCO₂e / année
+  formule: cycle de vie / durée d'amortissement
