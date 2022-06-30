@@ -824,6 +824,10 @@ transport . voiture . prix:
   question: Quel est le prix d'achat de la voiture neuve ?
   unité: €
   par défaut: 15000
+    suggestions:
+      Twingo: 11000
+      Clio / 208 / C3: 15000
+      SUV: 28000
   références:
     - https://www.automobile-magazine.fr/toute-l-actualite/article/25564-match-les-prix-des-nouvelles-peugeot-208-renault-clio-5-citroen-c3-et-vw-polo-compares
 alimentation . lait:
@@ -1406,7 +1410,6 @@ numérique . vidéo:
   note: |
     Pour aller plus loin, il faudrait :
 
-    - rajouter d'autres qualités notamment la 4K pour sensibiliser sur l'impact de la qualité de la vidéo sur les émissions carbone
     - permettre à l'usager de choisir le support vs smartphone vs télé 20 pouces vs télé ultra grand écran en incluant la fabrication de ces appareils
 
     L'empreinte du numérique par kWh est calculée ici avec la valeur moyenne du mix électrique français. On pourrait aussi la calculer avec d'autres méthodes, par exemple la méthode [par usage](https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011).
