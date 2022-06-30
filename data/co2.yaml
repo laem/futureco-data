@@ -824,10 +824,10 @@ transport . voiture . prix:
   question: Quel est le prix d'achat de la voiture neuve ?
   unité: €
   par défaut: 15000
-    suggestions:
-      Twingo: 11000
-      Clio / 208 / C3: 15000
-      SUV: 28000
+  suggestions:
+    Twingo: 11000
+    Clio / 208 / C3: 15000
+    SUV: 28000
   références:
     - https://www.automobile-magazine.fr/toute-l-actualite/article/25564-match-les-prix-des-nouvelles-peugeot-208-renault-clio-5-citroen-c3-et-vw-polo-compares
 alimentation . lait:
