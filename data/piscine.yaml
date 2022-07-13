@@ -87,6 +87,8 @@ piscine . chauffage:
 
   références:
     L’énergie requise pour la mise en marche de la piscine: https://www.fournisseurs-electricite.com/guides/consommation/piscine-chauffee
+    
+#[Clément] : D'ou vient le chiffre des 11475 kWh par an ? C'est bien la consommation du système de chauffage uniquement ?
 
 piscine . chauffage . énergie:
   formule:
@@ -146,6 +148,8 @@ piscine . empreinte électricité:
   références:
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element/categorie/64
 
+#[Clément] : L'approche théorique était-elle une bonne approximation finalement ? (Je n'arrive pas a naviguer dans la doc sur publicodes)
+
 piscine . construction:
   formule: empreinte empirique / durée de vie
 
@@ -189,6 +193,9 @@ piscine . construction . divers chantier:
       - gasoil
       - consommable
       - livraison
+
+#[Clément] : Une source pour ces chiffres ?
+
 piscine . construction . divers chantier . gasoil:
   formule: 192
   unité: kgCO2e
@@ -226,6 +233,8 @@ piscine . construction . équipement nautique:
   formule: 45
   unité: kgCO2e
 
+#[Clément] : Ajouter peut-être joint/colle ? Souvent les produits chimiques ont une empreinte élevée.
+
 piscine . construction . étanchéité:
   formule:
     somme:
@@ -237,6 +246,8 @@ piscine . construction . étanchéité . liner:
 piscine . construction . étanchéité . liner . empreinte PVC:
   formule: 0.350
   unité: kgCO2e/m²
+
+#[Clément] : Renommer "nombre changement liner"
 
 piscine . construction . étanchéité . liner . quantité:
   formule: piscine . construction . durée de vie / durée de vie
@@ -275,6 +286,9 @@ piscine . construction . terrassement . conso diesel:
     somme:
       - pelleteuse
       - chargeuse
+ 
+#[Clément] : Une source pour ces chiffres ? C'est 84 l pour un chantier ?
+
 piscine . construction . terrassement . conso diesel . pelleteuse:
   formule: 84
   description: Pelleteuse de 9t
