@@ -1401,15 +1401,15 @@ numérique . vidéo:
   icônes: 📼📱💻
   formule: énergie * empreinte du mix électrique
   description: |
-    Quelle est l'empreinte climat d'une **vidéo d'une heure en haute qualité** visionnée sur un smartphone ou un ordinateur portable ?
+    Quelle est l'empreinte climat d'une vidéo visionnée en ligne sur un smartphone ou un ordinateur portable ?
 
     Le numérique est aujourd'hui pointé du doigt pour son empreinte importante malgré l'impression de dématérialisation qu'il donne. Une large partie du trafic d'internet est généré par les vidéos, dont la qualité augmente régulièrement.
+
+    Il est intéressant de remarquer que ** la qualité de la vidéo ** a un impact bien plus important que la durée de la vidéo sur les émissons de CO2. 
 
   note: |
     Pour aller plus loin, il faudrait :
 
-    - poser la question de la durée de la vidéo avec des suggestions (épisode de sérié, saison entière, film)
-    - illustrer l'impact du choix d'une qualité inférieure (de la 144p de Youtube à la 4k)
     - permettre à l'usager de choisir le support vs smartphone vs télé 20 pouces vs télé ultra grand écran en incluant la fabrication de ces appareils
 
     L'empreinte du numérique par kWh est calculée ici avec la valeur moyenne du mix électrique français. On pourrait aussi la calculer avec d'autres méthodes, par exemple la méthode [par usage](https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011).
@@ -1432,15 +1432,55 @@ numérique . vidéo . énergie:
   note: Nous utilisons le '1byte model' du [Shift Project](https://theshiftproject.org), dont une partie de l'implémentation est dans [ce tableur](https://theshiftproject.org/wp-content/uploads/2019/07/Video-Materials-1byte-Model-applied-to-video-traffic-2019.xlsx).
 
 numérique . vidéo . durée:
+  question: Quelle est la durée de la vidéo ?
   unité: minute
-  formule: 60
-  note: Une durée approximative, entre le film et l'épisode de série.
+  par défaut: 15
+  suggestions:
+    Vidéo Youtube: 5
+    Épisode de série: 45
+    Film: 120
+
 numérique . vidéo . poids:
   unité: octet
-  formule: 1 * giga
+  formule: vidéo . durée * 60 * vidéo . bitrate * 1000 / 8
   note: C'est un ordre de grandeur d'une vidéo plutôt haute qualité.
+
 giga:
   formule: 1000 * 1000 * 1000
+
+numérique . vidéo . bitrate:
+  #unité: kbps
+  formule:
+    variations:
+      - si: vidéo . qualité = 'Ultra HD'
+        alors : 12000
+      - si: vidéo . qualité = 'Full HD'
+        alors: 6000
+      - si: vidéo . qualité = 'HD'
+        alors: 2500
+      - si: vidéo . qualité = 'SD'
+        alors: 400
+  note: Les équivalences entre les bitrates et les qualités vidéos viennent de cette source de chez IBM -> https://support.video.ibm.com/hc/en-us/articles/207852117-Internet-connection-and-recommended-encoding-settings. Si un spécialiste peut confirmer que les ordres de grandeurs sont les bons ce serait top.
+
+
+numérique . vidéo . qualité:
+  question: Quelle est la qualité de la vidéo ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - Ultra HD
+        - Full HD 
+        - HD
+        - SD
+  par défaut: "'HD'"
+  description: Une qualité Ultra HD correspond à une qualité "4K", Full HD correspond à une qualité "1080p", HD correspond à "720p" et SD correspond à "480p"
+
+numérique . vidéo . qualité . Ultra HD:
+numérique . vidéo . qualité . Full HD:
+numérique . vidéo . qualité . HD:
+numérique . vidéo . qualité . SD:
+
 
 numérique . serveurs:
   formule: intensité * vidéo . poids
@@ -1823,3 +1863,179 @@ emballages . conserve chili con carne . contenu . poids:
   formule: 0.350
   unité: kg
   note: Le poids est une estimation.
+
+meubles:
+meubles . chaise:
+  titre: Une chaise
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🪑
+  catégorie: meubles
+  formule:
+    correspondance:
+      variable: matière
+      tableau:
+        bois: 25.2
+        plastique: 28
+        structure en bois et revêtement textile: 12
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+    
+meubles . chaise . matière:
+  question: Quel est le type de la chaise ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - bois
+        - plastique
+        - structure en bois et revêtement textile
+    par défaut: "'bois'"
+meubles . chaise . matière . bois:
+meubles . chaise . matière . plastique:
+meubles . chaise . matière . structure en bois et revêtement textile:
+
+meubles . table:
+  titre: Une table
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🪑🍲
+  catégorie: meubles
+  formule: 130
+  description: Cette valeur correspond à une table de 4 places en bois.
+  note: Dans la base carbone de l'ADEME, il existe "table représentative", c'est pas très clair pour l'utilisateur ce à quoi correspond une table "représentative". 
+    À réfléchir / discuter, s'il faut l'ajouter.
+    Dans l'idéal, il faudrait aussi ajouter d'autres matières et tailles de tables.
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+  
+meubles . canapé:
+  titre: Un canapé
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛋️
+  catégorie: meubles
+  formule: 
+    correspondance:
+      variable: type
+      tableau:
+        textile: 180
+        cuir: 200
+        convertible: 204
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+    
+meubles . canapé . type:
+  question: Quel est le type de canapé ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - textile
+        - cuir
+        - convertible
+    par défaut: "'textile'"
+meubles . canapé . type . textile:
+meubles . canapé . type . cuir:
+meubles . canapé . type . convertible:
+
+meubles . sommier:
+  titre: Un sommier
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛏️
+  catégorie: meubles
+  formule: 
+    correspondance:
+      variable: type
+      tableau:
+        tapissier: 110
+        à lattes fixes: 69
+        cadre de lit: 147
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+  note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
+    
+meubles . sommier . type:
+  question: Quel est le type de sommier ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - tapissier
+        - à lattes fixes
+        - cadre de lit
+    par défaut: "'à lattes fixes'"
+meubles . sommier . type . tapissier:
+meubles . sommier . type . à lattes fixes:
+meubles . sommier . type . cadre de lit:
+
+meubles . matelas:
+  titre: Un matelas
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛏️
+  catégorie: meubles
+  formule: 
+    correspondance:
+      variable: type
+      tableau:
+        mousse: 286
+        ressort: 219
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+  note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
+
+    
+meubles . matelas . type:
+  question: Quel est le type de matelas ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - mousse
+        - ressort
+    par défaut: "'mousse'"
+meubles . matelas . type . mousse:
+meubles . matelas . type . ressort:
+
+meubles . lit:
+  titre: Un lit
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛏️
+  catégorie: meubles
+  formule: matelas + sommier
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+  note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
+
+meubles . salon de jardin:
+  titre: Un salon de jardin
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛋️🌴
+  catégorie: meubles
+  formule: 
+    correspondance:
+      variable: type
+      tableau:
+        bois: 103
+        métal: 224
+        résine tressée: 215
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+    
+meubles . salon de jardin . type:
+  question: Quel est le type de salon de jardin ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - bois
+        - métal
+        - résine tressée
+    par défaut: "'résine tressée'"
+meubles . salon de jardin . type . bois:
+meubles . salon de jardin . type . métal:
+meubles . salon de jardin . type . résine tressée:
