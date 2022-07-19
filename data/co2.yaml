@@ -896,6 +896,22 @@ alimentation . lait . impact chauffage litre de lait:
   note: On devrait ajouter le chauffage sur plaque de gaz, qui devrait multiplier par ~3 l'impact climat.
   formule: chauffage litre de lait final * chauffage . impact par kWh . électricité
 
+alimentation . sardines en boite:
+  icônes: 🥫🐟 
+  exposé: oui
+  titre: Des sardines en boite
+  unité: kgCO₂e
+  formule: impact * portion
+  description: Pour une portion de 100g (poids égoutté) de sardines à l'huile en boite de conserve. Cela correspond à une boite de sardines "classique" de 140g.
+
+alimentation . sardines en boite . impact:
+  formule: 4.71
+  unité: kgCO₂e/kg
+
+alimentation . sardines en boite . portion:
+  formule: 0.1
+  unité: kg
+
 chauffage . efficacité microondes:
   formule: 2 / 3
   références:
