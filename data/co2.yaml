@@ -912,6 +912,26 @@ alimentation . sardines en boite . portion:
   formule: 0.1
   unité: kg
 
+alimentation . sirop à l'eau:
+  icônes: 🚰🍓🍋
+  exposé: oui 
+  titre: Un verre de sirop à l'eau
+  unité: kgCO₂e
+  formule: impact * portion
+  description: Pour un verre de 15cl de sirop à l'eau.
+
+alimentation . sirop à l'eau . impact:
+  unité: kgCO₂e/kg
+  formule: 0.11
+  références:
+    - https://agribalyse.ademe.fr/app/aliments/18058#Boisson_pr%C3%A9par%C3%A9e_%C3%A0_partir_de_sirop_%C3%A0_diluer_type_menthe,_fraise,_etc,_sucr%C3%A9,_dilu%C3%A9_dans_l'eau
+
+alimentation . sirop à l'eau . portion:
+  unité: kg
+  formule: 0.15
+  note:
+    Un verre d'eau "classique" a un volume de 15cl. 1L d'eau a une masse d'1kg (et on néglige la différence entre la masse volumique de l'eau et celle du sirop). Donc on utilise une "portion" de 0.15kg dans cette simulation.
+
 chauffage . efficacité microondes:
   formule: 2 / 3
   références:
