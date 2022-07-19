@@ -2211,3 +2211,179 @@ piscine . type . surface . parallélépipède:
 piscine . construction . abri:
   formule: 0
   description: A implémenter, on pourra alors poser une question si abri, mais il faudra prendre en compte les gains en chauffage et filtrage.
+
+meubles:
+meubles . chaise:
+  titre: Une chaise
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🪑
+  catégorie: meubles
+  formule:
+    correspondance:
+      variable: matière
+      tableau:
+        bois: 25.2
+        plastique: 28
+        structure en bois et revêtement textile: 12
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+    
+meubles . chaise . matière:
+  question: Quel est le type de la chaise ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - bois
+        - plastique
+        - structure en bois et revêtement textile
+    par défaut: "'bois'"
+meubles . chaise . matière . bois:
+meubles . chaise . matière . plastique:
+meubles . chaise . matière . structure en bois et revêtement textile:
+
+meubles . table:
+  titre: Une table
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🪑🍲
+  catégorie: meubles
+  formule: 130
+  description: Cette valeur correspond à une table de 4 places en bois.
+  note: Dans la base carbone de l'ADEME, il existe "table représentative", c'est pas très clair pour l'utilisateur ce à quoi correspond une table "représentative". 
+    À réfléchir / discuter, s'il faut l'ajouter.
+    Dans l'idéal, il faudrait aussi ajouter d'autres matières et tailles de tables.
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+  
+meubles . canapé:
+  titre: Un canapé
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛋️
+  catégorie: meubles
+  formule: 
+    correspondance:
+      variable: type
+      tableau:
+        textile: 180
+        cuir: 200
+        convertible: 204
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+    
+meubles . canapé . type:
+  question: Quel est le type de canapé ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - textile
+        - cuir
+        - convertible
+    par défaut: "'textile'"
+meubles . canapé . type . textile:
+meubles . canapé . type . cuir:
+meubles . canapé . type . convertible:
+
+meubles . sommier:
+  titre: Un sommier
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛏️
+  catégorie: meubles
+  formule: 
+    correspondance:
+      variable: type
+      tableau:
+        tapissier: 110
+        à lattes fixes: 69
+        cadre de lit: 147
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+  note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
+    
+meubles . sommier . type:
+  question: Quel est le type de sommier ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - tapissier
+        - à lattes fixes
+        - cadre de lit
+    par défaut: "'à lattes fixes'"
+meubles . sommier . type . tapissier:
+meubles . sommier . type . à lattes fixes:
+meubles . sommier . type . cadre de lit:
+
+meubles . matelas:
+  titre: Un matelas
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛏️
+  catégorie: meubles
+  formule: 
+    correspondance:
+      variable: type
+      tableau:
+        mousse: 286
+        ressort: 219
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+  note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
+
+    
+meubles . matelas . type:
+  question: Quel est le type de matelas ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - mousse
+        - ressort
+    par défaut: "'mousse'"
+meubles . matelas . type . mousse:
+meubles . matelas . type . ressort:
+
+meubles . lit:
+  titre: Un lit
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛏️
+  catégorie: meubles
+  formule: matelas + sommier
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+  note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
+
+meubles . salon de jardin:
+  titre: Un salon de jardin
+  unité: kgCO₂e
+  exposé: oui
+  icônes: 🛋️🌴
+  catégorie: meubles
+  formule: 
+    correspondance:
+      variable: type
+      tableau:
+        bois: 103
+        métal: 224
+        résine tressée: 215
+  références:
+    - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
+    
+meubles . salon de jardin . type:
+  question: Quel est le type de salon de jardin ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - bois
+        - métal
+        - résine tressée
+    par défaut: "'résine tressée'"
+meubles . salon de jardin . type . bois:
+meubles . salon de jardin . type . métal:
+meubles . salon de jardin . type . résine tressée:
