@@ -28,8 +28,28 @@ empreinte du voyage:
     description: Découvrez une estimation de l'empreinte climat du ferry en fonction de votre voyage et des options de votre traversée.
     image: https://futur.eco/images/ferry.png
     exemples via suggestions: transport . ferry . distance aller . orthodromique
-  formule: distance aller retour * empreinte par km
+  formule: distance aller retour * empreinte par km volume
   unité: kgCO₂e
+  description: |
+    Voici notre objectif : estimer l'empreinte d'un passager sur les ferries de voyage comme ceux qui relient la métropole à la Corse et à l'Angleterre.
+
+    Le ferry est souvent proposé comme alternative sérieuse à l’avion du point de vue de l'empreinte carbone, mais il n’existait pourtant aucune estimation de son empreinte climat au kilomètre (ni ADEME en France, ni à l’international, ni dans la littérature scientifique) qui prenne en compte non pas un passager moyen, mais la diversité des options d'un billet : 
+
+    - passager en voiture ou non
+    - passager en cabine, en siège, ou au sol
+    - équipement loisir du bateau : restaurant, bar, piscine, grand couloirs, etc.
+    - le fret embarqué dans les camions
+    - % de remplissage du bateau
+    - vitesse
+    - etc
+
+    Nous savons combien un ferry donné émet de gaz à effet de serre (GES) : il suffit en somme de multipler sa consommation de fioul par le ou les facteurs d'émission CO2e du fioul et autres carburants utilisés. Mais la difficulté est ensuite d'attribuer une part de ces GES au passager à pied, au passager seul dans sa voiture qui profite d'un lounge VIP, et au transport de marchandises, etc. 
+
+    Voici la [note de méthode](https://hackmd.io/@laem/empreinte-ferry) (~20 pages) qui explique le problème qu'on veut résoudre et les possibilités pour faire le calcul, mais qui reste théorique.
+
+    Puis, une fois cette méthode du volume acceptée, vous pouvez parcourir ci-dessous de façon intéractive et complète le calcul du facteur d'émission dynamique juste ci-dessous ⬇️.
+
+    Finalement, n'hésitez pas à faire des propositions de modification du modèle, soit via une pull request sur [github](https://github.com/laem/futureco/blob/master/source/sites/publicodes/ferry/index.yaml) soit via un simple commentaire sur [ce ticket](https://github.com/laem/futureco/issues/123).
 
 durée du voyage:
   question: Quelle est la durée de votre traversée ?
@@ -56,6 +76,7 @@ distance aller:
 distance aller . orthodromique:
   icônes: 🗺️
   question: Quel est votre trajet ?
+  description: L'utilisateur saisit les ports de départ et d'arrivée, nous récupérons leurs coordonnées et calculons la distance orthodromique, ce qui consiste à prendre en compte le fait que la terre n'est pas plate.
   par défaut: 320 km
   unité: km
   suggestions:
@@ -99,29 +120,6 @@ empreinte du bateau:
   description: Nous utilisons ici comme bateau témoin Méga Express Four de la flotte Corsica Ferries. Ils est représentatif des gros ferries de max ~2000 passagers, rapides.
   formule: empreinte totale . par km
   unité: kgCO2e/km
-
-empreinte par km:
-  formule: empreinte par km volume
-  description: |
-    Voici notre objectif : estimer l'empreinte d'un passager sur les ferries de voyage comme ceux qui relient la métropole à la Corse et à l'Angleterre.
-
-    Le ferry est souvent proposé comme alternative sérieuse à l’avion du point de vue de l'empreinte carbone, mais il n’existait pourtant aucune estimation de son empreinte climat au kilomètre (ni ADEME en France, ni à l’international, ni dans la littérature scientifique) qui prenne en compte non pas un passager moyen, mais la diversité des options d'un billet : 
-
-    - passager en voiture ou non
-    - passager en cabine, en siège, ou au sol
-    - équipement loisir du bateau : restaurant, bar, piscine, grand couloirs, etc.
-    - le fret embarqué dans les camions
-    - % de remplissage du bateau
-    - vitesse
-    - etc
-
-    Nous savons combien un ferry donné émet de gaz à effet de serre (GES) : il suffit en somme de multipler sa consommation de fioul par le ou les facteurs d'émission CO2e du fioul et autres carburants utilisés. Mais la difficulté est ensuite d'attribuer une part de ces GES au passager à pied, au passager seul dans sa voiture qui profite d'un lounge VIP, et au transport de marchandises, etc. 
-
-    Voici la [note de méthode](https://hackmd.io/@laem/empreinte-ferry) (~20 pages) qui explique le problème qu'on veut résoudre et les possibilités pour faire le calcul, mais qui reste théorique.
-
-    Puis, une fois cette méthode du volume acceptée, vous pouvez parcourir ci-dessous de façon intéractive et complète le calcul du facteur d'émission dynamique en cliquant sur **Empreinte par km et passager**.
-
-    Finalement, n'hésitez pas à faire des propositions de modification du modèle, soit via une pull request sur [github](https://github.com/laem/futureco/blob/master/source/sites/publicodes/ferry/index.yaml) soit via un simple commentaire sur [ce ticket](https://github.com/laem/futureco/issues/123).
 
 empreinte par km volume:
   titre: Empreinte par km et passager
