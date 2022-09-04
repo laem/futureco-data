@@ -23,8 +23,11 @@ vitesse en kmh:
 empreinte du voyage:
   titre: Un voyage en ferry
   icônes: ⛴
-  exposé: oui
+  exposé:
+    description: Découvrez une estimation de l'empreinte climat du ferry en fonction de votre voyage et des options de votre traversée.
+    exemples via suggestions: transport . ferry . distance aller . orthodromique
   formule: distance aller retour * empreinte par km
+  unité: kgCO₂e
 
 durée du voyage:
   question: Quelle est la durée de votre traversée ?
@@ -54,6 +57,10 @@ distance aller . orthodromique:
   question: Quel est votre trajet ?
   par défaut: 320 km
   unité: km
+  suggestions:
+    🇬🇧 Cherbourg↔Poole: 130
+    🏝️ Marseille↔Ajaccio: 350
+    🇩🇿 Marseille↔Alger: 800
 
 empreinte totale:
   formule: facteur vitesse * correction temps de navigation * empreinte totale moyenne
