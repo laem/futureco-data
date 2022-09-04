@@ -31,9 +31,11 @@ durée du voyage:
   description: On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.
   icônes: ⏳️
   par défaut: 10 h
+  unité: h
   suggestions:
-    demi-journée: 6 h
-    nuit: 10 h
+    une demi-journée: 6 h
+    une nuit: 10 h
+    24h: 24 h
 
 durée du voyage . réelle:
   formule: durée du voyage - 1
