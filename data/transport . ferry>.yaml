@@ -178,11 +178,7 @@ volume passager . loisirs:
 volume passager . siège:
   non applicable si: cabine
   titre: Un siège dans un dortoir
-  formule: hauteur pont bas * surface
-
-volume passager . siège . surface:
-  question: Quelle est la surface majorée occupée par un siège dans un dortoir ?
-  par défaut: 8 m2
+  formule: hauteur pont bas * surface . siège
 
 volume passager . voiture:
   applicable si: voiture
@@ -245,6 +241,7 @@ surface . garage: bas + haut
 surface . cabines:
   injecté: oui
   question: Quelle est la surface totale des cabines ?
+
 surface . sièges:
   injecté: oui
   question: Quelle est la surface totale des sièges ?
