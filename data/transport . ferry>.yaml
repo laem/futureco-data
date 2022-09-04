@@ -167,6 +167,7 @@ volume passager . siège:
   non applicable si: cabine
   titre: Un siège dans un dortoir
   formule: hauteur pont bas * surface
+
 volume passager . siège . surface:
   question: Quelle est la surface majorée occupée par un siège dans un dortoir ?
   par défaut: 8 m2
@@ -206,11 +207,13 @@ volume communs: hauteur pont bas * surface . communs
 volume garage: hauteur moyenne garage * surface . garage
 
 surface . communs:
+  injecté: oui
   question: Quelle est la surface des zones communes à tous les passagers ?
   description: |
     Cela inclut les escaliers, des places assises en salon hors bar ou restaurant, les couloirs intérieurs. Par convention, on n'inclut pas les surfaces extérieures non couvertes, sauf les espaces de loisir évidents : la piscine et les bars extérieurs.
 
 surface . loisirs:
+  injecté: oui
   question: Quelle est la surface dédiée aux loisirs ?
   description: Restaurants, bars, salons, jeux, commerces, piscines, etc.
 
@@ -218,16 +221,20 @@ hauteur moyenne garage:
   formule: (surface . garage . bas * hauteur pont bas + surface . garage . haut * hauteur pont haut) / surface . garage
 
 surface . garage . bas:
+  injecté: oui
   question: Quelle est la surface de garage bas du bateau ?
 
 surface . garage . haut:
+  injecté: oui
   question: Quelle est la surface de garage haut du bateau ?
 
 surface . garage: bas + haut
 
 surface . cabines:
+  injecté: oui
   question: Quelle est la surface totale des cabines ?
 surface . sièges:
+  injecté: oui
   question: Quelle est la surface totale des sièges ?
 
 volume passager . cabine partagée:
@@ -258,9 +265,11 @@ billet cabine: cabine
 
 siège:
 siège . nombre:
+  injecté: oui
   question: Quel est le nombre total de sièges passager ?
 
 cabine . nombre:
+  injecté: oui
   question: Quel est le nombre total de cabines passager ?
 
 cabine:
@@ -308,6 +317,7 @@ groupe:
   icônes: 👥
   question: À combien voyagez-vous ?
   par défaut: 2
+  unité: personnes
   suggestions:
     seul: 1
     en couple: 2
