@@ -310,7 +310,13 @@ taille cabine . quatre lits:
 voiture:
   icônes: 🚗
   question: Transportez-vous votre voiture ?
-  description: Le calcul est limité à une voiture, on considère qu'elle est partagée par le groupe.
+  description: |
+
+    Le calcul est limité à une seule voiture, on considère qu'elle est partagée par le groupe.
+
+    Si vous transportez un camping-car, répondez oui (l'empreinte sera fortement sous-estimée). 
+
+    Si vous transportez une moto, répondez non (l'empreinte sera légèrement sous-estimée).
   par défaut: oui
 
 groupe:
