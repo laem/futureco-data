@@ -56,7 +56,11 @@ distance aller:
 distance aller . orthodromique:
   icônes: 🗺️
   question: Quel est votre trajet ?
-  description: L'utilisateur saisit les ports de départ et d'arrivée, nous récupérons leurs coordonnées et calculons la distance orthodromique, ce qui consiste à prendre en compte le fait que la terre n'est pas plate.
+  description: |
+    Saisissez la ville de départ et d'arrivée d'un vrai trajet en ferry.
+
+    Nous ne gérons pas encore l'estimation de l'empreinte climat d'un trajet multimodal (TGV + ferry par exemple).
+  note: L'utilisateur saisit les ports de départ et d'arrivée, nous récupérons leurs coordonnées et calculons la distance orthodromique, ce qui consiste à prendre en compte le fait que la terre n'est pas plate.
   par défaut: 320 km
   unité: km
   suggestions:
