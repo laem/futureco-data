@@ -35,7 +35,6 @@ durée du voyage:
   question: Quelle est la durée de votre traversée ?
   description: On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.
   icônes: ⏳️
-  par défaut: 10 h
   unité: h
   suggestions:
     une demi-journée: 6 h
