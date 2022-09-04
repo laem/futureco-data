@@ -24,7 +24,9 @@ empreinte du voyage:
   titre: Un voyage en ferry
   icônes: ⛴
   exposé:
+    titre: Calculateur d'empreinte carbone du ferry
     description: Découvrez une estimation de l'empreinte climat du ferry en fonction de votre voyage et des options de votre traversée.
+    image: https://futur.eco/images/ferry.png
     exemples via suggestions: transport . ferry . distance aller . orthodromique
   formule: distance aller retour * empreinte par km
   unité: kgCO₂e
