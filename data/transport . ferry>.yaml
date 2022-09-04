@@ -53,6 +53,7 @@ distance aller . orthodromique:
   icônes: 🗺️
   question: Quel est votre trajet ?
   par défaut: 320 km
+  unité: km
 
 empreinte totale:
   formule: facteur vitesse * correction temps de navigation * empreinte totale moyenne
@@ -276,7 +277,7 @@ cabine . nombre:
 
 cabine:
   icônes: 🛌
-  question: Place cabine (plutôt que siège) ?
+  question: Avez-vous pris une cabine (plutôt qu'un simple siège) ?
   description: Sans surprise, voyager en cabine apporte du confort mais en contrepartie du poids embarqué.
   note: Il existe aussi des cabines partagées (comme dans les trains de nuit), nous pourrons les ajouter par la suite comme une option possible.
   références:
@@ -340,7 +341,7 @@ groupe:
 
 consommation de services:
   icônes: 🍽️
-  question: Utilisez vous les services accessoires du ferry (restaurant, piscine, etc.) ?
+  question: Utilisez vous les services accessoires du ferry (bar, restaurant, piscine, etc.) ?
   par défaut: oui
 
 passagers:
