@@ -33,7 +33,11 @@ empreinte du voyage:
 
 durée du voyage:
   question: Quelle est la durée de votre traversée ?
-  description: On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.
+  description: |
+    Indiquez votre heure de départ et d'arrivée, en sélectionnant bien le jour d'arrivée.
+
+    ⚠️  La vitesse est cruciale pour calculer l'empreinte du voyage, car la consommation d'essence varie au cube de la vitesse.
+  note: On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.
   icônes: ⏳️
   unité: h
   suggestions:
