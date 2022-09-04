@@ -20,7 +20,11 @@ vitesse:
 vitesse en kmh:
   formule: distance aller / durée du voyage . réelle
 
-empreinte du voyage: distance aller retour * empreinte par km
+empreinte du voyage:
+  titre: Un voyage en ferry
+  icônes: ⛴
+  exposé: oui
+  formule: distance aller retour * empreinte par km
 
 durée du voyage:
   question: Quelle est la durée de votre traversée ?
