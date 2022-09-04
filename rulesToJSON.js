@@ -9,7 +9,17 @@ glob('data/**/*.yaml', (err, files) => {
 	const rules = files.reduce((memo, filename) => {
 		const data = fs.readFileSync('./' + filename, 'utf8')
 		const rules = yaml.parse(data)
-		return { ...memo, ...rules }
+		const splitName = filename.replace('data/', '').split('>.yaml')
+		const prefixedRuleSet =
+			splitName.length > 1
+				? Object.fromEntries(
+						Object.entries(rules).map(([k, v]) => [
+							k === 'index' ? splitName[0] : splitName[0] + ' . ' + k,
+							v,
+						])
+				  )
+				: rules
+		return { ...memo, ...prefixedRuleSet }
 	}, {})
 	fs.writeFile('./public/co2.json', JSON.stringify(rules), function (err) {
 		if (err) return console.error(err)
