@@ -20,6 +20,15 @@ vitesse:
 vitesse en kmh:
   formule: distance aller / durée du voyage . réelle
 
+vitesse trop élevée:
+  type: notification
+  sévérité: avertissement
+  formule: vitesse en kmh > 100
+  description: |
+    Votre vitesse est irréaliste. Il s'agit d'un bateau, pas d'un avion. 
+
+    C'est peut-être une erreur de saisie : vérifiez la durée du voyage, ou une confusion dans votre port d'arrivée ?
+
 empreinte du voyage:
   titre: Un voyage en ferry (aller‑retour)
   icônes: ⛴
