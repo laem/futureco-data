@@ -72,6 +72,15 @@ distance aller:
     Nous ne calculons pas encore les distances réelles traversées par les bateaux. Ainsi, l'ajout d'un facteur 30% permet de s'en rapprocher. 
     Si vous avez accès à un facteur moyen sourcé, n'hésitez pas à intervenir.
 
+distance importante:
+  type: notification
+  sévérité: information
+  formule: distance aller > 1000
+  description: |
+    Le modèle de calcul est basé sur un ferry mediterranéen réalisant des traversées de 300km au maximum. 
+
+    Prenez donc le résultat sur de longues traversées, en particulier sur un cargo, avec des pincettes en attendant une amélioration du modèle dédiée à ce genre de traversées.
+
 distance aller . orthodromique:
   icônes: 🗺️
   question: Quel est votre trajet ?
