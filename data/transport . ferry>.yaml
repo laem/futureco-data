@@ -21,7 +21,7 @@ vitesse en kmh:
   formule: distance aller / durée du voyage . réelle
 
 empreinte du voyage:
-  titre: Un voyage en ferry
+  titre: Un voyage en ferry (aller‑retour)
   icônes: ⛴
   exposé:
     titre: Calculateur d'empreinte carbone du ferry
