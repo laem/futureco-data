@@ -367,7 +367,7 @@ groupe:
     à 3: 3
     à 4: 4
 
-avertissement simulation individuelle:
+groupe . avertissement simulation individuelle:
   type: notification
   sévérité: information
   formule: groupe > 1
