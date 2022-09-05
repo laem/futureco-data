@@ -367,6 +367,15 @@ groupe:
     à 3: 3
     à 4: 4
 
+avertissement simulation individuelle:
+  type: notification
+  sévérité: information
+  formule: groupe > 1
+  description: |
+    Le nombre de personnes qui voyage est important pour le calcul,
+
+    mais **le résultat du calcul reste individuel**.
+
 # Infra nécessaire aux pax mais pas au fret
 # WC, escaliers, canots de sauvetage
 # ces derniers peuvent-ils être négligés / personne, vu que leur but est de flotter ?
