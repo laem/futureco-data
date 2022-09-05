@@ -55,9 +55,15 @@ durée du voyage:
     24h: 24 h
 
 durée du voyage . réelle:
-  formule: durée du voyage - 1
+  formule:
+    variations:
+      - si: durée du voyage < 3
+        alors: durée du voyage * 0.8
+      - sinon: durée du voyage - 1
   description: |
     Nous considérons que pour un départ à 19h sur le billet, et une arrivée à 7h, pour le calcul de la vitesse la traversée n'a pas duré 12h de navigation mais 11h, car il y a 30 minutes avant que le ferry se lance puis 30 minutes de débarquement. Cela peut évidemment varier en fonction des compagnies et du type de billet (embarquement piéton ou avec voiture), mais c'est un ordre de grandeur.
+
+    Pour les traversées courtes de moins de 3h, nous retirons 10% du temps (par convention également), soit 20 minutes * 2 pour 3h par exemple.
 
 distance aller retour: 2 * distance aller
 distance aller:
