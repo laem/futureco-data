@@ -40,7 +40,11 @@ coût . correction inflation:
   titre: Gain énergie sur 1 an
   formule: économie d'électricité usage
   note: |
-    Nous devons introduire une notion de kWh consommés pour la production du nouveau lave-linge, divisée par sa durée de vie estimée, 10 ans par défaut.
+    Nous pourrions introduire une notion de kWh consommés pour la production du nouveau lave-linge, divisée par sa durée de vie estimée, 10 ans par défaut.
+
+    Sauf que le consommateur est en premier lieu intéressé par la consommation d'énergie qu'il va lui-même payer, et c'est normal.
+
+    Si mon nouvel appariel consomme des kWh ou des € à l'étranger, peu m'importe. Par contre, ça m'importe via l'empreinte climat, qui nous affecte tous.
 
 énergie . énergie production:
   valeur: 100 kWh
