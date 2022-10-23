@@ -7,7 +7,18 @@ renouveler:
   formule: énergie
   titre: Faut-il que je renouvelle mon lave-linge ?
 
-climat: 0 kgCO2e
+climat:
+  titre: Gain climat sur 1 an
+  formule: consommation - production
+
+climat . production:
+  valeur: 341 / durée
+  unité: kgCO2e
+  références:
+    - https://nosgestesclimat.fr/documentation/divers/électroménager/appareils/lave-linge
+
+climat . consommation:
+  formule: énergie . économie d'électricité usage * facteur mix électrique
 coût:
   titre: Coût sur 10 ans
   formule: économie d'électricité - neuf . prix
@@ -26,7 +37,7 @@ coût . correction inflation:
     Nous retenons la moitié de cette hausse. Il faudrait idéalement calculer exactemement l'actualisation, donc ajouter à publi.codes un mécanisme d'actualisation d'une somme.
 
 énergie:
-  titre: Énergie sur 1 an
+  titre: Gain énergie sur 1 an
   formule: économie d'électricité usage
   note: |
     Nous devons introduire une notion de kWh consommés pour la production du nouveau lave-linge, divisée par sa durée de vie estimée, 10 ans par défaut.
@@ -106,3 +117,9 @@ cycles par an:
     Mais attention, cela dépend évidemment beaucoup du nombre de personnes dans votre foyer, du nombre d'enfants (à supposer que les enfants se salissent plus que les parents..), de vos préférences d'hygiène pour les vêtements, pour les draps, etc. 
 
     https://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge
+
+facteur mix électrique:
+  valeur: 0.0569
+  unité: kgCO2e/kWh
+  références:
+    - https://nosgestesclimat.fr/documentation/intensité-électricité
