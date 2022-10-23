@@ -9,13 +9,20 @@ renouveler:
 
 climat:
   titre: Gain climat sur 1 an
-  formule: consommation - production
+  formule: consommation - production + production reconditionné
 
 climat . production:
   valeur: 341 / durée
   unité: kgCO2e
   références:
     - https://nosgestesclimat.fr/documentation/divers/électroménager/appareils/lave-linge
+climat . production reconditionné:
+  applicable si: ancien . achat reconditionné
+  description: |
+    Un lave-linge reconditionné n'émet pas de CO2 à la fabrication, mais les pièces de rechange utilisées par le reconditionnement, la collecte, la livraison, l'entrepôsage, etc sont à prendre en compte. 
+
+    Faute de mieux, nous leur affectons 20% de l'empreinte de production d'un neuf.
+  formule: climat . production * 0.2
 
 climat . consommation:
   formule: énergie . économie d'électricité usage * facteur mix électrique
