@@ -6,10 +6,42 @@ renouveler:
   formule: kWh
   titre: Faut-il que je renouvelle mon lave-linge ?
 
+€:
+  titre: Coût d'un remplacement sur 10 ans
+  formule: neuf . prix - économie d'électricité
+
+€ . économie d'électricité: kWh . économie d'électricité usage * durée * coût électricité * correction inflation
+
+€ . correction inflation:
+  valeur: 110%
+  description: |
+    C'est surprenant, mais en période d'inflation, l'investissement est plus valorisé que les dépenses annuelles, il faut le prendre en compte dans mon calcul.
+
+    Quel chiffre choisir pour l'inflation ? Nous sommes en France, membre de l'Union Européenne, dont une des missions fondamentales (oui, vraiment) est de viser une inflation de 2%. 
+
+    2% sur 10 ans, ça fait `* (1.02)^10`. 
+
+    Nous retenons la moitié de cette hausse. Il faudrait idéalement calculer exactemement l'actualisation, donc ajouter à publi.codes un mécanisme d'actualisation d'une somme.
+
 kWh:
-  formule: cent cycles . neuf < cent cycles . ancien
   note: |
     Nous devons introduire une notion de kWh consommés pour la production du nouveau lave-linge, divisée par sa durée de vie estimée, 10 ans par défaut.
+
+kWh . énergie production:
+  valeur: 100 kWh
+
+kWh . économie d'électricité usage:
+  formule: ancien - neuf
+
+ratio cycles réels: cycles par an / 100
+kWh . neuf:
+  formule: cent cycles . neuf * ratio cycles réels
+
+kWh . ancien:
+  formule: cent cycles . ancien * ratio cycles réels
+
+kWh . gagnant:
+  formule: économie d'électricité usage > 0
 
 kWh . cent cycles:
   description: |
@@ -34,7 +66,11 @@ neuf:
 
     Avec sa capacité de 7kg, il semble être un lave-linge classique.
 
-neuf . prix: 400 €
+neuf . prix:
+  titre: Prix d'un lave-linge économe neuf
+  valeur: 400 €
+  description: |
+    Ce coût inclut en général la livraison à domicile, c'est important de le noter, car sur un site de reconditionné comme murfy.fr, elle est facturée 60€, soit 15% de ce prix.
 
 ancien:
 
@@ -46,15 +82,23 @@ coût électricité:
     > Coût de l'électricité : 0,19 € le kilowatt-heure (prix TTC incluant l'abonnement pour le tarif réglementé EDF option base - valeur juillet 2021)
 
     https://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge
-  note: Il faut mettre à jour ce prix. Il y a eu un choc énergétique depuis.
+  note: |
+
+    - Il faut mettre à jour ce prix. Il y a eu un choc énergétique depuis.
+    - Il faut aussi le demander à l'utilisateur ! 
+    - Pour l'utilisateur, raisonner en kWh marginaux est probablement plus logique ?
 
 durée: 10 ans
 
-machines par an:
-  valeur: 200 /ans
+cycles par an:
+  question: Combien de cycles faites-vous par an environ ?
+  par défaut: 200 /ans
   note: |
     Cette estimation me semble énorme, plus d'une machine tous les 2 jours on dirait qu'elle ne concerne que les 
     foyers avec enfant ?
   description: |
-    D'après guidetopten.fr, ce serait 200 cycles par an !
+    D'après guidetopten.fr, ce serait 200 cycles par an. 
+
+    Mais attention, cela dépend évidemment beaucoup du nombre de personnes dans votre foyer, du nombre d'enfants (à supposer que les enfants se salissent plus que les parents..), de vos préférences d'hygiène pour les vêtements, pour les draps, etc. 
+
     https://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge
