@@ -1,19 +1,21 @@
 index:
 renouveler:
-  exposé: oui
+  exposé:
+    type: question éco
   catégorie: logement
   icônes: 🌀👕
-  formule: kWh
+  formule: énergie
   titre: Faut-il que je renouvelle mon lave-linge ?
 
-€:
-  titre: Coût d'un remplacement sur 10 ans
-  formule: neuf . prix - économie d'électricité
+climat: 0 kgCO2e
+coût:
+  titre: Coût sur 10 ans
+  formule: économie d'électricité - neuf . prix
 
-€ . économie d'électricité: kWh . économie d'électricité usage * durée * coût électricité * correction inflation
+coût . économie d'électricité: énergie . économie d'électricité usage * durée * coût électricité * correction inflation
 
-€ . correction inflation:
-  valeur: 110%
+coût . correction inflation:
+  valeur: 1.10
   description: |
     C'est surprenant, mais en période d'inflation, l'investissement est plus valorisé que les dépenses annuelles, il faut le prendre en compte dans mon calcul.
 
@@ -23,36 +25,38 @@ renouveler:
 
     Nous retenons la moitié de cette hausse. Il faudrait idéalement calculer exactemement l'actualisation, donc ajouter à publi.codes un mécanisme d'actualisation d'une somme.
 
-kWh:
+énergie:
+  titre: Énergie sur 1 an
+  formule: économie d'électricité usage
   note: |
     Nous devons introduire une notion de kWh consommés pour la production du nouveau lave-linge, divisée par sa durée de vie estimée, 10 ans par défaut.
 
-kWh . énergie production:
+énergie . énergie production:
   valeur: 100 kWh
 
-kWh . économie d'électricité usage:
+énergie . économie d'électricité usage:
   formule: ancien - neuf
 
 ratio cycles réels: cycles par an / 100
-kWh . neuf:
+énergie . neuf:
   formule: cent cycles . neuf * ratio cycles réels
 
-kWh . ancien:
+énergie . ancien:
   formule: cent cycles . ancien * ratio cycles réels
 
-kWh . gagnant:
+énergie . gagnant:
   formule: économie d'électricité usage > 0
 
-kWh . cent cycles:
+énergie . cent cycles:
   description: |
     Sur l’ancienne étiquette-énergie, l’efficacité énergétique d’un lave-linge était calculée sur la base d’une combinaison de différents programmes (60°C, 40°C, chargement complet et partiel), pour 220 lavages. 
 
     La nouvelle étiquette énergie introduit un nouveau programme de test, appelé "le programme «Éco 40–60»" : ce nouveau programme est conçu pour laver un linge de coton normalement sale déclaré lavable à 40 °C ou 60 °C au cours du même cycle de lavage.
 
-kWh . cent cycles . neuf:
+énergie . cent cycles . neuf:
   valeur: 44 kWh
 
-kWh . cent cycles . ancien:
+énergie . cent cycles . ancien:
   par défaut: 119 kWh
   question: Quelle est la consommation du lave-linge ancien pour 100 cycles classiques ?
   description: |
