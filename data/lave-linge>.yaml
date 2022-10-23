@@ -4,8 +4,8 @@ renouveler:
     type: question éco
   catégorie: logement
   icônes: 🌀👕
-  formule: énergie
-  titre: Faut-il que je renouvelle mon lave-linge ?
+  formule: 1
+  titre: Dois-je acheter un lave-linge neuf ?
 
 climat:
   titre: Gain climat sur 1 an
@@ -19,9 +19,10 @@ climat . production:
 
 climat . consommation:
   formule: énergie . économie d'électricité usage * facteur mix électrique
+
 coût:
   titre: Coût sur 10 ans
-  formule: économie d'électricité - neuf . prix
+  formule: économie d'électricité - neuf . prix + ancien . prix
 
 coût . économie d'électricité: énergie . économie d'électricité usage * durée * coût électricité * correction inflation
 
@@ -87,11 +88,37 @@ neuf:
 
 neuf . prix:
   titre: Prix d'un lave-linge économe neuf
-  valeur: 400 €
+  par défaut: 400 €
+  question: Quel est le prix du lave-linge neuf que vous envisagez ?
+  suggestions:
+    1er prix: 260 €
+    milieu de gamme: 500 €
+    haut de gamme: 1000 €
   description: |
     Ce coût inclut en général la livraison à domicile, c'est important de le noter, car sur un site de reconditionné comme murfy.fr, elle est facturée 60€, soit 15% de ce prix.
 
 ancien:
+ancien . prix:
+  formule:
+    variations:
+      - si: achat reconditionné
+        alors: prix reconditionné
+      - sinon: 0 €
+
+ancien . prix reconditionné:
+  question: Quel est le prix de votre lave-linge reconditionné ?
+  description: |
+    En général, l'achat reconditionné coûte relativement cher. Le prix d'achat est donc clef dans notre équation. 
+
+    https://twitter.com/maeool/status/1580594866257395715
+
+    Nous partons donc sur un prix d'environ 80% du neuf, même si cela peut évidemment varier en fonction de l'État et du vendeur.
+  par défaut: 0.8 * neuf . prix
+
+ancien . achat reconditionné:
+  question: Votre ancien lave-linge sera-t-il un achat reconditionné ?
+  description: Nous ne prenons pas en compte l'achat d'occasion sans reconditionnement. En l'absence de garantie, il est trop difficile d'évaluer le coût sur 10 ans supplémentaire d'un achat qui, non révisé, a plus de chances de flancher.
+  par défaut: non
 
 coût électricité:
   valeur: 0.19 €/kWh
