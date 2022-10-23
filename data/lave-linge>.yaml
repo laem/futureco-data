@@ -1,0 +1,60 @@
+index:
+renouveler:
+  exposé: oui
+  catégorie: logement
+  icônes: 🌀👕
+  formule: kWh
+  titre: Faut-il que je renouvelle mon lave-linge ?
+
+kWh:
+  formule: cent cycles . neuf < cent cycles . ancien
+  note: |
+    Nous devons introduire une notion de kWh consommés pour la production du nouveau lave-linge, divisée par sa durée de vie estimée, 10 ans par défaut.
+
+kWh . cent cycles:
+  description: |
+    Sur l’ancienne étiquette-énergie, l’efficacité énergétique d’un lave-linge était calculée sur la base d’une combinaison de différents programmes (60°C, 40°C, chargement complet et partiel), pour 220 lavages. 
+
+    La nouvelle étiquette énergie introduit un nouveau programme de test, appelé "le programme «Éco 40–60»" : ce nouveau programme est conçu pour laver un linge de coton normalement sale déclaré lavable à 40 °C ou 60 °C au cours du même cycle de lavage.
+
+kWh . cent cycles . neuf:
+  valeur: 44 kWh
+
+kWh . cent cycles . ancien:
+  par défaut: 119 kWh
+  question: Quelle est la consommation du lave-linge ancien pour 100 cycles classiques ?
+  description: |
+    Chiffre par défaut basé sur l'étiquete énergie d'un appareil d'il y a une décennie. 
+
+    https://www.darty.com/nav/achat/gros_electromenager/lavage_sechage/lave-linge_hublot/electrolux_awf_12480_w_blanc.html
+
+neuf:
+  description: |
+    Nous prenons le modèle le moins cher présenté dans le [guide top ten](https://www.guidetopten.fr/grand-public/products/Washing_machines), disponible [chez Darty](https://www.darty.com/nav/achat/gros_electromenager/lavage_sechage/lave-linge_hublot/thomson_tw147a.html).
+
+    Avec sa capacité de 7kg, il semble être un lave-linge classique.
+
+neuf . prix: 400 €
+
+ancien:
+
+coût électricité:
+  valeur: 0.19 €/kWh
+  description: |
+    Source : guide top ten. 
+
+    > Coût de l'électricité : 0,19 € le kilowatt-heure (prix TTC incluant l'abonnement pour le tarif réglementé EDF option base - valeur juillet 2021)
+
+    https://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge
+  note: Il faut mettre à jour ce prix. Il y a eu un choc énergétique depuis.
+
+durée: 10 ans
+
+machines par an:
+  valeur: 200 /ans
+  note: |
+    Cette estimation me semble énorme, plus d'une machine tous les 2 jours on dirait qu'elle ne concerne que les 
+    foyers avec enfant ?
+  description: |
+    D'après guidetopten.fr, ce serait 200 cycles par an !
+    https://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge
