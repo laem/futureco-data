@@ -1,0 +1,163 @@
+index:
+renouveler:
+  exposé:
+    type: question éco
+  catégorie: logement
+  icônes: 🌀👕
+  formule: 1
+  titre: Dois-je acheter un lave-linge neuf ?
+
+climat:
+  titre: Gain climat sur 1 an
+  formule: consommation - production + production reconditionné
+
+climat . production:
+  valeur: 341 / durée
+  unité: kgCO2e
+  références:
+    - https://nosgestesclimat.fr/documentation/divers/électroménager/appareils/lave-linge
+climat . production reconditionné:
+  applicable si: ancien . achat reconditionné
+  description: |
+    Un lave-linge reconditionné n'émet pas de CO2 à la fabrication, mais les pièces de rechange utilisées par le reconditionnement, la collecte, la livraison, l'entrepôsage, etc sont à prendre en compte. 
+
+    Faute de mieux, nous leur affectons 20% de l'empreinte de production d'un neuf.
+  formule: climat . production * 0.2
+
+climat . consommation:
+  formule: énergie . économie d'électricité usage * facteur mix électrique
+
+coût:
+  titre: Coût sur 10 ans
+  formule: économie d'électricité - neuf . prix + ancien . prix
+
+coût . économie d'électricité: énergie . économie d'électricité usage * durée * coût électricité * correction inflation
+
+coût . correction inflation:
+  valeur: 1.10
+  description: |
+    C'est surprenant, mais en période d'inflation, l'investissement est plus valorisé que les dépenses annuelles, il faut le prendre en compte dans mon calcul.
+
+    Quel chiffre choisir pour l'inflation ? Nous sommes en France, membre de l'Union Européenne, dont une des missions fondamentales (oui, vraiment) est de viser une inflation de 2%. 
+
+    2% sur 10 ans, ça fait `* (1.02)^10`. 
+
+    Nous retenons la moitié de cette hausse. Il faudrait idéalement calculer exactemement l'actualisation, donc ajouter à publi.codes un mécanisme d'actualisation d'une somme.
+
+énergie:
+  titre: Gain énergie sur 1 an
+  formule: économie d'électricité usage
+  note: |
+    Nous pourrions introduire une notion de kWh consommés pour la production du nouveau lave-linge, divisée par sa durée de vie estimée, 10 ans par défaut.
+
+    Sauf que le consommateur est en premier lieu intéressé par la consommation d'énergie qu'il va lui-même payer, et c'est normal.
+
+    Si mon nouvel appariel consomme des kWh ou des € à l'étranger, peu m'importe. Par contre, ça m'importe via l'empreinte climat, qui nous affecte tous.
+
+énergie . énergie production:
+  valeur: 100 kWh
+
+énergie . économie d'électricité usage:
+  formule: ancien - neuf
+
+ratio cycles réels: cycles par an / 100
+énergie . neuf:
+  formule: cent cycles . neuf * ratio cycles réels
+
+énergie . ancien:
+  formule: cent cycles . ancien * ratio cycles réels
+
+énergie . gagnant:
+  formule: économie d'électricité usage > 0
+
+énergie . cent cycles:
+  description: |
+    Sur l’ancienne étiquette-énergie, l’efficacité énergétique d’un lave-linge était calculée sur la base d’une combinaison de différents programmes (60°C, 40°C, chargement complet et partiel), pour 220 lavages. 
+
+    La nouvelle étiquette énergie introduit un nouveau programme de test, appelé "le programme «Éco 40–60»" : ce nouveau programme est conçu pour laver un linge de coton normalement sale déclaré lavable à 40 °C ou 60 °C au cours du même cycle de lavage.
+
+énergie . cent cycles . neuf:
+  valeur: 44 kWh
+
+énergie . cent cycles . ancien:
+  par défaut: 119 kWh
+  question: Quelle est la consommation du lave-linge ancien pour 100 cycles classiques ?
+  description: |
+    Chiffre par défaut basé sur l'étiquete énergie d'un appareil d'il y a une décennie. 
+
+    https://www.darty.com/nav/achat/gros_electromenager/lavage_sechage/lave-linge_hublot/electrolux_awf_12480_w_blanc.html
+
+neuf:
+  description: |
+    Nous prenons le modèle le moins cher présenté dans le [guide top ten](https://www.guidetopten.fr/grand-public/products/Washing_machines), disponible [chez Darty](https://www.darty.com/nav/achat/gros_electromenager/lavage_sechage/lave-linge_hublot/thomson_tw147a.html).
+
+    Avec sa capacité de 7kg, il semble être un lave-linge classique.
+
+neuf . prix:
+  titre: Prix d'un lave-linge économe neuf
+  par défaut: 400 €
+  question: Quel est le prix du lave-linge neuf que vous envisagez ?
+  suggestions:
+    1er prix: 260 €
+    milieu de gamme: 500 €
+    haut de gamme: 1000 €
+  description: |
+    Ce coût inclut en général la livraison à domicile, c'est important de le noter, car sur un site de reconditionné comme murfy.fr, elle est facturée 60€, soit 15% de ce prix.
+
+ancien:
+ancien . prix:
+  formule:
+    variations:
+      - si: achat reconditionné
+        alors: prix reconditionné
+      - sinon: 0 €
+
+ancien . prix reconditionné:
+  question: Quel est le prix de votre lave-linge reconditionné ?
+  description: |
+    En général, l'achat reconditionné coûte relativement cher. Le prix d'achat est donc clef dans notre équation. 
+
+    https://twitter.com/maeool/status/1580594866257395715
+
+    Nous partons donc sur un prix d'environ 80% du neuf, même si cela peut évidemment varier en fonction de l'État et du vendeur.
+  par défaut: 0.8 * neuf . prix
+
+ancien . achat reconditionné:
+  question: Votre ancien lave-linge sera-t-il un achat reconditionné ?
+  description: Nous ne prenons pas en compte l'achat d'occasion sans reconditionnement. En l'absence de garantie, il est trop difficile d'évaluer le coût sur 10 ans supplémentaire d'un achat qui, non révisé, a plus de chances de flancher.
+  par défaut: non
+
+coût électricité:
+  valeur: 0.19 €/kWh
+  description: |
+    Source : guide top ten. 
+
+    > Coût de l'électricité : 0,19 € le kilowatt-heure (prix TTC incluant l'abonnement pour le tarif réglementé EDF option base - valeur juillet 2021)
+
+    https://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge
+  note: |
+
+    - Il faut mettre à jour ce prix. Il y a eu un choc énergétique depuis.
+    - Il faut aussi le demander à l'utilisateur ! 
+    - Pour l'utilisateur, raisonner en kWh marginaux est probablement plus logique ?
+
+durée: 10 ans
+
+cycles par an:
+  question: Combien de cycles faites-vous par an environ ?
+  par défaut: 200 /ans
+  note: |
+    Cette estimation me semble énorme, plus d'une machine tous les 2 jours on dirait qu'elle ne concerne que les 
+    foyers avec enfant ?
+  description: |
+    D'après guidetopten.fr, ce serait 200 cycles par an. 
+
+    Mais attention, cela dépend évidemment beaucoup du nombre de personnes dans votre foyer, du nombre d'enfants (à supposer que les enfants se salissent plus que les parents..), de vos préférences d'hygiène pour les vêtements, pour les draps, etc. 
+
+    https://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge
+
+facteur mix électrique:
+  valeur: 0.0569
+  unité: kgCO2e/kWh
+  références:
+    - https://nosgestesclimat.fr/documentation/intensité-électricité
