@@ -1143,7 +1143,7 @@
 					"bus",
 					"tram",
 					"vélo",
-					"à pieds"
+					"à pied"
 				]
 			}
 		},
@@ -1155,7 +1155,7 @@
 	"transport . mode . tram": { "icônes": "🚋" },
 	"transport . mode . métro": { "icônes": "🚇" },
 	"transport . mode . vélo": { "icônes": "🚴" },
-	"transport . mode . à pieds": { "icônes": "🚶" },
+	"transport . mode . à pied": { "icônes": "🚶" },
 	"transport . voiture . gabarit": {
 		"question": "Quel est la taille de votre voiture ?",
 		"applicable si": "mode = 'voiture'",
@@ -1219,7 +1219,7 @@
 				{ "si": "mode = 'bus'", "alors": 0.095 },
 				{ "si": "mode = 'métro'", "alors": 0.0038 },
 				{ "si": "mode = 'tram'", "alors": 0.0031 },
-				{ "si": "mode = 'à pieds'", "alors": "impact marche ou vélo" },
+				{ "si": "mode = 'à pied'", "alors": "impact marche ou vélo" },
 				{ "si": "mode = 'vélo'", "alors": "impact marche ou vélo" },
 				{ "sinon": 0 }
 			]
