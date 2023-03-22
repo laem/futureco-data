@@ -1,17 +1,21 @@
 {
 	"name": "futureco-data",
 	"version": "0.0.1",
-	"description": "",
+	"description": "Modèle de calcul pour futur.eco",
 	"main": "null",
+	"files": [
+		"futureco-data.model.json"
+	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"compile": "node rulesToJSON.js"
+		"compile": "node rulesToJSON.js",
+		"prepublish": "node rulesToJSON.js futureco-data.model.json"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/laem/futureco-data.git"
 	},
-	"author": "",
+	"author": "Maël THOMAS <mael.thomas@beta.gouv.fr>",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/laem/futureco-data/issues"
