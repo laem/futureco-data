@@ -1,6 +1,7 @@
-let yaml = require('yaml')
-let fs = require('fs')
-let glob = require('glob')
+const yaml = require('yaml')
+const fs = require('fs')
+const glob = require('glob')
+const transformRules = require('./transformRules')
 
 // this file is kindof a duplicate of RulesProvider (which serves for the local watched webpack environment) in ecolab-climat
 // if it grows more than 20 lines, it should be shared
@@ -23,8 +24,12 @@ glob('data/**/*.yaml', (err, files) => {
 				: rules
 		return { ...memo, ...prefixedRuleSet }
 	}, {})
-	fs.writeFile(destinationPath, JSON.stringify(rules), function (err) {
-		if (err) return console.error(err)
-		console.log('Les règles en JSON ont été écrites avec succès, bravo !')
-	})
+	fs.writeFile(
+		destinationPath,
+		JSON.stringify(transformRules(rules)),
+		function (err) {
+			if (err) return console.error(err)
+			console.log('Les règles en JSON ont été écrites avec succès, bravo !')
+		}
+	)
 })
