@@ -919,10 +919,10 @@
 	"transport . avion . forçage radiatif . coefficient": {
 		"description": "Le forçage radiatif, c'est la capacité d'une émission de gaz à rechauffer la terre.\nUn vol émet du CO₂, mais aussi d'autres gaz, ainsi que de la vapeur libérée en haute altitude. Le forçage radiatif de ces émissions est conséquent et doit donc être pris en compte, mais c'est une estimation très compliquée.\nL'effet de la vapeur d'eau est temporaire : elle disparaît à court-terme par rapport au CO₂ qui reste très longtemps présent. Son effet n'en reste pas moins massif.\nCe facteur n'est pas encore consensuel, d'une car il est complexe, et de deux car l'impact climat du CO₂ et des trainées sont inhomogènes à cause de la durée de dégradation. \nNous faisons donc le choix de le faire varier en fonction du choix de l'utilisateur.\n",
 		"formule": {
-			"correspondance": {
-				"variable": "forçage radiatif",
-				"tableau": { "conservateur": 2, "état de l'art": 3 }
-			}
+			"variations": [
+				{ "si": "forçage radiatif = 'conservateur'", "alors": 2 },
+				{ "si": "forçage radiatif = 'état de l'art'", "alors": 3 }
+			]
 		},
 		"références": [
 			"https://www.carbonindependent.org/sources_aviation.html",
@@ -1317,19 +1317,16 @@
 		"unité": "kgCO₂e/€",
 		"description": "Les Amis de la Terre ont publié un rapport qui donne l'impact de chaque euro investi dans les principales banques françaises.\n\nPourquoi une telle différence entre les banques ? Principalement parce que les grandes banques historiques mettent notre argent dans le développement de projets d'énergie fossile (charbon, pétrole, gaz), par un investissement direct (actionnariat par exemple) ou indirect (via les marchés financiers).\n\nAttention : si vous investissez via la BNB dans l'entreprise Total, et que vous prenez un avion qui vole au kérosène vendu par Total, il se peut que la somme des deux estimations d'impact aboutisse à un double comptage.\n",
 		"formule": {
-			"correspondance": {
-				"variable": "banque",
-				"tableau": {
-					"la Nef": 0.2,
-					"Crédit Coopératif": 0.425,
-					"La Banque Postale": 0.48,
-					"BPCE": 0.54,
-					"Crédit Mutuel": 0.62,
-					"Société Générale": 0.89,
-					"BNP Paribas": 0.905,
-					"Crédit Agricole": 1.07
-				}
-			}
+			"variations": [
+				{ "si": "banque = 'la Nef'", "alors": 0.2 },
+				{ "si": "banque = 'Crédit Coopératif'", "alors": 0.425 },
+				{ "si": "banque = 'La Banque Postale'", "alors": 0.48 },
+				{ "si": "banque = 'BPCE'", "alors": 0.54 },
+				{ "si": "banque = 'Crédit Mutuel'", "alors": 0.62 },
+				{ "si": "banque = 'Société Générale'", "alors": 0.89 },
+				{ "si": "banque = 'BNP Paribas'", "alors": 0.905 },
+				{ "si": "banque = 'Crédit Agricole'", "alors": 1.07 }
+			]
 		},
 		"note": "Il serait bon de trouver d'autres rapports indépendants de celui-ci pour confirmer ou infirmer ces chiffres fracassants.\nVoir peut-être si c'est mentionné dans le livre \"How bad is a banan\" de Mike Berners-Lee ?\n",
 		"références": ["http://www.epargneclimat.com/documents/Classement.pdf"]
@@ -1390,14 +1387,11 @@
 		"exposé": "oui",
 		"unité": "kgCO₂e",
 		"formule": {
-			"correspondance": {
-				"variable": "téléphone",
-				"tableau": {
-					"mobile basique": 16,
-					"smartphone moins de 5 pouces": 32,
-					"smartphone plus de 5 pouces": 38
-				}
-			}
+			"variations": [
+				{ "si": "téléphone = 'mobile basique'", "alors": 16 },
+				{ "si": "téléphone = 'smartphone moins de 5 pouces'", "alors": 32 },
+				{ "si": "téléphone = 'smartphone plus de 5 pouces'", "alors": 38 }
+			]
 		}
 	},
 	"numérique . téléphone . mobile basique": null,
@@ -1427,10 +1421,10 @@
 		"exposé": "oui",
 		"titre": "mon ordinateur",
 		"formule": {
-			"correspondance": {
-				"variable": "ordinateur",
-				"tableau": { "ordinateur portable": 169, "tablette": 70 }
-			}
+			"variations": [
+				{ "si": "ordinateur = 'ordinateur portable'", "alors": 169 },
+				{ "si": "ordinateur = 'tablette'", "alors": 70 }
+			]
 		}
 	},
 	"numérique . imprimante": {
@@ -1472,10 +1466,10 @@
 		"titre": "ma box internet",
 		"description": "Une box internet a la particularité de souvent rester allumée toute la journée, et de ne pas être aussi économe qu'un smartphone.",
 		"formule": {
-			"correspondance": {
-				"variable": "box internet",
-				"tableau": { "box ADSL": 83, "box fibre": 115 }
-			}
+			"variations": [
+				{ "si": "box internet = 'box ADSL'", "alors": 83 },
+				{ "si": "box internet = 'box fibre'", "alors": 115 }
+			]
 		}
 	},
 	"numérique . télévision": { "icônes": "📺" },
@@ -1501,14 +1495,11 @@
 		"exposé": "oui",
 		"titre": "ma télé",
 		"formule": {
-			"correspondance": {
-				"variable": "taille",
-				"tableau": {
-					"moyenne 30 à 40 pouces": 371,
-					"grande 40 à 49 pouces": 422,
-					"énorme plus de 49 pouces": 568
-				}
-			}
+			"variations": [
+				{ "si": "taille = 'moyenne 30 à 40 pouces'", "alors": 371 },
+				{ "si": "taille = 'grande 40 à 49 pouces'", "alors": 422 },
+				{ "si": "taille = 'énorme plus de 49 pouces'", "alors": 568 }
+			]
 		}
 	},
 	"alimentation . bière": null,
@@ -1820,15 +1811,12 @@
 	},
 	"alimentation . lait . température max atteinte": {
 		"formule": {
-			"correspondance": {
-				"variable": "chauffe",
-				"tableau": {
-					"ébullition": 95,
-					"très chaud": 60,
-					"tiède": 40,
-					"froid": 13
-				}
-			}
+			"variations": [
+				{ "si": "chauffe = 'ébullition'", "alors": 95 },
+				{ "si": "chauffe = 'très chaud'", "alors": 60 },
+				{ "si": "chauffe = 'tiède'", "alors": 40 },
+				{ "si": "chauffe = 'froid'", "alors": 13 }
+			]
 		},
 		"note": "Pour la température \"très chaud\" :\n> En Europe de manière générale, et dans le nord du continent américain, les températures avoisinnent en général les 60°C pour les boissons chaudes.\n[Source](https://www.rtbf.be/info/societe/onpdp/detail_boissons-chaudes-attention-a-la-chaleur?id=9433212).\n\nPour [l'ébullition](https://www.produits-laitiers.com/question-pas-bete-pourquoi-le-lait-deborde-t-il-quand-il-bout/), on choisit `95` car au-delà ça finit sur les plaques de cuisson :-)\n\n> Pour la température `froid`, il faudrait utiliser la variable `température lait froid` mais aujourd'hui ce n'est pas possible de faire une référence à une variable dans une `correspondance`.\n",
 		"références": null
@@ -2034,16 +2022,13 @@
 		"exposé": "oui",
 		"icônes": "👕🌡️",
 		"formule": {
-			"correspondance": {
-				"variable": "matière",
-				"tableau": {
-					"laine": 54,
-					"acrylique": 26,
-					"coton": 29,
-					"coton recyclé": 10,
-					"polaire plastique recyclé": 25
-				}
-			}
+			"variations": [
+				{ "si": "matière = 'laine'", "alors": 54 },
+				{ "si": "matière = 'acrylique'", "alors": 26 },
+				{ "si": "matière = 'coton'", "alors": 29 },
+				{ "si": "matière = 'coton recyclé'", "alors": 10 },
+				{ "si": "matière = 'polaire plastique recyclé'", "alors": 25 }
+			]
 		},
 		"références": [
 			"https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement"
@@ -2090,10 +2075,11 @@
 		"exposé": "oui",
 		"icônes": "🧥",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": { "manteau": 88, "anorak": 39, "faux cuir": 24 }
-			}
+			"variations": [
+				{ "si": "type = 'manteau'", "alors": 88 },
+				{ "si": "type = 'anorak'", "alors": 39 },
+				{ "si": "type = 'faux cuir'", "alors": 24 }
+			]
 		},
 		"références": [
 			"https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement"
@@ -2136,10 +2122,11 @@
 		"exposé": "oui",
 		"icônes": "👗",
 		"formule": {
-			"correspondance": {
-				"variable": "matière",
-				"tableau": { "polyester": 53, "coton": 52, "viscose": 48 }
-			}
+			"variations": [
+				{ "si": "matière = 'polyester'", "alors": 53 },
+				{ "si": "matière = 'coton'", "alors": 52 },
+				{ "si": "matière = 'viscose'", "alors": 48 }
+			]
 		},
 		"références": [
 			"https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement"
@@ -2662,14 +2649,14 @@
 		"icônes": "🪑",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "matière",
-				"tableau": {
-					"bois": 25.2,
-					"plastique": 28,
-					"structure en bois et revêtement textile": 12
+			"variations": [
+				{ "si": "matière = 'bois'", "alors": 25.2 },
+				{ "si": "matière = 'plastique'", "alors": 28 },
+				{
+					"si": "matière = 'structure en bois et revêtement textile'",
+					"alors": 12
 				}
-			}
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2712,10 +2699,11 @@
 		"icônes": "🛋️",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": { "textile": 180, "cuir": 200, "convertible": 204 }
-			}
+			"variations": [
+				{ "si": "type = 'textile'", "alors": 180 },
+				{ "si": "type = 'cuir'", "alors": 200 },
+				{ "si": "type = 'convertible'", "alors": 204 }
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2741,14 +2729,11 @@
 		"icônes": "🛏️",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": {
-					"tapissier": 110,
-					"à lattes fixes": 69,
-					"cadre de lit": 147
-				}
-			}
+			"variations": [
+				{ "si": "type = 'tapissier'", "alors": 110 },
+				{ "si": "type = 'à lattes fixes'", "alors": 69 },
+				{ "si": "type = 'cadre de lit'", "alors": 147 }
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2775,10 +2760,10 @@
 		"icônes": "🛏️",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": { "mousse": 286, "ressort": 219 }
-			}
+			"variations": [
+				{ "si": "type = 'mousse'", "alors": 286 },
+				{ "si": "type = 'ressort'", "alors": 219 }
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2816,10 +2801,11 @@
 		"icônes": "🛋️🌴",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": { "bois": 103, "métal": 224, "résine tressée": 215 }
-			}
+			"variations": [
+				{ "si": "type = 'bois'", "alors": 103 },
+				{ "si": "type = 'métal'", "alors": 224 },
+				{ "si": "type = 'résine tressée'", "alors": 215 }
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
