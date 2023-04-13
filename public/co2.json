@@ -919,10 +919,10 @@
 	"transport . avion . forçage radiatif . coefficient": {
 		"description": "Le forçage radiatif, c'est la capacité d'une émission de gaz à rechauffer la terre.\nUn vol émet du CO₂, mais aussi d'autres gaz, ainsi que de la vapeur libérée en haute altitude. Le forçage radiatif de ces émissions est conséquent et doit donc être pris en compte, mais c'est une estimation très compliquée.\nL'effet de la vapeur d'eau est temporaire : elle disparaît à court-terme par rapport au CO₂ qui reste très longtemps présent. Son effet n'en reste pas moins massif.\nCe facteur n'est pas encore consensuel, d'une car il est complexe, et de deux car l'impact climat du CO₂ et des trainées sont inhomogènes à cause de la durée de dégradation. \nNous faisons donc le choix de le faire varier en fonction du choix de l'utilisateur.\n",
 		"formule": {
-			"correspondance": {
-				"variable": "forçage radiatif",
-				"tableau": { "conservateur": 2, "état de l'art": 3 }
-			}
+			"variations": [
+				{ "si": "forçage radiatif = 'conservateur'", "alors": 2 },
+				{ "si": "forçage radiatif = 'état de l'art'", "alors": 3 }
+			]
 		},
 		"références": [
 			"https://www.carbonindependent.org/sources_aviation.html",
@@ -1317,19 +1317,16 @@
 		"unité": "kgCO₂e/€",
 		"description": "Les Amis de la Terre ont publié un rapport qui donne l'impact de chaque euro investi dans les principales banques françaises.\n\nPourquoi une telle différence entre les banques ? Principalement parce que les grandes banques historiques mettent notre argent dans le développement de projets d'énergie fossile (charbon, pétrole, gaz), par un investissement direct (actionnariat par exemple) ou indirect (via les marchés financiers).\n\nAttention : si vous investissez via la BNB dans l'entreprise Total, et que vous prenez un avion qui vole au kérosène vendu par Total, il se peut que la somme des deux estimations d'impact aboutisse à un double comptage.\n",
 		"formule": {
-			"correspondance": {
-				"variable": "banque",
-				"tableau": {
-					"la Nef": 0.2,
-					"Crédit Coopératif": 0.425,
-					"La Banque Postale": 0.48,
-					"BPCE": 0.54,
-					"Crédit Mutuel": 0.62,
-					"Société Générale": 0.89,
-					"BNP Paribas": 0.905,
-					"Crédit Agricole": 1.07
-				}
-			}
+			"variations": [
+				{ "si": "banque = 'la Nef'", "alors": 0.2 },
+				{ "si": "banque = 'Crédit Coopératif'", "alors": 0.425 },
+				{ "si": "banque = 'La Banque Postale'", "alors": 0.48 },
+				{ "si": "banque = 'BPCE'", "alors": 0.54 },
+				{ "si": "banque = 'Crédit Mutuel'", "alors": 0.62 },
+				{ "si": "banque = 'Société Générale'", "alors": 0.89 },
+				{ "si": "banque = 'BNP Paribas'", "alors": 0.905 },
+				{ "si": "banque = 'Crédit Agricole'", "alors": 1.07 }
+			]
 		},
 		"note": "Il serait bon de trouver d'autres rapports indépendants de celui-ci pour confirmer ou infirmer ces chiffres fracassants.\nVoir peut-être si c'est mentionné dans le livre \"How bad is a banan\" de Mike Berners-Lee ?\n",
 		"références": ["http://www.epargneclimat.com/documents/Classement.pdf"]
@@ -1390,14 +1387,11 @@
 		"exposé": "oui",
 		"unité": "kgCO₂e",
 		"formule": {
-			"correspondance": {
-				"variable": "téléphone",
-				"tableau": {
-					"mobile basique": 16,
-					"smartphone moins de 5 pouces": 32,
-					"smartphone plus de 5 pouces": 38
-				}
-			}
+			"variations": [
+				{ "si": "téléphone = 'mobile basique'", "alors": 16 },
+				{ "si": "téléphone = 'smartphone moins de 5 pouces'", "alors": 32 },
+				{ "si": "téléphone = 'smartphone plus de 5 pouces'", "alors": 38 }
+			]
 		}
 	},
 	"numérique . téléphone . mobile basique": null,
@@ -1427,10 +1421,10 @@
 		"exposé": "oui",
 		"titre": "mon ordinateur",
 		"formule": {
-			"correspondance": {
-				"variable": "ordinateur",
-				"tableau": { "ordinateur portable": 169, "tablette": 70 }
-			}
+			"variations": [
+				{ "si": "ordinateur = 'ordinateur portable'", "alors": 169 },
+				{ "si": "ordinateur = 'tablette'", "alors": 70 }
+			]
 		}
 	},
 	"numérique . imprimante": {
@@ -1472,10 +1466,10 @@
 		"titre": "ma box internet",
 		"description": "Une box internet a la particularité de souvent rester allumée toute la journée, et de ne pas être aussi économe qu'un smartphone.",
 		"formule": {
-			"correspondance": {
-				"variable": "box internet",
-				"tableau": { "box ADSL": 83, "box fibre": 115 }
-			}
+			"variations": [
+				{ "si": "box internet = 'box ADSL'", "alors": 83 },
+				{ "si": "box internet = 'box fibre'", "alors": 115 }
+			]
 		}
 	},
 	"numérique . télévision": { "icônes": "📺" },
@@ -1501,14 +1495,11 @@
 		"exposé": "oui",
 		"titre": "ma télé",
 		"formule": {
-			"correspondance": {
-				"variable": "taille",
-				"tableau": {
-					"moyenne 30 à 40 pouces": 371,
-					"grande 40 à 49 pouces": 422,
-					"énorme plus de 49 pouces": 568
-				}
-			}
+			"variations": [
+				{ "si": "taille = 'moyenne 30 à 40 pouces'", "alors": 371 },
+				{ "si": "taille = 'grande 40 à 49 pouces'", "alors": 422 },
+				{ "si": "taille = 'énorme plus de 49 pouces'", "alors": 568 }
+			]
 		}
 	},
 	"alimentation . bière": null,
@@ -1820,15 +1811,12 @@
 	},
 	"alimentation . lait . température max atteinte": {
 		"formule": {
-			"correspondance": {
-				"variable": "chauffe",
-				"tableau": {
-					"ébullition": 95,
-					"très chaud": 60,
-					"tiède": 40,
-					"froid": 13
-				}
-			}
+			"variations": [
+				{ "si": "chauffe = 'ébullition'", "alors": 95 },
+				{ "si": "chauffe = 'très chaud'", "alors": 60 },
+				{ "si": "chauffe = 'tiède'", "alors": 40 },
+				{ "si": "chauffe = 'froid'", "alors": 13 }
+			]
 		},
 		"note": "Pour la température \"très chaud\" :\n> En Europe de manière générale, et dans le nord du continent américain, les températures avoisinnent en général les 60°C pour les boissons chaudes.\n[Source](https://www.rtbf.be/info/societe/onpdp/detail_boissons-chaudes-attention-a-la-chaleur?id=9433212).\n\nPour [l'ébullition](https://www.produits-laitiers.com/question-pas-bete-pourquoi-le-lait-deborde-t-il-quand-il-bout/), on choisit `95` car au-delà ça finit sur les plaques de cuisson :-)\n\n> Pour la température `froid`, il faudrait utiliser la variable `température lait froid` mais aujourd'hui ce n'est pas possible de faire une référence à une variable dans une `correspondance`.\n",
 		"références": null
@@ -2034,16 +2022,13 @@
 		"exposé": "oui",
 		"icônes": "👕🌡️",
 		"formule": {
-			"correspondance": {
-				"variable": "matière",
-				"tableau": {
-					"laine": 54,
-					"acrylique": 26,
-					"coton": 29,
-					"coton recyclé": 10,
-					"polaire plastique recyclé": 25
-				}
-			}
+			"variations": [
+				{ "si": "matière = 'laine'", "alors": 54 },
+				{ "si": "matière = 'acrylique'", "alors": 26 },
+				{ "si": "matière = 'coton'", "alors": 29 },
+				{ "si": "matière = 'coton recyclé'", "alors": 10 },
+				{ "si": "matière = 'polaire plastique recyclé'", "alors": 25 }
+			]
 		},
 		"références": [
 			"https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement"
@@ -2090,10 +2075,11 @@
 		"exposé": "oui",
 		"icônes": "🧥",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": { "manteau": 88, "anorak": 39, "faux cuir": 24 }
-			}
+			"variations": [
+				{ "si": "type = 'manteau'", "alors": 88 },
+				{ "si": "type = 'anorak'", "alors": 39 },
+				{ "si": "type = 'faux cuir'", "alors": 24 }
+			]
 		},
 		"références": [
 			"https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement"
@@ -2136,10 +2122,11 @@
 		"exposé": "oui",
 		"icônes": "👗",
 		"formule": {
-			"correspondance": {
-				"variable": "matière",
-				"tableau": { "polyester": 53, "coton": 52, "viscose": 48 }
-			}
+			"variations": [
+				{ "si": "matière = 'polyester'", "alors": 53 },
+				{ "si": "matière = 'coton'", "alors": 52 },
+				{ "si": "matière = 'viscose'", "alors": 48 }
+			]
 		},
 		"références": [
 			"https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement"
@@ -2662,14 +2649,14 @@
 		"icônes": "🪑",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "matière",
-				"tableau": {
-					"bois": 25.2,
-					"plastique": 28,
-					"structure en bois et revêtement textile": 12
+			"variations": [
+				{ "si": "matière = 'bois'", "alors": 25.2 },
+				{ "si": "matière = 'plastique'", "alors": 28 },
+				{
+					"si": "matière = 'structure en bois et revêtement textile'",
+					"alors": 12
 				}
-			}
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2712,10 +2699,11 @@
 		"icônes": "🛋️",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": { "textile": 180, "cuir": 200, "convertible": 204 }
-			}
+			"variations": [
+				{ "si": "type = 'textile'", "alors": 180 },
+				{ "si": "type = 'cuir'", "alors": 200 },
+				{ "si": "type = 'convertible'", "alors": 204 }
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2741,14 +2729,11 @@
 		"icônes": "🛏️",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": {
-					"tapissier": 110,
-					"à lattes fixes": 69,
-					"cadre de lit": 147
-				}
-			}
+			"variations": [
+				{ "si": "type = 'tapissier'", "alors": 110 },
+				{ "si": "type = 'à lattes fixes'", "alors": 69 },
+				{ "si": "type = 'cadre de lit'", "alors": 147 }
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2775,10 +2760,10 @@
 		"icônes": "🛏️",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": { "mousse": 286, "ressort": 219 }
-			}
+			"variations": [
+				{ "si": "type = 'mousse'", "alors": 286 },
+				{ "si": "type = 'ressort'", "alors": 219 }
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2816,10 +2801,11 @@
 		"icônes": "🛋️🌴",
 		"catégorie": "meubles",
 		"formule": {
-			"correspondance": {
-				"variable": "type",
-				"tableau": { "bois": 103, "métal": 224, "résine tressée": 215 }
-			}
+			"variations": [
+				{ "si": "type = 'bois'", "alors": 103 },
+				{ "si": "type = 'métal'", "alors": 224 },
+				{ "si": "type = 'résine tressée'", "alors": 215 }
+			]
 		},
 		"références": [
 			"https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm"
@@ -2838,270 +2824,121 @@
 	"meubles . salon de jardin . type . bois": null,
 	"meubles . salon de jardin . type . métal": null,
 	"meubles . salon de jardin . type . résine tressée": null,
-	"ferry": { "icônes": "⛴" },
-	"ferry . départ": {
-		"note": "Variable remplie par une interface de recherche."
+	"lave-linge": null,
+	"lave-linge . renouveler": {
+		"exposé": { "type": "question éco" },
+		"catégorie": "logement",
+		"icônes": "🌀👕",
+		"formule": 1,
+		"titre": "Acheter un lave-linge neuf ?"
 	},
-	"ferry . arrivée": {
-		"note": "Variable remplie par une interface de recherche."
+	"lave-linge . climat": {
+		"titre": "Gain climat sur 1 an",
+		"formule": "consommation - production + production reconditionné"
 	},
-	"ferry . vitesse": {
-		"icônes": "⌚",
-		"question": "Quelle est la vitesse du ferry ?",
-		"formule": "vitesse en kmh / km par mille nautique",
-		"par défaut": "18 noeud",
-		"unité": "noeud",
+	"lave-linge . climat . production": {
+		"valeur": "341 / durée",
+		"unité": "kgCO2e",
+		"références": [
+			"https://nosgestesclimat.fr/documentation/divers/électroménager/appareils/lave-linge"
+		]
+	},
+	"lave-linge . climat . production reconditionné": {
+		"applicable si": "ancien . achat reconditionné",
+		"description": "Un lave-linge reconditionné n'émet pas de CO2 à la fabrication, mais les pièces de rechange utilisées par le reconditionnement, la collecte, la livraison, l'entrepôsage, etc sont à prendre en compte. \n\nFaute de mieux, nous leur affectons 20% de l'empreinte de production d'un neuf.\n",
+		"formule": "climat . production * 0.2"
+	},
+	"lave-linge . climat . consommation": {
+		"formule": "énergie . économie d'électricité usage * facteur mix électrique"
+	},
+	"lave-linge . coût": {
+		"titre": "Coût sur 10 ans",
+		"formule": "économie d'électricité - neuf . prix + ancien . prix"
+	},
+	"lave-linge . coût . économie d'électricité": "énergie . économie d'électricité usage * durée * coût électricité * correction inflation",
+	"lave-linge . coût . correction inflation": {
+		"valeur": 1.1,
+		"description": "C'est surprenant, mais en période d'inflation, l'investissement est plus valorisé que les dépenses annuelles, il faut le prendre en compte dans mon calcul.\n\nQuel chiffre choisir pour l'inflation ? Nous sommes en France, membre de l'Union Européenne, dont une des missions fondamentales (oui, vraiment) est de viser une inflation de 2%. \n\n2% sur 10 ans, ça fait `* (1.02)^10`. \n\nNous retenons la moitié de cette hausse. Il faudrait idéalement calculer exactemement l'actualisation, donc ajouter à publi.codes un mécanisme d'actualisation d'une somme.\n"
+	},
+	"lave-linge . énergie": {
+		"titre": "Gain énergie sur 1 an",
+		"formule": "économie d'électricité usage",
+		"note": "Nous pourrions introduire une notion de kWh consommés pour la production du nouveau lave-linge, divisée par sa durée de vie estimée, 10 ans par défaut.\n\nSauf que le consommateur est en premier lieu intéressé par la consommation d'énergie qu'il va lui-même payer, et c'est normal.\n\nSi mon nouvel appariel consomme des kWh ou des € à l'étranger, peu m'importe. Par contre, ça m'importe via l'empreinte climat, qui nous affecte tous.\n"
+	},
+	"lave-linge . énergie . énergie production": { "valeur": "100 kWh" },
+	"lave-linge . énergie . économie d'électricité usage": {
+		"formule": "ancien - neuf"
+	},
+	"lave-linge . ratio cycles réels": "cycles par an / 100",
+	"lave-linge . énergie . neuf": {
+		"formule": "cent cycles . neuf * ratio cycles réels"
+	},
+	"lave-linge . énergie . ancien": {
+		"formule": "cent cycles . ancien * ratio cycles réels"
+	},
+	"lave-linge . énergie . gagnant": {
+		"formule": "économie d'électricité usage > 0"
+	},
+	"lave-linge . énergie . cent cycles": {
+		"description": "Sur l’ancienne étiquette-énergie, l’efficacité énergétique d’un lave-linge était calculée sur la base d’une combinaison de différents programmes (60°C, 40°C, chargement complet et partiel), pour 220 lavages. \n\nLa nouvelle étiquette énergie introduit un nouveau programme de test, appelé \"le programme «Éco 40–60»\" : ce nouveau programme est conçu pour laver un linge de coton normalement sale déclaré lavable à 40 °C ou 60 °C au cours du même cycle de lavage.\n"
+	},
+	"lave-linge . énergie . cent cycles . neuf": { "valeur": "44 kWh" },
+	"lave-linge . énergie . cent cycles . ancien": {
+		"par défaut": "119 kWh",
+		"question": "Quelle est la consommation du lave-linge ancien pour 100 cycles classiques ?",
+		"description": "Chiffre par défaut basé sur l'étiquete énergie d'un appareil d'il y a une décennie. \n\nhttps://www.darty.com/nav/achat/gros_electromenager/lavage_sechage/lave-linge_hublot/electrolux_awf_12480_w_blanc.html\n"
+	},
+	"lave-linge . neuf": {
+		"description": "Nous prenons le modèle le moins cher présenté dans le [guide top ten](https://www.guidetopten.fr/grand-public/products/Washing_machines), disponible [chez Darty](https://www.darty.com/nav/achat/gros_electromenager/lavage_sechage/lave-linge_hublot/thomson_tw147a.html).\n\nAvec sa capacité de 7kg, il semble être un lave-linge classique.\n"
+	},
+	"lave-linge . neuf . prix": {
+		"titre": "Prix d'un lave-linge économe neuf",
+		"par défaut": "400 €",
+		"question": "Quel est le prix du lave-linge neuf que vous envisagez ?",
 		"suggestions": {
-			"lente": "12 noeud",
-			"rapide": "18 noeud",
-			"très rapide": "27 noeud"
-		}
+			"1er prix": "260 €",
+			"milieu de gamme": "500 €",
+			"haut de gamme": "1000 €"
+		},
+		"description": "Ce coût inclut en général la livraison à domicile, c'est important de le noter, car sur un site de reconditionné comme murfy.fr, elle est facturée 60€, soit 15% de ce prix.\n"
 	},
-	"ferry . vitesse en kmh": {
-		"formule": "distance aller / durée du voyage . réelle"
-	},
-	"ferry . empreinte du voyage": "distance aller retour * empreinte par km",
-	"ferry . durée du voyage": {
-		"question": "Quelle est la durée de votre traversée ?",
-		"description": "On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.",
-		"icônes": "⏳️",
-		"par défaut": "10 h",
-		"suggestions": { "demi-journée": "6 h", "nuit": "10 h" }
-	},
-	"ferry . durée du voyage . réelle": {
-		"formule": "durée du voyage - 1",
-		"description": "Nous considérons que pour un départ à 19h sur le billet, et une arrivée à 7h, pour le calcul de la vitesse la traversée n'a pas duré 12h de navigation mais 11h, car il y a 30 minutes avant que le ferry se lance puis 30 minutes de débarquement. Cela peut évidemment varier en fonction des compagnies et du type de billet (embarquement piéton ou avec voiture), mais c'est un ordre de grandeur.\n"
-	},
-	"ferry . distance aller retour": "2 * distance aller",
-	"ferry . distance aller": {
-		"formule": "orthodromique * 1.3",
-		"description": "Nous ne calculons pas encore les distances réelles traversées par les bateaux. Ainsi, l'ajout d'un facteur 30% permet de s'en rapprocher. \nSi vous avez accès à un facteur moyen sourcé, n'hésitez pas à intervenir.\n"
-	},
-	"ferry . distance aller . orthodromique": {
-		"icônes": "🗺️",
-		"question": "Quel est votre trajet ?",
-		"par défaut": "320 km"
-	},
-	"ferry . empreinte totale": {
-		"formule": "facteur vitesse * correction temps de navigation * empreinte totale moyenne"
-	},
-	"ferry . empreinte totale . par km": "empreinte totale / km par mille nautique",
-	"ferry . facteur vitesse": {
-		"formule": "rapport vitesse * rapport vitesse * rapport vitesse",
-		"description": "On prend l'hypothèse d'une évolution au cube de la puissance en fonction de la vitesse."
-	},
-	"ferry . rapport vitesse": "vitesse / vitesse moyenne",
-	"ferry . correction temps de navigation": {
-		"formule": "vitesse moyenne / vitesse",
-		"description": "La puissance nécessaire pour faire avancer le navire évolue au cube de la vitesse. L'empreinte climat par heure suite naturellement cette même fonction. Mais le navire va alors plus vite : il va émettre plus à l'heure pendant moins de temps, ce facteur corrige le tir pour.\n"
-	},
-	"ferry . empreinte totale moyenne": {
-		"formule": "576.48 kgCO2e/mn",
-		"note": "Données greenferries 2020 tirées de Thetis-MRV 2020 https://mrv.emsa.europa.eu/#public/emission-report\n"
-	},
-	"ferry . vitesse moyenne": {
-		"formule": "métrique / km par mille nautique",
-		"unité": "noeud"
-	},
-	"ferry . vitesse moyenne . métrique": {
-		"formule": "33 km/h",
-		"note": "Données greenferries 2019 tirées de Thetis-MRV 2019 https://www.greenferries.org/ships/mega-express-two-9203186/\n"
-	},
-	"ferry . empreinte totale moyenne . par km": "empreinte totale moyenne / km par mille nautique",
-	"ferry . empreinte du bateau": {
-		"titre": "Empreinte du bateau témoin par km",
-		"description": "Nous utilisons ici comme bateau témoin Méga Express Four de la flotte Corsica Ferries. Ils est représentatif des gros ferries de max ~2000 passagers, rapides.",
-		"formule": "empreinte totale . par km",
-		"unité": "kgCO2e/km"
-	},
-	"ferry . empreinte par km": {
-		"formule": "empreinte par km volume",
-		"description": "Voici notre objectif : estimer l'empreinte d'un passager sur les ferries de voyage comme ceux qui relient la métropole à la Corse et à l'Angleterre.\n\nLe ferry est souvent proposé comme alternative sérieuse à l’avion du point de vue de l'empreinte carbone, mais il n’existait pourtant aucune estimation de son empreinte climat au kilomètre (ni ADEME en France, ni à l’international, ni dans la littérature scientifique) qui prenne en compte non pas un passager moyen, mais la diversité des options d'un billet : \n\n- passager en voiture ou non\n- passager en cabine, en siège, ou au sol\n- équipement loisir du bateau : restaurant, bar, piscine, grand couloirs, etc.\n- le fret embarqué dans les camions\n- % de remplissage du bateau\n- vitesse\n- etc\n\nNous savons combien un ferry donné émet de gaz à effet de serre (GES) : il suffit en somme de multipler sa consommation de fioul par le ou les facteurs d'émission CO2e du fioul et autres carburants utilisés. Mais la difficulté est ensuite d'attribuer une part de ces GES au passager à pied, au passager seul dans sa voiture qui profite d'un lounge VIP, et au transport de marchandises, etc. \n\nVoici la [note de méthode](https://hackmd.io/@laem/empreinte-ferry) (~20 pages) qui explique le problème qu'on veut résoudre et les possibilités pour faire le calcul, mais qui reste théorique.\n\nPuis, une fois cette méthode du volume acceptée, vous pouvez parcourir ci-dessous de façon intéractive et complète le calcul du facteur d'émission dynamique en cliquant sur **Empreinte par km et passager**.\n\nFinalement, n'hésitez pas à faire des propositions de modification du modèle, soit via une pull request sur [github](https://github.com/laem/futureco/blob/master/source/sites/publicodes/ferry/index.yaml) soit via un simple commentaire sur [ce ticket](https://github.com/laem/futureco/issues/123).\n"
-	},
-	"ferry . empreinte par km volume": {
-		"titre": "Empreinte par km et passager",
-		"formule": "empreinte du bateau * part du volume",
-		"description": "\nComme expliqué dans notre note de méthode, le principe de calcul ici est simple : nous attribuons une empreinte selon le volume que le billet acheté par le voyageur et les choix de consommation faits à bord occupent sur le bateau. \n\nVoir la [note méthodologique](https://hackmd.io/@laem/empreinte-ferry#À-partir-des-chiffres-de-la-“base-carbone”-britannique).\n\nEn pratique, nous le faisons sur le bateau type Mega Express Four tout simplement car nous en disposons des plans assez détaillés. Le travail pourrait être fait pour d'autres navires par la suite.\n\n[![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/02_Corsica_Ferries_Mega_Express_Four_\\(cropped\\).jpg/640px-02_Corsica_Ferries_Mega_Express_Four_\\(cropped\\).jpg)](https://fr.wikipedia.org/wiki/Mega_Express_Four)\n\nLe calcul des différentes surfaces est [un dessin SVG](/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. \n\n### Limites du calcul\n\nUn biais à noter serait la non exactitude de ce plan. Il parait cependant assez fiable pour un ordre de grandeur, ce qui est notre but ici.\n\nUn autre biais est évidemment le choix de ce qui est comptabilité comme surface utile ou non. Nous avons par exemple exclu les ponts à l'air libre, sauf la piscine et les bars extérieurs.\nÉvidemment, le calcul n'est donc applicable strictement qu'à ce bateau, mais nous faisons le choix de l'extrapoler comme un bateau type faute d'avoir les ressources pour modéliser chaque bateau commercial.\n",
-		"unité": "kgCO2e/km"
-	},
-	"ferry . part du volume": {
-		"titre": "Part du volume utile du bateau attribuée au passager",
-		"formule": "volume passager / volume utile"
-	},
-	"ferry . volume passager": {
-		"note": "Pour les cabines, les sièges et les garages, nous ne pouvons pas supposer qu'ils sont aussi peu remplis que l'indicateur \"passagers\" nous donne (1/3). \n\nEn effet, nous supposons que le nombre max de passager est très élevé car on peut faire rentrer un tas de gens pour des traversées de jour. \n\nLa moyenne de remplissage de ces trois autres espaces doit davantage s'approcher d'un 2/3 avec une politique de prix au yield aggressive pour les places restantes. \n\n⚠️ C'est peut-être une hypothèse trop favorable qui pourrait donner lieu à une sous-estimation de 30% voir 100%.\n",
+	"lave-linge . ancien": null,
+	"lave-linge . ancien . prix": {
 		"formule": {
-			"somme": ["cabine partagée", "loisirs", "siège", "voiture", "communs"]
-		}
-	},
-	"ferry . volume passager . communs": {
-		"formule": "volume communs / passagers"
-	},
-	"ferry . volume passager . loisirs": {
-		"applicable si": "consommation de services",
-		"formule": "surface . loisirs * hauteur pont bas / passagers"
-	},
-	"ferry . volume passager . siège": {
-		"non applicable si": "cabine",
-		"titre": "Un siège dans un dortoir",
-		"formule": "hauteur pont bas * surface"
-	},
-	"ferry . volume passager . siège . surface": {
-		"question": "Quelle est la surface majorée occupée par un siège dans un dortoir ?",
-		"par défaut": "8 m2"
-	},
-	"ferry . volume passager . voiture": {
-		"applicable si": "voiture",
-		"formule": "majoré / groupe",
-		"note": "Ici nous décidons de ne pas voir la capacité en voiture et diviser la surface voiture par ce nombre, car les différentes zones de garage peuvent accomoder aussi bien des voitures que des camions.\n"
-	},
-	"ferry . volume passager . voiture . majoré": {
-		"formule": "largeur * longueur * hauteur moyenne garage",
-		"note": "Nous partons du principe que certaines voitures se garent dans un garage dont la hauteur du pont haut, donc appliquons la moyenne pondérée par la surface."
-	},
-	"ferry . volume passager . voiture . largeur": {
-		"formule": "2.7 m",
-		"description": "Nous prenons les dimensions conseillées ici pour un parking standard https://parkinggarage.fr/dimension-standard-longueur-largeur-hauteur-parking-box-garage-voiture/\n"
-	},
-	"ferry . volume passager . voiture . longueur": {
-		"formule": "6 m",
-		"description": "Nous prenons la longueur définie ici https://parkinggarage.fr/dimension-standard-longueur-largeur-hauteur-parking-box-garage-voiture, avec une majoration moins importante que la largeur, car elle est dynamique (la largeur est fixée par des bornes au sol) et ne nécessite pas d'accomoder deux portières ouvertes en concurrence.\n"
-	},
-	"ferry . volume utile": {
-		"question": "Quel est le volume utile du bateau ?",
-		"description": "On appelle ici volume utile la somme de toutes les surfaces qui ne sont pas l'infrastructure elle-même du bateau, sa sécurité, son équipage, etc.",
-		"unité": "m3",
-		"formule": {
-			"somme": [
-				"volume garage",
-				"surface . cabines * hauteur pont bas",
-				"surface . sièges * hauteur pont bas",
-				"surface . loisirs * hauteur pont bas",
-				"volume communs"
+			"variations": [
+				{ "si": "achat reconditionné", "alors": "prix reconditionné" },
+				{ "sinon": "0 €" }
 			]
 		}
 	},
-	"ferry . volume communs": "hauteur pont bas * surface . communs",
-	"ferry . volume garage": "hauteur moyenne garage * surface . garage",
-	"ferry . surface . communs": {
-		"question": "Quelle est la surface des zones communes à tous les passagers ?",
-		"description": "Cela inclut les escaliers, des places assises en salon hors bar ou restaurant, les couloirs intérieurs. Par convention, on n'inclut pas les surfaces extérieures non couvertes, sauf les espaces de loisir évidents : la piscine et les bars extérieurs.\n"
+	"lave-linge . ancien . prix reconditionné": {
+		"question": "Quel est le prix de votre lave-linge reconditionné ?",
+		"description": "En général, l'achat reconditionné coûte relativement cher. Le prix d'achat est donc clef dans notre équation. \n\nhttps://twitter.com/maeool/status/1580594866257395715\n\nNous partons donc sur un prix d'environ 80% du neuf, même si cela peut évidemment varier en fonction de l'État et du vendeur.\n",
+		"par défaut": "0.8 * neuf . prix"
 	},
-	"ferry . surface . loisirs": {
-		"question": "Quelle est la surface dédiée aux loisirs ?",
-		"description": "Restaurants, bars, salons, jeux, commerces, piscines, etc."
+	"lave-linge . ancien . achat reconditionné": {
+		"question": "Votre ancien lave-linge sera-t-il un achat reconditionné ?",
+		"description": "Nous ne prenons pas en compte l'achat d'occasion sans reconditionnement. En l'absence de garantie, il est trop difficile d'évaluer le coût sur 10 ans supplémentaire d'un achat qui, non révisé, a plus de chances de flancher.",
+		"par défaut": "non"
 	},
-	"ferry . hauteur moyenne garage": {
-		"formule": "(surface . garage . bas * hauteur pont bas + surface . garage . haut * hauteur pont haut) / surface . garage"
+	"lave-linge . coût électricité": {
+		"valeur": "0.19 €/kWh",
+		"description": "Source : guide top ten. \n\n> Coût de l'électricité : 0,19 € le kilowatt-heure (prix TTC incluant l'abonnement pour le tarif réglementé EDF option base - valeur juillet 2021)\n\nhttps://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge\n",
+		"note": "\n- Il faut mettre à jour ce prix. Il y a eu un choc énergétique depuis.\n- Il faut aussi le demander à l'utilisateur ! \n- Pour l'utilisateur, raisonner en kWh marginaux est probablement plus logique ?\n"
 	},
-	"ferry . surface . garage . bas": {
-		"question": "Quelle est la surface de garage bas du bateau ?"
+	"lave-linge . durée": "10 ans",
+	"lave-linge . cycles par an": {
+		"question": "Combien de cycles faites-vous par an environ ?",
+		"par défaut": "200 /ans",
+		"note": "Cette estimation me semble énorme, plus d'une machine tous les 2 jours on dirait qu'elle ne concerne que les \nfoyers avec enfant ?\n",
+		"description": "D'après guidetopten.fr, ce serait 200 cycles par an. \n\nMais attention, cela dépend évidemment beaucoup du nombre de personnes dans votre foyer, du nombre d'enfants (à supposer que les enfants se salissent plus que les parents..), de vos préférences d'hygiène pour les vêtements, pour les draps, etc. \n\nhttps://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge\n"
 	},
-	"ferry . surface . garage . haut": {
-		"question": "Quelle est la surface de garage haut du bateau ?"
-	},
-	"ferry . surface . garage": "bas + haut",
-	"ferry . surface . cabines": {
-		"question": "Quelle est la surface totale des cabines ?"
-	},
-	"ferry . surface . sièges": {
-		"question": "Quelle est la surface totale des sièges ?"
-	},
-	"ferry . volume passager . cabine partagée": {
-		"applicable si": "billet cabine",
-		"formule": "(cabines nécessaires * cabine) / groupe"
-	},
-	"ferry . hauteur pont bas": { "formule": "2.7m" },
-	"ferry . hauteur pont haut": {
-		"formule": "hauteur pont bas * 2",
-		"note": "Nous simplifions pour l'instant ces données qui pourront être améliorées dans un second temps."
-	},
-	"ferry . volume passager . cabine": {
-		"formule": "surface . cabine * hauteur pont bas",
-		"unité": "m3"
-	},
-	"ferry . surface": null,
-	"ferry . surface . cabine": { "formule": "cabines / cabine . nombre" },
-	"ferry . surface . siège": { "formule": "sièges / siège . nombre" },
-	"ferry . km par mille nautique": "1.852 km/mn",
-	"ferry . billet cabine": "cabine",
-	"ferry . siège": null,
-	"ferry . siège . nombre": {
-		"question": "Quel est le nombre total de sièges passager ?"
-	},
-	"ferry . cabine . nombre": {
-		"question": "Quel est le nombre total de cabines passager ?"
-	},
-	"ferry . cabine": {
-		"icônes": "🛌",
-		"question": "Place cabine (plutôt que siège) ?",
-		"description": "Sans surprise, voyager en cabine apporte du confort mais en contrepartie du poids embarqué.",
-		"note": "Il existe aussi des cabines partagées (comme dans les trains de nuit), nous pourrons les ajouter par la suite comme une option possible.",
-		"références": {
-			"corsica-ferries": "https://www.corsica-ferries.fr/ferries/traversee-ferry.html"
-		},
-		"par défaut": "oui"
-	},
-	"ferry . cabines nécessaires": {
-		"description": "On part pour l'instant du principe qu'il n'y a que des cabines 4 places.",
-		"note": "Ici on aimerait utiliser un mécanisme de modulo, qui n'existe pas dans publi.codes.\n",
-		"formule": {
-			"grille": {
-				"assiette": "groupe",
-				"tranches": [
-					{ "montant": 1, "plafond": 5 },
-					{ "montant": 2, "plafond": 9 },
-					{ "montant": 3, "plafond": 13 },
-					{ "montant": "groupe / 4" }
-				]
-			}
-		}
-	},
-	"ferry . taille cabine": {
-		"applicable si": "cabine",
-		"question": "Quelle est la taille de la cabine ?",
-		"note": "Variable pas intégrée encore.\n",
-		"par défaut": "'quatre lits'"
-	},
-	"ferry . taille cabine . deux lits": null,
-	"ferry . taille cabine . quatre lits": null,
-	"ferry . voiture": {
-		"icônes": "🚗",
-		"question": "Transportez-vous votre voiture ?",
-		"description": "Le calcul est limité à une voiture, on considère qu'elle est partagée par le groupe.",
-		"par défaut": "oui"
-	},
-	"ferry . groupe": {
-		"icônes": "👥",
-		"question": "À combien voyagez-vous ?",
-		"par défaut": 2,
-		"suggestions": { "seul": 1, "en couple": 2, "à 3": 3, "à 4": 4 }
-	},
-	"ferry . consommation de services": {
-		"icônes": "🍽️",
-		"question": "Utilisez vous les services accessoires du ferry (restaurant, piscine, etc.) ?",
-		"par défaut": "oui"
-	},
-	"ferry . passagers": {
-		"titre": "Passagers moyens",
-		"formule": 600,
-		"description": "Pour certaines services en commun, nous avons besoin de répartir le poids par passager.\n\nC'est la valeur du Mega Express Four https://fr.wikipedia.org/wiki/Mega_Express_Four mais en ordre de grandeur de la valeur moyenne, obtenu grâce aux déclarations Thetis-MRV exposées sur https://www.greenferries.org/ships/mega-express-four-9086590 en 2018-2019, donc pré-pandémie.\n",
-		"note": "Ce paramètre est très déterminant. Le nombre de passagers max du Mega Express Four est de 1880 d'après Wikipedia. Il circule donc à 1/3 de son remplissage, ce qui est très faible si on compare au TGV ou aux avions de ligne.\n"
-	},
-	"ferry . empreinte marginale . grammes": {
-		"formule": "0.2 gCO2e/kg",
-		"description": "Notre calcul est basé sur l'hypothèse que l'embarquement de poids marginal sur le bateau implique une consommation supplémentaire de carburant, qui a son tour induit l'émission de gaz à effet de serre supplémentaire, par km.\n\nLe chiffre est un *ordre de grandeur* issu d'une analyse de la \"base carbone\" du Royaume-Uni. Il est déterminé par une répartition par poids sur un échantillon de bateaux représentatifs. \nTous les détails sur notre [note méthodologique](https://hackmd.io/@laem/empreinte-ferry#À-partir-des-chiffres-de-la-“base-carbone”-britannique).\n",
-		"note": "L'hypothèse, en plus du chiffre unique et donc incertain, est donc que cette surconsommation marginale est linéaire. C'est probablement la critique la plus facile de ce modèle : nous serions ravis de l'améliorer avec une fonction plus nuancée.\n\nL'autre grand problème du modèle est la non-prise en compte de la vitesse du bateau, pourtant fondamentale dans la consommation. Il serait pourtant possible de poser directement à l'utilisateur la question de la vitesse via la ligne qu'il empreinte combinée aux donnés de greenferries. Ou encore plus simplement, l'estimation grossièrement via l'information de nuit / de jour ?\n"
-	},
-	"ferry . empreinte marginale": {
-		"formule": "grammes / 1000",
-		"unité": "kgCO2e/kg"
-	},
-	"ferry . empreinte par km poids": {
-		"titre": "Empreinte par km et passager",
-		"formule": "empreinte marginale * charge . par personne majorée",
-		"description": "\nComme expliqué dans notre note de méthode, le principe de calcul est simple : nous attribuons une empreinte selon le poids que le billet acheté par le voyageur implique d'embarquer sur le bateau. \n\nLa [note méthodologique](https://hackmd.io/@laem/empreinte-ferry#À-partir-des-chiffres-de-la-“base-carbone”-britannique).\n",
-		"unité": "kgCO2e/km"
+	"lave-linge . facteur mix électrique": {
+		"valeur": 0.0569,
+		"unité": "kgCO2e/kWh",
+		"références": [
+			"https://nosgestesclimat.fr/documentation/intensité-électricité"
+		]
 	},
 	"piscine": {
 		"titre": "Piscine de jardin",
@@ -3507,6 +3344,307 @@
 	"plaque de cuisson . cycle de vie amorti": {
 		"unité": "kgCO₂e / année",
 		"formule": "cycle de vie / durée d'amortissement"
+	},
+	"transport . ferry": { "icônes": "⛴" },
+	"transport . ferry . départ": {
+		"note": "Variable remplie par une interface de recherche."
+	},
+	"transport . ferry . arrivée": {
+		"note": "Variable remplie par une interface de recherche."
+	},
+	"transport . ferry . vitesse": {
+		"icônes": "⌚",
+		"question": "Quelle est la vitesse du ferry ?",
+		"formule": "vitesse en kmh / km par mille nautique",
+		"par défaut": "18 noeud",
+		"unité": "noeud",
+		"suggestions": {
+			"lente": "12 noeud",
+			"rapide": "18 noeud",
+			"très rapide": "27 noeud"
+		}
+	},
+	"transport . ferry . vitesse en kmh": {
+		"formule": "distance aller / durée du voyage . réelle"
+	},
+	"transport . ferry . vitesse trop élevée": {
+		"type": "notification",
+		"sévérité": "avertissement",
+		"formule": "vitesse en kmh > 100",
+		"description": "Votre vitesse est irréaliste. Il s'agit d'un bateau, pas d'un avion. \n\nC'est peut-être une erreur de saisie : vérifiez la durée du voyage, ou une confusion dans votre port d'arrivée ?\n"
+	},
+	"transport . ferry . empreinte du voyage": {
+		"titre": "Un voyage en ferry (aller‑retour)",
+		"icônes": "⛴",
+		"exposé": {
+			"titre": "Calculateur d'empreinte carbone du ferry",
+			"description": "Découvrez une estimation de l'empreinte climat du ferry en fonction de votre voyage et des options de votre traversée.",
+			"image": "https://futur.eco/images/ferry.png",
+			"exemples via suggestions": "transport . ferry . distance aller . orthodromique"
+		},
+		"formule": "distance aller retour * empreinte par km volume",
+		"unité": "kgCO₂e"
+	},
+	"transport . ferry . durée du voyage": {
+		"question": "Quelle est la durée de votre traversée ?",
+		"description": "Indiquez votre heure de départ et d'arrivée, en sélectionnant bien le jour d'arrivée.\n\n⚠️  La vitesse est cruciale pour calculer l'empreinte du voyage, car la consommation d'essence varie au cube de la vitesse.\n",
+		"note": "On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.",
+		"icônes": "⏳️",
+		"unité": "h",
+		"suggestions": {
+			"une demi-journée": "6 h",
+			"une nuit": "12 h",
+			"24h": "24 h"
+		}
+	},
+	"transport . ferry . durée du voyage . réelle": {
+		"formule": {
+			"variations": [
+				{ "si": "durée du voyage < 3", "alors": "durée du voyage * 0.8" },
+				{ "sinon": "durée du voyage - 1" }
+			]
+		},
+		"description": "Nous considérons que pour un départ à 19h sur le billet, et une arrivée à 7h, pour le calcul de la vitesse la traversée n'a pas duré 12h de navigation mais 11h, car il y a 30 minutes avant que le ferry se lance puis 30 minutes de débarquement. Cela peut évidemment varier en fonction des compagnies et du type de billet (embarquement piéton ou avec voiture), mais c'est un ordre de grandeur.\n\nPour les traversées courtes de moins de 3h, nous retirons 10% du temps (par convention également), soit 20 minutes * 2 pour 3h par exemple.\n"
+	},
+	"transport . ferry . distance aller retour": "2 * distance aller",
+	"transport . ferry . distance aller": {
+		"formule": "orthodromique * 1.3",
+		"description": "Nous ne calculons pas encore les distances réelles traversées par les bateaux. Ainsi, l'ajout d'un facteur 30% permet de s'en rapprocher. \nSi vous avez accès à un facteur moyen sourcé, n'hésitez pas à intervenir.\n"
+	},
+	"transport . ferry . distance importante": {
+		"type": "notification",
+		"sévérité": "information",
+		"formule": "distance aller > 1000",
+		"description": "Le modèle de calcul est basé sur un ferry mediterranéen réalisant des traversées de 300km au maximum. \n\nPrenez donc le résultat sur de longues traversées, en particulier sur un cargo, avec des pincettes en attendant une amélioration du modèle dédiée à ce genre de traversées.\n"
+	},
+	"transport . ferry . distance aller . orthodromique": {
+		"icônes": "🗺️",
+		"question": "Quel est votre trajet ?",
+		"description": "Saisissez la ville de départ et d'arrivée d'un vrai trajet en ferry.\n\nNous ne gérons pas encore l'estimation de l'empreinte climat d'un trajet multimodal (TGV + ferry par exemple).\n",
+		"note": "L'utilisateur saisit les ports de départ et d'arrivée, nous récupérons leurs coordonnées et calculons la distance orthodromique, ce qui consiste à prendre en compte le fait que la terre n'est pas plate.",
+		"par défaut": "320 km",
+		"unité": "km",
+		"suggestions": {
+			"🇬🇧 Cherbourg↔Poole": 130,
+			"🏝️ Marseille↔Ajaccio": 350,
+			"🇩🇿 Marseille↔Alger": 800
+		}
+	},
+	"transport . ferry . empreinte totale": {
+		"formule": "facteur vitesse * correction temps de navigation * empreinte totale moyenne"
+	},
+	"transport . ferry . empreinte totale . par km": "empreinte totale / km par mille nautique",
+	"transport . ferry . facteur vitesse": {
+		"formule": "rapport vitesse * rapport vitesse * rapport vitesse",
+		"description": "On prend l'hypothèse d'une évolution au cube de la puissance en fonction de la vitesse."
+	},
+	"transport . ferry . rapport vitesse": "vitesse / vitesse moyenne",
+	"transport . ferry . correction temps de navigation": {
+		"formule": "vitesse moyenne / vitesse",
+		"description": "La puissance nécessaire pour faire avancer le navire évolue au cube de la vitesse. L'empreinte climat par heure suite naturellement cette même fonction. Mais le navire va alors plus vite : il va émettre plus à l'heure pendant moins de temps, ce facteur corrige le tir pour.\n"
+	},
+	"transport . ferry . empreinte totale moyenne": {
+		"formule": "576.48 kgCO2e/mn",
+		"note": "Données greenferries 2020 tirées de Thetis-MRV 2020 https://mrv.emsa.europa.eu/#public/emission-report\n"
+	},
+	"transport . ferry . vitesse moyenne": {
+		"formule": "métrique / km par mille nautique",
+		"unité": "noeud"
+	},
+	"transport . ferry . vitesse moyenne . métrique": {
+		"formule": "33 km/h",
+		"note": "Données greenferries 2019 tirées de Thetis-MRV 2019 https://www.greenferries.org/ships/mega-express-two-9203186/\n"
+	},
+	"transport . ferry . empreinte totale moyenne . par km": "empreinte totale moyenne / km par mille nautique",
+	"transport . ferry . empreinte du bateau": {
+		"titre": "Empreinte du bateau témoin par km",
+		"description": "Nous utilisons ici comme bateau témoin Méga Express Four de la flotte Corsica Ferries. Ils est représentatif des gros ferries de max ~2000 passagers, rapides.",
+		"formule": "empreinte totale . par km",
+		"unité": "kgCO2e/km"
+	},
+	"transport . ferry . empreinte par km volume": {
+		"titre": "Empreinte par km et passager",
+		"formule": "empreinte du bateau * part du volume",
+		"description": "Voici notre objectif : estimer l'empreinte d'un passager sur les ferries de voyage comme ceux qui relient la métropole à la Corse et à l'Angleterre.\n\nLe ferry est souvent proposé comme alternative sérieuse à l’avion du point de vue de l'empreinte carbone, mais il n’existait pourtant aucune estimation de son empreinte climat au kilomètre (ni ADEME en France, ni à l’international, ni dans la littérature scientifique) qui prenne en compte non pas un passager moyen, mais la diversité des options d'un billet : \n\n- passager en voiture ou non\n- passager en cabine, en siège, ou au sol\n- équipement loisir du bateau : restaurant, bar, piscine, grand couloirs, etc.\n- le fret embarqué dans les camions\n- % de remplissage du bateau\n- vitesse\n- etc\n\nNous savons combien un ferry donné émet de gaz à effet de serre (GES) : il suffit en somme de multipler sa consommation de fioul par le ou les facteurs d'émission CO2e du fioul et autres carburants utilisés. Mais la difficulté est ensuite d'attribuer une part de ces GES au passager à pied, au passager seul dans sa voiture qui profite d'un lounge VIP, et au transport de marchandises, etc. \n\nLe principe de calcul adopté ici est simple : nous attribuons une empreinte selon le volume que le billet acheté par le voyageur et les choix de consommation faits à bord occupent sur le bateau. \n\nVoici la [note de méthode](https://hackmd.io/@laem/empreinte-ferry) (~20 pages) qui explique le problème qu'on veut résoudre et les possibilités pour faire le calcul, mais qui reste théorique.\n\nEnsuite, concrètement, vous pouvez parcourir ci-dessous de façon intéractive et complète le calcul du facteur d'émission dynamique juste ci-dessous ⬇️.\n\nFinalement, n'hésitez pas à faire des propositions de modification du modèle, soit via une pull request sur [github](https://github.com/laem/futureco/blob/master/source/sites/publicodes/ferry/index.yaml) soit via un simple commentaire sur [ce ticket](https://github.com/laem/futureco/issues/123).\n\nEn pratique, nous le faisons sur le bateau type Mega Express Four tout simplement car nous en disposons des plans assez détaillés. Le travail devrait être fait pour d'autres navires par la suite.\n\n[![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/02_Corsica_Ferries_Mega_Express_Four_\\(cropped\\).jpg/640px-02_Corsica_Ferries_Mega_Express_Four_\\(cropped\\).jpg)](https://fr.wikipedia.org/wiki/Mega_Express_Four)\n\nLe calcul des différentes surfaces est [un dessin SVG](/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. \n\n### Limites du calcul\n\nUn biais à noter serait la non exactitude de ce plan du ferry et des mesures qui y sont faites. Il parait cependant assez fiable pour un ordre de grandeur, ce qui est notre but ici.\n\nUn autre biais est évidemment le choix de ce qui est comptabilisé comme surface utile ou non. Nous avons par exemple exclu les ponts à l'air libre, sauf la piscine et les bars extérieurs.\nÉvidemment, le calcul n'est donc applicable strictement qu'à ce bateau, mais nous faisons le choix de l'extrapoler comme un bateau type faute d'avoir les ressources pour modéliser chaque bateau commercial.\n\nVoir également ce [ticket](https://github.com/laem/futureco/issues/123) pour lire et contribuer aux limites du calcul.\n",
+		"unité": "kgCO2e/km"
+	},
+	"transport . ferry . part du volume": {
+		"titre": "Part du volume utile du bateau attribuée au passager",
+		"formule": "volume passager / volume utile"
+	},
+	"transport . ferry . volume passager": {
+		"note": "Pour les cabines, les sièges et les garages, nous ne pouvons pas supposer qu'ils sont aussi peu remplis que l'indicateur \"passagers\" nous donne (1/3). \n\nEn effet, nous supposons que le nombre max de passager est très élevé car on peut faire rentrer un tas de gens pour des traversées de jour. \n\nLa moyenne de remplissage de ces trois autres espaces doit davantage s'approcher d'un 2/3 avec une politique de prix au yield aggressive pour les places restantes. \n\n⚠️ C'est peut-être une hypothèse trop favorable qui pourrait donner lieu à une sous-estimation de 30% voir 100%.\n",
+		"formule": {
+			"somme": ["cabine partagée", "loisirs", "siège", "voiture", "communs"]
+		}
+	},
+	"transport . ferry . volume passager . communs": {
+		"formule": "volume communs / passagers"
+	},
+	"transport . ferry . volume passager . loisirs": {
+		"applicable si": "consommation de services",
+		"formule": "surface . loisirs * hauteur pont bas / passagers"
+	},
+	"transport . ferry . volume passager . siège": {
+		"non applicable si": "cabine",
+		"titre": "Un siège dans un dortoir",
+		"formule": "hauteur pont bas * surface . siège"
+	},
+	"transport . ferry . volume passager . voiture": {
+		"applicable si": "voiture",
+		"formule": "majoré / groupe",
+		"note": "Ici nous décidons de ne pas voir la capacité en voiture et diviser la surface voiture par ce nombre, car les différentes zones de garage peuvent accomoder aussi bien des voitures que des camions.\n"
+	},
+	"transport . ferry . volume passager . voiture . majoré": {
+		"formule": "largeur * longueur * hauteur moyenne garage",
+		"note": "Nous partons du principe que certaines voitures se garent dans un garage dont la hauteur du pont haut, donc appliquons la moyenne pondérée par la surface."
+	},
+	"transport . ferry . volume passager . voiture . largeur": {
+		"formule": "2.7 m",
+		"description": "Nous prenons les dimensions conseillées ici pour un parking standard https://parkinggarage.fr/dimension-standard-longueur-largeur-hauteur-parking-box-garage-voiture/\n"
+	},
+	"transport . ferry . volume passager . voiture . longueur": {
+		"formule": "6 m",
+		"description": "Nous prenons la longueur définie ici https://parkinggarage.fr/dimension-standard-longueur-largeur-hauteur-parking-box-garage-voiture, avec une majoration moins importante que la largeur, car elle est dynamique (la largeur est fixée par des bornes au sol) et ne nécessite pas d'accomoder deux portières ouvertes en concurrence.\n"
+	},
+	"transport . ferry . volume utile": {
+		"question": "Quel est le volume utile du bateau ?",
+		"description": "On appelle ici volume utile la somme de toutes les surfaces qui ne sont pas l'infrastructure elle-même du bateau, sa sécurité, son équipage, etc.",
+		"unité": "m3",
+		"formule": {
+			"somme": [
+				"volume garage",
+				"surface . cabines * hauteur pont bas",
+				"surface . sièges * hauteur pont bas",
+				"surface . loisirs * hauteur pont bas",
+				"volume communs"
+			]
+		}
+	},
+	"transport . ferry . volume communs": "hauteur pont bas * surface . communs",
+	"transport . ferry . volume garage": "hauteur moyenne garage * surface . garage",
+	"transport . ferry . surface . communs": {
+		"injecté": "oui",
+		"question": "Quelle est la surface des zones communes à tous les passagers ?",
+		"description": "Cela inclut les escaliers, des places assises en salon hors bar ou restaurant, les couloirs intérieurs. Par convention, on n'inclut pas les surfaces extérieures non couvertes, sauf les espaces de loisir évidents : la piscine et les bars extérieurs.\n"
+	},
+	"transport . ferry . surface . loisirs": {
+		"injecté": "oui",
+		"question": "Quelle est la surface dédiée aux loisirs ?",
+		"description": "Restaurants, bars, salons, jeux, commerces, piscines, etc."
+	},
+	"transport . ferry . hauteur moyenne garage": {
+		"formule": "(surface . garage . bas * hauteur pont bas + surface . garage . haut * hauteur pont haut) / surface . garage"
+	},
+	"transport . ferry . surface . garage . bas": {
+		"injecté": "oui",
+		"question": "Quelle est la surface de garage bas du bateau ?"
+	},
+	"transport . ferry . surface . garage . haut": {
+		"injecté": "oui",
+		"question": "Quelle est la surface de garage haut du bateau ?"
+	},
+	"transport . ferry . surface . garage": "bas + haut",
+	"transport . ferry . surface . cabines": {
+		"injecté": "oui",
+		"question": "Quelle est la surface totale des cabines ?"
+	},
+	"transport . ferry . surface . sièges": {
+		"injecté": "oui",
+		"question": "Quelle est la surface totale des sièges ?"
+	},
+	"transport . ferry . volume passager . cabine partagée": {
+		"applicable si": "billet cabine",
+		"formule": "(cabines nécessaires * cabine) / groupe"
+	},
+	"transport . ferry . hauteur pont bas": { "formule": "2.7m" },
+	"transport . ferry . hauteur pont haut": {
+		"formule": "hauteur pont bas * 2",
+		"note": "Nous simplifions pour l'instant ces données qui pourront être améliorées dans un second temps."
+	},
+	"transport . ferry . volume passager . cabine": {
+		"formule": "surface . cabine * hauteur pont bas",
+		"unité": "m3"
+	},
+	"transport . ferry . surface": null,
+	"transport . ferry . surface . cabine": {
+		"formule": "cabines / cabine . nombre"
+	},
+	"transport . ferry . surface . siège": {
+		"formule": "sièges / siège . nombre"
+	},
+	"transport . ferry . km par mille nautique": "1.852 km/mn",
+	"transport . ferry . billet cabine": "cabine",
+	"transport . ferry . siège": null,
+	"transport . ferry . siège . nombre": {
+		"injecté": "oui",
+		"question": "Quel est le nombre total de sièges passager ?"
+	},
+	"transport . ferry . cabine . nombre": {
+		"injecté": "oui",
+		"question": "Quel est le nombre total de cabines passager ?"
+	},
+	"transport . ferry . cabine": {
+		"icônes": "🛌",
+		"question": "Avez-vous pris une cabine (plutôt qu'un simple siège) ?",
+		"description": "Sans surprise, voyager en cabine apporte du confort mais en contrepartie du poids embarqué.",
+		"note": "Il existe aussi des cabines partagées (comme dans les trains de nuit), nous pourrons les ajouter par la suite comme une option possible.",
+		"références": {
+			"corsica-ferries": "https://www.corsica-ferries.fr/ferries/traversee-ferry.html"
+		},
+		"par défaut": "oui"
+	},
+	"transport . ferry . cabines nécessaires": {
+		"description": "On part pour l'instant du principe qu'il n'y a que des cabines 4 places.",
+		"note": "Ici on aimerait utiliser un mécanisme de modulo, qui n'existe pas dans publi.codes.\n",
+		"formule": {
+			"grille": {
+				"assiette": "groupe",
+				"tranches": [
+					{ "montant": 1, "plafond": 5 },
+					{ "montant": 2, "plafond": 9 },
+					{ "montant": 3, "plafond": 13 },
+					{ "montant": "groupe / 4" }
+				]
+			}
+		}
+	},
+	"transport . ferry . taille cabine": {
+		"applicable si": "cabine",
+		"question": "Quelle est la taille de la cabine ?",
+		"note": "Variable pas intégrée encore.\n",
+		"par défaut": "'quatre lits'"
+	},
+	"transport . ferry . taille cabine . deux lits": null,
+	"transport . ferry . taille cabine . quatre lits": null,
+	"transport . ferry . voiture": {
+		"icônes": "🚗",
+		"question": "Transportez-vous votre voiture ?",
+		"description": "\nLe calcul est limité à une seule voiture, on considère qu'elle est partagée par le groupe.\n\nSi vous transportez un camping-car, répondez oui (l'empreinte sera fortement sous-estimée). \n\nSi vous transportez une moto, répondez non (l'empreinte sera légèrement sous-estimée).\n",
+		"par défaut": "oui"
+	},
+	"transport . ferry . groupe": {
+		"icônes": "👥",
+		"question": "À combien voyagez-vous ?",
+		"par défaut": 2,
+		"unité": "personnes",
+		"suggestions": { "seul": 1, "en couple": 2, "à 3": 3, "à 4": 4 }
+	},
+	"transport . ferry . groupe . avertissement simulation individuelle": {
+		"type": "notification",
+		"sévérité": "information",
+		"formule": "groupe > 1",
+		"description": "Le nombre de personnes qui voyage est important pour le calcul,\n\nmais **le résultat du calcul reste individuel**.\n"
+	},
+	"transport . ferry . consommation de services": {
+		"icônes": "🍽️",
+		"question": "Utilisez vous les services accessoires du ferry (bar, restaurant, piscine, etc.) ?",
+		"par défaut": "oui"
+	},
+	"transport . ferry . passagers": {
+		"titre": "Passagers moyens",
+		"formule": 600,
+		"description": "Pour certaines services en commun, nous avons besoin de répartir le poids par passager.\n\nC'est la valeur du Mega Express Four https://fr.wikipedia.org/wiki/Mega_Express_Four mais en ordre de grandeur de la valeur moyenne, obtenu grâce aux déclarations Thetis-MRV exposées sur https://www.greenferries.org/ships/mega-express-four-9086590 en 2018-2019, donc pré-pandémie.\n",
+		"note": "Ce paramètre est très déterminant. Le nombre de passagers max du Mega Express Four est de 1880 d'après Wikipedia. Il circule donc à 1/3 de son remplissage, ce qui est très faible si on compare au TGV ou aux avions de ligne.\n"
 	}
 }
-

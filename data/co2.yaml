@@ -374,17 +374,23 @@ finances . impact par euro:
 
     Attention : si vous investissez via la BNB dans l'entreprise Total, et que vous prenez un avion qui vole au kérosène vendu par Total, il se peut que la somme des deux estimations d'impact aboutisse à un double comptage.
   formule:
-    correspondance:
-      variable: banque
-      tableau:
-        la Nef: 0.2
-        Crédit Coopératif: 0.425
-        La Banque Postale: 0.48
-        BPCE: 0.54
-        Crédit Mutuel: 0.62
-        Société Générale: 0.89
-        BNP Paribas: 0.905
-        Crédit Agricole: 1.07
+    variations:
+      - si: "banque = 'la Nef'"
+        alors: 0.2
+      - si: "banque = 'Crédit Coopératif'"
+        alors: 0.425
+      - si: "banque = 'La Banque Postale'"
+        alors: 0.48
+      - si : "banque = 'BPCE'"
+        alors: 0.54
+      - si: "banque = 'Crédit Mutuel'"
+        alors: 0.62
+      - si: "banque = 'Société Générale'"
+        alors: 0.89
+      - si: "banque = 'BNP Paribas'"
+        alors: 0.905
+      - si: "banque = 'Crédit Agricole'"
+        alors: 1.07
   note: >
     Il serait bon de trouver d'autres rapports indépendants de celui-ci pour
     confirmer ou infirmer ces chiffres fracassants.
@@ -450,12 +456,14 @@ numérique . téléphone . impact:
   exposé: oui
   unité: kgCO₂e
   formule:
-    correspondance:
-      variable: téléphone
-      tableau:
-        mobile basique: 16
-        smartphone moins de 5 pouces: 32
-        smartphone plus de 5 pouces: 38
+    variations:
+      - si: "téléphone = 'mobile basique'"
+        alors: 16
+      - si: "téléphone = 'smartphone moins de 5 pouces'"
+        alors: 32
+      - si: "téléphone = 'smartphone plus de 5 pouces'"
+        alors: 38
+
 numérique . téléphone . mobile basique:
 numérique . téléphone . smartphone moins de 5 pouces:
 numérique . téléphone . smartphone plus de 5 pouces:
@@ -480,11 +488,11 @@ numérique . ordinateur . impact:
   exposé: oui
   titre: mon ordinateur
   formule:
-    correspondance:
-      variable: ordinateur
-      tableau:
-        ordinateur portable: 169
-        tablette: 70
+    variations:
+      - si: "ordinateur = 'ordinateur portable'"
+        alors: 169
+      - si: "ordinateur = 'tablette'"
+        alors: 70
 numérique . imprimante:
   titre: une imprimante
   exposé: oui
@@ -523,11 +531,11 @@ numérique . box internet . impact:
     Une box internet a la particularité de souvent rester allumée toute la
     journée, et de ne pas être aussi économe qu'un smartphone.
   formule:
-    correspondance:
-      variable: box internet
-      tableau:
-        box ADSL: 83
-        box fibre: 115
+    variations:
+      - si: "box internet = 'box ADSL'"
+        alors: 83
+      - si: "box internet = 'box fibre'"
+        alors: 115
 numérique . télévision:
   icônes: 📺
 numérique . télévision . taille:
@@ -548,12 +556,13 @@ numérique . télévision . impact:
   exposé: oui
   titre: ma télé
   formule:
-    correspondance:
-      variable: taille
-      tableau:
-        moyenne 30 à 40 pouces: 371
-        grande 40 à 49 pouces: 422
-        énorme plus de 49 pouces: 568
+    variations:
+      - si: "taille = 'moyenne 30 à 40 pouces'"
+        alors: 371
+      - si: "taille = 'grande 40 à 49 pouces'"
+        alors: 422
+      - si: "taille = 'énorme plus de 49 pouces'"
+        alors: 568
 
 alimentation . bière:
 alimentation . bière . impact:
@@ -948,13 +957,15 @@ alimentation . lait . température lait froid:
 
 alimentation . lait . température max atteinte:
   formule:
-    correspondance:
-      variable: chauffe
-      tableau:
-        ébullition: 95
-        très chaud: 60
-        tiède: 40
-        froid: 13
+    variations:
+      - si: "chauffe = 'ébullition'"
+        alors: 95
+      - si: "chauffe = 'très chaud'"
+        alors: 60
+      - si: "chauffe = 'tiède'"
+        alors: 40
+      - si: "chauffe = 'froid'"
+        alors: 13
   note: |
     Pour la température "très chaud" :
     > En Europe de manière générale, et dans le nord du continent américain, les températures avoisinnent en général les 60°C pour les boissons chaudes.
@@ -1207,14 +1218,17 @@ vêtements . pull:
   exposé: oui
   icônes: 👕🌡️
   formule:
-    correspondance:
-      variable: matière
-      tableau:
-        laine: 54
-        acrylique: 26
-        coton: 29
-        coton recyclé: 10
-        polaire plastique recyclé: 25
+    variations:
+      - si: "matière = 'laine'"
+        alors: 54
+      - si: "matière = 'acrylique'"
+        alors: 26
+      - si: "matière = 'coton'"
+        alors: 29
+      - si: "matière = 'coton recyclé'"
+        alors: 10
+      - si: "matière = 'polaire plastique recyclé'"
+        alors: 25
   références:
     - https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement
 vêtements . pull . matière:
@@ -1256,12 +1270,13 @@ vêtements . veste:
   exposé: oui
   icônes: 🧥
   formule:
-    correspondance:
-      variable: type
-      tableau:
-        manteau: 88
-        anorak: 39
-        faux cuir: 24
+    variations:
+      - si: "type = 'manteau'"
+        alors: 88
+      - si: "type = 'anorak'"
+        alors: 39
+      - si: "type = 'faux cuir'"
+        alors: 24
   références:
     - https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement
 vêtements . veste . type:
@@ -1299,12 +1314,13 @@ vêtements . robe:
   exposé: oui
   icônes: 👗
   formule:
-    correspondance:
-      variable: matière
-      tableau:
-        polyester: 53
-        coton: 52
-        viscose: 48
+    variations:
+      - si: "matière = 'polyester'"
+        alors: 53
+      - si: "matière = 'coton'"
+        alors: 52
+      - si: "matière = 'viscose'"
+        alors: 48
   références:
     - https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement
 vêtements . robe . matière:
@@ -1908,12 +1924,13 @@ meubles . chaise:
   icônes: 🪑
   catégorie: meubles
   formule:
-    correspondance:
-      variable: matière
-      tableau:
-        bois: 25.2
-        plastique: 28
-        structure en bois et revêtement textile: 12
+    variations:
+      - si: "matière = 'bois'"
+        alors: 25.2
+      - si: "matière = 'plastique'"
+        alors: 28
+      - si: "matière = 'structure en bois et revêtement textile'"
+        alors": 12
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
     
@@ -1952,12 +1969,13 @@ meubles . canapé:
   icônes: 🛋️
   catégorie: meubles
   formule: 
-    correspondance:
-      variable: type
-      tableau:
-        textile: 180
-        cuir: 200
-        convertible: 204
+    variations:
+      - si: "type = 'textile'"
+        alors: 180
+      - si: "type = 'cuir'"
+        alors: 200
+      - si: "type = 'convertible'"
+        alors: 204
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
     
@@ -1982,12 +2000,13 @@ meubles . sommier:
   icônes: 🛏️
   catégorie: meubles
   formule: 
-    correspondance:
-      variable: type
-      tableau:
-        tapissier: 110
-        à lattes fixes: 69
-        cadre de lit: 147
+    variations:
+      - si: "type = 'tapissier'"
+        alors: 110
+      - si: "type = 'à lattes fixes'"
+        alors: 69
+      - si: "type = 'cadre de lit'"
+        alors: 147
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
   note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
@@ -2013,11 +2032,11 @@ meubles . matelas:
   icônes: 🛏️
   catégorie: meubles
   formule: 
-    correspondance:
-      variable: type
-      tableau:
-        mousse: 286
-        ressort: 219
+    variations:
+      - si: "type = 'mousse'"
+        alors: 286
+      - si: "type = 'ressort'"
+        alors: 219
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
   note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
@@ -2052,13 +2071,14 @@ meubles . salon de jardin:
   exposé: oui
   icônes: 🛋️🌴
   catégorie: meubles
-  formule: 
-    correspondance:
-      variable: type
-      tableau:
-        bois: 103
-        métal: 224
-        résine tressée: 215
+  formule:
+    variations:
+      - si: "type = 'bois'"
+        alors: 103
+      - si: "type = 'métal'"
+        alors: 224
+      - si": "type = 'résine tressée'"
+        alors: 215
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
     

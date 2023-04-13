@@ -58,11 +58,11 @@ transport . avion . forçage radiatif . coefficient:
 
     Nous faisons donc le choix de le faire varier en fonction du choix de l'utilisateur.
   formule:
-    correspondance:
-      variable: forçage radiatif
-      tableau:
-        conservateur: 2
-        état de l'art: 3
+    variations:
+      - si: "forçage radiatif = 'conservateur'"
+        alors: 2
+      - si: "forçage radiatif = 'état de l'art'"
+        alors: 3
 
   références:
     - https://www.carbonindependent.org/sources_aviation.html
