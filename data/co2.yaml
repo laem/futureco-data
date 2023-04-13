@@ -381,7 +381,7 @@ finances . impact par euro:
         alors: 0.425
       - si: "banque = 'La Banque Postale'"
         alors: 0.48
-      - si : "banque = 'BPCE'"
+      - si: "banque = 'BPCE'"
         alors: 0.54
       - si: "banque = 'Crédit Mutuel'"
         alors: 0.62
@@ -906,7 +906,7 @@ alimentation . lait . impact chauffage litre de lait:
   formule: chauffage litre de lait final * chauffage . impact par kWh . électricité
 
 alimentation . sardines en boite:
-  icônes: 🥫🐟 
+  icônes: 🥫🐟
   exposé: oui
   titre: Des sardines en boite
   unité: kgCO₂e
@@ -923,7 +923,7 @@ alimentation . sardines en boite . portion:
 
 alimentation . sirop à l'eau:
   icônes: 🚰🍓🍋
-  exposé: oui 
+  exposé: oui
   titre: Un verre de sirop à l'eau
   unité: kgCO₂e
   formule: impact * portion
@@ -938,8 +938,7 @@ alimentation . sirop à l'eau . impact:
 alimentation . sirop à l'eau . portion:
   unité: kg
   formule: 0.15
-  note:
-    Un verre d'eau "classique" a un volume de 15cl. 1L d'eau a une masse d'1kg (et on néglige la différence entre la masse volumique de l'eau et celle du sirop). Donc on utilise une "portion" de 0.15kg dans cette simulation.
+  note: Un verre d'eau "classique" a un volume de 15cl. 1L d'eau a une masse d'1kg (et on néglige la différence entre la masse volumique de l'eau et celle du sirop). Donc on utilise une "portion" de 0.15kg dans cette simulation.
 
 chauffage . efficacité microondes:
   formule: 2 / 3
@@ -1457,7 +1456,7 @@ numérique . vidéo:
 
     Le numérique est aujourd'hui pointé du doigt pour son empreinte importante malgré l'impression de dématérialisation qu'il donne. Une large partie du trafic d'internet est généré par les vidéos, dont la qualité augmente régulièrement.
 
-    Il est intéressant de remarquer que ** la qualité de la vidéo ** a un impact bien plus important que la durée de la vidéo sur les émissons de CO2. 
+    Il est intéressant de remarquer que ** la qualité de la vidéo ** a un impact bien plus important que la durée de la vidéo sur les émissons de CO2.
 
   note: |
     Pour aller plus loin, il faudrait :
@@ -1505,7 +1504,7 @@ numérique . vidéo . bitrate:
   formule:
     variations:
       - si: vidéo . qualité = 'Ultra HD'
-        alors : 12000
+        alors: 12000
       - si: vidéo . qualité = 'Full HD'
         alors: 6000
       - si: vidéo . qualité = 'HD'
@@ -1514,7 +1513,6 @@ numérique . vidéo . bitrate:
         alors: 400
   note: Les équivalences entre les bitrates et les qualités vidéos viennent de cette source de chez IBM -> https://support.video.ibm.com/hc/en-us/articles/207852117-Internet-connection-and-recommended-encoding-settings. Si un spécialiste peut confirmer que les ordres de grandeurs sont les bons ce serait top.
 
-
 numérique . vidéo . qualité:
   question: Quelle est la qualité de la vidéo ?
   formule:
@@ -1522,7 +1520,7 @@ numérique . vidéo . qualité:
       choix obligatoire: oui
       possibilités:
         - Ultra HD
-        - Full HD 
+        - Full HD
         - HD
         - SD
   par défaut: "'HD'"
@@ -1532,7 +1530,6 @@ numérique . vidéo . qualité . Ultra HD:
 numérique . vidéo . qualité . Full HD:
 numérique . vidéo . qualité . HD:
 numérique . vidéo . qualité . SD:
-
 
 numérique . serveurs:
   formule: intensité * vidéo . poids
@@ -1930,10 +1927,10 @@ meubles . chaise:
       - si: "matière = 'plastique'"
         alors: 28
       - si: "matière = 'structure en bois et revêtement textile'"
-        alors": 12
+        alors: 12
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
-    
+
 meubles . chaise . matière:
   question: Quel est le type de la chaise ?
   formule:
@@ -1956,19 +1953,20 @@ meubles . table:
   catégorie: meubles
   formule: 130
   description: Cette valeur correspond à une table de 4 places en bois.
-  note: Dans la base carbone de l'ADEME, il existe "table représentative", c'est pas très clair pour l'utilisateur ce à quoi correspond une table "représentative". 
+  note:
+    Dans la base carbone de l'ADEME, il existe "table représentative", c'est pas très clair pour l'utilisateur ce à quoi correspond une table "représentative".
     À réfléchir / discuter, s'il faut l'ajouter.
     Dans l'idéal, il faudrait aussi ajouter d'autres matières et tailles de tables.
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
-  
+
 meubles . canapé:
   titre: Un canapé
   unité: kgCO₂e
   exposé: oui
   icônes: 🛋️
   catégorie: meubles
-  formule: 
+  formule:
     variations:
       - si: "type = 'textile'"
         alors: 180
@@ -1978,7 +1976,7 @@ meubles . canapé:
         alors: 204
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
-    
+
 meubles . canapé . type:
   question: Quel est le type de canapé ?
   formule:
@@ -1999,7 +1997,7 @@ meubles . sommier:
   exposé: oui
   icônes: 🛏️
   catégorie: meubles
-  formule: 
+  formule:
     variations:
       - si: "type = 'tapissier'"
         alors: 110
@@ -2010,7 +2008,7 @@ meubles . sommier:
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
   note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
-    
+
 meubles . sommier . type:
   question: Quel est le type de sommier ?
   formule:
@@ -2031,7 +2029,7 @@ meubles . matelas:
   exposé: oui
   icônes: 🛏️
   catégorie: meubles
-  formule: 
+  formule:
     variations:
       - si: "type = 'mousse'"
         alors: 286
@@ -2041,7 +2039,6 @@ meubles . matelas:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
   note: La taille du lit (1 place, 120cm, 140cm, 180cm) pourrait-être demandée.
 
-    
 meubles . matelas . type:
   question: Quel est le type de matelas ?
   formule:
@@ -2077,11 +2074,11 @@ meubles . salon de jardin:
         alors: 103
       - si: "type = 'métal'"
         alors: 224
-      - si": "type = 'résine tressée'"
+      - si: "type = 'résine tressée'"
         alors: 215
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
-    
+
 meubles . salon de jardin . type:
   question: Quel est le type de salon de jardin ?
   formule:
@@ -2091,7 +2088,7 @@ meubles . salon de jardin . type:
         - bois
         - métal
         - résine tressée
-    par défaut: "'résine tressée'"
+  par défaut: "'résine tressée'"
 meubles . salon de jardin . type . bois:
 meubles . salon de jardin . type . métal:
 meubles . salon de jardin . type . résine tressée:
