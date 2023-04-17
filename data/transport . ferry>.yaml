@@ -163,7 +163,7 @@ empreinte par km volume:
 
     [![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/02_Corsica_Ferries_Mega_Express_Four_\(cropped\).jpg/640px-02_Corsica_Ferries_Mega_Express_Four_\(cropped\).jpg)](https://fr.wikipedia.org/wiki/Mega_Express_Four)
 
-    Le calcul des différentes surfaces est [un dessin SVG](/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. 
+    Le calcul des différentes surfaces est [un dessin SVG](https://github.com/laem/futureco/blob/master/source/sites/publicodes/ferry/mega-express-four.svg) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. 
 
     ### Limites du calcul
 
