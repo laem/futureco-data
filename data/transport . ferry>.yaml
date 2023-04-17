@@ -215,7 +215,9 @@ volume passager . voiture:
     Ici nous décidons de ne pas voir la capacité en voiture et diviser la surface voiture par ce nombre, car les différentes zones de garage peuvent accomoder aussi bien des voitures que des camions.
 
 volume passager . voiture . majoré:
+  titre: Volume garage voiture
   formule: largeur * longueur * hauteur moyenne garage
+  unité: m3
   note: Nous partons du principe que certaines voitures se garent dans un garage dont la hauteur du pont haut, donc appliquons la moyenne pondérée par la surface.
 volume passager . voiture . largeur:
   formule: 2.7 m
