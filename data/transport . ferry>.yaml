@@ -123,7 +123,8 @@ vitesse moyenne:
 vitesse moyenne . métrique:
   formule: 33 km/h
   note: |
-    Données greenferries 2019 tirées de Thetis-MRV 2019 https://www.greenferries.org/ships/mega-express-two-9203186/
+    On considère la vitesse moyenne du Mega Express Four de Corsica Ferries
+    Données greenferries 2019 tirées de Thetis-MRV 2019 https://www.greenferries.org/ships/mega-express-four-9086590/
 
 empreinte totale moyenne . par km: empreinte totale moyenne / km par mille nautique
 
@@ -232,7 +233,7 @@ volume utile:
   question: Quel est le volume utile du bateau ?
   description: |
     On appelle ici volume utile la somme de toutes les surfaces qui ne sont pas l'infrastructure elle-même du bateau, sa sécurité, son équipage, etc.
-    
+
     > Le calcul des différentes surfaces est isssu d'[un dessin SVG](https://github.com/laem/futureco/blob/master/source/sites/publicodes/ferry/mega-express-four.svg) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes
   unité: m3
   formule:
