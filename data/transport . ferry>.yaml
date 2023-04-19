@@ -121,6 +121,7 @@ vitesse moyenne:
   unité: noeud
 
 vitesse moyenne . métrique:
+  titre: Vitesse moyenne ferry
   formule: 33 km/h
   note: |
     On considère la vitesse moyenne du Mega Express Four de Corsica Ferries
