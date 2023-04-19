@@ -10,6 +10,7 @@ vitesse:
   icônes: ⌚
   question: Quelle est la vitesse du ferry ?
   formule: vitesse en kmh / km par mille nautique
+  par défaut: 18 noeud
   unité: noeud
   suggestions:
     lente: 12 noeud
@@ -45,19 +46,15 @@ durée du voyage:
     Indiquez votre heure de départ et d'arrivée, en sélectionnant bien le jour d'arrivée.
 
     ⚠️  La vitesse est cruciale pour calculer l'empreinte du voyage, car la consommation d'essence varie au cube de la vitesse.
-
-    Par défaut, nous prenons un temps de traversée qui, relativement à la distance par défaut définie dans la variable [distance orthodromique](/documentation/transport/ferry/distance-aller/orthodromique), nous donne la vitesse moyenne du bateau type inscrite dans [vitesse moyenne](/documentation/transport/ferry/vitesse-moyenne/métrique).
   note: On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.
   icônes: ⏳️
   unité: h
-  par défaut: 10 h
   suggestions:
     une demi-journée: 6 h
     une nuit: 12 h
     24h: 24 h
 
 durée du voyage . réelle:
-  titre: Durée réelle du voyage
   formule:
     variations:
       - si: durée du voyage < 3
@@ -91,10 +88,8 @@ distance aller . orthodromique:
     Saisissez la ville de départ et d'arrivée d'un vrai trajet en ferry.
 
     Nous ne gérons pas encore l'estimation de l'empreinte climat d'un trajet multimodal (TGV + ferry par exemple).
-
-    Par défaut, nous prenons la distance Nice - Ajaccio, une route empruntée par le bateau type Mega Express Four.
   note: L'utilisateur saisit les ports de départ et d'arrivée, nous récupérons leurs coordonnées et calculons la distance orthodromique, ce qui consiste à prendre en compte le fait que la terre n'est pas plate.
-  par défaut: 230 km
+  par défaut: 320 km
   unité: km
   suggestions:
     🇬🇧 Cherbourg↔Poole: 130
