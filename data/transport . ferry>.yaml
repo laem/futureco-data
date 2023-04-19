@@ -165,7 +165,7 @@ empreinte par km volume:
 
     [![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/02_Corsica_Ferries_Mega_Express_Four_\(cropped\).jpg/640px-02_Corsica_Ferries_Mega_Express_Four_\(cropped\).jpg)](https://fr.wikipedia.org/wiki/Mega_Express_Four)
 
-    Le calcul des différentes surfaces est issu d'[un dessin SVG](https://github.com/laem/futureco/blob/master/source/sites/publicodes/ferry/mega-express-four.svg) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. 
+    Le calcul des différentes surfaces est issu d'[un dessin SVG](https://futur.eco/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. 
 
     ### Limites du calcul
 
@@ -235,7 +235,7 @@ volume utile:
   description: |
     On appelle ici volume utile la somme de toutes les surfaces qui ne sont pas l'infrastructure elle-même du bateau, sa sécurité, son équipage, etc.
 
-    > Le calcul des différentes surfaces est isssu d'[un dessin SVG](https://github.com/laem/futureco/blob/master/source/sites/publicodes/ferry/mega-express-four.svg) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes
+    > Le calcul des différentes surfaces est isssu d'[un dessin SVG](https://futur.eco/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes
   unité: m3
   formule:
     somme:
