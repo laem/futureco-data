@@ -10,7 +10,6 @@ vitesse:
   icônes: ⌚
   question: Quelle est la vitesse du ferry ?
   formule: vitesse en kmh / km par mille nautique
-  par défaut: 18 noeud
   unité: noeud
   suggestions:
     lente: 12 noeud
@@ -46,15 +45,19 @@ durée du voyage:
     Indiquez votre heure de départ et d'arrivée, en sélectionnant bien le jour d'arrivée.
 
     ⚠️  La vitesse est cruciale pour calculer l'empreinte du voyage, car la consommation d'essence varie au cube de la vitesse.
+
+    Par défaut, nous prenons un temps de traversée qui, relativement à la distance par défaut définie dans la variable [distance orthodromique](/documentation/transport/ferry/distance-aller/orthodromique), nous donne la vitesse moyenne du bateau type inscrite dans [vitesse moyenne](/documentation/transport/ferry/vitesse-moyenne/métrique).
   note: On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.
   icônes: ⏳️
   unité: h
+  par défaut: 10 h
   suggestions:
     une demi-journée: 6 h
     une nuit: 12 h
     24h: 24 h
 
 durée du voyage . réelle:
+  titre: Durée réelle du voyage
   formule:
     variations:
       - si: durée du voyage < 3
@@ -88,8 +91,10 @@ distance aller . orthodromique:
     Saisissez la ville de départ et d'arrivée d'un vrai trajet en ferry.
 
     Nous ne gérons pas encore l'estimation de l'empreinte climat d'un trajet multimodal (TGV + ferry par exemple).
+
+    Par défaut, nous prenons la distance Nice - Ajaccio, une route empruntée par le bateau type Mega Express Four.
   note: L'utilisateur saisit les ports de départ et d'arrivée, nous récupérons leurs coordonnées et calculons la distance orthodromique, ce qui consiste à prendre en compte le fait que la terre n'est pas plate.
-  par défaut: 320 km
+  par défaut: 230 km
   unité: km
   suggestions:
     🇬🇧 Cherbourg↔Poole: 130
@@ -121,9 +126,11 @@ vitesse moyenne:
   unité: noeud
 
 vitesse moyenne . métrique:
+  titre: Vitesse moyenne ferry
   formule: 33 km/h
   note: |
-    Données greenferries 2019 tirées de Thetis-MRV 2019 https://www.greenferries.org/ships/mega-express-two-9203186/
+    On considère la vitesse moyenne du Mega Express Four de Corsica Ferries
+    Données greenferries 2019 tirées de Thetis-MRV 2019 https://www.greenferries.org/ships/mega-express-four-9086590/
 
 empreinte totale moyenne . par km: empreinte totale moyenne / km par mille nautique
 
@@ -163,7 +170,7 @@ empreinte par km volume:
 
     [![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/02_Corsica_Ferries_Mega_Express_Four_\(cropped\).jpg/640px-02_Corsica_Ferries_Mega_Express_Four_\(cropped\).jpg)](https://fr.wikipedia.org/wiki/Mega_Express_Four)
 
-    Le calcul des différentes surfaces est [un dessin SVG](/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. 
+    Le calcul des différentes surfaces est issu d'[un dessin SVG](https://futur.eco/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. 
 
     ### Limites du calcul
 
@@ -215,7 +222,9 @@ volume passager . voiture:
     Ici nous décidons de ne pas voir la capacité en voiture et diviser la surface voiture par ce nombre, car les différentes zones de garage peuvent accomoder aussi bien des voitures que des camions.
 
 volume passager . voiture . majoré:
+  titre: Volume garage voiture
   formule: largeur * longueur * hauteur moyenne garage
+  unité: m3
   note: Nous partons du principe que certaines voitures se garent dans un garage dont la hauteur du pont haut, donc appliquons la moyenne pondérée par la surface.
 volume passager . voiture . largeur:
   formule: 2.7 m
@@ -228,7 +237,10 @@ volume passager . voiture . longueur:
 
 volume utile:
   question: Quel est le volume utile du bateau ?
-  description: On appelle ici volume utile la somme de toutes les surfaces qui ne sont pas l'infrastructure elle-même du bateau, sa sécurité, son équipage, etc.
+  description: |
+    On appelle ici volume utile la somme de toutes les surfaces qui ne sont pas l'infrastructure elle-même du bateau, sa sécurité, son équipage, etc.
+
+    > Le calcul des différentes surfaces est isssu d'[un dessin SVG](https://futur.eco/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes
   unité: m3
   formule:
     somme:
