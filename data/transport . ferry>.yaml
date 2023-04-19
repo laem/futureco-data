@@ -10,7 +10,6 @@ vitesse:
   icônes: ⌚
   question: Quelle est la vitesse du ferry ?
   formule: vitesse en kmh / km par mille nautique
-  par défaut: 18 noeud
   unité: noeud
   suggestions:
     lente: 12 noeud
@@ -19,6 +18,7 @@ vitesse:
 
 vitesse en kmh:
   formule: distance aller / durée du voyage . réelle
+  par défaut: vitesse moyenne . métrique
 
 vitesse trop élevée:
   type: notification
