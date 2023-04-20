@@ -10,7 +10,6 @@ vitesse:
   icônes: ⌚
   question: Quelle est la vitesse du ferry ?
   formule: vitesse en kmh / km par mille nautique
-  par défaut: 18 noeud
   unité: noeud
   suggestions:
     lente: 12 noeud
@@ -19,6 +18,7 @@ vitesse:
 
 vitesse en kmh:
   formule: distance aller / durée du voyage . réelle
+  par défaut: vitesse moyenne . métrique
 
 vitesse trop élevée:
   type: notification
@@ -121,9 +121,11 @@ vitesse moyenne:
   unité: noeud
 
 vitesse moyenne . métrique:
+  titre: Vitesse moyenne ferry
   formule: 33 km/h
   note: |
-    Données greenferries 2019 tirées de Thetis-MRV 2019 https://www.greenferries.org/ships/mega-express-two-9203186/
+    On considère la vitesse moyenne du Mega Express Four de Corsica Ferries
+    Données greenferries 2019 tirées de Thetis-MRV 2019 https://www.greenferries.org/ships/mega-express-four-9086590/
 
 empreinte totale moyenne . par km: empreinte totale moyenne / km par mille nautique
 
@@ -163,7 +165,7 @@ empreinte par km volume:
 
     [![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/02_Corsica_Ferries_Mega_Express_Four_\(cropped\).jpg/640px-02_Corsica_Ferries_Mega_Express_Four_\(cropped\).jpg)](https://fr.wikipedia.org/wiki/Mega_Express_Four)
 
-    Le calcul des différentes surfaces est [un dessin SVG](/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. 
+    Le calcul des différentes surfaces est issu d'[un dessin SVG](https://futur.eco/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes, et qui est donc une des clefs du calcul. 
 
     ### Limites du calcul
 
@@ -215,7 +217,9 @@ volume passager . voiture:
     Ici nous décidons de ne pas voir la capacité en voiture et diviser la surface voiture par ce nombre, car les différentes zones de garage peuvent accomoder aussi bien des voitures que des camions.
 
 volume passager . voiture . majoré:
+  titre: Volume garage voiture
   formule: largeur * longueur * hauteur moyenne garage
+  unité: m3
   note: Nous partons du principe que certaines voitures se garent dans un garage dont la hauteur du pont haut, donc appliquons la moyenne pondérée par la surface.
 volume passager . voiture . largeur:
   formule: 2.7 m
@@ -228,7 +232,10 @@ volume passager . voiture . longueur:
 
 volume utile:
   question: Quel est le volume utile du bateau ?
-  description: On appelle ici volume utile la somme de toutes les surfaces qui ne sont pas l'infrastructure elle-même du bateau, sa sécurité, son équipage, etc.
+  description: |
+    On appelle ici volume utile la somme de toutes les surfaces qui ne sont pas l'infrastructure elle-même du bateau, sa sécurité, son équipage, etc.
+
+    > Le calcul des différentes surfaces est isssu d'[un dessin SVG](https://futur.eco/ferry/surface-mega-express-four) sur un plan des ponts du navire, qui nous permet ensuite d'en déduire les volumes
   unité: m3
   formule:
     somme:
