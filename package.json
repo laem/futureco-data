@@ -1,6 +1,6 @@
 {
 	"name": "futureco-data",
-	"version": "0.0.1-beta.6",
+	"version": "0.0.1-beta.7",
 	"description": "Modèle de calcul pour futur.eco",
 	"main": "null",
 	"files": [
@@ -9,7 +9,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"compile": "node rulesToJSON.js",
-		"prepublish": "node rulesToJSON.js futureco-data.model.json"
+		"prepack": "node rulesToJSON.js futureco-data.model.json"
 	},
 	"repository": {
 		"type": "git",
