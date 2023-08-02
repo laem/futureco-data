@@ -40,7 +40,7 @@ empreinte du voyage:
     image: https://futur.eco/images/ferry.png
     exemples via suggestions: transport . ferry . distance aller . orthodromique
   formule: distance aller retour * empreinte par km volume
-  unité: kgCO₂e
+  unité: kgCO2e
 
 durée du voyage:
   question: Quelle est la durée de votre traversée ?

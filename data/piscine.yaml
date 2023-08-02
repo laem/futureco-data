@@ -10,7 +10,7 @@ piscine . empreinte:
   catégorie: logement
   icônes: 🏠🏊
   titre: Une piscine privée
-  unité: kgCO₂e
+  unité: kgCO2e
   formule:
     somme:
       - empreinte eau froide
@@ -45,7 +45,7 @@ piscine . empreinte:
 
 piscine . traitement chimique:
   formule: empreinte chlore * masse de chlore
-  unité: kgCO₂e
+  unité: kgCO2e
   note: |
     Sur la base d'hypothèses sourcées dans les références de la variable "masse de chlore", pour l'instant dans le but d'obtenir un premier ordre de grandeur, on assimile toutes les matières chimiques utilisées dans une piscine au chlore.
 
@@ -55,7 +55,7 @@ piscine . traitement chimique:
 
 piscine . empreinte chlore:
   formule: 0.740
-  unité: kgCO₂e/kg
+  unité: kgCO2e/kg
   note: Nous prenons l'empreinte du Cl2, chlore gazeux liquéfié dans le document en référence ci-dessous.
   références:
     - https://www.oieau.org/eaudoc/system/files/documents/44/224151/224151_doc.pdf?page=31
@@ -86,7 +86,7 @@ piscine . chauffage . prorata période:
 piscine . chauffage:
   applicable si: eau chauffée
   formule: énergie * empreinte électricité * prorata période
-  unité: kgCO₂e
+  unité: kgCO2e
   note: |
     > D’autant plus qu’une piscine chauffée utilisée sans excès consomme normalement dans les 11 475kWh par année.
 
@@ -136,7 +136,7 @@ piscine . volume:
 
 piscine . pompe de filtrage:
   formule: puissance * utilisation . heures * empreinte électricité
-  unité: kgCO₂e
+  unité: kgCO2e
 
 piscine . pompe de filtrage . puissance:
   formule: 0.75
@@ -153,7 +153,7 @@ piscine . pompe de filtrage . utilisation . mois d'activité:
   question: Combien de mois par an utilisez-vous votre piscine ?
   unité: mois
 piscine . empreinte électricité:
-  unité: kgCO₂e/kWh
+  unité: kgCO2e/kWh
   formule: 0.0599
   description: Intensité moyenne du mix électrique français 2020 base carbone ADEME.
   note: Il serait peut-être pertinent de prendre l'empreinte du mix sur les mois d'utilisation de la piscine, l'hiver étant aujourd'hui le plus émetteur en France, et le moment le moins probable pour l'utilisation de la piscine.
@@ -166,14 +166,14 @@ piscine . construction:
 empreinte construction logement:
   titre: Construction logement neuf béton et parpaing
   formule: 600
-  unité: kgCO₂e/m²
+  unité: kgCO2e/m2
   note: Comme précisé dans la source "Guide animateur Inventons nos Vies Bas Carbone", la valeur de 600 est un ordre de grandeur très incertain.
   références:
     Inventons nos vies bas carbone: https://d3n8a8pro7vhmx.cloudfront.net/resistanceclimatique/pages/115/attachments/original/1616151401/20210228_guide_de_l'animateur_kit_INVBC.pdf?1616151401#page=82
 
 piscine . construction . empreinte théorique:
   formule: empreinte construction logement * surface
-  unité: kgCO₂e
+  unité: kgCO2e
   note: |
     Pour estimer l'empreinte de la construction d'une piscine, nous prenons celle connue pour la construction d'une maison en béton.
 
