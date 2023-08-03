@@ -10,7 +10,7 @@ vitesse:
   icônes: ⌚
   question: Quelle est la vitesse du ferry ?
   formule: vitesse en kmh / km par mille nautique
-  unité: mn / h
+  unité: noeud
   suggestions:
     lente: 12
     rapide: 18
@@ -121,7 +121,7 @@ empreinte totale moyenne:
 
 vitesse moyenne:
   formule: métrique / km par mille nautique
-  unité: mn / h
+  unité: noeud
 
 vitesse moyenne . métrique:
   titre: Vitesse moyenne ferry
