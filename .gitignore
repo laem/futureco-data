@@ -1,4 +1,5 @@
 base carbone v16.1.csv
+.DS_store
 node_modules/
 public/co2.json
 
