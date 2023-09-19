@@ -6,7 +6,9 @@ piscine:
   icônes: 🏠🏊
 
 piscine . empreinte:
-  exposé: oui
+  exposé:
+    titre: Calculateur d'empreinte carbone d'une piscine
+    description: Découvrez une estimation de l'empreinte climat d'une piscine privée de jardin.
   catégorie: logement
   icônes: 🏠🏊
   titre: Une piscine privée
@@ -196,7 +198,7 @@ piscine . construction . empreinte empirique:
       - divers chantier
       - abri
   note: |
-    Les chiffres de cet espace de nom proviennent pour l'essentiel du calcul [présenté sur cette feuille A4](https://user-images.githubusercontent.com/1177762/245216468-760f16f8-59f4-447f-a1e5-862fcdb08980.png). 
+    Les chiffres de cet espace de nom proviennent pour l'essentiel du calcul [présenté sur cette feuille A4](https://user-images.githubusercontent.com/1177762/245216468-760f16f8-59f4-447f-a1e5-862fcdb08980.png).
 
 piscine . construction . divers chantier:
   formule:
