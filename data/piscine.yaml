@@ -12,7 +12,7 @@ piscine . empreinte:
   catégorie: logement
   icônes: 🏠🏊
   titre: Une piscine privée
-  unité: kgCO₂e
+  unité: kgCO2e
   formule:
     somme:
       - empreinte eau froide
@@ -47,7 +47,7 @@ piscine . empreinte:
 
 piscine . traitement chimique:
   formule: empreinte chlore * masse de chlore
-  unité: kgCO₂e
+  unité: kgCO2e
   note: |
     Sur la base d'hypothèses sourcées dans les références de la variable "masse de chlore", pour l'instant dans le but d'obtenir un premier ordre de grandeur, on assimile toutes les matières chimiques utilisées dans une piscine au chlore.
 
@@ -57,13 +57,13 @@ piscine . traitement chimique:
 
 piscine . empreinte chlore:
   formule: 0.740
-  unité: kgCO₂e/kg
+  unité: kgCO2e/kg
   note: Nous prenons l'empreinte du Cl2, chlore gazeux liquéfié dans le document en référence ci-dessous.
   références:
     - https://www.oieau.org/eaudoc/system/files/documents/44/224151/224151_doc.pdf?page=31
 
 piscine . masse de chlore:
-  formule: (150 + 20 + 30 + 30) / (35 / 5)
+  formule: (150 € + 20 € + 30 € + 30 €) / (35 € / 5 kg)
   unité: kg
   description: |
     > Si vous optez pour un traitement au chlore, vous devrez compter sur un budget annuel d’environ 150 € de chlore, 20 € de produit floculant, 30 € de produit anticalcaire, et enfin 30 € de produit pour rééquilibrer le pH, ce qui correspond à un budget annuel d’environ 230 €
@@ -88,7 +88,7 @@ piscine . chauffage . prorata période:
 piscine . chauffage:
   applicable si: eau chauffée
   formule: énergie * empreinte électricité * prorata période
-  unité: kgCO₂e
+  unité: kgCO2e
   note: |
     > D’autant plus qu’une piscine chauffée utilisée sans excès consomme normalement dans les 11 475kWh par année.
 
@@ -120,7 +120,7 @@ piscine . empreinte eau froide:
 piscine . surface:
   question: Quelle est la surface de votre piscine ?
   par défaut: 32
-  unité: m²
+  unité: m2
   note: |
     Par défaut, 8x4m, donc 32m²
     > Du très classique rectangle 8X4 mètres aux piscines de taille plus modeste 7×3,5 m, ou plus imposante, 9×4,5m et plus, il existe nombre de déclinaisons possibles. Une piscine de  8 m X 4 m semble suffisante pour un usage familial tout en limitant l’entretien et le volume d’eau à traiter. C’est un bon compromis prix/surface.
@@ -133,11 +133,12 @@ piscine . profondeur:
   note: Nous partons sur une profondeur moyenne d'eau de 1m50, par exemple une pente linéaire de 1m à 2m.
 
 piscine . volume:
-  formule: profondeur * surface * 1000
+  formule: profondeur * surface * 1000 l/m3
   unité: l
+
 piscine . pompe de filtrage:
   formule: puissance * utilisation . heures * empreinte électricité
-  unité: kgCO₂e
+  unité: kgCO2e
 
 piscine . pompe de filtrage . puissance:
   formule: 0.75
@@ -154,7 +155,7 @@ piscine . pompe de filtrage . utilisation . mois d'activité:
   question: Combien de mois par an utilisez-vous votre piscine ?
   unité: mois
 piscine . empreinte électricité:
-  unité: kgCO₂e/kWh
+  unité: kgCO2e/kWh
   formule: 0.0599
   description: Intensité moyenne du mix électrique français 2020 base carbone ADEME.
   note: Il serait peut-être pertinent de prendre l'empreinte du mix sur les mois d'utilisation de la piscine, l'hiver étant aujourd'hui le plus émetteur en France, et le moment le moins probable pour l'utilisation de la piscine.
@@ -167,14 +168,14 @@ piscine . construction:
 empreinte construction logement:
   titre: Construction logement neuf béton et parpaing
   formule: 600
-  unité: kgCO₂e/m²
+  unité: kgCO2e/m2
   note: Comme précisé dans la source "Guide animateur Inventons nos Vies Bas Carbone", la valeur de 600 est un ordre de grandeur très incertain.
   références:
     Inventons nos vies bas carbone: https://d3n8a8pro7vhmx.cloudfront.net/resistanceclimatique/pages/115/attachments/original/1616151401/20210228_guide_de_l'animateur_kit_INVBC.pdf?1616151401#page=82
 
 piscine . construction . empreinte théorique:
   formule: empreinte construction logement * surface
-  unité: kgCO₂e
+  unité: kgCO2e
   note: |
     Pour estimer l'empreinte de la construction d'une piscine, nous prenons celle connue pour la construction d'une maison en béton.
 
@@ -184,7 +185,6 @@ piscine . construction . empreinte théorique:
 
 piscine . construction . durée de vie:
   formule: 30
-  unité: ans
   note: |
     Nous avons dans un premier temps pris cette estimation, qui semble un peu basse pour le béton (qui est estimé davantage à 40 ans), mais plutôt réaliste pour le reste des équipements. C'est un paramètre à faire évoluer au besoin.
 
@@ -253,14 +253,14 @@ piscine . construction . étanchéité . liner:
 
 piscine . construction . étanchéité . liner . empreinte PVC:
   formule: 0.350
-  unité: kgCO2e/m²
+  unité: kgCO2e/m2
 
 piscine . construction . étanchéité . liner . quantité:
   formule: piscine . construction . durée de vie / durée de vie
 piscine . construction . étanchéité . liner . durée de vie:
   titre: Durée de vie du liner
   formule: 10
-  unité: ans
+
 piscine . construction . étanchéité . liner . surface:
   formule: type . surface . parallélépipède * correcteur surface type
 
@@ -278,10 +278,10 @@ piscine . construction . plage pierre:
 
 piscine . construction . empreinte pierre:
   formule: 0.128
-  unité: kgCO2e/m²
+  unité: kgCO2e/m2
 piscine . construction . surface plage:
   formule: 28
-  unité: m²
+  unité: m2
 piscine . construction . terrassement:
   formule: conso diesel * empreinte diesel
 piscine . construction . terrassement . empreinte diesel:
@@ -327,6 +327,7 @@ piscine . construction . béton . masse volumique:
     - https://www.toutsurlebeton.fr/le-ba-ba-du-beton/masse-volumique-du-beton-et-de-ses-constituants/
 piscine . construction . béton . type . volume:
   formule: volume parallélépipède + volume plage
+  unité: m3
 
 piscine . construction . béton . type . volume parallélépipède:
   formule: surface * épaisseur
@@ -342,14 +343,14 @@ piscine . type:
 
 piscine . type . surface:
   formule: 32
-  unité: m²
+  unité: m2
   description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
   références:
     - https://twitter.com/ObjectifZero/status/1392179434900316165/photo/1
 
 piscine . type . surface . murs:
-  formule: 1.5 * (8 + 4 + 8 + 4)
-  unité: m²
+  formule: 1.5 m * (8 m + 4 m + 8 m + 4 m)
+  unité: m2
 
 piscine . type . surface . parallélépipède:
   formule: surface + murs
@@ -357,7 +358,7 @@ piscine . type . surface . parallélépipède:
     On considère une piscine de 8m x 4m x une profondeur moyenne de 1,5m (2 au bout et 1 à l'autre bout, descente linéaire).
 
     La surface de cette piscine type est de 32m² de fond ainsi que 36m² de murs.
-  unité: m²
+  unité: m2
 
 piscine . construction . abri:
   formule: 0

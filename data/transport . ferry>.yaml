@@ -12,13 +12,15 @@ vitesse:
   formule: vitesse en kmh / km par mille nautique
   unité: noeud
   suggestions:
-    lente: 12 noeud
-    rapide: 18 noeud
-    très rapide: 27 noeud
+    lente: 12
+    rapide: 18
+    très rapide: 27
 
 vitesse en kmh:
   formule: distance aller / durée du voyage . réelle
   par défaut: vitesse moyenne . métrique
+
+km par mille nautique: 1.852 km/mn
 
 vitesse trop élevée:
   type: notification
@@ -38,7 +40,7 @@ empreinte du voyage:
     image: https://futur.eco/ferry.png
     exemples via suggestions: transport . ferry . distance aller . orthodromique
   formule: distance aller retour * empreinte par km volume
-  unité: kgCO₂e
+  unité: kgCO2e
 
 durée du voyage:
   question: Quelle est la durée de votre traversée ?
@@ -116,6 +118,7 @@ empreinte totale moyenne:
   formule: 576.48 kgCO2e/mn
   note: |
     Données greenferries 2020 tirées de Thetis-MRV 2020 https://mrv.emsa.europa.eu/#public/emission-report
+
 vitesse moyenne:
   formule: métrique / km par mille nautique
   unité: noeud
@@ -202,20 +205,24 @@ volume passager:
 
 volume passager . communs:
   formule: volume communs / passagers
+
 volume passager . loisirs:
   applicable si: consommation de services
   formule: surface . loisirs * hauteur pont bas / passagers
+  unité: m3
 
 volume passager . siège:
   non applicable si: cabine
   titre: Un siège dans un dortoir
   formule: hauteur pont bas * surface . siège
+  unité: m3
 
 volume passager . voiture:
   applicable si: voiture
   formule: majoré / groupe
   note: |
     Ici nous décidons de ne pas voir la capacité en voiture et diviser la surface voiture par ce nombre, car les différentes zones de garage peuvent accomoder aussi bien des voitures que des camions.
+  unité: m3
 
 volume passager . voiture . majoré:
   titre: Volume garage voiture
@@ -256,25 +263,30 @@ surface . communs:
   description: |
     Cela inclut les escaliers, des places assises en salon hors bar ou restaurant, les couloirs intérieurs. Par convention, on n'inclut pas les surfaces extérieures non couvertes, sauf les espaces de loisir évidents : la piscine et les bars extérieurs.
   par défaut: 1466
+  unité: m2
 
 surface . loisirs:
   injecté: oui
   question: Quelle est la surface dédiée aux loisirs ?
   description: Restaurants, bars, salons, jeux, commerces, piscines, etc.
   par défaut: 4762
+  unité: m2
 
 hauteur moyenne garage:
   formule: (surface . garage . bas * hauteur pont bas + surface . garage . haut * hauteur pont haut) / surface . garage
+  unité: m
 
 surface . garage . bas:
   injecté: oui
   question: Quelle est la surface de garage bas du bateau ?
   par défaut: 2334
+  unité: m2
 
 surface . garage . haut:
   injecté: oui
   question: Quelle est la surface de garage haut du bateau ?
   par défaut: 11881
+  unité: m2
 
 surface . garage: bas + haut
 
@@ -282,18 +294,22 @@ surface . cabines:
   injecté: oui
   question: Quelle est la surface totale des cabines ?
   par défaut: 7356
+  unité: m2
 
 surface . sièges:
   injecté: oui
   question: Quelle est la surface totale des sièges ?
   par défaut: 1095
+  unité: m2
 
 volume passager . cabine partagée:
   applicable si: billet cabine
   formule: (cabines nécessaires * cabine) / groupe
+  unité: m3
 
 hauteur pont bas:
-  formule: 2.7m
+  formule: 2.7
+  unité: m
 
 hauteur pont haut:
   formule: hauteur pont bas * 2
@@ -307,10 +323,11 @@ surface:
 
 surface . cabine:
   formule: cabines / cabine . nombre
+  unité: m2
+
 surface . siège:
   formule: sièges / siège . nombre
-
-km par mille nautique: 1.852 km/mn
+  unité: m2
 
 billet cabine: cabine
 
@@ -376,7 +393,6 @@ groupe:
   icônes: 👥
   question: À combien voyagez-vous ?
   par défaut: 2
-  unité: personnes
   suggestions:
     seul: 1
     en couple: 2
