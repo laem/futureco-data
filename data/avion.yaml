@@ -13,6 +13,17 @@ transport . avion . impact:
     titre: Empreinte carbone de l'avion
     description: |
       Calculez en 3 clics l'empreinte carbone réelle de votre vol d'avion.
+
+      Dans le paysage de l'empreinte climat, l'avion a une place particulière : certains disent qu'il est extrêmement polluant, d'autres qu'il ne l'est finalement pas plus que la voiture, et qu'il ne représente que quelques pourcentages du réchauffement climatique.
+
+      Pourtant, c'est simple à comprendre : d'une, l'avion n'est pas beaucoup plus polluant qu'une voiture pour un kilomètre parcouru, mais il l'est énormément plus pour *1h parcourue*, car il va 10 fois plus vite.
+
+      De deux, l'avion est extrêmement polluant *pour ceux qui le prennent*, c'est à dire une minorité des humains ! Ainsi, ramené à la moyenne de la planète, sa part diminue car la majorité des gens sont trop pauvres pour se payer un vol d'avion. 
+
+      En d'autres termes, **l'avion est la plus belle incarnation de l'inégalité climatique** : ce qui peuvent l'utiliser, qui vivent souvent dans des endroits au climat clément, détruisent le climat de ceux qui ne peuvent l'utiliser.
+
+      En utilisant ce calculateur, vous constaterez qu'un trajet en avion est très émetteur : à tel point qu'en prenant un long-courrier, on peut brûler en 1 jour le budget climat individuel d'une année.
+
     exemples via suggestions: transport . avion . distance de vol aller
   unité: kgCO₂e
   formule: distance de vol * impact unitaire
