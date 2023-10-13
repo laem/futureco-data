@@ -268,18 +268,16 @@ volume communs: hauteur pont bas * surface . communs
 volume garage: hauteur moyenne garage * surface . garage
 
 surface . communs:
-  injecté: oui
-  question: Quelle est la surface des zones communes à tous les passagers ?
+  question technique: Quelle est la surface des zones communes à tous les passagers ?
   description: |
     Cela inclut les escaliers, des places assises en salon hors bar ou restaurant, les couloirs intérieurs. Par convention, on n'inclut pas les surfaces extérieures non couvertes, sauf les espaces de loisir évidents : la piscine et les bars extérieurs.
-  par défaut: 1466
+  valeur: 1466
   unité: m2
 
 surface . loisirs:
-  injecté: oui
-  question: Quelle est la surface dédiée aux loisirs ?
+  question technique: Quelle est la surface dédiée aux loisirs ?
   description: Restaurants, bars, salons, jeux, commerces, piscines, etc.
-  par défaut: 4762
+  valeur: 4762
   unité: m2
 
 hauteur moyenne garage:
@@ -287,29 +285,25 @@ hauteur moyenne garage:
   unité: m
 
 surface . garage . bas:
-  injecté: oui
-  question: Quelle est la surface de garage bas du bateau ?
-  par défaut: 2334
+  question technique: Quelle est la surface de garage bas du bateau ?
+  valeur: 2334
   unité: m2
 
 surface . garage . haut:
-  injecté: oui
-  question: Quelle est la surface de garage haut du bateau ?
-  par défaut: 11881
+  question technique: Quelle est la surface de garage haut du bateau ?
+  valeur: 11881
   unité: m2
 
 surface . garage: bas + haut
 
 surface . cabines:
-  injecté: oui
-  question: Quelle est la surface totale des cabines ?
-  par défaut: 7356
+  question technique: Quelle est la surface totale des cabines ?
+  valeur: 7356
   unité: m2
 
 surface . sièges:
-  injecté: oui
-  question: Quelle est la surface totale des sièges ?
-  par défaut: 1095
+  question technique: Quelle est la surface totale des sièges ?
+  valeur: 1095
   unité: m2
 
 volume passager . cabine partagée:
@@ -343,14 +337,12 @@ billet cabine: cabine
 
 siège:
 siège . nombre:
-  injecté: oui
-  question: Quel est le nombre total de sièges passager ?
-  par défaut: 281
+  question technique: Quel est le nombre total de sièges passager ?
+  valeur: 281
 
 cabine . nombre:
-  injecté: oui
-  question: Quel est le nombre total de cabines passager ?
-  par défaut: 255
+  question technique: Quel est le nombre total de cabines passager ?
+  valeur: 255
 
 cabine:
   icônes: 🛌
