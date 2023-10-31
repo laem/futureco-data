@@ -107,9 +107,11 @@ transport . avion . forçage radiatif:
         - état de l'art
 
 transport . avion . forçage radiatif . conservateur:
-  titre: Multiplier par 2 (estimation conservatrice)
+  titre: Multiplier par 2
+  sous-titre: Estimation conservatrice
 transport . avion . forçage radiatif . état de l'art:
-  titre: Multiplier par 3 (estimation la + récente)
+  titre: Multiplier par 3
+  sous-titre: Estimation la plus récente
 
 transport . avion . impact carbone unitaire:
   unité: kgCO₂e/km
