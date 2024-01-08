@@ -87,7 +87,8 @@ transport . avion . forçage radiatif . coefficient:
 
 transport . avion . forçage radiatif:
   titre: Effets non-CO₂
-  question: L'impact d'un vol ne se limite pas au CO₂. Les effets hors CO₂ le multiplient par un facteur 2 à 3.
+  question: L'impact d'un vol ne se limite pas au CO₂. Les effets hors CO₂ le
+    multiplient par un facteur 2 à 3.
   description: |
     L'empreinte climat de l'aviation est plus complexe et incertaine que d'autres activités. 
     On sait bien prendre en compte le CO₂ émis quand on brûle le kérosène. Mais l'empreinte des trainées (les lignes blanches dans le ciel) est plus compliquée : 
@@ -119,7 +120,8 @@ transport . avion . impact carbone unitaire:
     L'impact d'un vol par km parcourus dépend notamment de la distance : la
     phase de décollage est coûteuse en énergie.
   note: >
-    Nous prenons les chiffres données par la DGAC (Direction générale de l'aviation civile) publiés en documentation de leur [calculateur
+    Nous prenons les chiffres données par la DGAC (Direction générale de
+    l'aviation civile) publiés en documentation de leur [calculateur
     aviation-civile.gouv.fr](https://eco-calculateur.dta.aviation-civile.gouv.fr/autres-trajets).
 
     Notamment, pour l'instant nous ignorons la taille de l'avion, en prenant les moyenne qui semblent pondérées par la distribution des sièges, ce qui nous donne un tableau de correspondance par distance. 

@@ -58,7 +58,8 @@ durée du voyage:
     Indiquez votre heure de départ et d'arrivée, en sélectionnant bien le jour d'arrivée.
 
     ⚠️  La vitesse est cruciale pour calculer l'empreinte du voyage, car la consommation d'essence varie au cube de la vitesse.
-  note: On parle de la durée du voyage calculée avec les heures de départ sur le billet, qui n'est donc pas la durée de navigation réelle.
+  note: On parle de la durée du voyage calculée avec les heures de départ sur le
+    billet, qui n'est donc pas la durée de navigation réelle.
   icônes: ⏳️
   unité: h
   suggestions:
@@ -100,7 +101,9 @@ distance aller . orthodromique:
     Saisissez la ville de départ et d'arrivée d'un vrai trajet en ferry.
 
     Nous ne gérons pas encore l'estimation de l'empreinte climat d'un trajet multimodal (TGV + ferry par exemple).
-  note: L'utilisateur saisit les ports de départ et d'arrivée, nous récupérons leurs coordonnées et calculons la distance orthodromique, ce qui consiste à prendre en compte le fait que la terre n'est pas plate.
+  note: L'utilisateur saisit les ports de départ et d'arrivée, nous récupérons
+    leurs coordonnées et calculons la distance orthodromique, ce qui consiste à
+    prendre en compte le fait que la terre n'est pas plate.
   par défaut: 320 km
   unité: km
   suggestions:
@@ -115,7 +118,8 @@ empreinte totale . par km: empreinte totale / km par mille nautique
 
 facteur vitesse:
   formule: rapport vitesse * rapport vitesse * rapport vitesse
-  description: On prend l'hypothèse d'une évolution au cube de la puissance en fonction de la vitesse.
+  description: On prend l'hypothèse d'une évolution au cube de la puissance en
+    fonction de la vitesse.
 
 rapport vitesse: vitesse / vitesse moyenne
 
@@ -144,7 +148,9 @@ empreinte totale moyenne . par km: empreinte totale moyenne / km par mille nauti
 
 empreinte du bateau:
   titre: Empreinte du bateau témoin par km
-  description: Nous utilisons ici comme bateau témoin Méga Express Four de la flotte Corsica Ferries. Ils est représentatif des gros ferries de max ~2000 passagers, rapides.
+  description: Nous utilisons ici comme bateau témoin Méga Express Four de la
+    flotte Corsica Ferries. Ils est représentatif des gros ferries de max ~2000
+    passagers, rapides.
   formule: empreinte totale . par km
   unité: kgCO2e/km
 
@@ -238,7 +244,9 @@ volume passager . voiture . majoré:
   titre: Volume garage voiture
   formule: largeur * longueur * hauteur moyenne garage
   unité: m3
-  note: Nous partons du principe que certaines voitures se garent dans un garage dont la hauteur du pont haut, donc appliquons la moyenne pondérée par la surface.
+  note: Nous partons du principe que certaines voitures se garent dans un garage
+    dont la hauteur du pont haut, donc appliquons la moyenne pondérée par la
+    surface.
 volume passager . voiture . largeur:
   formule: 2.7 m
   description: |
@@ -281,7 +289,8 @@ surface . loisirs:
   unité: m2
 
 hauteur moyenne garage:
-  formule: (surface . garage . bas * hauteur pont bas + surface . garage . haut * hauteur pont haut) / surface . garage
+  formule: (surface . garage . bas * hauteur pont bas + surface . garage . haut *
+    hauteur pont haut) / surface . garage
   unité: m
 
 surface . garage . bas:
@@ -317,7 +326,8 @@ hauteur pont bas:
 
 hauteur pont haut:
   formule: hauteur pont bas * 2
-  note: Nous simplifions pour l'instant ces données qui pourront être améliorées dans un second temps.
+  note: Nous simplifions pour l'instant ces données qui pourront être améliorées
+    dans un second temps.
 
 volume passager . cabine:
   formule: surface . cabine * hauteur pont bas
@@ -347,8 +357,10 @@ cabine . nombre:
 cabine:
   icônes: 🛌
   question: Avez-vous pris une cabine (plutôt qu'un simple siège) ?
-  description: Sans surprise, voyager en cabine apporte du confort mais en contrepartie du poids embarqué.
-  note: Il existe aussi des cabines partagées (comme dans les trains de nuit), nous pourrons les ajouter par la suite comme une option possible.
+  description: Sans surprise, voyager en cabine apporte du confort mais en
+    contrepartie du poids embarqué.
+  note: Il existe aussi des cabines partagées (comme dans les trains de nuit),
+    nous pourrons les ajouter par la suite comme une option possible.
   références:
     corsica-ferries: https://www.corsica-ferries.fr/ferries/traversee-ferry.html
   par défaut: oui
@@ -383,7 +395,7 @@ voiture:
   icônes: 🚗
   question: Transportez-vous votre voiture ?
   description: |
-
+    
     Le calcul est limité à une seule voiture, on considère qu'elle est partagée par le groupe.
 
     Si vous transportez un camping-car, répondez oui (l'empreinte sera fortement sous-estimée). 
@@ -418,7 +430,8 @@ groupe . avertissement simulation individuelle:
 
 consommation de services:
   icônes: 🍽️
-  question: Utilisez vous les services accessoires du ferry (bar, restaurant, piscine, etc.) ?
+  question: Utilisez vous les services accessoires du ferry (bar, restaurant,
+    piscine, etc.) ?
   par défaut: oui
 
 passagers:

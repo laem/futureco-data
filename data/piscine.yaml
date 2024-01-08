@@ -8,7 +8,8 @@ piscine:
 piscine . empreinte:
   exposé:
     titre: Calculateur d'empreinte carbone d'une piscine
-    description: Découvrez une estimation de l'empreinte climat d'une piscine privée de jardin.
+    description: Découvrez une estimation de l'empreinte climat d'une piscine privée
+      de jardin.
   catégorie: logement
   icônes: 🏠🏊
   titre: Une piscine privée
@@ -58,7 +59,8 @@ piscine . traitement chimique:
 piscine . empreinte chlore:
   formule: 0.740
   unité: kgCO2e/kg
-  note: Nous prenons l'empreinte du Cl2, chlore gazeux liquéfié dans le document en référence ci-dessous.
+  note: Nous prenons l'empreinte du Cl2, chlore gazeux liquéfié dans le document
+    en référence ci-dessous.
   références:
     - https://www.oieau.org/eaudoc/system/files/documents/44/224151/224151_doc.pdf?page=31
 
@@ -130,7 +132,8 @@ piscine . surface:
 piscine . profondeur:
   formule: 1.5
   unité: m
-  note: Nous partons sur une profondeur moyenne d'eau de 1m50, par exemple une pente linéaire de 1m à 2m.
+  note: Nous partons sur une profondeur moyenne d'eau de 1m50, par exemple une
+    pente linéaire de 1m à 2m.
 
 piscine . volume:
   formule: profondeur * surface * 1000 l/m3
@@ -158,7 +161,9 @@ piscine . empreinte électricité:
   unité: kgCO2e/kWh
   formule: 0.0599
   description: Intensité moyenne du mix électrique français 2020 base carbone ADEME.
-  note: Il serait peut-être pertinent de prendre l'empreinte du mix sur les mois d'utilisation de la piscine, l'hiver étant aujourd'hui le plus émetteur en France, et le moment le moins probable pour l'utilisation de la piscine.
+  note: Il serait peut-être pertinent de prendre l'empreinte du mix sur les mois
+    d'utilisation de la piscine, l'hiver étant aujourd'hui le plus émetteur en
+    France, et le moment le moins probable pour l'utilisation de la piscine.
   références:
     - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element/categorie/64
 
@@ -169,7 +174,8 @@ empreinte construction logement:
   titre: Construction logement neuf béton et parpaing
   formule: 600
   unité: kgCO2e/m2
-  note: Comme précisé dans la source "Guide animateur Inventons nos Vies Bas Carbone", la valeur de 600 est un ordre de grandeur très incertain.
+  note: Comme précisé dans la source "Guide animateur Inventons nos Vies Bas
+    Carbone", la valeur de 600 est un ordre de grandeur très incertain.
   références:
     Inventons nos vies bas carbone: https://d3n8a8pro7vhmx.cloudfront.net/resistanceclimatique/pages/115/attachments/original/1616151401/20210228_guide_de_l'animateur_kit_INVBC.pdf?1616151401#page=82
 
@@ -273,7 +279,8 @@ piscine . construction . maçonnerie:
 
 piscine . construction . plage pierre:
   titre: Plage en pierre
-  description: La plage est la zone autour de la piscine où l'on marche pieds nus et où l'on se prélasse dans des transats.
+  description: La plage est la zone autour de la piscine où l'on marche pieds nus
+    et où l'on se prélasse dans des transats.
   formule: surface plage * empreinte pierre
 
 piscine . construction . empreinte pierre:
@@ -339,12 +346,14 @@ piscine . construction . béton . type . épaisseur:
   formule: 0.22
   unité: m
 piscine . type:
-  description: Pour faire le calcul, nous partons d'une piscine type pour laquelle nous disposons de données réelles de constructions notées lors du chantier.
+  description: Pour faire le calcul, nous partons d'une piscine type pour laquelle
+    nous disposons de données réelles de constructions notées lors du chantier.
 
 piscine . type . surface:
   formule: 32
   unité: m2
-  description: La surface de la piscine réellement construite et utilisée comme base pour ce modèle.
+  description: La surface de la piscine réellement construite et utilisée comme
+    base pour ce modèle.
   références:
     - https://twitter.com/ObjectifZero/status/1392179434900316165/photo/1
 
@@ -362,4 +371,5 @@ piscine . type . surface . parallélépipède:
 
 piscine . construction . abri:
   formule: 0
-  description: A implémenter, on pourra alors poser une question si abri, mais il faudra prendre en compte les gains en chauffage et filtrage.
+  description: A implémenter, on pourra alors poser une question si abri, mais il
+    faudra prendre en compte les gains en chauffage et filtrage.

@@ -5,11 +5,13 @@ plaque de cuisson . impact:
   titre: Un an de plaque de cuisson
   catégorie: logement
   exposé: oui
-  unité: kgCO₂e / année
-  formule: (consommation énergétique * impact par kWh + cycle de vie amorti) / nombre d'habitants
+  unité: kgCO₂e/année
+  formule: (consommation énergétique * impact par kWh + cycle de vie amorti) /
+    nombre d'habitants
   description: >
-    Ce résultat prend en compte toutes les étapes du cycle de vie d'une plaque de cuisson.
-    De l'extraction des matières premières, à la fabrication, en passant par la phase d'utilisation jusqu'au recyclage.
+    Ce résultat prend en compte toutes les étapes du cycle de vie d'une plaque
+    de cuisson. De l'extraction des matières premières, à la fabrication, en
+    passant par la phase d'utilisation jusqu'au recyclage.
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?electromenager.htm
 plaque de cuisson . type:
@@ -41,11 +43,13 @@ plaque de cuisson . type . plaque vitrocéramique:
   icônes: ⚡
 plaque de cuisson . consommation énergétique:
   formule: durée utilisation journalière * puissance moyenne * 365
-  unité: kgCO₂e / année
+  unité: kgCO₂e/année
 plaque de cuisson . durée utilisation journalière:
   unité: h
   formule: 0.5
-  note: Le paramètre "durée d'utilisation journalière" est une moyenne qui doit tenir compte des jours où la plaque n'est pas utilisée (puisqu'il est multiplié par 356)
+  note: Le paramètre "durée d'utilisation journalière" est une moyenne qui doit
+    tenir compte des jours où la plaque n'est pas utilisée (puisqu'il est
+    multiplié par 356)
 plaque de cuisson . puissance moyenne:
   unité: kW
   formule: 1.125 / rendement
@@ -59,7 +63,7 @@ plaque de cuisson . rendement:
       - si: plaque de cuisson . type = 'plaque à induction'
         alors: 0.9
 plaque de cuisson . impact par kWh:
-  unité: kgCO₂e / kWh
+  unité: kgCO₂e/kWh
   formule:
     variations:
       - si: plaque de cuisson . type = 'plaque au gaz'
@@ -84,5 +88,5 @@ plaque de cuisson . cycle de vie:
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?electromenager.htm
 plaque de cuisson . cycle de vie amorti:
-  unité: kgCO₂e / année
+  unité: kgCO₂e/année
   formule: cycle de vie / durée d'amortissement

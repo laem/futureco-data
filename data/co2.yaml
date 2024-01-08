@@ -346,8 +346,7 @@ finances:
 finances . mon épargne:
   icônes: 💰
   exposé: non
-  note:
-    Cette rubrique est désactivée, le calcul n'étant pas considéré comme assez
+  note: Cette rubrique est désactivée, le calcul n'étant pas considéré comme assez
     fiable. il semble en plus être un double comptage.
   description: >
     L'argent placé sur un livret ou un autre produit financier ne dort par ! Il
@@ -527,9 +526,8 @@ numérique . box internet . impact:
   icônes: 🌐
   exposé: oui
   titre: ma box internet
-  description:
-    Une box internet a la particularité de souvent rester allumée toute la
-    journée, et de ne pas être aussi économe qu'un smartphone.
+  description: Une box internet a la particularité de souvent rester allumée toute
+    la journée, et de ne pas être aussi économe qu'un smartphone.
   formule:
     variations:
       - si: "box internet = 'box ADSL'"
@@ -602,10 +600,9 @@ alimentation . bière . locale:
   par défaut: non
 alimentation . bière . pression ou consignée:
   question: Est-ce une bière pression (ou une bouteille consignée) ?
-  note:
-    Il faudrait ajouter le cas de la bière en cannette, l'impact d'une bouteille
-    en fonction de la taille (une bière de 75cl en bouteille devrait mobiliser
-    moins de verre que 3 petites bouteilles de 25cl), etc.
+  note: Il faudrait ajouter le cas de la bière en cannette, l'impact d'une
+    bouteille en fonction de la taille (une bière de 75cl en bouteille devrait
+    mobiliser moins de verre que 3 petites bouteilles de 25cl), etc.
   description: >
     Les bières pression dans les bars proviennent de futs consignés, et sont
     servies dans des verres qui ne seront pas refondus mais simplement lavés
@@ -716,7 +713,7 @@ transport . trottinette électrique partagée . impact:
 
     Peut beaucoup mieux faire, donc ! Augmenter la durée de vie, réparer le matériel, augmenter l'usage journalier, ou encore s'assurer que la trottinette ne remplace pas que la marche et le vélo, par exemple via une régulation publique...
   note: >
-
+    
     Il faudrait aussi prendre en compte l'impact :
       - de la consommation d'électricité de la trottinette elle-même
       - de la flotte de recharge et de déplacement en fonction de la demande, souvent faite par une vieille camionette
@@ -745,16 +742,14 @@ transport . trottinette électrique partagée . impact . fabrication . batterie 
 transport . trottinette électrique partagée . impact . fabrication . batterie . impact par kWh:
   unité: kgCO₂e/kWh
   formule: 200
-  note:
-    En l'absence de donnée précise fournie par les marques, nous prenons le pire
-    des cas, sur la fourchette de 150-200kg donnée par l'étude ci-dessous.
+  note: En l'absence de donnée précise fournie par les marques, nous prenons le
+    pire des cas, sur la fourchette de 150-200kg donnée par l'étude ci-dessous.
   références:
     - https://www.automobile-propre.com/voiture-electrique-impact-carbone-batteries/
 transport . trottinette électrique partagée . impact . fabrication . trottinette sans batterie:
-  note:
-    Pour une trottinette de l'ordre de 8kg sans la batterie. La Base Carbone de
-    l’ADEME a un facteur d’émissions pour les « machines », de l’ordre de 5,5 kg
-    CO2e/kg de machine.
+  note: Pour une trottinette de l'ordre de 8kg sans la batterie. La Base Carbone
+    de l’ADEME a un facteur d’émissions pour les « machines », de l’ordre de 5,5
+    kg CO2e/kg de machine.
   unité: kgCO₂e
   formule: 45
 transport . trottinette électrique partagée . impact . usage total:
@@ -778,9 +773,8 @@ transport . trottinette électrique partagée . impact . usage total . locations
   unité: /jour
   formule: 10
 transport . trottinette électrique partagée . impact . usage total . distance par location:
-  description:
-    D'après le rapport de l'entreprise Lime, la distance moyenne est de 1.06
-    miles. On ne sait pas cependant si c'est la distance pour leurs vélos
+  description: D'après le rapport de l'entreprise Lime, la distance moyenne est de
+    1.06 miles. On ne sait pas cependant si c'est la distance pour leurs vélos
     électriques ou leurs trottinettes.
   unité: km
   formule: 1.7
@@ -800,8 +794,7 @@ transport . fabrication d'un vélo:
   description: Impact de la fabrication d'un vélo neuf.
   formule: 240
   unité: kgCO₂e
-  note:
-    Un vélo électrique sera en moyenne plus cher et plus lourd. Implémenter le
+  note: Un vélo électrique sera en moyenne plus cher et plus lourd. Implémenter le
     calcul en prenant en compte notamment la batterie.
   références:
     - http://www.slate.fr/story/42539/velo-vraiment-vert-empreinte-carbone
@@ -810,7 +803,7 @@ transport . voiture . impact fabrication:
   icônes: 🚗✨
   exposé: oui
   description: >
-
+    
     Impact de la fabrication d'une voiture neuve.
 
 
@@ -859,7 +852,8 @@ alimentation . lait . chocolat chaud:
   icônes: ☕🍫
   titre: un chocolat chaud
   exposé: oui
-  description: La production d'un litre de lait émet tellement de gaz à effet de serre que le chauffage du lait est presque insignifiant.
+  description: La production d'un litre de lait émet tellement de gaz à effet de
+    serre que le chauffage du lait est presque insignifiant.
   formule:
     somme:
       - une tasse de lait
@@ -879,13 +873,18 @@ alimentation . chocolat . impact:
   formule: 4.7
   unité: kgCO₂e/kg
   description: Chocolat en poudre non sucré, en magasin.
-  note: La plupart des chocolats chauds contiennent du sucre, sont faits à partir d'une préparation "boisson instantanée", mais nous n'avons pas sont impact pour l'instant.
+  note: La plupart des chocolats chauds contiennent du sucre, sont faits à partir
+    d'une préparation "boisson instantanée", mais nous n'avons pas sont impact
+    pour l'instant.
   références:
     - http://www.bilans-ges.ademe.fr
 
 alimentation . chocolat . portion:
   formule: 0.010
-  note: La question de la dose de chocolat par tasse est compliquée, voir [cette discussion](https://github.com/laem/futureco-data/pull/48#discussion_r331799099) qui prend une mesure rélle, à défaut d'une moyenne sur plusieurs consommateurs.
+  note: La question de la dose de chocolat par tasse est compliquée, voir [cette
+    discussion](https://github.com/laem/futureco-data/pull/48#discussion_r331799099)
+    qui prend une mesure rélle, à défaut d'une moyenne sur plusieurs
+    consommateurs.
   unité: kg
 
 alimentation . lait . chauffage litre de lait en joules:
@@ -902,7 +901,8 @@ alimentation . lait . chauffage litre de lait final:
 
 alimentation . lait . impact chauffage litre de lait:
   description: Chauffé dans un micro-ondes.
-  note: On devrait ajouter le chauffage sur plaque de gaz, qui devrait multiplier par ~3 l'impact climat.
+  note: On devrait ajouter le chauffage sur plaque de gaz, qui devrait multiplier
+    par ~3 l'impact climat.
   formule: chauffage litre de lait final * chauffage . impact par kWh . électricité
 
 alimentation . sardines en boite:
@@ -911,7 +911,9 @@ alimentation . sardines en boite:
   titre: Des sardines en boite
   unité: kgCO₂e
   formule: impact * portion
-  description: Pour une portion de 100g (poids égoutté) de sardines à l'huile en boite de conserve. Cela correspond à une boite de sardines "classique" de 140g.
+  description: Pour une portion de 100g (poids égoutté) de sardines à l'huile en
+    boite de conserve. Cela correspond à une boite de sardines "classique" de
+    140g.
 
 alimentation . sardines en boite . impact:
   formule: 4.71
@@ -938,7 +940,9 @@ alimentation . sirop à l'eau . impact:
 alimentation . sirop à l'eau . portion:
   unité: kg
   formule: 0.15
-  note: Un verre d'eau "classique" a un volume de 15cl. 1L d'eau a une masse d'1kg (et on néglige la différence entre la masse volumique de l'eau et celle du sirop). Donc on utilise une "portion" de 0.15kg dans cette simulation.
+  note: Un verre d'eau "classique" a un volume de 15cl. 1L d'eau a une masse d'1kg
+    (et on néglige la différence entre la masse volumique de l'eau et celle du
+    sirop). Donc on utilise une "portion" de 0.15kg dans cette simulation.
 
 chauffage . efficacité microondes:
   formule: 2 / 3
@@ -946,12 +950,14 @@ chauffage . efficacité microondes:
     - https://e-rse.net/comment-chauffer-eau-ecologie-energie-270031/#gs.7vibnn
 
 alimentation . lait . delta température:
-  description: La température de la pièce est de 20°C et la température à laquelle on chauffe le lait est d'environ 80°C.
+  description: La température de la pièce est de 20°C et la température à laquelle
+    on chauffe le lait est d'environ 80°C.
   unité: K
   formule: température max atteinte - température lait froid
 
 alimentation . lait . température lait froid:
-  note: La température de la pièce est de ~20°C, mais une fois ouverte, la bouteille de lait est conservée au frigo, à ~6°C. On retient la moyenne.
+  note: La température de la pièce est de ~20°C, mais une fois ouverte, la
+    bouteille de lait est conservée au frigo, à ~6°C. On retient la moyenne.
   formule: (20 + 6) / 2
 
 alimentation . lait . température max atteinte:
@@ -974,6 +980,7 @@ alimentation . lait . température max atteinte:
 
     > Pour la température `froid`, il faudrait utiliser la variable `température lait froid` mais aujourd'hui ce n'est pas possible de faire une référence à une variable dans une `correspondance`.
   références:
+
 
 alimentation . lait . chauffe:
   question: Comment chauffez-vous votre lait ?
@@ -1054,10 +1061,9 @@ alimentation . fondue savoyarde:
   titre: une fondue savoyarde
   exposé: oui
   icônes: 🧀👥🗻
-  description:
-    La fondue est un plat traditionnel savoyarde très apprécié en France. Une
-    fondue requiert beaucoup de lait de vache, ce qui rend son impact climatique
-    important.
+  description: La fondue est un plat traditionnel savoyarde très apprécié en
+    France. Une fondue requiert beaucoup de lait de vache, ce qui rend son
+    impact climatique important.
   note: >
     Il semble que la fondue soit constituée en général de fromages à pâte dure,
     par exemple beaufort, comté et tomme de savoie.
@@ -1164,9 +1170,8 @@ alimentation . eau . contenance petit verre d'eau:
 plastique:
 plastique . impact grande bouteille:
   formule: poids grande bouteille * impact PET
-  note:
-    Certains fabricants semblent faire des efforts notamment sur le poids et le
-    recyclage des bouteilles, comme ici
+  note: Certains fabricants semblent faire des efforts notamment sur le poids et
+    le recyclage des bouteilles, comme ici
     [Cristaline](https://www.moneaucristaline.fr/cristalinesengage/). Si ces
     améliorations peuvent réduire le bilan, elles ne changent cependant pas
     l'ordre de grandeur.
@@ -1251,9 +1256,8 @@ vêtements . t shirt:
   unité: kgCO₂e
   exposé: oui
   icônes: 👕
-  description:
-    Qu'il soit en coton ou en polyester, le t-shirt semble avoir à peu près la
-    même empreinte.
+  description: Qu'il soit en coton ou en polyester, le t-shirt semble avoir à peu
+    près la même empreinte.
   formule:
     variations:
       - si: polo
@@ -1294,9 +1298,8 @@ vêtements . chemise:
   unité: kgCO₂e
   exposé: oui
   icônes: 👔
-  description:
-    Qu'elle soit en coton ou en viscose, la chemise semble avoir à peu près la
-    même empreinte.
+  description: Qu'elle soit en coton ou en viscose, la chemise semble avoir à peu
+    près la même empreinte.
   formule: 11
   références:
     - https://www.ademe.fr/modelisation-evaluation-impacts-environnementaux-produits-consommation-biens-dequipement
@@ -1358,9 +1361,8 @@ alimentation:
     - http://www.bilans-ges.ademe.fr/fr/actualite/actualite/detail/id/23
 
 alimentation . un avocat:
-  description:
-    L'avocat est un fruit très prisé aujourd'hui dans la cuisine occidentale,
-    notamment dans les régimes végétariens.
+  description: L'avocat est un fruit très prisé aujourd'hui dans la cuisine
+    occidentale, notamment dans les régimes végétariens.
   exposé: oui
   icônes: 🥑
   formule: impact au kilo * poids d'un avocat
@@ -1392,7 +1394,7 @@ terrasse chauffée . puissance d'un chauffage:
   unité: kW
   formule: 3
   note: |
-
+    
     La puissance des chauffage est variable, 3000 W semble être une bonne moyenne (sur la base de recherches dans le catalogue des vendeurs de chauffage pour terrasse).
 
     Quelques pistes pour améliorer le calcul :
@@ -1438,7 +1440,7 @@ terrasse chauffée . empreinte . électrique:
   formule: 0.079
   unité: kgCO2e/kWh
   description: |
-
+    
     Pour la RE2020 (reglementation des nouveaux bâtiments), le gouvernement a fait le choix de baisser le facteur du chauffage à 79g/kWh (contre les ~140g de 2018 dans la base carbone de l'ADEME).
 
     Ce choix provoque de vifs débats dont notamment la colère des vendeurs de gaz, mais nous le gardons ici car il semble bien représenter le mix hivernal, et donc être pertinent pour notre usage du chauffage des terrasses.
@@ -1472,15 +1474,18 @@ empreinte du mix électrique:
   références:
     - https://electricitymap.org
     - https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9#Les_contenus_CO2_par_usage_%E2%80%93_La_m%C3%A9thode_EDF-ADEME_(2005_r%C3%A9vis%C3%A9e_2011)
-    -
 
+    - 
 numérique . vidéo . énergie:
   formule:
     somme:
       - serveurs
       - réseau
       - appareil
-  note: Nous utilisons le '1byte model' du [Shift Project](https://theshiftproject.org), dont une partie de l'implémentation est dans [ce tableur](https://theshiftproject.org/wp-content/uploads/2019/07/Video-Materials-1byte-Model-applied-to-video-traffic-2019.xlsx).
+  note: Nous utilisons le '1byte model' du [Shift
+    Project](https://theshiftproject.org), dont une partie de l'implémentation
+    est dans [ce
+    tableur](https://theshiftproject.org/wp-content/uploads/2019/07/Video-Materials-1byte-Model-applied-to-video-traffic-2019.xlsx).
 
 numérique . vidéo . durée:
   question: Quelle est la durée de la vidéo ?
@@ -1511,7 +1516,11 @@ numérique . vidéo . bitrate:
         alors: 2500
       - si: vidéo . qualité = 'SD'
         alors: 400
-  note: Les équivalences entre les bitrates et les qualités vidéos viennent de cette source de chez IBM -> https://support.video.ibm.com/hc/en-us/articles/207852117-Internet-connection-and-recommended-encoding-settings. Si un spécialiste peut confirmer que les ordres de grandeurs sont les bons ce serait top.
+  note: Les équivalences entre les bitrates et les qualités vidéos viennent de
+    cette source de chez IBM ->
+    https://support.video.ibm.com/hc/en-us/articles/207852117-Internet-connection-and-recommended-encoding-settings.
+    Si un spécialiste peut confirmer que les ordres de grandeurs sont les bons
+    ce serait top.
 
 numérique . vidéo . qualité:
   question: Quelle est la qualité de la vidéo ?
@@ -1524,7 +1533,9 @@ numérique . vidéo . qualité:
         - HD
         - SD
   par défaut: "'HD'"
-  description: Une qualité Ultra HD correspond à une qualité "4K", Full HD correspond à une qualité "1080p", HD correspond à "720p" et SD correspond à "480p"
+  description: Une qualité Ultra HD correspond à une qualité "4K", Full HD
+    correspond à une qualité "1080p", HD correspond à "720p" et SD correspond à
+    "480p"
 
 numérique . vidéo . qualité . Ultra HD:
 numérique . vidéo . qualité . Full HD:
@@ -1653,14 +1664,16 @@ logement . type . appartement . chaudière:
         - individuelle
 
 logement . type . appartement . chaudière . collective:
-  description: La chaudière est mise en commun pour toute la co-propriété. C'est la plupart du temps beaucoup moins efficace, car certaines pièces sont surchauffées pour en chauffer d'autres correctement.
+  description: La chaudière est mise en commun pour toute la co-propriété. C'est
+    la plupart du temps beaucoup moins efficace, car certaines pièces sont
+    surchauffées pour en chauffer d'autres correctement.
 logement . type . appartement . chaudière . individuelle:
   description: La chaudière est chez vous.
 
 logement . chauffage . énergie . intensité:
   unité: kWh/m²
   note: |
-
+    
     Nous avons choisi un modèle simplifié qui ne donne le choix qu'entre le gaz et l'électricité, car ils représentent en cumulé ~70% des usages pour les maisons et ~85% pour les appartements ([statistiques de 2015](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?chauffage.htm)).
 
     Nous ignorons aussi pour l'instant la variable de l'age du logement en moyennant les deux valeurs avant 1975 / après 1975.
@@ -1727,7 +1740,8 @@ logement . chauffage . facteur d'émission . gaz naturel:
   formule: 0.244
   description: Facteur d'émission de la base carbone "Gaz naturel" en kgCO2e/kWh PCI.
   références:
-    - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=gaz naturel
+    - https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=gaz
+      naturel
 logement . chauffage . facteur d'émission . électricité:
   unité: kgCO2e/kWh
   formule: 0.147
@@ -1742,7 +1756,8 @@ logement . chauffage . facteur d'émission . électricité:
 
 jardin:
   icônes: 🏡
-  desctiption: Un jardin, c'est souvent une pelouse sur l'essentiel de la surface, et une pelouse est souvent entrenue de façon artificielle.
+  desctiption: Un jardin, c'est souvent une pelouse sur l'essentiel de la surface,
+    et une pelouse est souvent entrenue de façon artificielle.
 jardin . impact:
   exposé: oui
   catégorie: logement
@@ -1799,7 +1814,9 @@ emballages:
     Ah, nos emballages ! Au coeur de la préoccupation environnementale, c'est pourtant l'un des secteurs où nous avons tenté quelque chose : le recyclage.
 
     Attention à ce que cet effort ne nous aveugle pas sur l'empreinte d'un emballage, recyclé ou non.
-  note: Attention, dans l'article en référence les valeurs sont en équivalent carbone, pas en équivalent CO₂. Donc pour passer de l'un à l'autre, il faut multiplier par 44/12, soit environ 3.7.
+  note: Attention, dans l'article en référence les valeurs sont en équivalent
+    carbone, pas en équivalent CO₂. Donc pour passer de l'un à l'autre, il faut
+    multiplier par 44/12, soit environ 3.7.
   références:
     - https://jancovici.com/changement-climatique/les-ges-et-nous/combien-de-gaz-a-effet-de-serre-dans-notre-poubelle/
 emballages . conserve en verre:
@@ -1848,7 +1865,9 @@ emballages . conserve en verre . couvercle . poids:
 
 emballages . facteur acier:
   formule: 2.211
-  note: Nous retenons l'hypothèse sans recyclage en l'absence d'informations sur le taux de recyclage de l'acier utilisé dans les emballages en France. En recyclant de la ferraille, le taux serait bien inférieur, de 0.938.
+  note: Nous retenons l'hypothèse sans recyclage en l'absence d'informations sur
+    le taux de recyclage de l'acier utilisé dans les emballages en France. En
+    recyclant de la ferraille, le taux serait bien inférieur, de 0.938.
   unité: kgCO₂e/kg
   description: |
     La production d'acier peut se faire de deux manières :
@@ -1953,10 +1972,10 @@ meubles . table:
   catégorie: meubles
   formule: 130
   description: Cette valeur correspond à une table de 4 places en bois.
-  note:
-    Dans la base carbone de l'ADEME, il existe "table représentative", c'est pas très clair pour l'utilisateur ce à quoi correspond une table "représentative".
-    À réfléchir / discuter, s'il faut l'ajouter.
-    Dans l'idéal, il faudrait aussi ajouter d'autres matières et tailles de tables.
+  note: Dans la base carbone de l'ADEME, il existe "table représentative", c'est
+    pas très clair pour l'utilisateur ce à quoi correspond une table
+    "représentative". À réfléchir / discuter, s'il faut l'ajouter. Dans l'idéal,
+    il faudrait aussi ajouter d'autres matières et tailles de tables.
   références:
     - https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?mobilier.htm
 

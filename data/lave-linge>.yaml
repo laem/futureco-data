@@ -31,7 +31,8 @@ coût:
   titre: Coût sur 10 ans
   formule: économie d'électricité - neuf . prix + ancien . prix
 
-coût . économie d'électricité: énergie . économie d'électricité usage * durée * coût électricité * correction inflation
+coût . économie d'électricité: énergie . économie d'électricité usage * durée *
+  coût électricité * correction inflation
 
 coût . correction inflation:
   valeur: 1.10
@@ -54,8 +55,7 @@ coût . correction inflation:
 
     Si mon nouvel appariel consomme des kWh ou des € à l'étranger, peu m'importe. Par contre, ça m'importe via l'empreinte climat, qui nous affecte tous.
 
-énergie . énergie production:
-  valeur: 100 kWh
+énergie . énergie production: 100 kWh
 
 énergie . économie d'électricité usage:
   formule: ancien - neuf
@@ -76,8 +76,7 @@ ratio cycles réels: cycles par an / 100
 
     La nouvelle étiquette énergie introduit un nouveau programme de test, appelé "le programme «Éco 40–60»" : ce nouveau programme est conçu pour laver un linge de coton normalement sale déclaré lavable à 40 °C ou 60 °C au cours du même cycle de lavage.
 
-énergie . cent cycles . neuf:
-  valeur: 44 kWh
+énergie . cent cycles . neuf: 44 kWh
 
 énergie . cent cycles . ancien:
   par défaut: 119 kWh
@@ -124,7 +123,10 @@ ancien . prix reconditionné:
 
 ancien . achat reconditionné:
   question: Votre ancien lave-linge sera-t-il un achat reconditionné ?
-  description: Nous ne prenons pas en compte l'achat d'occasion sans reconditionnement. En l'absence de garantie, il est trop difficile d'évaluer le coût sur 10 ans supplémentaire d'un achat qui, non révisé, a plus de chances de flancher.
+  description: Nous ne prenons pas en compte l'achat d'occasion sans
+    reconditionnement. En l'absence de garantie, il est trop difficile d'évaluer
+    le coût sur 10 ans supplémentaire d'un achat qui, non révisé, a plus de
+    chances de flancher.
   par défaut: non
 
 coût électricité:
@@ -136,7 +138,7 @@ coût électricité:
 
     https://www.guidetopten.fr/grand-public/selection-criteria/criteres-de-selection-lave-linge
   note: |
-
+    
     - Il faut mettre à jour ce prix. Il y a eu un choc énergétique depuis.
     - Il faut aussi le demander à l'utilisateur ! 
     - Pour l'utilisateur, raisonner en kWh marginaux est probablement plus logique ?

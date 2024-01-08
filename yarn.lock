@@ -196,6 +196,11 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
+publicodes@^1.0.0-rc.6:
+  version "1.0.0-rc.6"
+  resolved "https://registry.yarnpkg.com/publicodes/-/publicodes-1.0.0-rc.6.tgz#c102984a8c9dad599c56a8b9a00ccaf599b6a581"
+  integrity sha512-fT5KB+zSEUE0PfO76zpId4w1BVSEhAM27zZ1c5MPz9wwkRjDWLijHwyt90C9lkzRQ2OvatEkMXbAmRegQ/gKVA==
+
 readable-stream@~2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
