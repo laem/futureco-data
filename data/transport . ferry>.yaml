@@ -144,7 +144,7 @@ empreinte totale moyenne . par km: empreinte totale moyenne / km par mille nauti
 
 empreinte du bateau:
   titre: Empreinte du bateau témoin par km
-  description: Nous utilisons ici comme bateau témoin Méga Express Four de la flotte Corsica Ferries. Ils est représentatif des gros ferries de max ~2000 passagers, rapides.
+  description: Nous utilisons ici comme bateau témoin Méga Express Four de la flotte Corsica Ferries. Il est représentatif des gros ferries de max ~2000 passagers, rapides.
   formule: empreinte totale . par km
   unité: kgCO2e/km
 
