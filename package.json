@@ -8,6 +8,7 @@
 	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "node rulesToJSON.js",
 		"compile": "node rulesToJSON.js",
 		"prepack": "node rulesToJSON.js futureco-data.model.json"
 	},
